@@ -19,9 +19,10 @@ func _physics_process(delta: float) -> void:
 		apply_central_force(backward_speed * Vector2.LEFT)
 	else:
 		linear_velocity.x *= 0.5 ** delta #HACK
-	
+	$Icon.rotation += 0.7 * delta
 
 
 func _on_death_detection_area_entered(area: Area2D) -> void:
 	active = false
 	death.emit()
+	get_tree().change_scene_to_file("res://scenes/game_over.tscn")
