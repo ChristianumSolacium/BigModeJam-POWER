@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://b5d1qj4ck34vx"]
+
+[ext_resource type="Script" path="res://scripts/character.gd" id="1_xb4qr"]
+[ext_resource type="Texture2D" uid="uid://cwuwxpmbsnobn" path="res://sprites/icon.svg" id="2_b4s5s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hd670"]
+size = Vector2(48, 51)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yfmtu"]
+
+[node name="Player" type="RigidBody2D"]
+collision_mask = 5
+script = ExtResource("1_xb4qr")
+charge = 72.91
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -3.5)
+shape = SubResource("RectangleShape2D_hd670")
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(0, -3)
+scale = Vector2(0.384535, 0.403909)
+texture = ExtResource("2_b4s5s")
+
+[node name="DeathDetection" type="Area2D" parent="."]
+position = Vector2(6, 0)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathDetection"]
+scale = Vector2(2.98333, 2.93407)
+shape = SubResource("CircleShape2D_yfmtu")
+debug_color = Color(0.98583, 0, 0.329826, 0.42)
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="area_entered" from="DeathDetection" to="." method="_on_death_detection_area_entered"]
