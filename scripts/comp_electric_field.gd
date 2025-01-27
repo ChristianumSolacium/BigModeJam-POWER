@@ -2,12 +2,15 @@
 class_name CompElectricField extends Area2D
 
 @export var force: float = 1000
+
+
+## l'intensità del campo varia con 1 / (distanza ^ exponent)
 @export var exponent: float = 1
 @onready var parent : RigidBody2D = get_parent()
 
 func _ready() -> void:
 	
-	#region rende gialle tutte le hitbox per distinguerle dal resto
+	#region rende gialli i campi elettrici per distinguerli dal resto
 	if Engine.is_editor_hint():
 		set_physics_process(false)
 		for child in get_children():

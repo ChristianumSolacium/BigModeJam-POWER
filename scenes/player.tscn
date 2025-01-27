@@ -11,7 +11,8 @@ size = Vector2(48, 51)
 [node name="Player" type="RigidBody2D"]
 collision_mask = 5
 script = ExtResource("1_xb4qr")
-charge = 72.91
+charge = 702.91
+speed = 300.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -3.5)
@@ -34,4 +35,5 @@ debug_color = Color(0.98583, 0, 0.329826, 0.42)
 
 [node name="Timer" type="Timer" parent="."]
 
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="area_entered" from="DeathDetection" to="." method="_on_death_detection_area_entered"]

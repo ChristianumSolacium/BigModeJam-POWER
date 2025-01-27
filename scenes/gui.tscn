@@ -17,10 +17,11 @@ gradient = SubResource("Gradient_kg68x")
 width = 334
 height = 29
 
-[node name="GUI" type="CanvasLayer" node_paths=PackedStringArray("death_label", "charge_bar")]
+[node name="GUI" type="CanvasLayer" node_paths=PackedStringArray("death_label", "charge_bar", "speed_label")]
 script = ExtResource("1_xwr7w")
 death_label = NodePath("Control/DeathLabel")
 charge_bar = NodePath("Control/ProgressBar")
+speed_label = NodePath("SpeedLabel")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -52,6 +53,13 @@ offset_left = 19.0
 offset_top = 12.0
 offset_right = 268.0
 offset_bottom = 41.0
+max_value = 1000.0
 value = 74.0
 texture_under = SubResource("GradientTexture2D_2et6d")
 texture_progress = SubResource("GradientTexture2D_sht4g")
+
+[node name="SpeedLabel" type="Label" parent="."]
+offset_left = 22.0
+offset_top = 14.0
+offset_right = 62.0
+offset_bottom = 37.0
