@@ -1,0 +1,132 @@
+[gd_scene load_steps=10 format=3 uid="uid://dtvl6ccqkkmhh"]
+
+[ext_resource type="PackedScene" uid="uid://b5d1qj4ck34vx" path="res://scenes/player.tscn" id="1_8s0vm"]
+[ext_resource type="Script" path="res://scripts/walls.gd" id="2_tsj3l"]
+[ext_resource type="PackedScene" uid="uid://2gifhoikbqvm" path="res://scenes/gui.tscn" id="3_7kvwv"]
+[ext_resource type="Script" path="res://scripts/comp_electric_field.gd" id="4_7n8uy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lpsvg"]
+size = Vector2(1152, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h87ec"]
+size = Vector2(59, 644)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t64b4"]
+size = Vector2(282.523, 239.187)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gyyty"]
+size = Vector2(282.523, 72.5933)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tjnit"]
+size = Vector2(280, 707.519)
+
+[node name="Main" type="Node2D"]
+
+[node name="Player" parent="." node_paths=PackedStringArray("camera_frame") instance=ExtResource("1_8s0vm")]
+position = Vector2(-2, 0)
+camera_frame = NodePath("../CameraFrame")
+
+[node name="CameraFrame" type="RigidBody2D" parent="."]
+collision_layer = 4
+collision_mask = 0
+gravity_scale = 0.0
+script = ExtResource("2_tsj3l")
+
+[node name="Camera2D" type="Camera2D" parent="CameraFrame"]
+zoom = Vector2(0.795, 0.795)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraFrame"]
+position = Vector2(-1, -343)
+shape = SubResource("RectangleShape2D_lpsvg")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="CameraFrame"]
+position = Vector2(-13, 333)
+shape = SubResource("RectangleShape2D_lpsvg")
+
+[node name="Death" type="Area2D" parent="CameraFrame"]
+position = Vector2(-605, -110)
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraFrame/Death"]
+position = Vector2(0, 109)
+shape = SubResource("RectangleShape2D_h87ec")
+debug_color = Color(0.523576, 0, 0.0876006, 0.42)
+
+[node name="GUI" parent="." instance=ExtResource("3_7kvwv")]
+
+[node name="Obstacles" type="Node2D" parent="."]
+
+[node name="Obstacle0" type="RigidBody2D" parent="Obstacles"]
+position = Vector2(1277, -145)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/Obstacle0"]
+position = Vector2(-911, -103)
+shape = SubResource("RectangleShape2D_t64b4")
+
+[node name="RigidBody2D2" type="RigidBody2D" parent="Obstacles"]
+position = Vector2(1663, 176)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/RigidBody2D2"]
+position = Vector2(47, 25)
+shape = SubResource("RectangleShape2D_gyyty")
+
+[node name="RigidBody2D3" type="RigidBody2D" parent="Obstacles"]
+position = Vector2(731, -332)
+
+[node name="CompElectricFied" type="Area2D" parent="Obstacles/RigidBody2D3"]
+position = Vector2(-13, 292)
+collision_layer = 0
+script = ExtResource("4_7n8uy")
+force = 100.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/RigidBody2D3/CompElectricFied"]
+shape = SubResource("RectangleShape2D_tjnit")
+debug_color = Color(1, 1, 0, 0.2)
+
+[node name="RigidBody2D4" type="RigidBody2D" parent="Obstacles"]
+position = Vector2(1031, 340)
+rotation = -3.14051
+
+[node name="CompElectricFied" type="Area2D" parent="Obstacles/RigidBody2D4"]
+position = Vector2(-13, 292)
+collision_layer = 0
+script = ExtResource("4_7n8uy")
+force = 100.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/RigidBody2D4/CompElectricFied"]
+position = Vector2(44.4084, 85.9663)
+shape = SubResource("RectangleShape2D_tjnit")
+debug_color = Color(1, 1, 0, 0.2)
+
+[node name="RigidBody2D5" type="RigidBody2D" parent="Obstacles"]
+position = Vector2(731, -332)
+
+[node name="CompElectricFied" type="Area2D" parent="Obstacles/RigidBody2D5"]
+position = Vector2(-13, 292)
+collision_layer = 0
+script = ExtResource("4_7n8uy")
+force = 100.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/RigidBody2D5/CompElectricFied"]
+position = Vector2(1603, 34)
+shape = SubResource("RectangleShape2D_tjnit")
+debug_color = Color(1, 1, 0, 0.2)
+
+[node name="RigidBody2D6" type="RigidBody2D" parent="Obstacles"]
+position = Vector2(1031, 340)
+rotation = -3.14051
+
+[node name="CompElectricFied" type="Area2D" parent="Obstacles/RigidBody2D6"]
+position = Vector2(-13, 292)
+collision_layer = 0
+script = ExtResource("4_7n8uy")
+force = 100.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/RigidBody2D6/CompElectricFied"]
+position = Vector2(-993.617, 63.088)
+shape = SubResource("RectangleShape2D_tjnit")
+debug_color = Color(1, 1, 0, 0.2)
+
+[connection signal="death" from="Player" to="GUI" method="_on_player_death"]
+[connection signal="speed_changed" from="Player" to="GUI" method="_on_player_speed_changed"]
