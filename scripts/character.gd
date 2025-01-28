@@ -11,6 +11,12 @@ signal speed_changed(new_value:float)
 ## regola come cambia la carica del giocatore stando in un campo elettrico
 @export var charge_change := 1.0
 
+@export_category("Resources ")
+@export var positive_texture : Texture
+@export var negative_texture : Texture
+@onready var sprite: Sprite2D = $Sprite
+
+
 var active := true
 
 
@@ -26,7 +32,11 @@ func _physics_process(delta: float) -> void:
 	if active:
 		if Input.is_action_just_pressed(&"jump"):
 			charge *= - 1
-			modulate = Color((charge > 0),0,(charge < 0))
+			
+			if charge > 0:
+				sprite.texture = positive_texture
+			else:
+				sprite.texture = negative_texture
 		
 		move_and_collide(Vector2.RIGHT * abs(speed) * delta)
 		
