@@ -1,6 +1,7 @@
 [gd_scene load_steps=24 format=3 uid="uid://dtvl6ccqkkmhh"]
 
 [ext_resource type="PackedScene" uid="uid://b5d1qj4ck34vx" path="res://scenes/player.tscn" id="1_8s0vm"]
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_gdcys"]
 [ext_resource type="Script" path="res://scripts/walls.gd" id="2_tsj3l"]
 [ext_resource type="Texture2D" uid="uid://dqhyl67e1lne5" path="res://sprites/scrolling_ground.png" id="3_4e7cb"]
 [ext_resource type="PackedScene" uid="uid://2gifhoikbqvm" path="res://scenes/gui.tscn" id="3_7kvwv"]
@@ -13,26 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://b8gsqn46pc8en" path="res://sprites/ostacolo_pentagono_negativo.png" id="10_fg6vy"]
 [ext_resource type="Script" path="res://scripts/rotating_sprite.gd" id="11_pwr3c"]
 [ext_resource type="PackedScene" uid="uid://b42fulegw3yie" path="res://scenes/bg.tscn" id="13_lb40d"]
-[ext_resource type="PackedScene" uid="uid://bjd51jnefxpxl" path="res://scenes/pause_menu.tscn" id="14_qya7d"]
-
-[sub_resource type="GDScript" id="GDScript_hpa0i"]
-script/source = "extends Node2D
-
-@onready var pause_menu = $Pause/PauseMenu
-
-func _ready() -> void:
-	pause_menu.hide()
-
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed(\"pause\"):
-		toggle_pause()
-
-func toggle_pause():
-	if not pause_menu.visible:
-		pause_menu.show()
-	else:
-		pause_menu.hide()
-"
+[ext_resource type="PackedScene" uid="uid://btebko0esb2le" path="res://scenes/pause_menu.tscn" id="14_qya7d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lpsvg"]
 size = Vector2(1457, 20)
@@ -58,7 +40,7 @@ size = Vector2(282.523, 72.5933)
 [sub_resource type="CircleShape2D" id="CircleShape2D_iid6r"]
 
 [node name="Main" type="Node2D"]
-script = SubResource("GDScript_hpa0i")
+script = ExtResource("1_gdcys")
 
 [node name="Player" parent="." node_paths=PackedStringArray("camera_frame") instance=ExtResource("1_8s0vm")]
 position = Vector2(721, 461)
@@ -344,11 +326,7 @@ script = ExtResource("11_pwr3c")
 
 [node name="Bg" parent="." instance=ExtResource("13_lb40d")]
 
-[node name="Pause" type="CanvasLayer" parent="."]
-process_mode = 3
-
-[node name="PauseMenu" parent="Pause" instance=ExtResource("14_qya7d")]
-visible = false
+[node name="PauseMenu" parent="." instance=ExtResource("14_qya7d")]
 
 [connection signal="death" from="Player" to="GUI" method="_on_player_death"]
 [connection signal="speed_changed" from="Player" to="GUI" method="_on_player_speed_changed"]
