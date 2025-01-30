@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://bsth1tcugpx3t"]
+
+[ext_resource type="Texture2D" uid="uid://cnx7k4njc7t0q" path="res://sprites/powerups/power_down_neutro.png" id="1_nol44"]
+[ext_resource type="Script" path="res://scripts/move_forward.gd" id="1_x2hjx"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ojwqh"]
+radius = 48.28
+
+[node name="MoveForward" type="Area2D"]
+collision_layer = 0
+collision_mask = 32
+script = ExtResource("1_x2hjx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ojwqh")
+
+[node name="PowerDownNeutro" type="Sprite2D" parent="."]
+position = Vector2(0.999258, -3.19949)
+scale = Vector2(0.476001, 0.474581)
+texture = ExtResource("1_nol44")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

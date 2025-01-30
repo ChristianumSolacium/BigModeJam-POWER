@@ -1,18 +1,26 @@
-[gd_scene load_steps=21 format=3 uid="uid://dtvl6ccqkkmhh"]
+[gd_scene load_steps=30 format=3 uid="uid://dtvl6ccqkkmhh"]
 
 [ext_resource type="PackedScene" uid="uid://b5d1qj4ck34vx" path="res://scenes/logica interna/player.tscn" id="1_j2esc"]
+[ext_resource type="Script" path="res://scripts/player_replay_recording.gd" id="2_kr3wk"]
 [ext_resource type="PackedScene" uid="uid://blocss3wbhbps" path="res://scenes/logica interna/camera_frame.tscn" id="2_lfbie"]
+[ext_resource type="Script" path="res://scripts/player_scripted_movement.gd" id="2_rb5kb"]
+[ext_resource type="Script" path="res://scripts/walls.gd" id="3_5q0w8"]
+[ext_resource type="Script" path="res://scripts/PlayerReplayResource.gd" id="3_6jqjj"]
 [ext_resource type="Script" path="res://scripts/comp_electric_field.gd" id="6_0cff5"]
 [ext_resource type="PackedScene" uid="uid://c3vn22ymxn6l6" path="res://scenes/drag and drop/base_comp_hint.tscn" id="7_4yvxj"]
-[ext_resource type="Texture2D" uid="uid://blwodniaxcb5t" path="res://sprites/soggetto giocante/soggetto_giocante_negativo.png" id="8_8rwfe"]
 [ext_resource type="Texture2D" uid="uid://dovui0kijg8bl" path="res://sprites/scrolling_top_negativo.png" id="9_pxql2"]
 [ext_resource type="Texture2D" uid="uid://b8gsqn46pc8en" path="res://sprites/obstacles/ostacolo_pentagono_negativo.png" id="10_hgwdg"]
+[ext_resource type="Texture2D" uid="uid://bky2llna227r4" path="res://sprites/soggetto giocante/transizione/punto_esclamativo.png" id="10_hm87d"]
+[ext_resource type="PackedScene" uid="uid://bsth1tcugpx3t" path="res://scenes/drag and drop/move_forward.tscn" id="11_bpayv"]
 [ext_resource type="Script" path="res://scripts/rotating_sprite.gd" id="11_vqm76"]
 [ext_resource type="Texture2D" uid="uid://bukfrombmlsnt" path="res://sprites/campo_magnetico_negativo.png" id="12_gu8d2"]
 [ext_resource type="Texture2D" uid="uid://bklibx4d3xhpo" path="res://sprites/obstacles/spikes.png" id="13_bx42y"]
+[ext_resource type="PackedScene" uid="uid://bc35a5v5yfiwi" path="res://scenes/drag and drop/speed_up.tscn" id="14_kv70k"]
 [ext_resource type="PackedScene" uid="uid://2gifhoikbqvm" path="res://scenes/logica interna/gui.tscn" id="14_s0k0l"]
 [ext_resource type="PackedScene" uid="uid://b42fulegw3yie" path="res://scenes/logica interna/bg.tscn" id="15_cnecu"]
+[ext_resource type="PackedScene" uid="uid://dkdt81f6ar0l4" path="res://scenes/drag and drop/spikes.tscn" id="16_0nmmt"]
 [ext_resource type="PackedScene" uid="uid://bjd51jnefxpxl" path="res://scenes/logica interna/pause_menu.tscn" id="16_c4wfa"]
+[ext_resource type="PackedScene" uid="uid://blx6o0gojhtl2" path="res://scenes/drag and drop/coin.tscn" id="18_quyck"]
 
 [sub_resource type="GDScript" id="GDScript_hpa0i"]
 script/source = "extends Node2D
@@ -38,6 +46,10 @@ func _on_player_death() -> void:
 	obstacles.hide()
 "
 
+[sub_resource type="Resource" id="Resource_26i00"]
+script = ExtResource("3_6jqjj")
+timestamp = Array[float]([0.454, 1.55, 1.816, 2.032, 2.249, 2.472, 2.661, 2.824, 3.158, 3.341, 3.507, 3.673, 3.84, 4.056, 4.222, 4.386, 4.57, 4.754, 4.853, 4.903, 5.135, 6.966, 7.524, 10.859, 11.282, 11.666, 13.531, 14.129])
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t64b4"]
 size = Vector2(282.523, 239.187)
 
@@ -53,16 +65,45 @@ size = Vector2(280, 707.519)
 size = Vector2(283, 22)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v5k02"]
-size = Vector2(40.3123, 108.414)
+size = Vector2(40.3123, 129.787)
 
 [node name="Main" type="Node2D"]
 script = SubResource("GDScript_hpa0i")
 
 [node name="Player" parent="." node_paths=PackedStringArray("camera_frame") instance=ExtResource("1_j2esc")]
 position = Vector2(723, 454)
+scale = Vector2(1.00077, 0.937648)
+collision_layer = 32
 lock_rotation = true
-camera_frame = NodePath("")
+continuous_cd = 1
+camera_frame = NodePath("../CameraFrame")
+
+[node name="PlayerReplayRecorder" type="Node" parent="Player" node_paths=PackedStringArray("player")]
+script = ExtResource("2_kr3wk")
+player = NodePath("..")
+
+[node name="GhostPlayer" parent="." node_paths=PackedStringArray("camera_frame") instance=ExtResource("1_j2esc")]
+modulate = Color(1, 1, 1, 0.588235)
+z_index = -3
+position = Vector2(723, 454)
+scale = Vector2(1.00077, 0.937648)
+collision_layer = 32
+lock_rotation = true
+continuous_cd = 1
+camera_frame = NodePath("VoidCameraFrame")
 speed_change = 100.0
+receive_input = false
+
+[node name="MakeTrail" parent="GhostPlayer" index="4"]
+scale_factor = 0.275
+
+[node name="VoidCameraFrame" type="RigidBody2D" parent="GhostPlayer"]
+script = ExtResource("3_5q0w8")
+
+[node name="PlayerAutoMovement" type="Node" parent="GhostPlayer" node_paths=PackedStringArray("player")]
+script = ExtResource("2_rb5kb")
+replay = SubResource("Resource_26i00")
+player = NodePath("..")
 
 [node name="CameraFrame" parent="." instance=ExtResource("2_lfbie")]
 
@@ -99,6 +140,7 @@ position = Vector2(-239.111, -311.778)
 [node name="CompElectricFied" type="Area2D" parent="Obstacles/FirstSection/RigidBody2D3"]
 position = Vector2(-13, 292)
 collision_layer = 0
+collision_mask = 32
 script = ExtResource("6_0cff5")
 force = 100.0
 
@@ -113,6 +155,7 @@ rotation = -3.14051
 [node name="CompElectricFied" type="Area2D" parent="Obstacles/FirstSection/RigidBody2D4"]
 position = Vector2(-44.7011, 276.049)
 collision_layer = 0
+collision_mask = 32
 script = ExtResource("6_0cff5")
 force = 100.0
 
@@ -166,6 +209,14 @@ position = Vector2(-989.111, -237.778)
 scale = Vector2(0.56721, 0.51389)
 texture = ExtResource("13_bx42y")
 
+[node name="MoveForward" parent="Obstacles/FirstSection" instance=ExtResource("11_bpayv")]
+position = Vector2(460.889, 218.222)
+scale = Vector2(1.00077, 0.937648)
+
+[node name="SpeedUp" parent="Obstacles/FirstSection" instance=ExtResource("14_kv70k")]
+position = Vector2(-2930.11, -442.778)
+speed_up_per_100_unit = 60.0
+
 [node name="SecondSection" type="Node2D" parent="Obstacles"]
 position = Vector2(2660.75, 181.833)
 
@@ -176,6 +227,7 @@ rotation = -3.14051
 [node name="CompElectricFied" type="Area2D" parent="Obstacles/SecondSection/RigidBody2D7"]
 position = Vector2(-13, 292)
 collision_layer = 0
+collision_mask = 32
 script = ExtResource("6_0cff5")
 force = 100.0
 
@@ -191,6 +243,7 @@ rotation = -3.14051
 [node name="CompElectricFied" type="Area2D" parent="Obstacles/SecondSection/RigidBody2D8"]
 position = Vector2(-13, 292)
 collision_layer = 0
+collision_mask = 32
 script = ExtResource("6_0cff5")
 force = 100.0
 
@@ -206,6 +259,7 @@ rotation = -3.14051
 [node name="CompElectricFied" type="Area2D" parent="Obstacles/SecondSection/RigidBody2D6"]
 position = Vector2(4.37024, 341.995)
 collision_layer = 0
+collision_mask = 32
 script = ExtResource("6_0cff5")
 force = 100.0
 
@@ -219,6 +273,7 @@ collision_mask = 0
 
 [node name="CompElectricFied" type="Area2D" parent="Obstacles/SecondSection/RigidBody2D5"]
 collision_layer = 0
+collision_mask = 32
 script = ExtResource("6_0cff5")
 force = 100.0
 
@@ -233,7 +288,8 @@ shape = SubResource("RectangleShape2D_hotoy")
 [node name="CompHint" parent="Obstacles/SecondSection/RigidBody2D5" instance=ExtResource("7_4yvxj")]
 
 [node name="Sprite2D" type="Sprite2D" parent="Obstacles/SecondSection/RigidBody2D5/CompHint"]
-texture = ExtResource("8_8rwfe")
+scale = Vector2(0.554576, 0.530658)
+texture = ExtResource("10_hm87d")
 
 [node name="ScrollingTopNegativo8" type="Sprite2D" parent="Obstacles/SecondSection"]
 position = Vector2(-307.75, -141.833)
@@ -274,6 +330,29 @@ position = Vector2(900.25, -279.833)
 scale = Vector2(0.337597, 0.790787)
 texture = ExtResource("12_gu8d2")
 
+[node name="CampoMagneticoNegativo5" type="Sprite2D" parent="Obstacles/SecondSection"]
+position = Vector2(2560.25, -513.833)
+scale = Vector2(0.337597, 0.790787)
+texture = ExtResource("12_gu8d2")
+
+[node name="CampoMagneticoNegativo6" type="Sprite2D" parent="Obstacles/SecondSection"]
+position = Vector2(2560.25, 405.167)
+rotation = 3.14159
+scale = Vector2(0.337597, 0.790787)
+texture = ExtResource("12_gu8d2")
+
+[node name="CampoMagneticoNegativo7" type="Sprite2D" parent="Obstacles/SecondSection"]
+position = Vector2(2042.25, -87.833)
+rotation = 3.14159
+scale = Vector2(0.337597, 0.790787)
+texture = ExtResource("12_gu8d2")
+
+[node name="CampoMagneticoNegativo8" type="Sprite2D" parent="Obstacles/SecondSection"]
+position = Vector2(1421.25, -86.833)
+rotation = 3.14159
+scale = Vector2(0.337597, 0.790787)
+texture = ExtResource("12_gu8d2")
+
 [node name="ScrollingTopNegativo5" type="Sprite2D" parent="Obstacles/SecondSection"]
 position = Vector2(898.25, 225.167)
 rotation = 0.00183407
@@ -284,14 +363,15 @@ texture = ExtResource("9_pxql2")
 position = Vector2(4377.43, -210.143)
 
 [node name="Obstacle2" type="RigidBody2D" parent="Obstacles/ThirdSection"]
-position = Vector2(517.571, 378.143)
+position = Vector2(809.57, 355.143)
 
 [node name="CompElectricField" type="Area2D" parent="Obstacles/ThirdSection/Obstacle2"]
-position = Vector2(188, -2)
+position = Vector2(-103, 39)
+collision_mask = 32
 script = ExtResource("6_0cff5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/ThirdSection/Obstacle2/CompElectricField"]
-position = Vector2(143, -327)
+position = Vector2(143, -257.999)
 rotation = -3.14159
 scale = Vector2(9.03922, -6.45671)
 shape = SubResource("RectangleShape2D_v5k02")
@@ -299,11 +379,11 @@ debug_color = Color(1, 1, 0, 0.2)
 
 [node name="RigidBody2D9" type="RigidBody2D" parent="Obstacles/ThirdSection"]
 position = Vector2(-326.429, -173.857)
-scale = Vector2(1, 1)
 
 [node name="CompElectricFied" type="Area2D" parent="Obstacles/ThirdSection/RigidBody2D9"]
 position = Vector2(-13, 292)
 collision_layer = 0
+collision_mask = 32
 script = ExtResource("6_0cff5")
 force = 100.0
 
@@ -315,11 +395,11 @@ debug_color = Color(1, 1, 0, 0.2)
 [node name="RigidBody2D10" type="RigidBody2D" parent="Obstacles/ThirdSection"]
 position = Vector2(301.571, -213.857)
 rotation = 0.0319055
-scale = Vector2(1, 1)
 
 [node name="CompElectricFied" type="Area2D" parent="Obstacles/ThirdSection/RigidBody2D10"]
 position = Vector2(-13, 292)
 collision_layer = 0
+collision_mask = 32
 script = ExtResource("6_0cff5")
 force = 100.0
 
@@ -331,11 +411,11 @@ debug_color = Color(1, 1, 0, 0.2)
 [node name="RigidBody2D11" type="RigidBody2D" parent="Obstacles/ThirdSection"]
 position = Vector2(301.571, -213.857)
 rotation = 0.0319055
-scale = Vector2(1, 1)
 
 [node name="CompElectricFied" type="Area2D" parent="Obstacles/ThirdSection/RigidBody2D11"]
 position = Vector2(-13, 292)
 collision_layer = 0
+collision_mask = 32
 script = ExtResource("6_0cff5")
 force = 100.0
 
@@ -356,6 +436,15 @@ rotation = 3.14159
 scale = Vector2(0.147623, -1.05001)
 texture = ExtResource("9_pxql2")
 
+[node name="Spikes" parent="Obstacles" instance=ExtResource("16_0nmmt")]
+position = Vector2(5016, 145)
+
+[node name="Spikes2" parent="Obstacles" instance=ExtResource("16_0nmmt")]
+position = Vector2(5410, 145)
+
+[node name="Coin" parent="Obstacles" instance=ExtResource("18_quyck")]
+scale = Vector2(1, 0.907272)
+
 [node name="GUI" parent="." instance=ExtResource("14_s0k0l")]
 
 [node name="Bg" parent="." instance=ExtResource("15_cnecu")]
@@ -368,4 +457,7 @@ visible = false
 
 [connection signal="death" from="Player" to="." method="_on_player_death"]
 [connection signal="death" from="Player" to="GUI" method="_on_player_death"]
+[connection signal="gained_coin" from="Player" to="GUI" method="update_coins"]
 [connection signal="speed_changed" from="Player" to="GUI" method="_on_player_speed_changed"]
+
+[editable path="GhostPlayer"]

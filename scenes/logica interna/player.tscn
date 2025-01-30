@@ -98,6 +98,7 @@ position = Vector2(0, -3)
 shape = SubResource("CircleShape2D_rjdrd")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.435391, 0.419177)
 sprite_frames = SubResource("SpriteFrames_dnd73")
 animation = &"morte"
 frame = 10
