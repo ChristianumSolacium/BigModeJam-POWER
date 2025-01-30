@@ -1,0 +1,112 @@
+[gd_scene load_steps=20 format=3 uid="uid://b5d1qj4ck34vx"]
+
+[ext_resource type="Script" path="res://scripts/character.gd" id="1_xb4qr"]
+[ext_resource type="Texture2D" uid="uid://b5h5ydimx7cuk" path="res://sprites/soggetto giocante/soggetto_giocante_positivo.png" id="2_86eqf"]
+[ext_resource type="Texture2D" uid="uid://q2srk2hq78bp" path="res://sprites/soggetto giocante/soggetto_giocante_negativo_v2.png" id="2_rbl1i"]
+[ext_resource type="Texture2D" uid="uid://c6gaqsyd2doe6" path="res://sprites/soggetto giocante/soggetto_giocante_negativo_v1.png" id="3_je1oo"]
+[ext_resource type="Texture2D" uid="uid://c5546pmxaepwv" path="res://sprites/soggetto giocante/animazione_morte/soggetto giocante_death_animation_frame0.png" id="5_s68nv"]
+[ext_resource type="Texture2D" uid="uid://dtmqf7548ih3y" path="res://sprites/soggetto giocante/animazione_morte/soggetto giocante_death_animation_frame1.png" id="6_iymbi"]
+[ext_resource type="Texture2D" uid="uid://c7c81prm7vj71" path="res://sprites/soggetto giocante/animazione_morte/soggetto giocante_death_animation_frame2.png" id="7_j4tte"]
+[ext_resource type="Texture2D" uid="uid://br0g7hxur3mxu" path="res://sprites/soggetto giocante/animazione_morte/soggetto giocante_death_animation_frame3.png" id="8_xv7sb"]
+[ext_resource type="Texture2D" uid="uid://cckw0bgx2uq28" path="res://sprites/soggetto giocante/animazione_morte/soggetto giocante_death_animation_frame4.png" id="9_ckxnr"]
+[ext_resource type="Texture2D" uid="uid://dp7725nfr501p" path="res://sprites/soggetto giocante/animazione_morte/soggetto giocante_death_animation_frame5.png" id="10_jua4g"]
+[ext_resource type="Texture2D" uid="uid://bsj5qrglpuylv" path="res://sprites/soggetto giocante/animazione_morte/soggetto giocante_death_animation_frame6.png" id="11_b6fpb"]
+[ext_resource type="Texture2D" uid="uid://dgla3l5gpn5sd" path="res://sprites/soggetto giocante/animazione_morte/soggetto giocante_death_animation_frame7.png" id="12_4yj6q"]
+[ext_resource type="Texture2D" uid="uid://cdosaaoq5u22h" path="res://sprites/soggetto giocante/animazione_morte/soggetto giocante_death_animation_frame8.png" id="13_svxco"]
+[ext_resource type="Texture2D" uid="uid://be7mb6ncbt3a3" path="res://sprites/soggetto giocante/animazione_morte/soggetto giocante_death_animation_frame9.png" id="14_bykvj"]
+[ext_resource type="Texture2D" uid="uid://buoyh76767y04" path="res://sprites/soggetto giocante/animazione_morte/void_frame.png" id="15_th002"]
+[ext_resource type="Script" path="res://scripts/make_trail.gd" id="16_s03qd"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yfmtu"]
+radius = 11.7368
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rjdrd"]
+radius = 34.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dnd73"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_s68nv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_iymbi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_j4tte")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_xv7sb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_ckxnr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_jua4g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_b6fpb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_4yj6q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_svxco")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_bykvj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_th002")
+}],
+"loop": false,
+"name": &"morte",
+"speed": 17.0
+}]
+
+[node name="Player" type="RigidBody2D"]
+collision_mask = 5
+script = ExtResource("1_xb4qr")
+charge = 702.91
+speed = 300.0
+positive_texture = ExtResource("2_rbl1i")
+negative_texture = ExtResource("3_je1oo")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(0, -3)
+scale = Vector2(0.384535, 0.403909)
+texture = ExtResource("2_86eqf")
+
+[node name="DeathDetection" type="Area2D" parent="."]
+position = Vector2(6, 0)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathDetection"]
+position = Vector2(-6, -3)
+scale = Vector2(2.98333, 2.93407)
+shape = SubResource("CircleShape2D_yfmtu")
+debug_color = Color(0.98583, 0, 0.329826, 0.42)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -3)
+shape = SubResource("CircleShape2D_rjdrd")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_dnd73")
+animation = &"morte"
+frame = 10
+frame_progress = 1.0
+
+[node name="MakeTrail" type="Node2D" parent="." node_paths=PackedStringArray("player")]
+script = ExtResource("16_s03qd")
+alpha_channel = 0.44
+player = NodePath("..")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="area_entered" from="DeathDetection" to="." method="_on_death_detection_area_entered"]

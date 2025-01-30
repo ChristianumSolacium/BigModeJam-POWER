@@ -1,4 +1,4 @@
-extends RigidBody2D
+class_name CameraFrame extends RigidBody2D
 
 
 var speed := 0.0

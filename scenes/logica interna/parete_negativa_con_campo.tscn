@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://qx7e023ya3xl"]
+
+[ext_resource type="Texture2D" uid="uid://07h6kyydoxqo" path="res://sprites/scrolling_ground_negativo.png" id="1_au7k5"]
+[ext_resource type="Texture2D" uid="uid://bukfrombmlsnt" path="res://sprites/campo_magnetico_negativo.png" id="2_ya1qb"]
+
+[node name="PareteNegativaConCampo" type="Node2D"]
+
+[node name="ScrollingGroundNegativo" type="Sprite2D" parent="."]
+position = Vector2(49, 107)
+scale = Vector2(0.25, 1)
+texture = ExtResource("1_au7k5")
+
+[node name="CampoMagneticoNegativo" type="Sprite2D" parent="."]
+position = Vector2(-177, -63)
+scale = Vector2(0.604167, 1)
+texture = ExtResource("2_ya1qb")

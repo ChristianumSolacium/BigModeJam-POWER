@@ -1,0 +1,87 @@
+[gd_scene load_steps=7 format=3 uid="uid://2gifhoikbqvm"]
+
+[ext_resource type="Script" path="res://scripts/gui.gd" id="1_xwr7w"]
+[ext_resource type="Texture2D" uid="uid://b3rjic51bwfaj" path="res://sprites/GUI/barra_vuota.png" id="2_0cvr2"]
+[ext_resource type="Texture2D" uid="uid://ldstinpp8c6w" path="res://sprites/GUI/barra_piena.png" id="3_351kh"]
+[ext_resource type="Texture2D" uid="uid://ceb75d30lmsxc" path="res://sprites/GUI/Game Over_frame0.png" id="4_co3e2"]
+[ext_resource type="Texture2D" uid="uid://c7yphsphg334y" path="res://sprites/GUI/Rank_testo.png" id="5_rsr5q"]
+[ext_resource type="Texture2D" uid="uid://cxh6pfsxkvg2g" path="res://sprites/GUI/Time_Score_testo.png" id="6_fahuc"]
+
+[node name="GUI" type="CanvasLayer" node_paths=PackedStringArray("game_over_phrase", "charge_bar", "speed_label")]
+script = ExtResource("1_xwr7w")
+game_over_phrase = NodePath("Control/GameOver")
+charge_bar = NodePath("Control/ProgressBar")
+speed_label = NodePath("SpeedLabel")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+size_flags_vertical = 4
+
+[node name="DeathLabel" type="Label" parent="Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 401.0
+offset_top = 200.0
+offset_right = 458.0
+offset_bottom = 223.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(3.00805, 4.04093)
+text = "DEATH!"
+
+[node name="ProgressBar" type="TextureProgressBar" parent="Control"]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 12.0
+offset_right = 555.0
+offset_bottom = 114.0
+scale = Vector2(0.35, 0.35)
+max_value = 1000.0
+value = 74.0
+texture_under = ExtResource("2_0cvr2")
+texture_progress = ExtResource("3_351kh")
+
+[node name="GameOver" type="TextureRect" parent="Control"]
+visible = false
+offset_left = 2.0
+offset_top = 6.0
+offset_right = 1922.0
+offset_bottom = 1086.0
+scale = Vector2(0.597862, 0.593297)
+texture = ExtResource("4_co3e2")
+
+[node name="GameOver2" type="TextureRect" parent="Control/GameOver"]
+offset_left = 3.0
+offset_top = 10.0
+offset_right = 3215.0
+offset_bottom = 1809.0
+scale = Vector2(0.597862, 0.593297)
+texture = ExtResource("6_fahuc")
+
+[node name="GameOver" type="TextureRect" parent="Control/GameOver"]
+offset_left = 2.0
+offset_top = 6.0
+offset_right = 3216.0
+offset_bottom = 1811.0
+scale = Vector2(0.597862, 0.593297)
+texture = ExtResource("5_rsr5q")
+
+[node name="SpeedLabel" type="Label" parent="."]
+offset_left = 215.0
+offset_top = 19.0
+offset_right = 255.0
+offset_bottom = 42.0
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

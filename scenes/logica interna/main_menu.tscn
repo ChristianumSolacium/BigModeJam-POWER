@@ -1,0 +1,115 @@
+[gd_scene load_steps=14 format=3 uid="uid://c5v6pembbv767"]
+
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_xgift"]
+[ext_resource type="Texture2D" uid="uid://cwlmnobb736gl" path="res://sprites/GUI/sfondo_0.png" id="2_lj4xu"]
+[ext_resource type="Texture2D" uid="uid://sbs4xggagl0k" path="res://sprites/GUI/sfondo_1.png" id="3_dx8mw"]
+[ext_resource type="Texture2D" uid="uid://cwm3jibbxmpo6" path="res://sprites/GUI/sfondo_2.png" id="4_bmfg5"]
+[ext_resource type="Texture2D" uid="uid://c5l2bsqmddctu" path="res://sprites/GUI/mainmenu/frame_0.png" id="5_lajv5"]
+[ext_resource type="Texture2D" uid="uid://cig58uc0giq5y" path="res://sprites/GUI/mainmenu/frame_1.png" id="6_ssx48"]
+[ext_resource type="Texture2D" uid="uid://b84d4v25olt0j" path="res://sprites/GUI/mainmenu/frame_2.png" id="7_jix2s"]
+[ext_resource type="Texture2D" uid="uid://dbm5x655i6nxs" path="res://sprites/GUI/mainmenu/frame_3.png" id="8_7wdlw"]
+[ext_resource type="Texture2D" uid="uid://budrlrbmpsio6" path="res://sprites/GUI/mainmenu/frame_4.png" id="9_1hbmr"]
+[ext_resource type="Texture2D" uid="uid://bv8ysnym2gfwh" path="res://sprites/GUI/mainmenu/frame_5.png" id="10_ik2nq"]
+[ext_resource type="Texture2D" uid="uid://cbkllbh1iwvu" path="res://sprites/GUI/mainmenu/frame_6.png" id="11_vw6eq"]
+[ext_resource type="Texture2D" uid="uid://cqh3u7gtg46er" path="res://sprites/GUI/mainmenu/frame_7.png" id="12_37c44"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tka6b"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_lajv5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ssx48")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_jix2s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_7wdlw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_1hbmr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_ik2nq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_vw6eq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_37c44")
+}],
+"loop": true,
+"name": &"titolo",
+"speed": 5.0
+}]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xgift")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_lj4xu")
+centered = false
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("3_dx8mw")
+centered = false
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("4_bmfg5")
+centered = false
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -35.0
+offset_top = -50.5
+offset_right = 35.0
+offset_bottom = 50.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Play" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Play"
+
+[node name="Options" type="Button" parent="MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+text = "Options"
+
+[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Quit"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(572.5, 320.5)
+scale = Vector2(0.600521, 0.599074)
+sprite_frames = SubResource("SpriteFrames_tka6b")
+animation = &"titolo"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

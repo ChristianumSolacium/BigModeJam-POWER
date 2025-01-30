@@ -1,0 +1,78 @@
+[gd_scene load_steps=9 format=3 uid="uid://blocss3wbhbps"]
+
+[ext_resource type="Script" path="res://scripts/walls.gd" id="1_xw2mj"]
+[ext_resource type="Texture2D" uid="uid://dqhyl67e1lne5" path="res://sprites/scrolling_ground.png" id="2_37km2"]
+[ext_resource type="Texture2D" uid="uid://rujy7rtxqcx" path="res://sprites/scrolling_top.png" id="3_ss1xv"]
+[ext_resource type="Script" path="res://scripts/utility_draw_infinite_line.gd" id="4_xvfwp"]
+[ext_resource type="Script" path="res://scripts/hint_area.gd" id="5_7het7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lpsvg"]
+size = Vector2(1457, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h87ec"]
+size = Vector2(59, 644)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ycued"]
+size = Vector2(1505, 598)
+
+[node name="CameraFrame" type="RigidBody2D"]
+position = Vector2(723, 461)
+collision_layer = 4
+collision_mask = 0
+gravity_scale = 0.0
+script = ExtResource("1_xw2mj")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.795, 0.795)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -331)
+shape = SubResource("RectangleShape2D_lpsvg")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 333)
+shape = SubResource("RectangleShape2D_lpsvg")
+
+[node name="Death" type="Area2D" parent="."]
+position = Vector2(-605, -110)
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Death"]
+position = Vector2(-151, 110)
+shape = SubResource("RectangleShape2D_h87ec")
+debug_color = Color(0.523576, 0, 0.0876006, 0.42)
+
+[node name="ScrollingGround" type="Sprite2D" parent="."]
+position = Vector2(106, -46)
+texture = ExtResource("2_37km2")
+
+[node name="ScrollingTop" type="Sprite2D" parent="."]
+position = Vector2(74, 47)
+texture = ExtResource("3_ss1xv")
+
+[node name="UtilityDrawInfiniteLine" type="Node2D" parent="ScrollingTop"]
+z_index = -500
+position = Vector2(-73, -368)
+script = ExtResource("4_xvfwp")
+
+[node name="UtilityDrawInfiniteLine2" type="Node2D" parent="ScrollingTop"]
+z_index = -500
+position = Vector2(-137, 275)
+script = ExtResource("4_xvfwp")
+
+[node name="HintArea" type="Area2D" parent="."]
+position = Vector2(1154, -277)
+collision_layer = 0
+collision_mask = 16
+script = ExtResource("5_7het7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HintArea"]
+position = Vector2(742.5, 289)
+shape = SubResource("RectangleShape2D_ycued")
+
+[node name="HintLine" type="Node2D" parent="HintArea"]
+position = Vector2(-483, 26)
+
+[connection signal="area_entered" from="HintArea" to="HintArea" method="_on_area_entered"]
+[connection signal="area_exited" from="HintArea" to="HintArea" method="_on_area_exited"]
