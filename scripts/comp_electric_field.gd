@@ -5,7 +5,7 @@ class_name CompElectricField extends Area2D
 
 
 ## l'intensità del campo varia con 1 / (distanza ^ exponent)
-@export var exponent: float = 1
+@export var exponent: float = 0.1
 @onready var parent : RigidBody2D = get_parent()
 
 func _ready() -> void:

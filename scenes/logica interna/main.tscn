@@ -34,6 +34,8 @@ func _ready() -> void:
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed(\"pause\"):
 		toggle_pause()
+	if event.is_action_pressed(\"Fast Restart\"):
+		get_tree().change_scene_to_file(\"res://scenes/logica interna/main.tscn\")
 
 func toggle_pause():
 	if not pause_menu.visible:
@@ -77,12 +79,14 @@ collision_layer = 32
 lock_rotation = true
 continuous_cd = 1
 camera_frame = NodePath("../CameraFrame")
+charge_change = 0.0
 
 [node name="PlayerReplayRecorder" type="Node" parent="Player" node_paths=PackedStringArray("player")]
 script = ExtResource("2_kr3wk")
 player = NodePath("..")
 
 [node name="GhostPlayer" parent="." node_paths=PackedStringArray("camera_frame") instance=ExtResource("1_j2esc")]
+visible = false
 modulate = Color(1, 1, 1, 0.588235)
 z_index = -3
 position = Vector2(723, 454)
@@ -143,6 +147,7 @@ collision_layer = 0
 collision_mask = 32
 script = ExtResource("6_0cff5")
 force = 100.0
+exponent = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/FirstSection/RigidBody2D3/CompElectricFied"]
 shape = SubResource("RectangleShape2D_tjnit")
@@ -158,6 +163,7 @@ collision_layer = 0
 collision_mask = 32
 script = ExtResource("6_0cff5")
 force = 100.0
+exponent = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/FirstSection/RigidBody2D4/CompElectricFied"]
 position = Vector2(44.4084, 85.9663)
@@ -230,6 +236,7 @@ collision_layer = 0
 collision_mask = 32
 script = ExtResource("6_0cff5")
 force = 100.0
+exponent = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/SecondSection/RigidBody2D7/CompElectricFied"]
 position = Vector2(44.4089, 85.9663)
@@ -246,6 +253,7 @@ collision_layer = 0
 collision_mask = 32
 script = ExtResource("6_0cff5")
 force = 100.0
+exponent = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/SecondSection/RigidBody2D8/CompElectricFied"]
 position = Vector2(44.4084, 85.9663)
@@ -262,6 +270,7 @@ collision_layer = 0
 collision_mask = 32
 script = ExtResource("6_0cff5")
 force = 100.0
+exponent = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/SecondSection/RigidBody2D6/CompElectricFied"]
 shape = SubResource("RectangleShape2D_tjnit")
@@ -276,6 +285,7 @@ collision_layer = 0
 collision_mask = 32
 script = ExtResource("6_0cff5")
 force = 100.0
+exponent = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/SecondSection/RigidBody2D5/CompElectricFied"]
 shape = SubResource("RectangleShape2D_tjnit")
@@ -369,6 +379,7 @@ position = Vector2(809.57, 355.143)
 position = Vector2(-103, 39)
 collision_mask = 32
 script = ExtResource("6_0cff5")
+exponent = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/ThirdSection/Obstacle2/CompElectricField"]
 position = Vector2(143, -257.999)
@@ -386,6 +397,7 @@ collision_layer = 0
 collision_mask = 32
 script = ExtResource("6_0cff5")
 force = 100.0
+exponent = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/ThirdSection/RigidBody2D9/CompElectricFied"]
 position = Vector2(44.4084, 85.9663)
@@ -402,6 +414,7 @@ collision_layer = 0
 collision_mask = 32
 script = ExtResource("6_0cff5")
 force = 100.0
+exponent = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/ThirdSection/RigidBody2D10/CompElectricFied"]
 position = Vector2(44.4084, 85.9663)
@@ -418,6 +431,7 @@ collision_layer = 0
 collision_mask = 32
 script = ExtResource("6_0cff5")
 force = 100.0
+exponent = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/ThirdSection/RigidBody2D11/CompElectricFied"]
 position = Vector2(44.4084, 85.9663)
