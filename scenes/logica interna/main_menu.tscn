@@ -1,16 +1,16 @@
-[gd_scene load_steps=14 format=3 uid="uid://c5v6pembbv767"]
+[gd_scene load_steps=15 format=3 uid="uid://c5v6pembbv767"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_xgift"]
-[ext_resource type="Texture2D" uid="uid://cwlmnobb736gl" path="res://sprites/GUI/sfondo_0.png" id="2_lj4xu"]
-[ext_resource type="Texture2D" uid="uid://sbs4xggagl0k" path="res://sprites/GUI/sfondo_1.png" id="3_dx8mw"]
-[ext_resource type="Texture2D" uid="uid://cwm3jibbxmpo6" path="res://sprites/GUI/sfondo_2.png" id="4_bmfg5"]
+[ext_resource type="Texture2D" uid="uid://dntym504fwac2" path="res://sprites/GUI/tasti/Start_tasto_neutro.png" id="5_gpd5t"]
 [ext_resource type="Texture2D" uid="uid://c5l2bsqmddctu" path="res://sprites/GUI/mainmenu/frame_0.png" id="5_lajv5"]
+[ext_resource type="Texture2D" uid="uid://w8jtm2pojq1o" path="res://sprites/GUI/tasti/Start_tasto_selezionato.png" id="6_sp7xo"]
 [ext_resource type="Texture2D" uid="uid://cig58uc0giq5y" path="res://sprites/GUI/mainmenu/frame_1.png" id="6_ssx48"]
 [ext_resource type="Texture2D" uid="uid://b84d4v25olt0j" path="res://sprites/GUI/mainmenu/frame_2.png" id="7_jix2s"]
 [ext_resource type="Texture2D" uid="uid://dbm5x655i6nxs" path="res://sprites/GUI/mainmenu/frame_3.png" id="8_7wdlw"]
 [ext_resource type="Texture2D" uid="uid://budrlrbmpsio6" path="res://sprites/GUI/mainmenu/frame_4.png" id="9_1hbmr"]
 [ext_resource type="Texture2D" uid="uid://bv8ysnym2gfwh" path="res://sprites/GUI/mainmenu/frame_5.png" id="10_ik2nq"]
 [ext_resource type="Texture2D" uid="uid://cbkllbh1iwvu" path="res://sprites/GUI/mainmenu/frame_6.png" id="11_vw6eq"]
+[ext_resource type="PackedScene" uid="uid://b42fulegw3yie" path="res://scenes/logica interna/bg.tscn" id="12_3s60r"]
 [ext_resource type="Texture2D" uid="uid://cqh3u7gtg46er" path="res://sprites/GUI/mainmenu/frame_7.png" id="12_37c44"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_tka6b"]
@@ -50,6 +50,20 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="GDScript" id="GDScript_hdbj3"]
+script/source = "extends Camera2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	position.x += 300 * delta
+"
+
 [node name="MainMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -59,57 +73,48 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_xgift")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.6, 0.6)
-texture = ExtResource("2_lj4xu")
-centered = false
+[node name="Bg" parent="." instance=ExtResource("12_3s60r")]
 
-[node name="Sprite2D3" type="Sprite2D" parent="."]
-scale = Vector2(0.6, 0.6)
-texture = ExtResource("3_dx8mw")
-centered = false
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Sprite2D2" type="Sprite2D" parent="."]
-scale = Vector2(0.6, 0.6)
-texture = ExtResource("4_bmfg5")
-centered = false
-
-[node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 1
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -35.0
-offset_top = -50.5
-offset_right = 35.0
-offset_bottom = 50.5
+offset_left = -191.0
+offset_top = 169.0
+offset_right = 496.0
+offset_bottom = 350.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.625646, 0.631798)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer/MarginContainer"]
+position = Vector2(299.69, -273.03)
+scale = Vector2(0.959841, 0.910476)
+sprite_frames = SubResource("SpriteFrames_tka6b")
+animation = &"titolo"
+frame = 6
+frame_progress = 0.0319751
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer"]
 layout_mode = 2
 
-[node name="Play" type="Button" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "Play"
-
-[node name="Options" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Options" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer"]
 visible = false
 layout_mode = 2
 text = "Options"
 
-[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Play" type="TextureButton" parent="CanvasLayer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Quit"
+texture_normal = ExtResource("5_gpd5t")
+texture_pressed = ExtResource("6_sp7xo")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(572.5, 320.5)
-scale = Vector2(0.600521, 0.599074)
-sprite_frames = SubResource("SpriteFrames_tka6b")
-animation = &"titolo"
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 322)
+script = SubResource("GDScript_hdbj3")
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Options" to="." method="_on_options_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://2gifhoikbqvm"]
+[gd_scene load_steps=8 format=3 uid="uid://2gifhoikbqvm"]
 
 [ext_resource type="Script" path="res://scripts/gui.gd" id="1_xwr7w"]
 [ext_resource type="Texture2D" uid="uid://b3rjic51bwfaj" path="res://sprites/GUI/barra_vuota.png" id="2_0cvr2"]
@@ -6,12 +6,14 @@
 [ext_resource type="Texture2D" uid="uid://ceb75d30lmsxc" path="res://sprites/GUI/Game Over_frame0.png" id="4_co3e2"]
 [ext_resource type="Texture2D" uid="uid://c7yphsphg334y" path="res://sprites/GUI/Rank_testo.png" id="5_rsr5q"]
 [ext_resource type="Texture2D" uid="uid://cxh6pfsxkvg2g" path="res://sprites/GUI/Time_Score_testo.png" id="6_fahuc"]
+[ext_resource type="Texture2D" uid="uid://rmo8f3rbbg65" path="res://sprites/powerups/collezionabile_neutro.png" id="7_cl1ix"]
 
-[node name="GUI" type="CanvasLayer" node_paths=PackedStringArray("game_over_phrase", "charge_bar", "speed_label")]
+[node name="GUI" type="CanvasLayer" node_paths=PackedStringArray("game_over_phrase", "charge_bar", "speed_label", "coin_labels")]
 script = ExtResource("1_xwr7w")
 game_over_phrase = NodePath("Control/GameOver")
 charge_bar = NodePath("Control/ProgressBar")
 speed_label = NodePath("SpeedLabel")
+coin_labels = NodePath("Control/Coins")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -51,6 +53,7 @@ texture_progress = ExtResource("3_351kh")
 
 [node name="GameOver" type="TextureRect" parent="Control"]
 visible = false
+layout_mode = 0
 offset_left = 2.0
 offset_top = 6.0
 offset_right = 1922.0
@@ -59,6 +62,7 @@ scale = Vector2(0.597862, 0.593297)
 texture = ExtResource("4_co3e2")
 
 [node name="GameOver2" type="TextureRect" parent="Control/GameOver"]
+layout_mode = 0
 offset_left = 3.0
 offset_top = 10.0
 offset_right = 3215.0
@@ -67,12 +71,28 @@ scale = Vector2(0.597862, 0.593297)
 texture = ExtResource("6_fahuc")
 
 [node name="GameOver" type="TextureRect" parent="Control/GameOver"]
+layout_mode = 0
 offset_left = 2.0
 offset_top = 6.0
 offset_right = 3216.0
 offset_bottom = 1811.0
 scale = Vector2(0.597862, 0.593297)
 texture = ExtResource("5_rsr5q")
+
+[node name="Coins" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 1050.0
+offset_top = 20.0
+offset_right = 1090.0
+offset_bottom = 43.0
+scale = Vector2(1.62308, 1.29561)
+text = "0
+"
+
+[node name="Sprite2D" type="Sprite2D" parent="Control/Coins"]
+position = Vector2(-18.585, 12.654)
+scale = Vector2(0.13, 0.13)
+texture = ExtResource("7_cl1ix")
 
 [node name="SpeedLabel" type="Label" parent="."]
 offset_left = 215.0
