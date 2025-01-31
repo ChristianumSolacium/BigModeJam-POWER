@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://blocss3wbhbps"]
+[gd_scene load_steps=10 format=3 uid="uid://blocss3wbhbps"]
 
 [ext_resource type="Script" path="res://scripts/walls.gd" id="1_xw2mj"]
 [ext_resource type="Texture2D" uid="uid://dqhyl67e1lne5" path="res://sprites/scrolling_ground.png" id="2_37km2"]
 [ext_resource type="Texture2D" uid="uid://rujy7rtxqcx" path="res://sprites/scrolling_top.png" id="3_ss1xv"]
 [ext_resource type="Script" path="res://scripts/utility_draw_infinite_line.gd" id="4_xvfwp"]
 [ext_resource type="Script" path="res://scripts/hint_area.gd" id="5_7het7"]
+[ext_resource type="Script" path="res://scripts/camera_frame_friction.gd" id="6_grxd1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lpsvg"]
 size = Vector2(1457, 20)
@@ -73,6 +74,19 @@ shape = SubResource("RectangleShape2D_ycued")
 
 [node name="HintLine" type="Node2D" parent="HintArea"]
 position = Vector2(-483, 26)
+
+[node name="Friction" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 32
+script = ExtResource("6_grxd1")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Friction"]
+position = Vector2(-1, -321)
+shape = SubResource("RectangleShape2D_lpsvg")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Friction"]
+position = Vector2(0, 328)
+shape = SubResource("RectangleShape2D_lpsvg")
 
 [connection signal="area_entered" from="HintArea" to="HintArea" method="_on_area_entered"]
 [connection signal="area_exited" from="HintArea" to="HintArea" method="_on_area_exited"]

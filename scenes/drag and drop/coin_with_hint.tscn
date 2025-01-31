@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://cqevg1xr3srrp"]
+
+[ext_resource type="Script" path="res://scripts/coin.gd" id="1_jl8ma"]
+[ext_resource type="Texture2D" uid="uid://dtg037ckdn6k6" path="res://sprites/powerups/collezionabile_neutro.png" id="2_ux4va"]
+[ext_resource type="PackedScene" uid="uid://c3vn22ymxn6l6" path="res://scenes/drag and drop/base_comp_hint.tscn" id="3_0b67l"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2ihcl"]
+radius = 33.1361
+
+[node name="Coin" type="Area2D"]
+script = ExtResource("1_jl8ma")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.303922, 0.324074)
+texture = ExtResource("2_ux4va")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_2ihcl")
+
+[node name="CompHint" parent="." instance=ExtResource("3_0b67l")]
+position = Vector2(2, 1)
+
+[node name="Sprite2D2" type="Sprite2D" parent="CompHint"]
+position = Vector2(-2, -1)
+scale = Vector2(0.174761, 0.181067)
+texture = ExtResource("2_ux4va")

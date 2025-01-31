@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dtg037ckdn6k6"
-path="res://.godot/imported/collezionabile_neutro.png-eb4d239a3b0986449f1ff6ce1e3f7d91.ctex"
+uid="uid://d4jwewr66cmxk"
+path="res://.godot/imported/punto_esclamativo.png-15b503052e74b59f6c23d031ef0e7946.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/powerups/collezionabile_neutro.png"
-dest_files=["res://.godot/imported/collezionabile_neutro.png-eb4d239a3b0986449f1ff6ce1e3f7d91.ctex"]
+source_file="res://sprites/powerups/punto_esclamativo.png"
+dest_files=["res://.godot/imported/punto_esclamativo.png-15b503052e74b59f6c23d031ef0e7946.ctex"]
 
 [params]
 

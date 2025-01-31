@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://t5xch1e8slho"]
+
+[ext_resource type="Texture2D" uid="uid://bukfrombmlsnt" path="res://sprites/campo_magnetico_negativo.png" id="1_2gsps"]
+[ext_resource type="Texture2D" uid="uid://dsebisjph0461" path="res://sprites/obstacles/ostacolo_muro_negativo.png" id="2_bi5h1"]
+[ext_resource type="Script" path="res://scripts/comp_electric_field.gd" id="3_x5q2y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t64b4"]
+size = Vector2(193.262, 552.594)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tjnit"]
+size = Vector2(386.316, 964.858)
+
+[node name="OstacoloNegativo" type="RigidBody2D"]
+position = Vector2(1258.57, 2723.87)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-186.315, 99.6483)
+shape = SubResource("RectangleShape2D_t64b4")
+
+[node name="CampoMagneticoNegativo3" type="Sprite2D" parent="."]
+position = Vector2(-195.185, -43.6239)
+scale = Vector2(0.485785, 0.790787)
+texture = ExtResource("1_2gsps")
+
+[node name="OstacoloMuroNegativo" type="Sprite2D" parent="."]
+position = Vector2(-451.684, -60.6487)
+texture = ExtResource("2_bi5h1")
+
+[node name="CompElectricFied" type="Area2D" parent="."]
+position = Vector2(-198.185, 103.376)
+rotation = -3.14051
+collision_layer = 0
+collision_mask = 32
+script = ExtResource("3_x5q2y")
+force = 100.0
+exponent = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CompElectricFied"]
+position = Vector2(-8.75, 214.635)
+shape = SubResource("RectangleShape2D_tjnit")
+debug_color = Color(1, 1, 0, 0.2)

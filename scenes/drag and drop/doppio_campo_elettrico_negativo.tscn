@@ -1,0 +1,63 @@
+[gd_scene load_steps=8 format=3 uid="uid://defl7ujhpyiyx"]
+
+[ext_resource type="Script" path="res://scripts/comp_electric_field.gd" id="1_q7kcg"]
+[ext_resource type="PackedScene" uid="uid://c3vn22ymxn6l6" path="res://scenes/drag and drop/base_comp_hint.tscn" id="2_su1nj"]
+[ext_resource type="Texture2D" uid="uid://bky2llna227r4" path="res://sprites/soggetto giocante/transizione/punto_esclamativo.png" id="3_sj6ig"]
+[ext_resource type="Texture2D" uid="uid://bukfrombmlsnt" path="res://sprites/campo_magnetico_negativo.png" id="4_ngm71"]
+[ext_resource type="Texture2D" uid="uid://dovui0kijg8bl" path="res://sprites/scrolling_top_negativo.png" id="5_djl7c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ksa0w"]
+size = Vector2(386.316, 964.858)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hotoy"]
+size = Vector2(283, 22)
+
+[node name="DoubleElectricField" type="RigidBody2D"]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CompElectricFied" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 32
+script = ExtResource("1_q7kcg")
+force = 100.0
+exponent = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CompElectricFied"]
+shape = SubResource("RectangleShape2D_ksa0w")
+debug_color = Color(1, 1, 0, 0.2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(4.5, 8)
+shape = SubResource("RectangleShape2D_hotoy")
+
+[node name="CompHint" parent="." instance=ExtResource("2_su1nj")]
+
+[node name="Sprite2D" type="Sprite2D" parent="CompHint"]
+scale = Vector2(0.554576, 0.530658)
+texture = ExtResource("3_sj6ig")
+
+[node name="CampoMagneticoNegativo10" type="Sprite2D" parent="."]
+position = Vector2(-1, 197)
+rotation = -3.13919
+scale = Vector2(0.337597, 0.295393)
+texture = ExtResource("4_ngm71")
+
+[node name="ScrollingTopNegativo8" type="Sprite2D" parent="CampoMagneticoNegativo10"]
+position = Vector2(-19.4443, 612.797)
+rotation = -0.00275432
+scale = Vector2(0.437276, -1.38801)
+skew = 0.000645518
+texture = ExtResource("5_djl7c")
+
+[node name="ScrollingTopNegativo9" type="Sprite2D" parent="CampoMagneticoNegativo10"]
+position = Vector2(-13.4414, 650.019)
+rotation = -3.13729
+scale = Vector2(0.437277, -1.388)
+skew = -0.00100768
+texture = ExtResource("5_djl7c")
+
+[node name="CampoMagneticoNegativo9" type="Sprite2D" parent="."]
+position = Vector2(4, -186.488)
+scale = Vector2(0.337597, 0.295393)
+texture = ExtResource("4_ngm71")

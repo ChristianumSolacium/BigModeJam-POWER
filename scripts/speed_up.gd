@@ -9,4 +9,4 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	for body in get_overlapping_bodies():
 		if body is Player:
-			body.charge_up(0,delta * body.speed * speed_up_per_100_unit / 100)
+			body.charge_up(delta * body.speed * speed_up_per_100_unit / 100)
