@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://dtvl6ccqkkmhh"]
+[gd_scene load_steps=35 format=3 uid="uid://dtvl6ccqkkmhh"]
 
 [ext_resource type="PackedScene" uid="uid://b5d1qj4ck34vx" path="res://scenes/logica interna/player.tscn" id="1_j2esc"]
 [ext_resource type="Script" path="res://scripts/player_replay_recording.gd" id="2_kr3wk"]
@@ -26,15 +26,13 @@
 [ext_resource type="PackedScene" uid="uid://defl7ujhpyiyx" path="res://scenes/drag and drop/doppio_campo_elettrico_negativo.tscn" id="19_q5fh5"]
 [ext_resource type="PackedScene" uid="uid://cqevg1xr3srrp" path="res://scenes/drag and drop/coin_with_hint.tscn" id="22_j0r6l"]
 [ext_resource type="Script" path="res://scripts/automatic_resize_of_collision_shape_2d.gd" id="26_k135g"]
+[ext_resource type="Script" path="res://scenes/logica interna/pause.gd" id="26_krq3q"]
 
 [sub_resource type="GDScript" id="GDScript_hpa0i"]
 script/source = "extends Node2D
 
-@export var pause_menu : CanvasLayer
+@onready var pause_menu = $Graphics/Pause/PauseMenu
 @onready var obstacles: Node2D = $Obstacles
-
-func _ready() -> void:
-	pause_menu.hide()
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed(\"pause\"):
@@ -43,11 +41,12 @@ func _input(event: InputEvent) -> void:
 		get_tree().change_scene_to_file(\"res://scenes/logica interna/main.tscn\")
 
 func toggle_pause():
-	if not pause_menu.visible:
-		pause_menu.show()
-	else:
+	if pause_menu.visible:
 		pause_menu.hide()
-
+		get_tree().paused = false
+	else:
+		pause_menu.show()
+		get_tree().paused = true
 
 func _on_player_death() -> void:
 	obstacles.hide()
@@ -71,9 +70,9 @@ size = Vector2(386.316, 964.858)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v5k02"]
 size = Vector2(40.3123, 129.787)
 
-[node name="Main" type="Node2D" node_paths=PackedStringArray("pause_menu")]
+[node name="Main" type="Node2D"]
+process_mode = 1
 script = SubResource("GDScript_hpa0i")
-pause_menu = NodePath("Graphics/Pause")
 
 [node name="AutomaticResizeOfCollisionShape2D" type="Node" parent="."]
 script = ExtResource("26_k135g")
@@ -181,7 +180,7 @@ shape = SubResource("CircleShape2D_iid6r")
 
 [node name="OstacoloPentagonoNegativo" type="Sprite2D" parent="Obstacles/FirstSection/RotatingPentagon"]
 position = Vector2(6, 118)
-rotation = 2708.22
+rotation = 7371.64
 scale = Vector2(0.5, 0.514389)
 texture = ExtResource("10_hgwdg")
 offset = Vector2(0, 7.77622)
@@ -411,7 +410,8 @@ position = Vector2(-1187, -16)
 [node name="Bg" parent="Graphics" instance=ExtResource("15_cnecu")]
 
 [node name="Pause" type="CanvasLayer" parent="Graphics"]
-process_mode = 3
+process_mode = 2
+script = ExtResource("26_krq3q")
 
 [node name="PauseMenu" parent="Graphics/Pause" instance=ExtResource("16_c4wfa")]
 visible = false
