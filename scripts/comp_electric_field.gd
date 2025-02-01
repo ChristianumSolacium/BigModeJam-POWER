@@ -38,7 +38,7 @@ func _physics_process(delta: float) -> void:
 			var intensity : float= get_field_intensity_at(body.global_position) * body.speed/300
 			
 			body.apply_central_force(Vector2.UP * intensity * body.charge)
-			body.charge_up(delta * intensity)
+			body.charge_up(delta * abs(intensity))
 	
 	
 

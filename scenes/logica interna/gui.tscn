@@ -6,7 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://ceb75d30lmsxc" path="res://sprites/GUI/Game Over_frame0.png" id="4_co3e2"]
 [ext_resource type="Texture2D" uid="uid://c7yphsphg334y" path="res://sprites/GUI/Rank_testo.png" id="5_rsr5q"]
 [ext_resource type="Texture2D" uid="uid://cxh6pfsxkvg2g" path="res://sprites/GUI/Time_Score_testo.png" id="6_fahuc"]
-[ext_resource type="Texture2D" uid="uid://rmo8f3rbbg65" path="res://sprites/powerups/collezionabile_neutro.png" id="7_cl1ix"]
+
+[ext_resource type="Texture2D" uid="uid://dtg037ckdn6k6" path="res://sprites/powerups/collezionabile_neutro.png" id="7_cl1ix"]
+
 
 [sub_resource type="LabelSettings" id="LabelSettings_htt2y"]
 font_size = 24
@@ -49,8 +51,9 @@ offset_top = 12.0
 offset_right = 555.0
 offset_bottom = 114.0
 scale = Vector2(0.35, 0.35)
-max_value = 1000.0
-value = 74.0
+min_value = 300.0
+max_value = 1500.0
+value = 300.0
 texture_under = ExtResource("2_0cvr2")
 texture_progress = ExtResource("3_351kh")
 

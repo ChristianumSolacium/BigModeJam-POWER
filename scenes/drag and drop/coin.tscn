@@ -1,7 +1,9 @@
 [gd_scene load_steps=4 format=3 uid="uid://blx6o0gojhtl2"]
 
 [ext_resource type="Script" path="res://scripts/coin.gd" id="1_8kwlu"]
+
 [ext_resource type="Texture2D" uid="uid://rmo8f3rbbg65" path="res://sprites/powerups/collezionabile_neutro.png" id="2_4dqbi"]
+
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2ihcl"]
 radius = 33.1361

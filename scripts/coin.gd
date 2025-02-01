@@ -1,4 +1,4 @@
-class_name Coin extends Area2D
+class_name PickUpCoin extends Area2D
 
 @export var sprite : Sprite2D
 

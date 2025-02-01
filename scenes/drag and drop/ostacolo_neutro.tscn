@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://dcc1awfddemkf"]
+
+[ext_resource type="Texture2D" uid="uid://bvyimliey5oet" path="res://sprites/obstacles/ostacolo_muro_neutro.png" id="1_8mn7r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jd07w"]
+size = Vector2(193.262, 552.594)
+
+[node name="OstacoloNeutro" type="RigidBody2D"]
+position = Vector2(1258.57, 2723.87)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-186.315, 99.6483)
+shape = SubResource("RectangleShape2D_jd07w")
+
+[node name="OstacoloMuroNegativo" type="Sprite2D" parent="."]
+position = Vector2(-473.681, -125.648)
+scale = Vector2(1.0901, 0.996296)
+texture = ExtResource("1_8mn7r")

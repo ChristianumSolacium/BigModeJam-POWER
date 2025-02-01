@@ -14,8 +14,9 @@ signal gained_coin
 var speed_bonus := 0.0
 ## regola come cambia la velocità del giocatore stando in un campo elettrico
 @export var speed_change := 10.0
-## regola come cambia la carica del giocatore stando in un campo elettrico
-@export var charge_change := 1.0
+
+@export var charge_multiplier := 1.0
+
 @export var receive_input := true
 @export_category("Resources ")
 @export var positive_texture : Texture
@@ -49,7 +50,6 @@ func switch_polarity() -> void:
 	sprite.texture = get_current_texture()
 	polarity_changed.emit()
 
-
 func get_current_texture() -> Texture:
 	return positive_texture if charge > 0 else negative_texture
 
@@ -67,12 +67,10 @@ func die():
 	animated_sprite_2d.play("morte")
 
 
-func charge_up(value:float,speed_value:float = 0) -> void:
+
+func charge_up(value:float) -> void:
 	if not active:
 		return
-	charge += charge_change *  value
-	if speed_value == 0:
-		speed += speed_change * abs( value)
-	else:
-		speed += speed_value
+	speed += speed_change * value
+	
 	camera_frame.speed = speed

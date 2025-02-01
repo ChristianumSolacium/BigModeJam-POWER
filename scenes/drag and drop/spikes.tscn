@@ -1,8 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://dkdt81f6ar0l4"]
+
+[gd_scene load_steps=7 format=3 uid="uid://dkdt81f6ar0l4"]
+
 
 [ext_resource type="Texture2D" uid="uid://bklibx4d3xhpo" path="res://sprites/obstacles/spikes.png" id="1_7io2i"]
 [ext_resource type="Script" path="res://scripts/spikes.gd" id="1_a266o"]
 [ext_resource type="Script" path="res://scripts/comp_hint.gd" id="3_buw1w"]
+
+[ext_resource type="Script" path="res://scripts/rotating_sprite.gd" id="3_rcuyu"]
+
 [ext_resource type="Texture2D" uid="uid://bky2llna227r4" path="res://sprites/soggetto giocante/transizione/punto_esclamativo.png" id="4_da7l3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jd515"]
@@ -15,10 +20,18 @@ script = ExtResource("1_a266o")
 shape = SubResource("CircleShape2D_jd515")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+
+rotation = 243.076
 scale = Vector2(0.295, 0.295)
 texture = ExtResource("1_7io2i")
 
+[node name="CompRotate" type="Node" parent="Sprite2D"]
+script = ExtResource("3_rcuyu")
+rotation_speed = 1.91
+
 [node name="CompHint" type="Area2D" parent="."]
+collision_layer = 16
+
 script = ExtResource("3_buw1w")
 
 [node name="Sprite2D" type="Sprite2D" parent="CompHint"]

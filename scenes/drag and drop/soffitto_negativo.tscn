@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://beqw216yfjdku"]
+
+[ext_resource type="Script" path="res://scripts/comp_electric_field.gd" id="1_nakup"]
+[ext_resource type="Texture2D" uid="uid://dovui0kijg8bl" path="res://sprites/scrolling_top_negativo.png" id="2_wl0s8"]
+[ext_resource type="Texture2D" uid="uid://bukfrombmlsnt" path="res://sprites/campo_magnetico_negativo.png" id="3_apooa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tjnit"]
+size = Vector2(280, 904.76)
+
+[node name="Soffitto Negativo" type="RigidBody2D"]
+
+[node name="CompElectricFied" type="Area2D" parent="."]
+position = Vector2(-13, 292)
+collision_layer = 0
+collision_mask = 32
+script = ExtResource("1_nakup")
+force = 100.0
+exponent = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CompElectricFied"]
+position = Vector2(3.11099, 158.398)
+shape = SubResource("RectangleShape2D_tjnit")
+debug_color = Color(1, 1, 0, 0.2)
+
+[node name="ScrollingTopNegativo" type="Sprite2D" parent="."]
+position = Vector2(-13, -75)
+rotation = 3.14159
+scale = Vector2(0.147623, -1.05001)
+texture = ExtResource("2_wl0s8")
+
+[node name="CampoMagneticoNegativo2" type="Sprite2D" parent="."]
+position = Vector2(-13, 426)
+rotation = 3.14159
+scale = Vector2(0.337597, 0.790787)
+texture = ExtResource("3_apooa")

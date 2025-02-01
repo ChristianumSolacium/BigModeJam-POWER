@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://bsth1tcugpx3t"]
+[gd_scene load_steps=4 format=3 uid="uid://sgj0kom5nodl"]
 
-
-[ext_resource type="Script" path="res://scripts/move_forward.gd" id="1_x2hjx"]
-[ext_resource type="Texture2D" uid="uid://btjyrhbiee2sw" path="res://sprites/powerups/power_up_neutro.png" id="2_urv75"]
+[ext_resource type="Script" path="res://scripts/phantom_mode.gd" id="1_uyoie"]
+[ext_resource type="Texture2D" uid="uid://b8slm4m11gjct" path="res://sprites/powerups/power_up_phantom_mode.png" id="2_13i06"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ojwqh"]
 radius = 48.28
@@ -10,17 +9,15 @@ radius = 48.28
 [node name="MoveForward" type="Area2D" node_paths=PackedStringArray("sprite")]
 collision_layer = 0
 collision_mask = 32
-script = ExtResource("1_x2hjx")
+script = ExtResource("1_uyoie")
 sprite = NodePath("PowerDownNeutro")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_ojwqh")
 
 [node name="PowerDownNeutro" type="Sprite2D" parent="."]
-
-position = Vector2(5, 5)
-scale = Vector2(0.476001, 0.474581)
-texture = ExtResource("2_urv75")
-
+position = Vector2(0.772942, -2.19518)
+scale = Vector2(0.439717, 0.410624)
+texture = ExtResource("2_13i06")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -7,5 +7,5 @@ func _ready() -> void:
 
 
 func kill(body:RigidBody2D) -> void:
-	if body is Player:
+	if body is Player and body.collision_mask % 2:
 		body.die()

@@ -2,20 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-<<<<<<< HEAD
-uid="uid://rmo8f3rbbg65"
-=======
-uid="uid://dtg037ckdn6k6"
->>>>>>> cri2
-path="res://.godot/imported/collezionabile_neutro.png-eb4d239a3b0986449f1ff6ce1e3f7d91.ctex"
+uid="uid://bvyimliey5oet"
+path="res://.godot/imported/ostacolo_muro_neutro.png-b296abf72878e69c403abb75fe1eb0c3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/powerups/collezionabile_neutro.png"
-dest_files=["res://.godot/imported/collezionabile_neutro.png-eb4d239a3b0986449f1ff6ce1e3f7d91.ctex"]
+source_file="res://sprites/obstacles/ostacolo_muro_neutro.png"
+dest_files=["res://.godot/imported/ostacolo_muro_neutro.png-b296abf72878e69c403abb75fe1eb0c3.ctex"]
 
 [params]
 
