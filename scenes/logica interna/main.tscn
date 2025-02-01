@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dtvl6ccqkkmhh"]
+[gd_scene load_steps=22 format=3 uid="uid://dtvl6ccqkkmhh"]
 
 [ext_resource type="PackedScene" uid="uid://c3sa7wipkeb6u" path="res://scenes/levels/level_4.tscn" id="1_1dpt0"]
 [ext_resource type="PackedScene" uid="uid://t1p57s6446hu" path="res://scenes/levels/livello_2.tscn" id="1_1vv6q"]
@@ -9,10 +9,12 @@
 [ext_resource type="Script" path="res://scripts/player_scripted_movement.gd" id="2_rb5kb"]
 [ext_resource type="Script" path="res://scripts/walls.gd" id="3_5q0w8"]
 [ext_resource type="Script" path="res://scripts/PlayerReplayResource.gd" id="3_6jqjj"]
+[ext_resource type="Script" path="res://scripts/camera_frame_friction.gd" id="11_hyga7"]
 [ext_resource type="PackedScene" uid="uid://2gifhoikbqvm" path="res://scenes/logica interna/gui.tscn" id="14_s0k0l"]
 [ext_resource type="PackedScene" uid="uid://djj1r7rdx5lv" path="res://scenes/logica interna/audio.tscn" id="14_v207r"]
 [ext_resource type="PackedScene" uid="uid://b42fulegw3yie" path="res://scenes/logica interna/bg.tscn" id="15_cnecu"]
 [ext_resource type="PackedScene" uid="uid://bjd51jnefxpxl" path="res://scenes/logica interna/pause_menu.tscn" id="16_c4wfa"]
+[ext_resource type="PackedScene" uid="uid://bc35a5v5yfiwi" path="res://scenes/drag and drop/speed_up.tscn" id="17_kb68a"]
 [ext_resource type="Script" path="res://scripts/automatic_resize_of_collision_shape_2d.gd" id="26_k135g"]
 [ext_resource type="Script" path="res://scripts/pause.gd" id="26_krq3q"]
 
@@ -28,6 +30,7 @@ var obstacles: Node2D
 
 @export var player : Player
 var CONFIG_PATH := \"user://config.tres\"
+@onready var ghost_player: Player = $GhostPlayer
 
 @export var test_mode := false
 func _ready() -> void:
@@ -74,6 +77,8 @@ func load_level(level_scene: PackedScene) -> void:
 		if child is UtilityChangeStats:
 			player.speed = child.player_initial_speed
 			player.camera_frame.speed = child.player_initial_speed
+			ghost_player.speed = child.player_initial_speed
+			ghost_player.camera_frame.speed = child.player_initial_speed
 	
 	obstacles.global_position = Vector2.ZERO
 
@@ -83,13 +88,17 @@ func load_current_level() -> void:
 
 func load_next_level() -> void:
 	var config : ConfigResource = load(CONFIG_PATH)
-	config.current_level += 1
-	ResourceSaver.save(config,CONFIG_PATH)
-	load_level(levels[config.current_level])
+	if config.current_level < len(levels):
+		config.current_level += 1
+		ResourceSaver.save(config,CONFIG_PATH)
+		load_level(levels[config.current_level])
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lpsvg"]
 size = Vector2(1457, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h87ec"]
+size = Vector2(59, 644)
 
 [sub_resource type="Resource" id="Resource_26i00"]
 script = ExtResource("3_6jqjj")
@@ -102,10 +111,7 @@ script = SubResource("GDScript_hpa0i")
 levels = Array[PackedScene]([ExtResource("1_ojs4v"), ExtResource("1_1vv6q"), ExtResource("1_1dpt0")])
 player = NodePath("Player")
 
-[node name="Level4" parent="." instance=ExtResource("1_1dpt0")]
-position = Vector2(7612.6, -2919.8)
-
-[node name="AutomaticResizeOfCollisionShape2D" type="Node" parent="Level4"]
+[node name="AutomaticResizeOfCollisionShape2D" type="Node" parent="."]
 script = ExtResource("26_k135g")
 
 [node name="Player" parent="." node_paths=PackedStringArray("camera_frame") instance=ExtResource("1_j2esc")]
@@ -117,9 +123,49 @@ continuous_cd = 1
 camera_frame = NodePath("../CameraFrame")
 speed = 500.0
 
-[node name="PlayerReplayRecorder" type="Node" parent="Player" node_paths=PackedStringArray("player")]
+[node name="PlayerReplayRecorder" type="Node" parent="Player" node_paths=PackedStringArray("player", "main")]
 script = ExtResource("2_kr3wk")
 player = NodePath("..")
+main = NodePath("../..")
+
+[node name="CameraFrame" type="RigidBody2D" parent="Player"]
+position = Vector2(721.242, 373.317)
+scale = Vector2(0.997568, 0.809797)
+collision_layer = 4
+collision_mask = 0
+gravity_scale = 0.0
+script = ExtResource("3_5q0w8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/CameraFrame"]
+position = Vector2(-1, -331)
+shape = SubResource("RectangleShape2D_lpsvg")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Player/CameraFrame"]
+position = Vector2(-0.5, 333)
+shape = SubResource("RectangleShape2D_lpsvg")
+
+[node name="Death" type="Area2D" parent="Player/CameraFrame"]
+position = Vector2(-605, -110)
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/CameraFrame/Death"]
+position = Vector2(-151, 110)
+shape = SubResource("RectangleShape2D_h87ec")
+debug_color = Color(0.523576, 0, 0.0876006, 0.42)
+
+[node name="Friction" type="Area2D" parent="Player/CameraFrame"]
+collision_layer = 0
+collision_mask = 32
+script = ExtResource("11_hyga7")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Player/CameraFrame/Friction"]
+position = Vector2(-1, -321)
+shape = SubResource("RectangleShape2D_lpsvg")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Player/CameraFrame/Friction"]
+position = Vector2(0, 328)
+shape = SubResource("RectangleShape2D_lpsvg")
 
 [node name="GhostPlayer" parent="." node_paths=PackedStringArray("camera_frame") instance=ExtResource("1_j2esc")]
 modulate = Color(1, 1, 1, 0.588235)
@@ -129,28 +175,12 @@ scale = Vector2(1.00077, 0.937648)
 collision_layer = 32
 lock_rotation = true
 continuous_cd = 1
-camera_frame = NodePath("CameraFrame2")
+camera_frame = NodePath("../Player/CameraFrame")
 speed_change = 100.0
 receive_input = false
 
 [node name="MakeTrail" parent="GhostPlayer" index="8"]
 scale_factor = 0.275
-
-[node name="CameraFrame2" type="RigidBody2D" parent="GhostPlayer"]
-position = Vector2(0, 7.46548)
-scale = Vector2(0.999231, 1.0665)
-collision_layer = 4
-collision_mask = 0
-gravity_scale = 0.0
-script = ExtResource("3_5q0w8")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GhostPlayer/CameraFrame2"]
-position = Vector2(-1, -331)
-shape = SubResource("RectangleShape2D_lpsvg")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="GhostPlayer/CameraFrame2"]
-position = Vector2(-0.5, 333)
-shape = SubResource("RectangleShape2D_lpsvg")
 
 [node name="PlayerAutoMovement" type="Node" parent="GhostPlayer" node_paths=PackedStringArray("player")]
 script = ExtResource("2_rb5kb")
@@ -173,7 +203,11 @@ script = ExtResource("26_krq3q")
 [node name="PauseMenu" parent="Graphics/Pause" instance=ExtResource("16_c4wfa")]
 visible = false
 
-[node name="Audio" parent="." instance=ExtResource("14_v207r")]
+[node name="Audio" parent="." node_paths=PackedStringArray("player") instance=ExtResource("14_v207r")]
+player = NodePath("../Player")
+
+[node name="SpeedUp" parent="." instance=ExtResource("17_kb68a")]
+position = Vector2(57.5308, -1.77802)
 
 [connection signal="pause" from="." to="Audio" method="_on_main_pause"]
 [connection signal="start" from="." to="Audio" method="_on_main_start"]

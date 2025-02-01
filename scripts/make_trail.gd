@@ -21,7 +21,7 @@ func _ready() -> void:
 		sprite_pool[i].modulate.a = alpha_channel
 		sprite_pool[i].scale *= scale_factor * player.sprite.scale.x #aggiungo scale del player perchè si adatti alla misura del player
 		sprite_pool[i].global_position = Vector2(0,-2000)
-		sprite_pool[i].z_index = -1 
+		sprite_pool[i].z_index = 100
 		player.get_parent().add_child(sprite_pool[i])
 
 var current_index := 0

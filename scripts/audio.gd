@@ -1,6 +1,6 @@
 extends Node
 
-
+@export var player: Player
 @onready var polarity_sd_death: AudioStreamPlayer = $PolaritySdDeath
 @onready var polarity_sd_pick_up: AudioStreamPlayer = $PolaritySdPickUp
 @onready var polarity_sd_press: AudioStreamPlayer = $PolaritySdPress
@@ -36,3 +36,9 @@ func _on_main_pause() -> void:
 	current_current_game_loop_pos = polarity_loop_game.get_playback_position()
 	polarity_loop_game.stop()
 	polarity_loop_menu.play()
+
+func _process(delta: float) -> void:
+	if player.is_speeded and not polarity_sd_boost.playing:
+		polarity_sd_boost.play()
+	elif not player.is_speeded and polarity_sd_boost.playing:
+		polarity_sd_boost.stop()

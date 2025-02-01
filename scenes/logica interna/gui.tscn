@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://2gifhoikbqvm"]
+[gd_scene load_steps=12 format=3 uid="uid://2gifhoikbqvm"]
 
 [ext_resource type="Script" path="res://scripts/gui.gd" id="1_xwr7w"]
 [ext_resource type="Texture2D" uid="uid://b3rjic51bwfaj" path="res://sprites/GUI/barra_vuota.png" id="2_0cvr2"]
@@ -8,6 +8,10 @@
 [ext_resource type="Texture2D" uid="uid://cxh6pfsxkvg2g" path="res://sprites/GUI/Time_Score_testo.png" id="6_fahuc"]
 [ext_resource type="Texture2D" uid="uid://cs5oharqm4f0l" path="res://sprites/powerups/collezionabile_neutro.png" id="7_cl1ix"]
 [ext_resource type="Script" path="res://scenes/logica interna/stop_watch.gd" id="8_555bh"]
+[ext_resource type="FontFile" uid="uid://nq66j02seeml" path="res://fonts/barcade/barcadenobarital.ttf" id="8_t2ncv"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_to6wb"]
+font = ExtResource("8_t2ncv")
 
 [sub_resource type="LabelSettings" id="LabelSettings_htt2y"]
 font_size = 24
@@ -122,6 +126,7 @@ offset_left = 215.0
 offset_top = 19.0
 offset_right = 255.0
 offset_bottom = 42.0
+label_settings = SubResource("LabelSettings_to6wb")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.5

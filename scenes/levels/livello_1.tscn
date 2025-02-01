@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://bxc4v0qrupul"]
+[gd_scene load_steps=27 format=3 uid="uid://bxc4v0qrupul"]
 
 [ext_resource type="Script" path="res://scripts/comp_electric_field.gd" id="1_dyaid"]
 [ext_resource type="Texture2D" uid="uid://dovui0kijg8bl" path="res://sprites/scrolling_top_negativo.png" id="2_jkudb"]
@@ -8,17 +8,18 @@
 [ext_resource type="PackedScene" uid="uid://b2ai3j1jj833s" path="res://scenes/drag and drop/rotating_pentagon.tscn" id="6_xg7yc"]
 [ext_resource type="PackedScene" uid="uid://bqaoq4ffmfh3u" path="res://scenes/drag and drop/power_down_1.tscn" id="7_cohwy"]
 [ext_resource type="PackedScene" uid="uid://djol6ngx1jeqc" path="res://scenes/drag and drop/power_up_1.tscn" id="8_0sdrm"]
-[ext_resource type="PackedScene" path="res://scenes/drag and drop/pavimento_positivo.tscn" id="9_xa3vr"]
+[ext_resource type="PackedScene" uid="uid://dmtsq06dhwhfs" path="res://scenes/drag and drop/pavimento_positivo.tscn" id="9_xa3vr"]
 [ext_resource type="PackedScene" uid="uid://dkdt81f6ar0l4" path="res://scenes/drag and drop/spikes.tscn" id="10_0thf4"]
 [ext_resource type="PackedScene" uid="uid://blx6o0gojhtl2" path="res://scenes/drag and drop/coin.tscn" id="11_qiust"]
 [ext_resource type="PackedScene" uid="uid://cqevg1xr3srrp" path="res://scenes/drag and drop/coin_with_hint.tscn" id="12_7u842"]
 [ext_resource type="Texture2D" uid="uid://bvyimliey5oet" path="res://sprites/obstacles/ostacolo_muro_neutro.png" id="13_ja2rs"]
 [ext_resource type="PackedScene" uid="uid://beqw216yfjdku" path="res://scenes/drag and drop/soffitto_negativo.tscn" id="14_7ppc0"]
-[ext_resource type="PackedScene" path="res://scenes/drag and drop/pavimento_negativo.tscn" id="15_6h211"]
+[ext_resource type="PackedScene" uid="uid://bwxq2j853y6n" path="res://scenes/drag and drop/pavimento_negativo.tscn" id="15_6h211"]
 [ext_resource type="PackedScene" uid="uid://cgfmhp0vedln5" path="res://scenes/drag and drop/rotating_quadrato.tscn" id="16_gmqg4"]
 [ext_resource type="Texture2D" uid="uid://cbq0fk4a3lg16" path="res://sprites/obstacles/ostacolo_muro_positivo.png" id="17_e5e42"]
 [ext_resource type="PackedScene" uid="uid://bc35a5v5yfiwi" path="res://scenes/drag and drop/speed_up.tscn" id="18_xl2ad"]
 [ext_resource type="PackedScene" uid="uid://b17qgyay4odfp" path="res://scenes/drag and drop/traguardo.tscn" id="19_2jgso"]
+[ext_resource type="Script" path="res://scripts/change_stats.gd" id="20_qky13"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tjnit"]
 size = Vector2(283.019, 904.76)
@@ -38,7 +39,7 @@ size = Vector2(193.262, 552.594)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lnxho"]
 size = Vector2(386.316, 964.858)
 
-[node name="Node2D" type="Node2D"]
+[node name="Livello1" type="Node2D"]
 
 [node name="Obstacles" type="Node2D" parent="."]
 position = Vector2(2022, 467)
@@ -418,3 +419,6 @@ position = Vector2(8224, -445)
 
 [node name="Traguardo" parent="." instance=ExtResource("19_2jgso")]
 position = Vector2(18950, 355)
+
+[node name="UtilityChangeStats" type="Node" parent="."]
+script = ExtResource("20_qky13")

@@ -5,11 +5,18 @@ signal polarity_changed
 signal gained_coin
 signal victory
 
+
 @export var camera_frame : CameraFrame
 @export var charge := +30.0
 @export var speed := 100.0:
 	set(value):
-		speed = value
+		if speed > 1500 and value < speed:
+			speed = 1500 - (speed - value)
+		else:
+			speed = value
+		
+		if value > 1500 and not is_speeded:
+			is_speeded = true
 		speed_changed.emit(speed)
 
 var speed_bonus := 0.0
@@ -55,6 +62,7 @@ func switch_polarity() -> void:
 	sprite.texture = get_current_texture()
 	polarity_changed.emit()
 
+
 func get_current_texture() -> Texture:
 	if is_speeded:
 		animated_sprite_2d.show()
@@ -65,8 +73,10 @@ func get_current_texture() -> Texture:
 		return positive_texture if charge > 0 else negative_texture
 
 
-func _on_death_detection_area_entered(_area: Area2D) -> void:
-	die()
+func _on_death_detection_area_entered(area: Area2D) -> void:
+	if area == camera_frame.death:
+		die()
+	
 	#get_tree().change_scene_to_file("res://scenes/game_over.tscn")
 
 

@@ -1,6 +1,7 @@
 class_name CameraFrame extends RigidBody2D
 
 @export var player: Player
+@onready var death: Area2D = $Death
 
 var speed := 1.0
 var active := true

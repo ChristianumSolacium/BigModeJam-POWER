@@ -14,7 +14,7 @@ func _ready() -> void:
 	var ch_sprite := Sprite2D.new()
 	ch_sprite.texture = sprite.texture
 	ch.add_child(ch_sprite)
-	ch_sprite.scale *= 0.6
+	ch_sprite.scale = sprite.scale * 0.6
 
 
 func _on_body_entered(body: Node2D) -> void:
