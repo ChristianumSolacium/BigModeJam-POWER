@@ -3,6 +3,7 @@ signal death
 signal speed_changed(new_value:float)
 signal polarity_changed
 signal gained_coin
+signal victory
 
 @export var camera_frame : CameraFrame
 @export var charge := +30.0
@@ -14,7 +15,9 @@ signal gained_coin
 var speed_bonus := 0.0
 ## regola come cambia la velocità del giocatore stando in un campo elettrico
 @export var speed_change := 10.0
+
 @export var charge_multiplier := 1.0
+
 @export var receive_input := true
 @export_category("Resources ")
 @export var positive_texture : Texture
@@ -75,13 +78,12 @@ func die():
 	animated_sprite_2d.play("morte")
 
 
+
 func charge_up(value:float) -> void:
 	if not active:
 		return
 	speed += speed_change * value
 	camera_frame.speed = speed
-<<<<<<< Updated upstream
-=======
 
 
 func _on_victory() -> void:
@@ -92,4 +94,3 @@ func speed_up():
 		is_speeded = false
 	else:
 		is_speeded = true
->>>>>>> Stashed changes

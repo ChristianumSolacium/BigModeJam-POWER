@@ -1,30 +1,15 @@
-[gd_scene load_steps=35 format=3 uid="uid://dtvl6ccqkkmhh"]
+[gd_scene load_steps=16 format=3 uid="uid://dtvl6ccqkkmhh"]
 
+[ext_resource type="PackedScene" uid="uid://c3sa7wipkeb6u" path="res://scenes/levels/level_4.tscn" id="1_1dpt0"]
 [ext_resource type="PackedScene" uid="uid://b5d1qj4ck34vx" path="res://scenes/logica interna/player.tscn" id="1_j2esc"]
 [ext_resource type="Script" path="res://scripts/player_replay_recording.gd" id="2_kr3wk"]
 [ext_resource type="PackedScene" uid="uid://blocss3wbhbps" path="res://scenes/logica interna/camera_frame.tscn" id="2_lfbie"]
 [ext_resource type="Script" path="res://scripts/player_scripted_movement.gd" id="2_rb5kb"]
 [ext_resource type="Script" path="res://scripts/walls.gd" id="3_5q0w8"]
 [ext_resource type="Script" path="res://scripts/PlayerReplayResource.gd" id="3_6jqjj"]
-[ext_resource type="Script" path="res://scripts/comp_electric_field.gd" id="6_0cff5"]
-[ext_resource type="PackedScene" uid="uid://dcc1awfddemkf" path="res://scenes/drag and drop/ostacolo_neutro.tscn" id="7_xjsuf"]
-[ext_resource type="Texture2D" uid="uid://dovui0kijg8bl" path="res://sprites/scrolling_top_negativo.png" id="9_pxql2"]
-[ext_resource type="Texture2D" uid="uid://b8gsqn46pc8en" path="res://sprites/obstacles/ostacolo_pentagono_negativo.png" id="10_hgwdg"]
-[ext_resource type="PackedScene" uid="uid://bsth1tcugpx3t" path="res://scenes/drag and drop/move_forward.tscn" id="11_bpayv"]
-[ext_resource type="Script" path="res://scripts/rotating_sprite.gd" id="11_vqm76"]
-[ext_resource type="Texture2D" uid="uid://bukfrombmlsnt" path="res://sprites/campo_magnetico_negativo.png" id="12_gu8d2"]
-[ext_resource type="Texture2D" uid="uid://bklibx4d3xhpo" path="res://sprites/obstacles/spikes.png" id="13_bx42y"]
-[ext_resource type="PackedScene" uid="uid://bc35a5v5yfiwi" path="res://scenes/drag and drop/speed_up.tscn" id="14_kv70k"]
 [ext_resource type="PackedScene" uid="uid://2gifhoikbqvm" path="res://scenes/logica interna/gui.tscn" id="14_s0k0l"]
 [ext_resource type="PackedScene" uid="uid://b42fulegw3yie" path="res://scenes/logica interna/bg.tscn" id="15_cnecu"]
-[ext_resource type="PackedScene" uid="uid://beqw216yfjdku" path="res://scenes/drag and drop/soffitto_negativo.tscn" id="15_qgyuo"]
-[ext_resource type="PackedScene" uid="uid://dkdt81f6ar0l4" path="res://scenes/drag and drop/spikes.tscn" id="16_0nmmt"]
-[ext_resource type="PackedScene" uid="uid://ch7qmr7xdpo1u" path="res://scenes/drag and drop/soffitto_positivo.tscn" id="16_3ygh8"]
 [ext_resource type="PackedScene" uid="uid://bjd51jnefxpxl" path="res://scenes/logica interna/pause_menu.tscn" id="16_c4wfa"]
-[ext_resource type="PackedScene" uid="uid://sgj0kom5nodl" path="res://scenes/drag and drop/phantom_mode.tscn" id="18_e1svr"]
-[ext_resource type="PackedScene" uid="uid://blx6o0gojhtl2" path="res://scenes/drag and drop/coin.tscn" id="18_quyck"]
-[ext_resource type="PackedScene" uid="uid://defl7ujhpyiyx" path="res://scenes/drag and drop/doppio_campo_elettrico_negativo.tscn" id="19_q5fh5"]
-[ext_resource type="PackedScene" uid="uid://cqevg1xr3srrp" path="res://scenes/drag and drop/coin_with_hint.tscn" id="22_j0r6l"]
 [ext_resource type="Script" path="res://scripts/automatic_resize_of_collision_shape_2d.gd" id="26_k135g"]
 [ext_resource type="Script" path="res://scripts/pause.gd" id="26_krq3q"]
 
@@ -32,7 +17,9 @@
 script/source = "extends Node2D
 
 @onready var pause_menu = $Graphics/Pause/PauseMenu
-@onready var obstacles: Node2D = $Obstacles
+@export var obstacles: Node2D 
+@export var levels :Array[PackedScene]
+var current_level := 0
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed(\"pause\"):
@@ -50,6 +37,14 @@ func toggle_pause():
 
 func _on_player_death() -> void:
 	obstacles.hide()
+
+
+func load_level(level_scene: PackedScene) -> void:
+	if obstacles != null:
+		remove_child(obstacles)
+	
+	obstacles = level_scene.instantiate()
+	add_child(obstacles)
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lpsvg"]
@@ -59,27 +54,21 @@ size = Vector2(1457, 20)
 script = ExtResource("3_6jqjj")
 timestamp = Array[float]([0.454, 1.55, 1.816, 2.032, 2.249, 2.472, 2.661, 2.824, 3.158, 3.341, 3.507, 3.673, 3.84, 4.056, 4.222, 4.386, 4.57, 4.754, 4.853, 4.903, 5.135, 6.966, 7.524, 10.859, 11.282, 11.666, 13.531, 14.129])
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_t64b4"]
-size = Vector2(193.262, 632.297)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ksa0w"]
-size = Vector2(386.316, 964.858)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_iid6r"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_v5k02"]
-size = Vector2(40.3123, 129.787)
-
-[node name="Main" type="Node2D"]
+[node name="Main" type="Node2D" node_paths=PackedStringArray("obstacles")]
 process_mode = 1
+scale = Vector2(1.00177, 1)
 script = SubResource("GDScript_hpa0i")
+obstacles = NodePath("Level4")
 
-[node name="AutomaticResizeOfCollisionShape2D" type="Node" parent="."]
+[node name="Level4" parent="." instance=ExtResource("1_1dpt0")]
+position = Vector2(7612.6, -2919.8)
+
+[node name="AutomaticResizeOfCollisionShape2D" type="Node" parent="Level4"]
 script = ExtResource("26_k135g")
 
 [node name="Player" parent="." node_paths=PackedStringArray("camera_frame") instance=ExtResource("1_j2esc")]
 position = Vector2(723, 454)
-scale = Vector2(1.00077, 0.937648)
+scale = Vector2(1.00321, 1.15788)
 collision_layer = 32
 lock_rotation = true
 continuous_cd = 1
@@ -129,280 +118,6 @@ player = NodePath("..")
 [node name="CameraFrame" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_lfbie")]
 player = NodePath("../Player")
 
-[node name="Obstacles" type="Node2D" parent="."]
-position = Vector2(2000, 461)
-
-[node name="FirstSection" type="Node2D" parent="Obstacles"]
-position = Vector2(970.111, -20.2222)
-
-[node name="Obstacle0" type="RigidBody2D" parent="Obstacles/FirstSection"]
-position = Vector2(306.889, -124.778)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/FirstSection/Obstacle0"]
-position = Vector2(-1304, -346)
-shape = SubResource("RectangleShape2D_t64b4")
-
-[node name="OstacoloNeutro" parent="Obstacles/FirstSection" instance=ExtResource("7_xjsuf")]
-
-[node name="RigidBody2D2" type="RigidBody2D" parent="Obstacles/FirstSection"]
-position = Vector2(692.889, 196.222)
-
-[node name="RigidBody2D4" type="RigidBody2D" parent="Obstacles/FirstSection"]
-position = Vector2(91.8889, 395.222)
-rotation = -3.14051
-
-[node name="CompElectricFied" type="Area2D" parent="Obstacles/FirstSection/RigidBody2D4"]
-position = Vector2(-44.7011, 276.049)
-collision_layer = 0
-collision_mask = 32
-script = ExtResource("6_0cff5")
-force = 100.0
-exponent = 1.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/FirstSection/RigidBody2D4/CompElectricFied"]
-position = Vector2(44.4084, 85.9663)
-shape = SubResource("RectangleShape2D_ksa0w")
-debug_color = Color(1, 1, 0, 0.2)
-
-[node name="ScrollingTopNegativo2" type="Sprite2D" parent="Obstacles/FirstSection"]
-position = Vector2(93.8889, 414.222)
-rotation = -0.00763798
-scale = Vector2(0.148055, -1.00909)
-texture = ExtResource("9_pxql2")
-
-[node name="RotatingPentagon" type="RigidBody2D" parent="Obstacles/FirstSection"]
-position = Vector2(-970.111, 20.2222)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/FirstSection/RotatingPentagon"]
-position = Vector2(1, 94)
-scale = Vector2(6.93885, 6.77935)
-shape = SubResource("CircleShape2D_iid6r")
-
-[node name="OstacoloPentagonoNegativo" type="Sprite2D" parent="Obstacles/FirstSection/RotatingPentagon"]
-position = Vector2(6, 118)
-rotation = 7503.39
-scale = Vector2(0.5, 0.514389)
-texture = ExtResource("10_hgwdg")
-offset = Vector2(0, 7.77622)
-
-[node name="CompRotate" type="Node" parent="Obstacles/FirstSection/RotatingPentagon/OstacoloPentagonoNegativo"]
-script = ExtResource("11_vqm76")
-
-[node name="CampoMagneticoNegativo" type="Sprite2D" parent="Obstacles/FirstSection"]
-position = Vector2(89.8889, -84.7778)
-scale = Vector2(0.337597, 0.790787)
-texture = ExtResource("12_gu8d2")
-
-[node name="Spikes" type="Sprite2D" parent="Obstacles/FirstSection"]
-position = Vector2(-989.111, -237.778)
-scale = Vector2(0.56721, 0.51389)
-texture = ExtResource("13_bx42y")
-
-[node name="MoveForward" parent="Obstacles/FirstSection" instance=ExtResource("11_bpayv")]
-position = Vector2(460.889, 218.222)
-scale = Vector2(1.00077, 0.937648)
-
-[node name="SpeedUp" parent="Obstacles/FirstSection" instance=ExtResource("14_kv70k")]
-position = Vector2(-2930.11, -442.778)
-speed_up_per_100_unit = 10.0
-
-[node name="Node2D" type="Node2D" parent="Obstacles/FirstSection"]
-
-[node name="Soffitto Negativo" parent="Obstacles/FirstSection/Node2D" instance=ExtResource("15_qgyuo")]
-position = Vector2(-220.111, -341.778)
-
-[node name="Soffitto Positivo" parent="Obstacles/FirstSection/Node2D" instance=ExtResource("16_3ygh8")]
-position = Vector2(-588.111, -294.778)
-
-[node name="Soffitto Positivo2" parent="Obstacles/FirstSection/Node2D" instance=ExtResource("16_3ygh8")]
-position = Vector2(1870.89, -218.778)
-
-[node name="MoveForward2" parent="Obstacles/FirstSection" instance=ExtResource("18_e1svr")]
-position = Vector2(-1759.11, -187.778)
-
-[node name="SecondSection" type="Node2D" parent="Obstacles"]
-position = Vector2(2660.75, 181.833)
-
-[node name="RigidBody2D8" type="RigidBody2D" parent="Obstacles/SecondSection"]
-position = Vector2(926.25, 222.167)
-rotation = -3.14051
-
-[node name="CompElectricFied" type="Area2D" parent="Obstacles/SecondSection/RigidBody2D8"]
-position = Vector2(-13, 292)
-collision_layer = 0
-collision_mask = 32
-script = ExtResource("6_0cff5")
-force = 100.0
-exponent = 1.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/SecondSection/RigidBody2D8/CompElectricFied"]
-position = Vector2(44.4084, 85.9663)
-shape = SubResource("RectangleShape2D_ksa0w")
-debug_color = Color(1, 1, 0, 0.2)
-
-[node name="RigidBody2D6" type="RigidBody2D" parent="Obstacles/SecondSection"]
-position = Vector2(-598.75, 135.167)
-rotation = -3.14051
-
-[node name="CompElectricFied" type="Area2D" parent="Obstacles/SecondSection/RigidBody2D6"]
-position = Vector2(4.37024, 341.995)
-collision_layer = 0
-collision_mask = 32
-script = ExtResource("6_0cff5")
-force = 100.0
-exponent = 1.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/SecondSection/RigidBody2D6/CompElectricFied"]
-shape = SubResource("RectangleShape2D_ksa0w")
-debug_color = Color(1, 1, 0, 0.2)
-
-[node name="DoubleElectricField" parent="Obstacles/SecondSection" instance=ExtResource("19_q5fh5")]
-position = Vector2(-205.75, -124.833)
-
-[node name="ScrollingTopNegativo3" type="Sprite2D" parent="Obstacles/SecondSection"]
-position = Vector2(-601.75, 225.167)
-rotation = 0.00183407
-scale = Vector2(0.148055, -1.00909)
-texture = ExtResource("9_pxql2")
-
-[node name="CampoMagneticoNegativo2" type="Sprite2D" parent="Obstacles/SecondSection"]
-position = Vector2(-600.75, -281.833)
-scale = Vector2(0.337597, 0.790787)
-texture = ExtResource("12_gu8d2")
-
-[node name="CampoMagneticoNegativo4" type="Sprite2D" parent="Obstacles/SecondSection"]
-position = Vector2(900.25, -279.833)
-scale = Vector2(0.337597, 0.790787)
-texture = ExtResource("12_gu8d2")
-
-[node name="CampoMagneticoNegativo5" type="Sprite2D" parent="Obstacles/SecondSection"]
-position = Vector2(2560.25, -513.833)
-scale = Vector2(0.337597, 0.790787)
-texture = ExtResource("12_gu8d2")
-
-[node name="CampoMagneticoNegativo6" type="Sprite2D" parent="Obstacles/SecondSection"]
-position = Vector2(2560.25, 405.167)
-rotation = 3.14159
-scale = Vector2(0.337597, 0.790787)
-texture = ExtResource("12_gu8d2")
-
-[node name="CampoMagneticoNegativo7" type="Sprite2D" parent="Obstacles/SecondSection"]
-position = Vector2(2042.25, -87.833)
-rotation = 3.14159
-scale = Vector2(0.337597, 0.790787)
-texture = ExtResource("12_gu8d2")
-
-[node name="CampoMagneticoNegativo8" type="Sprite2D" parent="Obstacles/SecondSection"]
-position = Vector2(1421.25, -86.833)
-rotation = 3.14159
-scale = Vector2(0.337597, 0.790787)
-texture = ExtResource("12_gu8d2")
-
-[node name="ScrollingTopNegativo5" type="Sprite2D" parent="Obstacles/SecondSection"]
-position = Vector2(898.25, 225.167)
-rotation = 0.00183407
-scale = Vector2(0.148055, -1.00909)
-texture = ExtResource("9_pxql2")
-
-[node name="ThirdSection" type="Node2D" parent="Obstacles"]
-position = Vector2(4377.43, -210.143)
-
-[node name="Obstacle2" type="RigidBody2D" parent="Obstacles/ThirdSection"]
-position = Vector2(809.57, 355.143)
-
-[node name="CompElectricField" type="Area2D" parent="Obstacles/ThirdSection/Obstacle2"]
-position = Vector2(-103, 39)
-collision_mask = 32
-script = ExtResource("6_0cff5")
-exponent = 1.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/ThirdSection/Obstacle2/CompElectricField"]
-position = Vector2(143, -257.999)
-rotation = -3.14159
-scale = Vector2(9.03922, -6.45671)
-shape = SubResource("RectangleShape2D_v5k02")
-debug_color = Color(1, 1, 0, 0.2)
-
-[node name="RigidBody2D9" type="RigidBody2D" parent="Obstacles/ThirdSection"]
-position = Vector2(-326.429, -173.857)
-
-[node name="CompElectricFied" type="Area2D" parent="Obstacles/ThirdSection/RigidBody2D9"]
-position = Vector2(-13, 292)
-collision_layer = 0
-collision_mask = 32
-script = ExtResource("6_0cff5")
-force = 100.0
-exponent = 1.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/ThirdSection/RigidBody2D9/CompElectricFied"]
-position = Vector2(44.4084, 85.9663)
-shape = SubResource("RectangleShape2D_ksa0w")
-debug_color = Color(1, 1, 0, 0.2)
-
-[node name="RigidBody2D10" type="RigidBody2D" parent="Obstacles/ThirdSection"]
-position = Vector2(301.571, -213.857)
-rotation = 0.0319055
-
-[node name="CompElectricFied" type="Area2D" parent="Obstacles/ThirdSection/RigidBody2D10"]
-position = Vector2(-13, 292)
-collision_layer = 0
-collision_mask = 32
-script = ExtResource("6_0cff5")
-force = 100.0
-exponent = 1.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/ThirdSection/RigidBody2D10/CompElectricFied"]
-position = Vector2(44.4084, 85.9663)
-shape = SubResource("RectangleShape2D_ksa0w")
-debug_color = Color(1, 1, 0, 0.2)
-
-[node name="RigidBody2D11" type="RigidBody2D" parent="Obstacles/ThirdSection"]
-position = Vector2(301.571, -213.857)
-rotation = 0.0319055
-
-[node name="CompElectricFied" type="Area2D" parent="Obstacles/ThirdSection/RigidBody2D11"]
-position = Vector2(-13, 292)
-collision_layer = 0
-collision_mask = 32
-script = ExtResource("6_0cff5")
-force = 100.0
-exponent = 1.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/ThirdSection/RigidBody2D11/CompElectricFied"]
-position = Vector2(44.4084, 85.9663)
-shape = SubResource("RectangleShape2D_ksa0w")
-debug_color = Color(1, 1, 0, 0.2)
-
-[node name="ScrollingTopNegativo6" type="Sprite2D" parent="Obstacles/ThirdSection"]
-position = Vector2(-304.429, -196.857)
-rotation = 3.14159
-scale = Vector2(0.147623, -1.05001)
-texture = ExtResource("9_pxql2")
-
-[node name="ScrollingTopNegativo7" type="Sprite2D" parent="Obstacles/ThirdSection"]
-position = Vector2(328.571, -196.857)
-rotation = 3.14159
-scale = Vector2(0.147623, -1.05001)
-texture = ExtResource("9_pxql2")
-
-[node name="Spikes" parent="Obstacles" instance=ExtResource("16_0nmmt")]
-position = Vector2(5016, 145)
-
-[node name="Spikes2" parent="Obstacles" instance=ExtResource("16_0nmmt")]
-position = Vector2(5410, 145)
-
-[node name="Coin" parent="Obstacles" instance=ExtResource("18_quyck")]
-scale = Vector2(1, 0.907272)
-
-[node name="Coin2" parent="Obstacles" instance=ExtResource("22_j0r6l")]
-position = Vector2(1465, 26)
-
-[node name="Coin3" parent="Obstacles" instance=ExtResource("22_j0r6l")]
-position = Vector2(1283, -208)
-
-[node name="Coin4" parent="Obstacles" instance=ExtResource("22_j0r6l")]
-position = Vector2(-1187, -16)
-
 [node name="Graphics" type="Node" parent="."]
 
 [node name="GUI" parent="Graphics" instance=ExtResource("14_s0k0l")]
@@ -420,5 +135,6 @@ visible = false
 [connection signal="death" from="Player" to="Graphics/GUI" method="_on_player_death"]
 [connection signal="gained_coin" from="Player" to="Graphics/GUI" method="update_coins"]
 [connection signal="speed_changed" from="Player" to="Graphics/GUI" method="_on_player_speed_changed"]
+[connection signal="victory" from="Player" to="Graphics/GUI" method="_on_player_victory"]
 
 [editable path="GhostPlayer"]
