@@ -14,7 +14,7 @@ func _ready() -> void:
 			has_sprite_child = true
 		elif child is CollisionShape2D:
 			has_collision_shape = true
-	assert(has_sprite_child,"I nodi CompHint devono avere come figlio uno Sprite2D")
+	
 	#endregion
 	
 	if not has_collision_shape:

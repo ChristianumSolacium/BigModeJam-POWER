@@ -28,15 +28,17 @@ var obstacles: Node2D
 @export var player : Player
 var CONFIG_PATH := \"user://config.tres\"
 
+@export var test_mode := false
 func _ready() -> void:
 	start.emit()
-	var config : ConfigResource = load(CONFIG_PATH)
-	if config != null:
-		load_current_level()
-	else:
-		config = ConfigResource.new()
-		config.current_level = 0
-		ResourceSaver.save(config,CONFIG_PATH)
+	if not (OS.has_feature(\"editor\") and test_mode):
+		var config : ConfigResource = load(CONFIG_PATH)
+		if config != null:
+			load_current_level()
+		else:
+			config = ConfigResource.new()
+			config.current_level = 0
+			ResourceSaver.save(config,CONFIG_PATH)
 		
 		
 func _input(event: InputEvent) -> void:

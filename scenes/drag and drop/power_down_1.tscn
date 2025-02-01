@@ -1,12 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://bmj7og23ef53v"]
+[gd_scene load_steps=4 format=3 uid="uid://bqaoq4ffmfh3u"]
 
 [ext_resource type="Texture2D" uid="uid://cnx7k4njc7t0q" path="res://sprites/powerups/power_down_neutro.png" id="1_k8unw"]
+[ext_resource type="Script" path="res://scripts/power_up.gd" id="1_kb0dd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_huc14"]
 size = Vector2(57, 90)
 
-[node name="PowerDown" type="Area2D"]
+[node name="PowerDown" type="Area2D" node_paths=PackedStringArray("sprite")]
 position = Vector2(-1470.11, 130.222)
+script = ExtResource("1_kb0dd")
+power_bonus = -200.0
+sprite = NodePath("Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(14.6937, 61)

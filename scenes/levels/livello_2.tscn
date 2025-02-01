@@ -15,7 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://btet2n04y6v3" path="res://sprites/obstacles/ostacolo_quadrato_neutro.webp" id="13_877vf"]
 [ext_resource type="PackedScene" uid="uid://bc35a5v5yfiwi" path="res://scenes/drag and drop/speed_up.tscn" id="14_uocn8"]
 [ext_resource type="PackedScene" uid="uid://dkdt81f6ar0l4" path="res://scenes/drag and drop/spikes.tscn" id="15_gsbpu"]
-[ext_resource type="PackedScene" path="res://scenes/drag and drop/power_down_1.tscn" id="18_bfvcl"]
+[ext_resource type="PackedScene" uid="uid://bqaoq4ffmfh3u" path="res://scenes/drag and drop/power_down_1.tscn" id="18_bfvcl"]
 [ext_resource type="PackedScene" uid="uid://bsth1tcugpx3t" path="res://scenes/drag and drop/move_forward.tscn" id="20_i2xyk"]
 [ext_resource type="PackedScene" uid="uid://b17qgyay4odfp" path="res://scenes/drag and drop/traguardo.tscn" id="20_mosjq"]
 [ext_resource type="PackedScene" uid="uid://blx6o0gojhtl2" path="res://scenes/drag and drop/coin.tscn" id="20_p2x3q"]
