@@ -3,6 +3,7 @@ extends CanvasLayer
 @export var charge_bar : Range
 @export var speed_label : Label
 @export var coin_labels : Label
+@export var stop_watch : Label
 @onready var timer: Timer = $Timer
 
 const GAME_OVER_FRAME_0 = preload("res://sprites/GUI/Game Over_frame0.png")
@@ -14,12 +15,11 @@ func game_over() -> void:
 
 func _on_player_death() -> void: #TEMP
 	game_over()
-
+	$StopWatch.stop()
 
 func _on_player_speed_changed(new_value: float) -> void:
 	charge_bar.value = new_value
 	speed_label.text = str(new_value)
-
 
 
 func _on_timer_timeout() -> void:

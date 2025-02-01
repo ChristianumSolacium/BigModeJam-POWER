@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://2gifhoikbqvm"]
+[gd_scene load_steps=10 format=3 uid="uid://2gifhoikbqvm"]
 
 [ext_resource type="Script" path="res://scripts/gui.gd" id="1_xwr7w"]
 [ext_resource type="Texture2D" uid="uid://b3rjic51bwfaj" path="res://sprites/GUI/barra_vuota.png" id="2_0cvr2"]
@@ -8,17 +8,19 @@
 [ext_resource type="Texture2D" uid="uid://cxh6pfsxkvg2g" path="res://sprites/GUI/Time_Score_testo.png" id="6_fahuc"]
 
 [ext_resource type="Texture2D" uid="uid://dtg037ckdn6k6" path="res://sprites/powerups/collezionabile_neutro.png" id="7_cl1ix"]
+[ext_resource type="Script" path="res://scenes/logica interna/stop_watch.gd" id="8_555bh"]
 
 
 [sub_resource type="LabelSettings" id="LabelSettings_htt2y"]
 font_size = 24
 
-[node name="GUI" type="CanvasLayer" node_paths=PackedStringArray("game_over_phrase", "charge_bar", "speed_label", "coin_labels")]
+[node name="GUI" type="CanvasLayer" node_paths=PackedStringArray("game_over_phrase", "charge_bar", "speed_label", "coin_labels", "stop_watch")]
 script = ExtResource("1_xwr7w")
 game_over_phrase = NodePath("Control/GameOver")
 charge_bar = NodePath("Control/ProgressBar")
 speed_label = NodePath("SpeedLabel")
 coin_labels = NodePath("Control/Coins")
+stop_watch = NodePath("StopWatch")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -110,7 +112,7 @@ offset_bottom = 42.0
 wait_time = 0.5
 autostart = true
 
-[node name="Label" type="Label" parent="."]
+[node name="FastRestart" type="Label" parent="."]
 offset_left = 989.0
 offset_top = 602.0
 offset_right = 1110.0
@@ -118,5 +120,17 @@ offset_bottom = 636.0
 text = "R (Restart)"
 label_settings = SubResource("LabelSettings_htt2y")
 horizontal_alignment = 1
+
+[node name="StopWatch" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -34.0
+offset_right = 84.0
+offset_bottom = 33.0
+grow_horizontal = 2
+text = "00:00:00"
+vertical_alignment = 1
+script = ExtResource("8_555bh")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
