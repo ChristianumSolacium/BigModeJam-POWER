@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://b5d1qj4ck34vx"]
+[gd_scene load_steps=28 format=3 uid="uid://b5d1qj4ck34vx"]
 
 [ext_resource type="Script" path="res://scripts/character.gd" id="1_xb4qr"]
 [ext_resource type="Texture2D" uid="uid://b5h5ydimx7cuk" path="res://sprites/soggetto giocante/soggetto_giocante_positivo.png" id="2_86eqf"]
@@ -15,13 +15,12 @@
 [ext_resource type="Texture2D" uid="uid://cdosaaoq5u22h" path="res://sprites/soggetto giocante/animazione_morte/soggetto giocante_death_animation_frame8.png" id="13_svxco"]
 [ext_resource type="Texture2D" uid="uid://be7mb6ncbt3a3" path="res://sprites/soggetto giocante/animazione_morte/soggetto giocante_death_animation_frame9.png" id="14_bykvj"]
 [ext_resource type="Texture2D" uid="uid://buoyh76767y04" path="res://sprites/soggetto giocante/animazione_morte/void_frame.png" id="15_th002"]
+[ext_resource type="Texture2D" uid="uid://dkhrm2ua3flg6" path="res://sprites/soggetto giocante/boost/soggetto_giocante_boost_negativo.png" id="16_nrs0u"]
 [ext_resource type="Script" path="res://scripts/make_trail.gd" id="16_s03qd"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_yfmtu"]
-radius = 11.7368
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_rjdrd"]
-radius = 34.0
+[ext_resource type="Texture2D" uid="uid://82yayhcry8an" path="res://sprites/soggetto giocante/boost/boost_frame_1.png" id="17_3x8n8"]
+[ext_resource type="Texture2D" uid="uid://bbvjoaisvwijp" path="res://sprites/soggetto giocante/boost/boost_frame_2.png" id="18_0vm8s"]
+[ext_resource type="Texture2D" uid="uid://drtli2mumgsu7" path="res://sprites/soggetto giocante/boost/soggetto_giocante_boost_positivo.png" id="18_4kyqv"]
+[ext_resource type="Texture2D" uid="uid://cv0hb0i0foyg6" path="res://sprites/soggetto giocante/boost/boost_frame_3.png" id="19_bh0pp"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_dnd73"]
 animations = [{
@@ -67,7 +66,41 @@ animations = [{
 "loop": false,
 "name": &"morte",
 "speed": 17.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("17_3x8n8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_0vm8s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_bh0pp")
+}],
+"loop": true,
+"name": &"speed_up_tail",
+"speed": 5.0
 }]
+
+[sub_resource type="Animation" id="Animation_vp1g4"]
+resource_name = "speed"
+length = 0.8
+loop_mode = 2
+
+[sub_resource type="Animation" id="Animation_mv64c"]
+length = 0.001
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0kpj0"]
+_data = {
+"RESET": SubResource("Animation_mv64c"),
+"speed": SubResource("Animation_vp1g4")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yfmtu"]
+radius = 11.7368
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rjdrd"]
+radius = 34.0
 
 [node name="Player" type="RigidBody2D"]
 collision_mask = 5
@@ -76,6 +109,37 @@ charge = 702.91
 speed = 300.0
 positive_texture = ExtResource("2_rbl1i")
 negative_texture = ExtResource("3_je1oo")
+speeded_positive_texture = ExtResource("18_4kyqv")
+speeded_negative_texture = ExtResource("16_nrs0u")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-68, 2)
+scale = Vector2(0.40655, 0.371644)
+sprite_frames = SubResource("SpriteFrames_dnd73")
+
+[node name="boost_1" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-67, 3)
+scale = Vector2(0.481424, 0.361907)
+texture = ExtResource("17_3x8n8")
+
+[node name="boost_2" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-67, 3)
+scale = Vector2(0.481424, 0.361907)
+texture = ExtResource("18_0vm8s")
+
+[node name="boost_3" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-67, 3)
+scale = Vector2(0.481424, 0.361907)
+texture = ExtResource("19_bh0pp")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_0kpj0")
+}
+speed_scale = 5.0
 
 [node name="Sprite" type="Sprite2D" parent="."]
 position = Vector2(0, -3)
@@ -96,13 +160,6 @@ debug_color = Color(0.98583, 0, 0.329826, 0.42)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -3)
 shape = SubResource("CircleShape2D_rjdrd")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.435391, 0.419177)
-sprite_frames = SubResource("SpriteFrames_dnd73")
-animation = &"morte"
-frame = 10
-frame_progress = 1.0
 
 [node name="MakeTrail" type="Node2D" parent="." node_paths=PackedStringArray("player")]
 script = ExtResource("16_s03qd")

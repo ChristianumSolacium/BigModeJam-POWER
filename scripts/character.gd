@@ -19,12 +19,16 @@ var speed_bonus := 0.0
 @export_category("Resources ")
 @export var positive_texture : Texture
 @export var negative_texture : Texture
+@export var speeded_positive_texture : Texture
+@export var speeded_negative_texture : Texture
+
+
+@export var is_speeded := false
+
 @onready var sprite: Sprite2D = $Sprite
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
-
 var active := true
-
 
 func _ready() -> void:
 	
@@ -39,9 +43,9 @@ func _physics_process(delta: float) -> void:
 		if receive_input and Input.is_action_just_pressed(&"jump"):
 			switch_polarity()
 		
+		sprite.texture = get_current_texture()
+
 		move_and_collide(Vector2.RIGHT * (speed + speed_bonus) * delta)
-		
-		
 
 func switch_polarity() -> void:
 	charge *= - 1
@@ -49,7 +53,13 @@ func switch_polarity() -> void:
 	polarity_changed.emit()
 
 func get_current_texture() -> Texture:
-	return positive_texture if charge > 0 else negative_texture
+	if is_speeded:
+		animated_sprite_2d.show()
+		animated_sprite_2d.play("speed_up_tail")
+		return speeded_positive_texture if charge > 0 else speeded_negative_texture
+	else:
+		animated_sprite_2d.hide()
+		return positive_texture if charge > 0 else negative_texture
 
 
 func _on_death_detection_area_entered(_area: Area2D) -> void:
@@ -60,7 +70,7 @@ func _on_death_detection_area_entered(_area: Area2D) -> void:
 func die():
 	active = false
 	death.emit()
-	
+
 	sprite.hide()
 	animated_sprite_2d.play("morte")
 
@@ -69,5 +79,17 @@ func charge_up(value:float) -> void:
 	if not active:
 		return
 	speed += speed_change * value
-	
 	camera_frame.speed = speed
+<<<<<<< Updated upstream
+=======
+
+
+func _on_victory() -> void:
+	speed_bonus = 800
+
+func speed_up():
+	if is_speeded:
+		is_speeded = false
+	else:
+		is_speeded = true
+>>>>>>> Stashed changes

@@ -6,8 +6,8 @@ var is_stopped := false
 
 func _process(delta: float) -> void:
 	if !is_stopped:
-		time_elapsed += delta
-		$'.'.text = str(time_elapsed).pad_decimals(2)
+		time_elapsed += delta * 1000
+		$'.'.text = time_convert(time_elapsed)
 
 func reset() -> void:
 	#TODO salvare il record prima di resettarlo
@@ -16,3 +16,11 @@ func reset() -> void:
 
 func stop() -> void:
 	is_stopped = true
+	
+func time_convert(time_elapsed):
+	var msec =  int(time_elapsed) % 1000
+	var seconds = (int(time_elapsed)% 60000) / 1000
+	# in case we need minutes
+	#var minutes = (int(time_elapsed)/6000)
+	
+	return "%02d:%03d" % [seconds, msec]
