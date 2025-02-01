@@ -26,9 +26,12 @@ stream = ExtResource("2_onnaj")
 
 [node name="PolaritySdPickUp" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_c6qau")
+volume_db = -4.685
 
 [node name="PolaritySdPress" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_5kgx4")
+volume_db = 0.664
+pitch_scale = 1.25
 
 [node name="PolaritySdBoost" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_3ocdx")

@@ -1,14 +1,15 @@
 [gd_scene load_steps=5 format=3 uid="uid://cqevg1xr3srrp"]
 
 [ext_resource type="Script" path="res://scripts/coin.gd" id="1_jl8ma"]
-[ext_resource type="Texture2D" uid="uid://dtg037ckdn6k6" path="res://sprites/powerups/collezionabile_neutro.png" id="2_ux4va"]
+[ext_resource type="Texture2D" uid="uid://rmo8f3rbbg65" path="res://sprites/powerups/collezionabile_neutro.png" id="2_ux4va"]
 [ext_resource type="PackedScene" uid="uid://c3vn22ymxn6l6" path="res://scenes/drag and drop/base_comp_hint.tscn" id="3_0b67l"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2ihcl"]
 radius = 33.1361
 
-[node name="Coin" type="Area2D"]
+[node name="Coin" type="Area2D" node_paths=PackedStringArray("sprite")]
 script = ExtResource("1_jl8ma")
+sprite = NodePath("Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.303922, 0.324074)

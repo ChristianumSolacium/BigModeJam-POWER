@@ -383,7 +383,7 @@ shape = SubResource("CircleShape2D_iid6r")
 
 [node name="OstacoloPentagonoNegativo" type="Sprite2D" parent="Elements/RotatingPentagon/CollisionShape2D"]
 position = Vector2(-0.432343, 0)
-rotation = 14096.5
+rotation = 14169.6
 scale = Vector2(0.0729283, 0.0749907)
 skew = 0.0232477
 texture = ExtResource("9_qxte0")
@@ -402,7 +402,7 @@ shape = SubResource("CircleShape2D_iid6r")
 
 [node name="OstacoloPentagonoNegativo" type="Sprite2D" parent="Elements/RotatingPentagon2/CollisionShape2D"]
 position = Vector2(-0.432343, 0)
-rotation = 14119.3
+rotation = 14192.4
 scale = Vector2(0.0729283, 0.0749907)
 skew = 0.0232477
 texture = ExtResource("9_qxte0")
@@ -421,7 +421,7 @@ shape = SubResource("CircleShape2D_iid6r")
 
 [node name="OstacoloPentagonoNegativo" type="Sprite2D" parent="Elements/RotatingPentagon3/CollisionShape2D"]
 position = Vector2(-0.432343, 0)
-rotation = 14114.3
+rotation = 14187.4
 scale = Vector2(0.0729283, 0.0749907)
 skew = 0.0232477
 texture = ExtResource("9_qxte0")

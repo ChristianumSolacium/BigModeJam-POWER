@@ -10,13 +10,15 @@ extends Node
 @onready var polarity_loop_menu: AudioStreamPlayer = $PolarityLoopMenu
 @onready var polarity_loop_game_over: AudioStreamPlayer = $PolarityLoopGameOver
 
-
+@onready var press_pitch := polarity_sd_press.pitch_scale
 func _on_player_gained_coin() -> void:
 	polarity_sd_pick_up.play()
 
 
 func _on_player_polarity_changed() -> void:
+	polarity_sd_press.pitch_scale = press_pitch + randf_range(-0.5,0.5 )
 	polarity_sd_press.play()
+	
 
 
 func _on_player_death() -> void:
