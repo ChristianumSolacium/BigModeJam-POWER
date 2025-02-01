@@ -1,0 +1,413 @@
+[gd_scene load_steps=25 format=3 uid="uid://bxc4v0qrupul"]
+
+[ext_resource type="Script" path="res://scripts/comp_electric_field.gd" id="1_dyaid"]
+[ext_resource type="Texture2D" uid="uid://dovui0kijg8bl" path="res://sprites/scrolling_top_negativo.png" id="2_jkudb"]
+[ext_resource type="Texture2D" uid="uid://bukfrombmlsnt" path="res://sprites/campo_magnetico_negativo.png" id="3_804vo"]
+[ext_resource type="Texture2D" uid="uid://b7q7eupwb34jw" path="res://sprites/scrolling_top_positivo.png" id="4_orqdg"]
+[ext_resource type="Texture2D" uid="uid://cmtyh1xs6o8y2" path="res://sprites/campo_magnetico_positivo.png" id="5_bqqth"]
+[ext_resource type="PackedScene" uid="uid://b2ai3j1jj833s" path="res://scenes/drag and drop/rotating_pentagon.tscn" id="6_xg7yc"]
+[ext_resource type="PackedScene" path="res://scenes/drag and drop/power_down_1.tscn" id="7_cohwy"]
+[ext_resource type="PackedScene" path="res://scenes/drag and drop/power_up_1.tscn" id="8_0sdrm"]
+[ext_resource type="PackedScene" path="res://scenes/drag and drop/pavimento_positivo.tscn" id="9_xa3vr"]
+[ext_resource type="PackedScene" uid="uid://dkdt81f6ar0l4" path="res://scenes/drag and drop/spikes.tscn" id="10_0thf4"]
+[ext_resource type="PackedScene" uid="uid://blx6o0gojhtl2" path="res://scenes/drag and drop/coin.tscn" id="11_qiust"]
+[ext_resource type="PackedScene" uid="uid://cqevg1xr3srrp" path="res://scenes/drag and drop/coin_with_hint.tscn" id="12_7u842"]
+[ext_resource type="Texture2D" uid="uid://bvyimliey5oet" path="res://sprites/obstacles/ostacolo_muro_neutro.png" id="13_ja2rs"]
+[ext_resource type="PackedScene" uid="uid://beqw216yfjdku" path="res://scenes/drag and drop/soffitto_negativo.tscn" id="14_7ppc0"]
+[ext_resource type="PackedScene" path="res://scenes/drag and drop/pavimento_negativo.tscn" id="15_6h211"]
+[ext_resource type="PackedScene" uid="uid://cgfmhp0vedln5" path="res://scenes/drag and drop/rotating_quadrato.tscn" id="16_gmqg4"]
+[ext_resource type="Texture2D" uid="uid://cbq0fk4a3lg16" path="res://sprites/obstacles/ostacolo_muro_positivo.png" id="17_e5e42"]
+[ext_resource type="PackedScene" uid="uid://bc35a5v5yfiwi" path="res://scenes/drag and drop/speed_up.tscn" id="18_xl2ad"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tjnit"]
+size = Vector2(283.019, 904.76)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hw51p"]
+size = Vector2(282.243, 904.76)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eethc"]
+size = Vector2(285.075, 904.76)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jd07w"]
+size = Vector2(193.262, 552.594)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3do3k"]
+size = Vector2(193.262, 552.594)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lnxho"]
+size = Vector2(386.316, 964.858)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Obstacles" type="Node2D" parent="."]
+position = Vector2(2022, 467)
+
+[node name="Soffitto Negativo6" type="RigidBody2D" parent="Obstacles"]
+position = Vector2(128, 333)
+rotation = 3.14159
+
+[node name="CompElectricFied" type="Area2D" parent="Obstacles/Soffitto Negativo6"]
+position = Vector2(-336.001, 297.999)
+scale = Vector2(4.92, 1)
+collision_layer = 0
+collision_mask = 32
+script = ExtResource("1_dyaid")
+force = 100.0
+exponent = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/Soffitto Negativo6/CompElectricFied"]
+position = Vector2(0, 158.398)
+shape = SubResource("RectangleShape2D_tjnit")
+debug_color = Color(1, 1, 0, 0.2)
+
+[node name="ScrollingTopNegativo" type="Sprite2D" parent="Obstacles/Soffitto Negativo6/CompElectricFied"]
+position = Vector2(0, -367)
+rotation = 3.14159
+scale = Vector2(0.147623, -1.05001)
+texture = ExtResource("2_jkudb")
+
+[node name="CampoMagneticoNegativo2" type="Sprite2D" parent="Obstacles/Soffitto Negativo6/CompElectricFied"]
+position = Vector2(0.445422, 171.418)
+rotation = 3.14159
+scale = Vector2(0.351605, 0.866768)
+texture = ExtResource("3_804vo")
+
+[node name="Soffitto Positivo3" type="RigidBody2D" parent="Obstacles/Soffitto Negativo6"]
+position = Vector2(-6984, -6.01773)
+
+[node name="CompElectricFied" type="Area2D" parent="Obstacles/Soffitto Negativo6/Soffitto Positivo3"]
+position = Vector2(-16.001, 300)
+scale = Vector2(3.36001, 1)
+collision_layer = 0
+collision_mask = 32
+script = ExtResource("1_dyaid")
+force = -100.0
+exponent = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/Soffitto Negativo6/Soffitto Positivo3/CompElectricFied"]
+position = Vector2(0.700806, 158.398)
+shape = SubResource("RectangleShape2D_hw51p")
+debug_color = Color(1, 1, 0, 0.2)
+
+[node name="ScrollingTopNegativo" type="Sprite2D" parent="Obstacles/Soffitto Negativo6/Soffitto Positivo3/CompElectricFied"]
+position = Vector2(0, -367)
+rotation = 3.14159
+scale = Vector2(0.147623, -1.05001)
+texture = ExtResource("4_orqdg")
+
+[node name="CampoMagneticoNegativo2" type="Sprite2D" parent="Obstacles/Soffitto Negativo6/Soffitto Positivo3/CompElectricFied"]
+position = Vector2(0, 134)
+rotation = 3.14159
+scale = Vector2(0.354911, 0.800736)
+texture = ExtResource("5_bqqth")
+
+[node name="RotatingPentagon" parent="Obstacles/Soffitto Negativo6/Soffitto Positivo3" instance=ExtResource("6_xg7yc")]
+position = Vector2(-2360, 455.994)
+
+[node name="PowerDown" parent="Obstacles/Soffitto Negativo6/Soffitto Positivo3" instance=ExtResource("7_cohwy")]
+position = Vector2(-1600, 333.996)
+rotation = -1.57079
+scale = Vector2(0.720001, 0.720001)
+
+[node name="RotatingPentagon2" parent="Obstacles/Soffitto Negativo6/Soffitto Positivo3" instance=ExtResource("6_xg7yc")]
+position = Vector2(-3136, 79.9921)
+
+[node name="Soffitto Negativo7" type="RigidBody2D" parent="Obstacles/Soffitto Negativo6/Soffitto Positivo3"]
+position = Vector2(-2608, 671.993)
+rotation = 3.14159
+
+[node name="CompElectricFied" type="Area2D" parent="Obstacles/Soffitto Negativo6/Soffitto Positivo3/Soffitto Negativo7"]
+position = Vector2(87.998, 296)
+scale = Vector2(3.36004, 1)
+collision_layer = 0
+collision_mask = 32
+script = ExtResource("1_dyaid")
+force = 100.0
+exponent = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/Soffitto Negativo6/Soffitto Positivo3/Soffitto Negativo7/CompElectricFied"]
+position = Vector2(0, 158.398)
+shape = SubResource("RectangleShape2D_tjnit")
+debug_color = Color(1, 1, 0, 0.2)
+
+[node name="ScrollingTopNegativo" type="Sprite2D" parent="Obstacles/Soffitto Negativo6/Soffitto Positivo3/Soffitto Negativo7/CompElectricFied"]
+position = Vector2(0, -367)
+rotation = 3.14159
+scale = Vector2(0.147623, -1.05001)
+texture = ExtResource("2_jkudb")
+
+[node name="CampoMagneticoNegativo2" type="Sprite2D" parent="Obstacles/Soffitto Negativo6/Soffitto Positivo3/Soffitto Negativo7/CompElectricFied"]
+position = Vector2(0.445422, 171.418)
+rotation = 3.14159
+scale = Vector2(0.351605, 0.866768)
+texture = ExtResource("3_804vo")
+
+[node name="Soffitto Negativo6" type="RigidBody2D" parent="Obstacles/Soffitto Negativo6/Soffitto Positivo3"]
+position = Vector2(-3768, 586.99)
+rotation = 3.14159
+
+[node name="CompElectricFied" type="Area2D" parent="Obstacles/Soffitto Negativo6/Soffitto Positivo3/Soffitto Negativo6"]
+position = Vector2(951.998, 219.005)
+scale = Vector2(3.68, 1)
+collision_layer = 0
+collision_mask = 32
+script = ExtResource("1_dyaid")
+force = 100.0
+exponent = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/Soffitto Negativo6/Soffitto Positivo3/Soffitto Negativo6/CompElectricFied"]
+position = Vector2(0, 158.398)
+shape = SubResource("RectangleShape2D_tjnit")
+debug_color = Color(1, 1, 0, 0.2)
+
+[node name="ScrollingTopNegativo" type="Sprite2D" parent="Obstacles/Soffitto Negativo6/Soffitto Positivo3/Soffitto Negativo6/CompElectricFied"]
+position = Vector2(0, -367)
+rotation = 3.14159
+scale = Vector2(0.147623, -1.05001)
+texture = ExtResource("2_jkudb")
+
+[node name="CampoMagneticoNegativo2" type="Sprite2D" parent="Obstacles/Soffitto Negativo6/Soffitto Positivo3/Soffitto Negativo6/CompElectricFied"]
+position = Vector2(0.445422, 171.418)
+rotation = 3.14159
+scale = Vector2(0.351605, 0.866768)
+texture = ExtResource("3_804vo")
+
+[node name="RotatingPentagon" parent="Obstacles/Soffitto Negativo6/Soffitto Positivo3/Soffitto Negativo6" instance=ExtResource("6_xg7yc")]
+position = Vector2(272, -44.9986)
+
+[node name="RotatingPentagon2" parent="Obstacles/Soffitto Negativo6/Soffitto Positivo3/Soffitto Negativo6" instance=ExtResource("6_xg7yc")]
+position = Vector2(1184, 331.006)
+
+[node name="RotatingPentagon3" parent="Obstacles/Soffitto Negativo6/Soffitto Positivo3/Soffitto Negativo6" instance=ExtResource("6_xg7yc")]
+position = Vector2(2104, -20.9893)
+
+[node name="Soffitto Negativo6" type="RigidBody2D" parent="Obstacles/Soffitto Negativo6/Soffitto Positivo3/Soffitto Negativo6"]
+position = Vector2(2672, 587.014)
+rotation = 3.14159
+
+[node name="CompElectricFied" type="Area2D" parent="Obstacles/Soffitto Negativo6/Soffitto Positivo3/Soffitto Negativo6/Soffitto Negativo6"]
+position = Vector2(-512.002, 303.996)
+scale = Vector2(12.08, 1)
+collision_layer = 0
+collision_mask = 32
+script = ExtResource("1_dyaid")
+force = 100.0
+exponent = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/Soffitto Negativo6/Soffitto Positivo3/Soffitto Negativo6/Soffitto Negativo6/CompElectricFied"]
+position = Vector2(0, 158.398)
+shape = SubResource("RectangleShape2D_tjnit")
+debug_color = Color(1, 1, 0, 0.2)
+
+[node name="ScrollingTopNegativo" type="Sprite2D" parent="Obstacles/Soffitto Negativo6/Soffitto Positivo3/Soffitto Negativo6/Soffitto Negativo6/CompElectricFied"]
+position = Vector2(0, -367)
+rotation = 3.14159
+scale = Vector2(0.147623, -1.05001)
+texture = ExtResource("2_jkudb")
+
+[node name="CampoMagneticoNegativo2" type="Sprite2D" parent="Obstacles/Soffitto Negativo6/Soffitto Positivo3/Soffitto Negativo6/Soffitto Negativo6/CompElectricFied"]
+position = Vector2(0.445422, 171.418)
+rotation = 3.14159
+scale = Vector2(0.351605, 0.866768)
+texture = ExtResource("3_804vo")
+
+[node name="Soffitto Negativo" type="RigidBody2D" parent="Obstacles/Soffitto Negativo6/Soffitto Positivo3"]
+position = Vector2(-3480, 7.99124)
+
+[node name="CompElectricFied" type="Area2D" parent="Obstacles/Soffitto Negativo6/Soffitto Positivo3/Soffitto Negativo"]
+position = Vector2(-208.001, 287.999)
+scale = Vector2(3.59998, 1)
+collision_layer = 0
+collision_mask = 32
+script = ExtResource("1_dyaid")
+force = 100.0
+exponent = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/Soffitto Negativo6/Soffitto Positivo3/Soffitto Negativo/CompElectricFied"]
+visible = false
+position = Vector2(0.573425, 158.398)
+shape = SubResource("RectangleShape2D_eethc")
+debug_color = Color(1, 1, 0, 0.2)
+
+[node name="ScrollingTopNegativo" type="Sprite2D" parent="Obstacles/Soffitto Negativo6/Soffitto Positivo3/Soffitto Negativo/CompElectricFied"]
+position = Vector2(0, -367)
+rotation = 3.14159
+scale = Vector2(0.147623, -1.05001)
+texture = ExtResource("2_jkudb")
+
+[node name="CampoMagneticoNegativo2" type="Sprite2D" parent="Obstacles/Soffitto Negativo6/Soffitto Positivo3/Soffitto Negativo/CompElectricFied"]
+visible = false
+position = Vector2(-0.119189, 134)
+rotation = 3.14159
+scale = Vector2(0.349691, 0.790787)
+texture = ExtResource("3_804vo")
+
+[node name="PowerUp" parent="Obstacles/Soffitto Negativo6/Soffitto Positivo3" instance=ExtResource("8_0sdrm")]
+position = Vector2(-3336, 503.992)
+rotation = 1.57079
+scale = Vector2(0.768745, 0.768745)
+
+[node name="Soffitto Positivo4" parent="Obstacles/Soffitto Negativo6" instance=ExtResource("9_xa3vr")]
+position = Vector2(-3536, -6.00897)
+rotation = 0.0
+
+[node name="Spikes3" parent="Obstacles" instance=ExtResource("10_0thf4")]
+position = Vector2(6480, -149)
+scale = Vector2(1.52, 1.52)
+
+[node name="Spikes" parent="Obstacles" instance=ExtResource("10_0thf4")]
+position = Vector2(1496, 1003)
+scale = Vector2(1.64998, 1.64998)
+
+[node name="Spikes2" parent="Obstacles" instance=ExtResource("10_0thf4")]
+position = Vector2(936, 1219)
+
+[node name="Coin" parent="Obstacles" instance=ExtResource("11_qiust")]
+position = Vector2(-152, 797)
+scale = Vector2(1, 0.907272)
+
+[node name="Coin2" parent="Obstacles" instance=ExtResource("12_7u842")]
+position = Vector2(862, -750)
+
+[node name="Coin3" parent="Obstacles" instance=ExtResource("12_7u842")]
+position = Vector2(1208, -677)
+
+[node name="Coin4" parent="Obstacles" instance=ExtResource("12_7u842")]
+position = Vector2(-8, 1051)
+
+[node name="OstacoloNeutro" type="RigidBody2D" parent="Obstacles"]
+position = Vector2(1248, 387)
+scale = Vector2(1.25383, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/OstacoloNeutro"]
+position = Vector2(-186.315, 99.6483)
+shape = SubResource("RectangleShape2D_jd07w")
+
+[node name="OstacoloMuroNegativo" type="Sprite2D" parent="Obstacles/OstacoloNeutro"]
+position = Vector2(-473.681, -125.648)
+scale = Vector2(1.0901, 0.996296)
+texture = ExtResource("13_ja2rs")
+
+[node name="Soffitto Negativo" parent="Obstacles" instance=ExtResource("14_7ppc0")]
+position = Vector2(1552, -331)
+
+[node name="OstacoloNeutro2" type="RigidBody2D" parent="Obstacles"]
+position = Vector2(1352, -277)
+rotation = 3.14159
+scale = Vector2(1.28, 0.440002)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/OstacoloNeutro2"]
+position = Vector2(-186.315, 99.6483)
+shape = SubResource("RectangleShape2D_jd07w")
+
+[node name="OstacoloMuroNegativo" type="Sprite2D" parent="Obstacles/OstacoloNeutro2"]
+position = Vector2(-473.681, -125.648)
+scale = Vector2(1.0901, 0.996296)
+texture = ExtResource("13_ja2rs")
+
+[node name="Soffitto Negativo7" parent="Obstacles" instance=ExtResource("15_6h211")]
+position = Vector2(2152, 336)
+
+[node name="Soffitto Negativo8" parent="Obstacles" instance=ExtResource("15_6h211")]
+position = Vector2(2760, 339)
+
+[node name="PowerDown" parent="Obstacles" instance=ExtResource("7_cohwy")]
+position = Vector2(6488, 35)
+rotation = 1.57079
+scale = Vector2(0.63998, 0.63998)
+
+[node name="PowerUp" parent="Obstacles" instance=ExtResource("8_0sdrm")]
+position = Vector2(6488, 203)
+rotation = 1.57079
+scale = Vector2(0.640414, 0.640414)
+
+[node name="RotatingQuadrato" parent="Obstacles" instance=ExtResource("16_gmqg4")]
+position = Vector2(4368, 115)
+
+[node name="RotatingQuadrato2" parent="Obstacles" instance=ExtResource("16_gmqg4")]
+position = Vector2(4720, 115)
+
+[node name="RotatingQuadrato3" parent="Obstacles" instance=ExtResource("16_gmqg4")]
+position = Vector2(4368, -301)
+
+[node name="RotatingQuadrato4" parent="Obstacles" instance=ExtResource("16_gmqg4")]
+position = Vector2(4720, -301)
+
+[node name="Coin5" parent="Obstacles" instance=ExtResource("11_qiust")]
+position = Vector2(6744, 195)
+
+[node name="Coin6" parent="Obstacles" instance=ExtResource("11_qiust")]
+position = Vector2(6968, 83)
+
+[node name="Coin7" parent="Obstacles" instance=ExtResource("11_qiust")]
+position = Vector2(7352, 195)
+
+[node name="OstacoloPositivo" type="RigidBody2D" parent="Obstacles"]
+position = Vector2(7992, 355)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/OstacoloPositivo"]
+position = Vector2(-186.315, 99.6483)
+shape = SubResource("RectangleShape2D_3do3k")
+
+[node name="CampoMagneticoNegativo3" type="Sprite2D" parent="Obstacles/OstacoloPositivo"]
+visible = false
+position = Vector2(-195.185, -43.6239)
+scale = Vector2(0.485785, 0.790787)
+texture = ExtResource("5_bqqth")
+
+[node name="OstacoloMuroNegativo" type="Sprite2D" parent="Obstacles/OstacoloPositivo"]
+position = Vector2(-473.681, -125.648)
+scale = Vector2(1.0901, 0.996296)
+texture = ExtResource("17_e5e42")
+
+[node name="CompElectricFied" type="Area2D" parent="Obstacles/OstacoloPositivo"]
+position = Vector2(-198.185, 103.376)
+rotation = -3.14051
+collision_layer = 0
+collision_mask = 32
+script = ExtResource("1_dyaid")
+force = 100.0
+exponent = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/OstacoloPositivo/CompElectricFied"]
+position = Vector2(-8.75, 214.635)
+shape = SubResource("RectangleShape2D_lnxho")
+debug_color = Color(1, 1, 0, 0.2)
+
+[node name="Soffitto Negativo2" type="RigidBody2D" parent="Obstacles"]
+position = Vector2(7928, -333)
+
+[node name="CompElectricFied" type="Area2D" parent="Obstacles/Soffitto Negativo2"]
+position = Vector2(248, 304)
+scale = Vector2(4.07696, 1)
+collision_layer = 0
+collision_mask = 32
+script = ExtResource("1_dyaid")
+force = 100.0
+exponent = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/Soffitto Negativo2/CompElectricFied"]
+position = Vector2(0.573425, 158.398)
+shape = SubResource("RectangleShape2D_eethc")
+debug_color = Color(1, 1, 0, 0.2)
+
+[node name="ScrollingTopNegativo" type="Sprite2D" parent="Obstacles/Soffitto Negativo2/CompElectricFied"]
+position = Vector2(0, -367)
+rotation = 3.14159
+scale = Vector2(0.147623, -1.05001)
+texture = ExtResource("2_jkudb")
+
+[node name="CampoMagneticoNegativo2" type="Sprite2D" parent="Obstacles/Soffitto Negativo2/CompElectricFied"]
+position = Vector2(-0.119189, 134)
+rotation = 3.14159
+scale = Vector2(0.349691, 0.790787)
+texture = ExtResource("3_804vo")
+
+[node name="Coin8" parent="Obstacles" instance=ExtResource("11_qiust")]
+position = Vector2(8280, -7)
+
+[node name="Spikes4" parent="Obstacles" instance=ExtResource("10_0thf4")]
+position = Vector2(8656, -229)
+
+[node name="SpeedUp" parent="Obstacles" instance=ExtResource("18_xl2ad")]
+position = Vector2(8224, -445)

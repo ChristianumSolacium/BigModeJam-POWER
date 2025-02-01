@@ -1,13 +1,16 @@
-[gd_scene load_steps=16 format=3 uid="uid://dtvl6ccqkkmhh"]
+[gd_scene load_steps=19 format=3 uid="uid://dtvl6ccqkkmhh"]
 
 [ext_resource type="PackedScene" uid="uid://c3sa7wipkeb6u" path="res://scenes/levels/level_4.tscn" id="1_1dpt0"]
+[ext_resource type="PackedScene" uid="uid://t1p57s6446hu" path="res://scenes/levels/livello_2.tscn" id="1_1vv6q"]
 [ext_resource type="PackedScene" uid="uid://b5d1qj4ck34vx" path="res://scenes/logica interna/player.tscn" id="1_j2esc"]
+[ext_resource type="PackedScene" uid="uid://bxc4v0qrupul" path="res://scenes/levels/livello_1.tscn" id="1_ojs4v"]
 [ext_resource type="Script" path="res://scripts/player_replay_recording.gd" id="2_kr3wk"]
 [ext_resource type="PackedScene" uid="uid://blocss3wbhbps" path="res://scenes/logica interna/camera_frame.tscn" id="2_lfbie"]
 [ext_resource type="Script" path="res://scripts/player_scripted_movement.gd" id="2_rb5kb"]
 [ext_resource type="Script" path="res://scripts/walls.gd" id="3_5q0w8"]
 [ext_resource type="Script" path="res://scripts/PlayerReplayResource.gd" id="3_6jqjj"]
 [ext_resource type="PackedScene" uid="uid://2gifhoikbqvm" path="res://scenes/logica interna/gui.tscn" id="14_s0k0l"]
+[ext_resource type="PackedScene" uid="uid://djj1r7rdx5lv" path="res://scenes/logica interna/audio.tscn" id="14_v207r"]
 [ext_resource type="PackedScene" uid="uid://b42fulegw3yie" path="res://scenes/logica interna/bg.tscn" id="15_cnecu"]
 [ext_resource type="PackedScene" uid="uid://bjd51jnefxpxl" path="res://scenes/logica interna/pause_menu.tscn" id="16_c4wfa"]
 [ext_resource type="Script" path="res://scripts/automatic_resize_of_collision_shape_2d.gd" id="26_k135g"]
@@ -15,14 +18,29 @@
 
 [sub_resource type="GDScript" id="GDScript_hpa0i"]
 script/source = "extends Node2D
+signal start
+signal pause
 
 @onready var pause_menu = $Graphics/Pause/PauseMenu
-@export var obstacles: Node2D 
+var obstacles: Node2D 
 @export var levels :Array[PackedScene]
-var current_level := 0
 
+@export var player : Player
+var CONFIG_PATH := \"user://config.tres\"
+
+func _ready() -> void:
+	start.emit()
+	var config : ConfigResource = load(CONFIG_PATH)
+	if config != null:
+		load_current_level()
+	else:
+		config = ConfigResource.new()
+		config.current_level = 0
+		ResourceSaver.save(config,CONFIG_PATH)
+		
+		
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed(\"pause\"):
+	if event.is_action_pressed(\"pause\") and not $Graphics/GUI.game_over_popup.visible:
 		toggle_pause()
 	if event.is_action_pressed(\"Fast Restart\"):
 		get_tree().change_scene_to_file(\"res://scenes/logica interna/main.tscn\")
@@ -31,9 +49,11 @@ func toggle_pause():
 	if pause_menu.visible:
 		pause_menu.hide()
 		get_tree().paused = false
+		start.emit()
 	else:
 		pause_menu.show()
 		get_tree().paused = true
+		pause.emit()
 
 func _on_player_death() -> void:
 	obstacles.hide()
@@ -45,6 +65,23 @@ func load_level(level_scene: PackedScene) -> void:
 	
 	obstacles = level_scene.instantiate()
 	add_child(obstacles)
+	
+	for child in obstacles.get_children():
+		if child is UtilityChangeStats:
+			player.speed = child.player_initial_speed
+			player.camera_frame.speed = child.player_initial_speed
+	
+	obstacles.global_position = Vector2.ZERO
+
+func load_current_level() -> void:
+	var config : ConfigResource = load(CONFIG_PATH)
+	load_level(levels[config.current_level])
+
+func load_next_level() -> void:
+	var config : ConfigResource = load(CONFIG_PATH)
+	config.current_level += 1
+	ResourceSaver.save(config,CONFIG_PATH)
+	load_level(levels[config.current_level])
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lpsvg"]
@@ -54,16 +91,14 @@ size = Vector2(1457, 20)
 script = ExtResource("3_6jqjj")
 timestamp = Array[float]([0.454, 1.55, 1.816, 2.032, 2.249, 2.472, 2.661, 2.824, 3.158, 3.341, 3.507, 3.673, 3.84, 4.056, 4.222, 4.386, 4.57, 4.754, 4.853, 4.903, 5.135, 6.966, 7.524, 10.859, 11.282, 11.666, 13.531, 14.129])
 
-[node name="Main" type="Node2D" node_paths=PackedStringArray("obstacles")]
+[node name="Main" type="Node2D" node_paths=PackedStringArray("player")]
 process_mode = 1
 scale = Vector2(1.00177, 1)
 script = SubResource("GDScript_hpa0i")
-obstacles = NodePath("Level4")
+levels = Array[PackedScene]([ExtResource("1_ojs4v"), ExtResource("1_1vv6q"), ExtResource("1_1dpt0")])
+player = NodePath("Player")
 
-[node name="Level4" parent="." instance=ExtResource("1_1dpt0")]
-position = Vector2(7612.6, -2919.8)
-
-[node name="AutomaticResizeOfCollisionShape2D" type="Node" parent="Level4"]
+[node name="AutomaticResizeOfCollisionShape2D" type="Node" parent="."]
 script = ExtResource("26_k135g")
 
 [node name="Player" parent="." node_paths=PackedStringArray("camera_frame") instance=ExtResource("1_j2esc")]
@@ -131,9 +166,16 @@ script = ExtResource("26_krq3q")
 [node name="PauseMenu" parent="Graphics/Pause" instance=ExtResource("16_c4wfa")]
 visible = false
 
+[node name="Audio" parent="." instance=ExtResource("14_v207r")]
+
+[connection signal="pause" from="." to="Audio" method="_on_main_pause"]
+[connection signal="start" from="." to="Audio" method="_on_main_start"]
 [connection signal="death" from="Player" to="." method="_on_player_death"]
 [connection signal="death" from="Player" to="Graphics/GUI" method="_on_player_death"]
+[connection signal="death" from="Player" to="Audio" method="_on_player_death"]
 [connection signal="gained_coin" from="Player" to="Graphics/GUI" method="update_coins"]
+[connection signal="gained_coin" from="Player" to="Audio" method="_on_player_gained_coin"]
+[connection signal="polarity_changed" from="Player" to="Audio" method="_on_player_polarity_changed"]
 [connection signal="speed_changed" from="Player" to="Graphics/GUI" method="_on_player_speed_changed"]
 [connection signal="victory" from="Player" to="Graphics/GUI" method="_on_player_victory"]
 

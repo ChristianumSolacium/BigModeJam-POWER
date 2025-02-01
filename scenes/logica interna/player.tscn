@@ -1,9 +1,9 @@
 [gd_scene load_steps=20 format=3 uid="uid://b5d1qj4ck34vx"]
 
 [ext_resource type="Script" path="res://scripts/character.gd" id="1_xb4qr"]
-[ext_resource type="Texture2D" uid="uid://b5h5ydimx7cuk" path="res://sprites/soggetto giocante/soggetto_giocante_positivo.png" id="2_86eqf"]
 [ext_resource type="Texture2D" uid="uid://q2srk2hq78bp" path="res://sprites/soggetto giocante/soggetto_giocante_negativo_v2.png" id="2_rbl1i"]
 [ext_resource type="Texture2D" uid="uid://c6gaqsyd2doe6" path="res://sprites/soggetto giocante/soggetto_giocante_negativo_v1.png" id="3_je1oo"]
+[ext_resource type="Texture2D" uid="uid://v2vd22r8j0qm" path="res://sprites/soggetto giocante/soggetto giocante_negativo_v2.png" id="4_0fgvc"]
 [ext_resource type="Texture2D" uid="uid://c5546pmxaepwv" path="res://sprites/soggetto giocante/animazione_morte/soggetto giocante_death_animation_frame0.png" id="5_s68nv"]
 [ext_resource type="Texture2D" uid="uid://dtmqf7548ih3y" path="res://sprites/soggetto giocante/animazione_morte/soggetto giocante_death_animation_frame1.png" id="6_iymbi"]
 [ext_resource type="Texture2D" uid="uid://c7c81prm7vj71" path="res://sprites/soggetto giocante/animazione_morte/soggetto giocante_death_animation_frame2.png" id="7_j4tte"]
@@ -70,6 +70,7 @@ animations = [{
 }]
 
 [node name="Player" type="RigidBody2D"]
+z_index = 180
 collision_layer = 33
 collision_mask = 5
 script = ExtResource("1_xb4qr")
@@ -81,7 +82,7 @@ negative_texture = ExtResource("3_je1oo")
 [node name="Sprite" type="Sprite2D" parent="."]
 position = Vector2(0, -3)
 scale = Vector2(0.384535, 0.403909)
-texture = ExtResource("2_86eqf")
+texture = ExtResource("4_0fgvc")
 
 [node name="DeathDetection" type="Area2D" parent="."]
 position = Vector2(6, 0)

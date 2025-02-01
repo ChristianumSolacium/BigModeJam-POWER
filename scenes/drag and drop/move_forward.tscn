@@ -22,6 +22,7 @@ scale = Vector2(0.476001, 0.474581)
 texture = ExtResource("2_urv75")
 
 [node name="CompHint" type="Area2D" parent="."]
+collision_layer = 16
 script = ExtResource("3_6m3w1")
 
 [node name="PowerDownNeutro2" type="Sprite2D" parent="CompHint"]

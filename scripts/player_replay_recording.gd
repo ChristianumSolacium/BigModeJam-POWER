@@ -11,6 +11,7 @@ func _ready() -> void:
 	await player.ready
 	start_time = Time.get_unix_time_from_system()
 	player.polarity_changed.connect(add_move)
+	player.victory.connect(save_replay)
 	
 
 func add_move() -> void:
@@ -24,7 +25,3 @@ func save_replay() -> void:
 		if not dir.dir_exists(SAVE_PATH):
 			dir.make_dir(SAVE_PATH)
 	ResourceSaver.save(replay,"user://" + SAVE_PATH + "replay " +str(Time.get_unix_time_from_system()) +".tres")
-
-
-func _exit_tree() -> void: #TEMP sarà da collegare alla vittoria
-	save_replay()
