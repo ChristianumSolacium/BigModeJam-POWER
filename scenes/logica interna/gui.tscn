@@ -7,7 +7,11 @@
 [ext_resource type="Texture2D" uid="uid://c7yphsphg334y" path="res://sprites/GUI/Rank_testo.png" id="5_rsr5q"]
 [ext_resource type="Texture2D" uid="uid://cxh6pfsxkvg2g" path="res://sprites/GUI/Time_Score_testo.png" id="6_fahuc"]
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 [ext_resource type="Texture2D" uid="uid://dtg037ckdn6k6" path="res://sprites/powerups/collezionabile_neutro.png" id="7_cl1ix"]
+=======
+[ext_resource type="Texture2D" uid="uid://rmo8f3rbbg65" path="res://sprites/powerups/collezionabile_neutro.png" id="7_cl1ix"]
+>>>>>>> Stashed changes
 =======
 [ext_resource type="Texture2D" uid="uid://rmo8f3rbbg65" path="res://sprites/powerups/collezionabile_neutro.png" id="7_cl1ix"]
 >>>>>>> Stashed changes

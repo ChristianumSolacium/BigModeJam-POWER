@@ -382,7 +382,11 @@ shape = SubResource("CircleShape2D_iid6r")
 
 [node name="OstacoloPentagonoNegativo" type="Sprite2D" parent="Elements/RotatingPentagon/CollisionShape2D"]
 position = Vector2(-0.432343, 0)
+<<<<<<< Updated upstream
 rotation = 16806.6
+=======
+rotation = 16804.2
+>>>>>>> Stashed changes
 scale = Vector2(0.0729283, 0.0749907)
 skew = 0.0232477
 texture = ExtResource("9_qxte0")
@@ -401,7 +405,11 @@ shape = SubResource("CircleShape2D_iid6r")
 
 [node name="OstacoloPentagonoNegativo" type="Sprite2D" parent="Elements/RotatingPentagon2/CollisionShape2D"]
 position = Vector2(-0.432343, 0)
+<<<<<<< Updated upstream
 rotation = 16832.4
+=======
+rotation = 16830.0
+>>>>>>> Stashed changes
 scale = Vector2(0.0729283, 0.0749907)
 skew = 0.0232477
 texture = ExtResource("9_qxte0")
@@ -420,7 +428,11 @@ shape = SubResource("CircleShape2D_iid6r")
 
 [node name="OstacoloPentagonoNegativo" type="Sprite2D" parent="Elements/RotatingPentagon3/CollisionShape2D"]
 position = Vector2(-0.432343, 0)
+<<<<<<< Updated upstream
 rotation = 16826.7
+=======
+rotation = 16824.3
+>>>>>>> Stashed changes
 scale = Vector2(0.0729283, 0.0749907)
 skew = 0.0232477
 texture = ExtResource("9_qxte0")
