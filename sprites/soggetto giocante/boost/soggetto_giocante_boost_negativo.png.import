@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cs5oharqm4f0l"
-path="res://.godot/imported/collezionabile_neutro.png-eb4d239a3b0986449f1ff6ce1e3f7d91.ctex"
+uid="uid://dkhrm2ua3flg6"
+path="res://.godot/imported/soggetto_giocante_boost_negativo.png-3083fa32403f84f0b97fa6177d9ef774.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/powerups/collezionabile_neutro.png"
-dest_files=["res://.godot/imported/collezionabile_neutro.png-eb4d239a3b0986449f1ff6ce1e3f7d91.ctex"]
+source_file="res://sprites/soggetto giocante/boost/soggetto_giocante_boost_negativo.png"
+dest_files=["res://.godot/imported/soggetto_giocante_boost_negativo.png-3083fa32403f84f0b97fa6177d9ef774.ctex"]
 
 [params]
 

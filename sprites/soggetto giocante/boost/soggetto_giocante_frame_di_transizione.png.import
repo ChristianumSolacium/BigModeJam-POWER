@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cs5oharqm4f0l"
-path="res://.godot/imported/collezionabile_neutro.png-eb4d239a3b0986449f1ff6ce1e3f7d91.ctex"
+uid="uid://dvbi2g40t8l3c"
+path="res://.godot/imported/soggetto_giocante_frame_di_transizione.png-a88cf4fb5d0919b5e1b641a2e5ae7716.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/powerups/collezionabile_neutro.png"
-dest_files=["res://.godot/imported/collezionabile_neutro.png-eb4d239a3b0986449f1ff6ce1e3f7d91.ctex"]
+source_file="res://sprites/soggetto giocante/boost/soggetto_giocante_frame_di_transizione.png"
+dest_files=["res://.godot/imported/soggetto_giocante_frame_di_transizione.png-a88cf4fb5d0919b5e1b641a2e5ae7716.ctex"]
 
 [params]
 

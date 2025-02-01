@@ -1,3 +1,4 @@
+
 [gd_scene load_steps=17 format=3 uid="uid://c3sa7wipkeb6u"]
 
 [ext_resource type="Script" path="res://scripts/comp_electric_field.gd" id="1_alwgi"]
@@ -12,7 +13,9 @@
 [ext_resource type="Script" path="res://scripts/rotating_sprite.gd" id="10_euy2i"]
 [ext_resource type="PackedScene" uid="uid://cqevg1xr3srrp" path="res://scenes/drag and drop/coin_with_hint.tscn" id="11_lku4d"]
 [ext_resource type="PackedScene" uid="uid://bsth1tcugpx3t" path="res://scenes/drag and drop/move_forward.tscn" id="11_t2f74"]
+
 [ext_resource type="PackedScene" uid="uid://b17qgyay4odfp" path="res://scenes/drag and drop/traguardo.tscn" id="13_fkpt3"]
+
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tjnit"]
 size = Vector2(280, 904.76)
@@ -368,7 +371,9 @@ position = Vector2(5734, 3263)
 scale = Vector2(1.00077, 0.937648)
 
 [node name="MoveForward" parent="Elements" instance=ExtResource("11_t2f74")]
+
 position = Vector2(2741, 3296)
+
 
 [node name="MoveForward3" parent="Elements" instance=ExtResource("11_t2f74")]
 position = Vector2(3325, 3528)
@@ -383,7 +388,9 @@ shape = SubResource("CircleShape2D_iid6r")
 
 [node name="OstacoloPentagonoNegativo" type="Sprite2D" parent="Elements/RotatingPentagon/CollisionShape2D"]
 position = Vector2(-0.432343, 0)
+
 rotation = 14169.6
+
 scale = Vector2(0.0729283, 0.0749907)
 skew = 0.0232477
 texture = ExtResource("9_qxte0")
@@ -402,7 +409,10 @@ shape = SubResource("CircleShape2D_iid6r")
 
 [node name="OstacoloPentagonoNegativo" type="Sprite2D" parent="Elements/RotatingPentagon2/CollisionShape2D"]
 position = Vector2(-0.432343, 0)
+
 rotation = 14192.4
+
+
 scale = Vector2(0.0729283, 0.0749907)
 skew = 0.0232477
 texture = ExtResource("9_qxte0")
@@ -421,7 +431,9 @@ shape = SubResource("CircleShape2D_iid6r")
 
 [node name="OstacoloPentagonoNegativo" type="Sprite2D" parent="Elements/RotatingPentagon3/CollisionShape2D"]
 position = Vector2(-0.432343, 0)
+
 rotation = 14187.4
+
 scale = Vector2(0.0729283, 0.0749907)
 skew = 0.0232477
 texture = ExtResource("9_qxte0")
@@ -503,6 +515,7 @@ position = Vector2(6497, 3591)
 
 [node name="MoveForward13" parent="Elements" instance=ExtResource("11_t2f74")]
 position = Vector2(7261, 3022)
+
 
 [node name="Traguardo" parent="." instance=ExtResource("13_fkpt3")]
 position = Vector2(7565.4, 3692.8)
