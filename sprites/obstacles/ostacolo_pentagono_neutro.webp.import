@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://rmo8f3rbbg65"
-path="res://.godot/imported/collezionabile_neutro.png-eb4d239a3b0986449f1ff6ce1e3f7d91.ctex"
+uid="uid://bnqg5ups6dtx3"
+path="res://.godot/imported/ostacolo_pentagono_neutro.webp-8440228dfae0b53e5101e75f30aac242.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/powerups/collezionabile_neutro.png"
-dest_files=["res://.godot/imported/collezionabile_neutro.png-eb4d239a3b0986449f1ff6ce1e3f7d91.ctex"]
+source_file="res://sprites/obstacles/ostacolo_pentagono_neutro.webp"
+dest_files=["res://.godot/imported/ostacolo_pentagono_neutro.webp-8440228dfae0b53e5101e75f30aac242.ctex"]
 
 [params]
 

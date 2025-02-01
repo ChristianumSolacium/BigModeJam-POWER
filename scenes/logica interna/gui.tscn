@@ -6,17 +6,16 @@
 [ext_resource type="Texture2D" uid="uid://ceb75d30lmsxc" path="res://sprites/GUI/Game Over_frame0.png" id="4_co3e2"]
 [ext_resource type="Texture2D" uid="uid://c7yphsphg334y" path="res://sprites/GUI/Rank_testo.png" id="5_rsr5q"]
 [ext_resource type="Texture2D" uid="uid://cxh6pfsxkvg2g" path="res://sprites/GUI/Time_Score_testo.png" id="6_fahuc"]
-
-[ext_resource type="Texture2D" uid="uid://dtg037ckdn6k6" path="res://sprites/powerups/collezionabile_neutro.png" id="7_cl1ix"]
+[ext_resource type="Texture2D" uid="uid://cb1gndq47vft8" path="res://sprites/powerups/collezionabile_neutro.png" id="7_cl1ix"]
 [ext_resource type="Script" path="res://scenes/logica interna/stop_watch.gd" id="8_555bh"]
-
 
 [sub_resource type="LabelSettings" id="LabelSettings_htt2y"]
 font_size = 24
 
-[node name="GUI" type="CanvasLayer" node_paths=PackedStringArray("game_over_phrase", "charge_bar", "speed_label", "coin_labels", "stop_watch")]
+[node name="GUI" type="CanvasLayer" node_paths=PackedStringArray("game_over_popup", "victory_popup", "charge_bar", "speed_label", "coin_labels", "stop_watch")]
 script = ExtResource("1_xwr7w")
-game_over_phrase = NodePath("Control/GameOver")
+game_over_popup = NodePath("Control/GameOver")
+victory_popup = NodePath("Control/Victory")
 charge_bar = NodePath("Control/ProgressBar")
 speed_label = NodePath("SpeedLabel")
 coin_labels = NodePath("Control/Coins")
@@ -101,6 +100,22 @@ text = "0
 position = Vector2(-18.585, 12.654)
 scale = Vector2(0.13, 0.13)
 texture = ExtResource("7_cl1ix")
+
+[node name="Victory" type="TextureRect" parent="Control"]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Temp" type="Label" parent="Control/Victory"]
+layout_mode = 0
+offset_left = 457.0
+offset_top = 236.0
+offset_right = 529.0
+offset_bottom = 259.0
+scale = Vector2(2.90661, 3.97039)
+text = "Victory!
+"
 
 [node name="SpeedLabel" type="Label" parent="."]
 offset_left = 215.0

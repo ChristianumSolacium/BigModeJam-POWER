@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://b2ai3j1jj833s"]
+
+[ext_resource type="Texture2D" uid="uid://bnqg5ups6dtx3" path="res://sprites/obstacles/ostacolo_pentagono_neutro.webp" id="1_86tb3"]
+[ext_resource type="Script" path="res://scripts/rotating_sprite.gd" id="2_4a25t"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_iid6r"]
+
+[node name="RotatingPentagon" type="RigidBody2D"]
+position = Vector2(-970.111, 20.2222)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 94)
+scale = Vector2(6.93885, 6.77935)
+shape = SubResource("CircleShape2D_iid6r")
+
+[node name="OstacoloPentagonoNegativo" type="Sprite2D" parent="."]
+position = Vector2(-5, 91)
+rotation = 3076.38
+scale = Vector2(0.5, 0.514389)
+texture = ExtResource("1_86tb3")
+offset = Vector2(0, 7.77622)
+
+[node name="CompRotate" type="Node" parent="OstacoloPentagonoNegativo"]
+script = ExtResource("2_4a25t")

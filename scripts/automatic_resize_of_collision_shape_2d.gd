@@ -20,7 +20,7 @@ func fix() -> void:
 
 func get_all_children_of(node:Node) -> Array[Node]:
 	var arr : Array[Node] = []
-	for child in node.get_children():
+	for child in node.get_children(true):
 		arr += get_all_children_of(child)
 	
 	return arr

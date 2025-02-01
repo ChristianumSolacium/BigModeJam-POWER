@@ -3,6 +3,7 @@ signal death
 signal speed_changed(new_value:float)
 signal polarity_changed
 signal gained_coin
+signal victory
 
 @export var camera_frame : CameraFrame
 @export var charge := +30.0
@@ -74,3 +75,7 @@ func charge_up(value:float) -> void:
 	speed += speed_change * value
 	
 	camera_frame.speed = speed
+
+
+func _on_victory() -> void:
+	speed_bonus = 800
