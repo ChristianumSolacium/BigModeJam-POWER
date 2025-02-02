@@ -67,7 +67,7 @@ func load_current_level() -> void:
 func load_next_level() -> void:
 	var config : ConfigResource = load(CONFIG_PATH)
 	config.current_level += 1
-	if config.current_level < len(levels):
+	if config.current_level < 0:
 		ResourceSaver.save(config,CONFIG_PATH)
 		load_level(levels[config.current_level])
 	else:

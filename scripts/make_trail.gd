@@ -14,7 +14,9 @@ const  sprite_pool_size := 30
 
 func _ready() -> void:
 	if disable:
+		set_process(false)
 		return
+		
 	sprite_pool.resize(sprite_pool_size)
 	
 	await player.get_parent().ready
