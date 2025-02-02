@@ -10,7 +10,7 @@ func _ready() -> void:
 var initial_speed : Dictionary = {}
 
 func _on_body_entered(body) -> void:
-	if body is Player:
+	if body is Player and not body.is_speeded:
 		print(body,initial_speed)
 		initial_speed[body] = body.speed
 		body.speed = speed
@@ -18,7 +18,7 @@ func _on_body_entered(body) -> void:
 		body.is_speeded = true
 		
 func _on_body_exited(body) -> void:
-	if body is Player:
+	if body is Player and body in initial_speed:
 		body.speed = initial_speed[body]
 		body.camera_frame.speed = initial_speed[body]
 		body.is_speeded = false

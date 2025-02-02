@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://dcoeep6tbr3cl"]
+[gd_scene load_steps=29 format=3 uid="uid://dcoeep6tbr3cl"]
 
 [ext_resource type="Script" path="res://scripts/comp_electric_field.gd" id="1_dyaid"]
 [ext_resource type="Texture2D" uid="uid://dovui0kijg8bl" path="res://sprites/scrolling_top_negativo.png" id="2_jkudb"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://bsth1tcugpx3t" path="res://scenes/drag and drop/move_forward.tscn" id="18_kdf8l"]
 [ext_resource type="PackedScene" uid="uid://bc35a5v5yfiwi" path="res://scenes/drag and drop/speed_up.tscn" id="18_xl2ad"]
 [ext_resource type="PackedScene" uid="uid://b17qgyay4odfp" path="res://scenes/drag and drop/traguardo.tscn" id="19_qfq0h"]
+[ext_resource type="Script" path="res://scripts/utility_draw_infinite_line.gd" id="20_xr5ur"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tjnit"]
 size = Vector2(283.019, 904.76)
@@ -254,12 +255,15 @@ scale = Vector2(0.768745, 0.768745)
 
 [node name="Coin" parent="Obstacles/Soffitto Negativo6/Soffitto Positivo3" instance=ExtResource("11_qiust")]
 position = Vector2(-2682, 445.993)
+rotation = 3.14159
 
 [node name="Coin2" parent="Obstacles/Soffitto Negativo6/Soffitto Positivo3" instance=ExtResource("11_qiust")]
 position = Vector2(-3362, 333.991)
+rotation = 3.14159
 
 [node name="Coin3" parent="Obstacles/Soffitto Negativo6/Soffitto Positivo3" instance=ExtResource("11_qiust")]
 position = Vector2(-4042, 253.99)
+rotation = 3.14159
 
 [node name="Soffitto Positivo4" parent="Obstacles/Soffitto Negativo6" instance=ExtResource("9_xa3vr")]
 position = Vector2(-3536, -6.00897)
@@ -413,10 +417,10 @@ shape = SubResource("RectangleShape2D_lnxho")
 debug_color = Color(1, 1, 0, 0.2)
 
 [node name="Soffitto Negativo9" type="RigidBody2D" parent="Obstacles"]
-position = Vector2(5363, 68)
+position = Vector2(5391, -667)
 
 [node name="CompElectricFied" type="Area2D" parent="Obstacles/Soffitto Negativo9"]
-position = Vector2(499, -243)
+position = Vector2(482, 486)
 scale = Vector2(5.48, 1)
 collision_layer = 0
 collision_mask = 32
@@ -430,13 +434,13 @@ shape = SubResource("RectangleShape2D_pp2x0")
 debug_color = Color(1, 1, 0, 0.2)
 
 [node name="ScrollingTopNegativo" type="Sprite2D" parent="Obstacles/Soffitto Negativo9/CompElectricFied"]
-position = Vector2(0, -367)
+position = Vector2(0, -220)
 rotation = 3.14159
 scale = Vector2(0.147623, -1.05001)
 texture = ExtResource("2_jkudb")
 
 [node name="CampoMagneticoNegativo2" type="Sprite2D" parent="Obstacles/Soffitto Negativo9/CompElectricFied"]
-position = Vector2(0.445422, 171.418)
+position = Vector2(-9.83477e-07, 340)
 rotation = 3.14159
 scale = Vector2(0.351605, 0.866768)
 texture = ExtResource("3_804vo")
@@ -498,4 +502,9 @@ position = Vector2(3986, -514)
 position = Vector2(13656, 416)
 
 [node name="Traguardo" parent="." instance=ExtResource("19_qfq0h")]
-position = Vector2(16120, 456)
+position = Vector2(17820, 585)
+
+[node name="UtilityDrawInfiniteLine" type="Node2D" parent="."]
+z_index = -500
+position = Vector2(10088, 156)
+script = ExtResource("20_xr5ur")

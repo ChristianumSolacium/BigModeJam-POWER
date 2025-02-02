@@ -1,36 +1,36 @@
 [gd_scene load_steps=32 format=3 uid="uid://booyfhrmdx8pc"]
 
-[ext_resource type="Texture2D" uid="uid://1ye67ntdtyp1" path="res://sprites/GUI/mainmenu/poligono_0.png" id="1_t7pig"]
-[ext_resource type="Texture2D" uid="uid://cixr6ptjqdyp1" path="res://sprites/GUI/mainmenu/poligono_1.png" id="2_30b1h"]
-[ext_resource type="Texture2D" uid="uid://bds0874n3obn5" path="res://sprites/GUI/mainmenu/poligono_2.png" id="3_7itxu"]
-[ext_resource type="Texture2D" uid="uid://ds13s3jrb4vfb" path="res://sprites/GUI/mainmenu/poligono_3.png" id="4_0g1sb"]
-[ext_resource type="Texture2D" uid="uid://bkjb3d5nsd0h7" path="res://sprites/GUI/mainmenu/poligono_4.png" id="5_1uh8h"]
-[ext_resource type="Texture2D" uid="uid://cx4rp6pr2r0mc" path="res://sprites/GUI/mainmenu/poligono_5.png" id="6_5fydl"]
-[ext_resource type="Texture2D" uid="uid://lufvrwaham1v" path="res://sprites/GUI/mainmenu/poligono_6.png" id="7_utjln"]
-[ext_resource type="Texture2D" uid="uid://4jd05t157jal" path="res://sprites/GUI/mainmenu/poligono_7.png" id="8_d2mqi"]
-[ext_resource type="Texture2D" uid="uid://tj28stvpex3i" path="res://sprites/GUI/mainmenu/poligono_8.png" id="9_atwj5"]
-[ext_resource type="Texture2D" uid="uid://bac7dvecy8m0i" path="res://sprites/GUI/mainmenu/poligono_9.png" id="10_v20q6"]
-[ext_resource type="Texture2D" uid="uid://c071kion4ipni" path="res://sprites/GUI/mainmenu/poligono_10.png" id="11_ygbv4"]
-[ext_resource type="Texture2D" uid="uid://bb0qwiqtx6kiy" path="res://sprites/GUI/mainmenu/poligono_11.png" id="12_ogss7"]
-[ext_resource type="Texture2D" uid="uid://ddoh1v8nm8f7d" path="res://sprites/GUI/mainmenu/poligono_12.png" id="13_xnvbq"]
-[ext_resource type="Texture2D" uid="uid://brliqih33vc6s" path="res://sprites/GUI/mainmenu/poligono_13.png" id="14_jg8n3"]
-[ext_resource type="Texture2D" uid="uid://bx4i3vy3x0pn4" path="res://sprites/GUI/mainmenu/poligono_14.png" id="15_agbqj"]
-[ext_resource type="Texture2D" uid="uid://jbq8x5uo6kh1" path="res://sprites/GUI/mainmenu/poligono_15.png" id="16_l6i1b"]
-[ext_resource type="Texture2D" uid="uid://e73p6s203e1v" path="res://sprites/GUI/mainmenu/poligono_16.png" id="17_d6uck"]
-[ext_resource type="Texture2D" uid="uid://dlnei2gqwjfjf" path="res://sprites/GUI/mainmenu/poligono_17.png" id="18_iiv4c"]
-[ext_resource type="Texture2D" uid="uid://ddlicg1tpcpoy" path="res://sprites/GUI/mainmenu/poligono_18.png" id="19_ntcuh"]
-[ext_resource type="Texture2D" uid="uid://dpd3fra51f8ij" path="res://sprites/GUI/mainmenu/poligono_19.png" id="20_1aea1"]
-[ext_resource type="Texture2D" uid="uid://jmwokeism4nu" path="res://sprites/GUI/mainmenu/poligono_20.png" id="21_3lfeh"]
-[ext_resource type="Texture2D" uid="uid://dtraw7kxgpq5k" path="res://sprites/GUI/mainmenu/poligono_21.png" id="22_hyp6j"]
-[ext_resource type="Texture2D" uid="uid://c2w8ijhvgd3ad" path="res://sprites/GUI/mainmenu/poligono_22.png" id="23_vbvqr"]
-[ext_resource type="Texture2D" uid="uid://bb6wa1fa888to" path="res://sprites/GUI/mainmenu/poligono_23.png" id="24_fxm2u"]
-[ext_resource type="Texture2D" uid="uid://dbpgfs1svjwt8" path="res://sprites/GUI/mainmenu/poligono_24.png" id="25_kkq5t"]
-[ext_resource type="Texture2D" uid="uid://8xcullip2ews" path="res://sprites/GUI/mainmenu/poligono_25.png" id="26_4iat5"]
-[ext_resource type="Texture2D" uid="uid://071gvpnwfkx4" path="res://sprites/GUI/mainmenu/poligono_26.png" id="27_ty13o"]
-[ext_resource type="Texture2D" uid="uid://bqfugkqxwpm26" path="res://sprites/GUI/mainmenu/poligono_27.png" id="28_endol"]
-[ext_resource type="Texture2D" uid="uid://362ob42x4xf" path="res://sprites/GUI/mainmenu/poligono_28.png" id="29_t5r6u"]
-[ext_resource type="Texture2D" uid="uid://cadweolu15hac" path="res://sprites/GUI/mainmenu/poligono_29.png" id="30_50ha8"]
-[ext_resource type="Texture2D" uid="uid://do1twnyjre5cw" path="res://sprites/GUI/mainmenu/poligono_30.png" id="31_5jj0f"]
+[ext_resource type="Texture2D" uid="uid://bi5ivykap6d3p" path="res://sprites/GUI/mainmenu/poligono_0.png" id="1_t7pig"]
+[ext_resource type="Texture2D" uid="uid://bltjkhgkntvhs" path="res://sprites/GUI/mainmenu/poligono_1.png" id="2_30b1h"]
+[ext_resource type="Texture2D" uid="uid://bbw0wgqybimiw" path="res://sprites/GUI/mainmenu/poligono_2.png" id="3_7itxu"]
+[ext_resource type="Texture2D" uid="uid://2icn5rjvesyr" path="res://sprites/GUI/mainmenu/poligono_3.png" id="4_0g1sb"]
+[ext_resource type="Texture2D" uid="uid://cnjiykk4nyep4" path="res://sprites/GUI/mainmenu/poligono_4.png" id="5_1uh8h"]
+[ext_resource type="Texture2D" uid="uid://dgbtk1vmixqnm" path="res://sprites/GUI/mainmenu/poligono_5.png" id="6_5fydl"]
+[ext_resource type="Texture2D" uid="uid://6flw7s1ewojp" path="res://sprites/GUI/mainmenu/poligono_6.png" id="7_utjln"]
+[ext_resource type="Texture2D" uid="uid://o2px6id6n14c" path="res://sprites/GUI/mainmenu/poligono_7.png" id="8_d2mqi"]
+[ext_resource type="Texture2D" uid="uid://dyqrddkaigucl" path="res://sprites/GUI/mainmenu/poligono_8.png" id="9_atwj5"]
+[ext_resource type="Texture2D" uid="uid://cmvpn1k2ao2as" path="res://sprites/GUI/mainmenu/poligono_9.png" id="10_v20q6"]
+[ext_resource type="Texture2D" uid="uid://dckn6mvrnybls" path="res://sprites/GUI/mainmenu/poligono_10.png" id="11_ygbv4"]
+[ext_resource type="Texture2D" uid="uid://ebpnxwc35xvq" path="res://sprites/GUI/mainmenu/poligono_11.png" id="12_ogss7"]
+[ext_resource type="Texture2D" uid="uid://bg4ocjp1q7yxq" path="res://sprites/GUI/mainmenu/poligono_12.png" id="13_xnvbq"]
+[ext_resource type="Texture2D" uid="uid://wqgadgwqv0uu" path="res://sprites/GUI/mainmenu/poligono_13.png" id="14_jg8n3"]
+[ext_resource type="Texture2D" uid="uid://bht2r82vg0opp" path="res://sprites/GUI/mainmenu/poligono_14.png" id="15_agbqj"]
+[ext_resource type="Texture2D" uid="uid://b44lfkfv8n3pu" path="res://sprites/GUI/mainmenu/poligono_15.png" id="16_l6i1b"]
+[ext_resource type="Texture2D" uid="uid://qqkv076f3yj0" path="res://sprites/GUI/mainmenu/poligono_16.png" id="17_d6uck"]
+[ext_resource type="Texture2D" uid="uid://derv3a4nlv66b" path="res://sprites/GUI/mainmenu/poligono_17.png" id="18_iiv4c"]
+[ext_resource type="Texture2D" uid="uid://cxlpnxvohsdk" path="res://sprites/GUI/mainmenu/poligono_18.png" id="19_ntcuh"]
+[ext_resource type="Texture2D" uid="uid://drua3rvqoicfd" path="res://sprites/GUI/mainmenu/poligono_19.png" id="20_1aea1"]
+[ext_resource type="Texture2D" uid="uid://ckajtihjt6tao" path="res://sprites/GUI/mainmenu/poligono_20.png" id="21_3lfeh"]
+[ext_resource type="Texture2D" uid="uid://bwq3lv6v5wvwm" path="res://sprites/GUI/mainmenu/poligono_21.png" id="22_hyp6j"]
+[ext_resource type="Texture2D" uid="uid://bjl2d2c1661ck" path="res://sprites/GUI/mainmenu/poligono_22.png" id="23_vbvqr"]
+[ext_resource type="Texture2D" uid="uid://c7tc5k2akv5yj" path="res://sprites/GUI/mainmenu/poligono_23.png" id="24_fxm2u"]
+[ext_resource type="Texture2D" uid="uid://bfe6aygp6r7yt" path="res://sprites/GUI/mainmenu/poligono_24.png" id="25_kkq5t"]
+[ext_resource type="Texture2D" uid="uid://bg4smorl2atul" path="res://sprites/GUI/mainmenu/poligono_25.png" id="26_4iat5"]
+[ext_resource type="Texture2D" uid="uid://dif0knme4koer" path="res://sprites/GUI/mainmenu/poligono_26.png" id="27_ty13o"]
+[ext_resource type="Texture2D" uid="uid://cwdmdd8i1vfxu" path="res://sprites/GUI/mainmenu/poligono_27.png" id="28_endol"]
+[ext_resource type="Texture2D" uid="uid://cfvafcaqdmynq" path="res://sprites/GUI/mainmenu/poligono_28.png" id="29_t5r6u"]
+[ext_resource type="Texture2D" uid="uid://c0wl4f472nkj4" path="res://sprites/GUI/mainmenu/poligono_29.png" id="30_50ha8"]
+[ext_resource type="Texture2D" uid="uid://bx2h85yn1473h" path="res://sprites/GUI/mainmenu/poligono_30.png" id="31_5jj0f"]
 
 [node name="Sprite2D" type="Sprite2D"]
 position = Vector2(574.304, 320)
@@ -38,56 +38,64 @@ scale = Vector2(0.6, 0.6)
 texture = ExtResource("1_t7pig")
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
-position = Vector2(1.48157, 0.833313)
+position = Vector2(149.493, 23.3333)
 scale = Vector2(1.00154, 1.00154)
 texture = ExtResource("2_30b1h")
+offset = Vector2(-147.784, -22.4654)
 
 [node name="Sprite2D3" type="Sprite2D" parent="."]
-scale = Vector2(1, 1)
+position = Vector2(451.16, -171.667)
 texture = ExtResource("3_7itxu")
+offset = Vector2(-451.16, 171.667)
 
 [node name="Sprite2D4" type="Sprite2D" parent="."]
-position = Vector2(1.48157, 0.833313)
+position = Vector2(-75.5066, 131.667)
 scale = Vector2(1.00154, 1.00154)
 texture = ExtResource("4_0g1sb")
+offset = Vector2(76.8698, -130.632)
 
 [node name="Sprite2D5" type="Sprite2D" parent="."]
-position = Vector2(14.4406, -66.6667)
+position = Vector2(822.827, -451.667)
 scale = Vector2(1.00154, 1.00154)
 texture = ExtResource("5_1uh8h")
+offset = Vector2(-807.143, 384.408)
 
 [node name="Sprite2D6" type="Sprite2D" parent="."]
-position = Vector2(2.79456, -133.333)
-scale = Vector2(1, 1)
+position = Vector2(367.827, -540)
 texture = ExtResource("6_5fydl")
+offset = Vector2(-365.032, 406.667)
 
 [node name="Sprite2D7" type="Sprite2D" parent="."]
-position = Vector2(-12.1788, 80)
+position = Vector2(446.16, 506.667)
 scale = Vector2(0.996914, 0.996914)
 texture = ExtResource("7_utjln")
+offset = Vector2(-459.757, -427.987)
 
 [node name="Sprite2D8" type="Sprite2D" parent="."]
-position = Vector2(1.48157, 0.833313)
+position = Vector2(-435.507, -183.333)
 scale = Vector2(1.00154, 1.00154)
 texture = ExtResource("8_d2mqi")
+offset = Vector2(436.316, 183.883)
 
 [node name="Sprite2D9" type="Sprite2D" parent="."]
-position = Vector2(4.44446, 2.5)
+position = Vector2(802.827, 400)
 scale = Vector2(1.00463, 1.00463)
 texture = ExtResource("9_atwj5")
+offset = Vector2(-794.703, -395.668)
 
 [node name="Sprite2D10" type="Sprite2D" parent="."]
-position = Vector2(1.48157, 0.833313)
+position = Vector2(-755.507, 340)
 scale = Vector2(1.00154, 1.00154)
 texture = ExtResource("10_v20q6")
+offset = Vector2(755.824, -338.645)
 
 [node name="Sprite2D11" type="Sprite2D" parent="."]
-position = Vector2(1.48157, 0.833313)
+position = Vector2(251.16, 198.333)
 scale = Vector2(1.00154, 1.00154)
 texture = ExtResource("11_ygbv4")
+offset = Vector2(-249.295, -197.196)
 
 [node name="Sprite2D12" type="Sprite2D" parent="."]
-scale = Vector2(1, 1)
 texture = ExtResource("12_ogss7")
 
 [node name="Sprite2D13" type="Sprite2D" parent="."]
@@ -96,7 +104,6 @@ scale = Vector2(1.00154, 1.00154)
 texture = ExtResource("13_xnvbq")
 
 [node name="Sprite2D14" type="Sprite2D" parent="."]
-scale = Vector2(1, 1)
 texture = ExtResource("14_jg8n3")
 
 [node name="Sprite2D15" type="Sprite2D" parent="."]

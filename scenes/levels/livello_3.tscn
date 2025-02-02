@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://4rwcjqeoidie"]
+[gd_scene load_steps=48 format=3 uid="uid://4rwcjqeoidie"]
 
 [ext_resource type="PackedScene" uid="uid://b17qgyay4odfp" path="res://scenes/drag and drop/traguardo.tscn" id="1_j0iut"]
 [ext_resource type="Texture2D" uid="uid://bnqg5ups6dtx3" path="res://sprites/obstacles/ostacolo_pentagono_neutro.webp" id="1_qcyl5"]
@@ -82,95 +82,100 @@ size = Vector2(193.262, 503.945)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gn7ux"]
 size = Vector2(386.316, 964.858)
 
-[node name="Livello3" type="Node2D"]
-position = Vector2(1275.74, 469)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m6rm0"]
+size = Vector2(205.116, 20)
 
-[node name="Traguardo" parent="." instance=ExtResource("1_j0iut")]
+[node name="Livello3" type="Node2D"]
+
+[node name="Livello3" type="Node2D" parent="."]
+position = Vector2(2218.83, 469)
+
+[node name="Traguardo" parent="Livello3" instance=ExtResource("1_j0iut")]
 position = Vector2(33830.1, 119)
 
-[node name="FirstSection" type="Node2D" parent="."]
+[node name="FirstSection" type="Node2D" parent="Livello3"]
 position = Vector2(970.111, -20.2222)
 
-[node name="RotatingPentagon" type="RigidBody2D" parent="FirstSection"]
+[node name="RotatingPentagon" type="RigidBody2D" parent="Livello3/FirstSection"]
 position = Vector2(-529.111, 104.222)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FirstSection/RotatingPentagon"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Livello3/FirstSection/RotatingPentagon"]
 position = Vector2(1, 94)
 scale = Vector2(6.93885, 6.77935)
 shape = SubResource("CircleShape2D_iid6r")
 
-[node name="OstacoloPentagonoNegativo" type="Sprite2D" parent="FirstSection/RotatingPentagon"]
+[node name="OstacoloPentagonoNegativo" type="Sprite2D" parent="Livello3/FirstSection/RotatingPentagon"]
 position = Vector2(-5, 91)
 rotation = 16628.3
 scale = Vector2(0.5, 0.514389)
 texture = ExtResource("1_qcyl5")
 offset = Vector2(0, 7.77622)
 
-[node name="CompRotate" type="Node" parent="FirstSection/RotatingPentagon/OstacoloPentagonoNegativo"]
+[node name="CompRotate" type="Node" parent="Livello3/FirstSection/RotatingPentagon/OstacoloPentagonoNegativo"]
 script = ExtResource("2_svii7")
 
-[node name="RotatingPentagon5" type="RigidBody2D" parent="FirstSection"]
+[node name="RotatingPentagon5" type="RigidBody2D" parent="Livello3/FirstSection"]
 position = Vector2(14081.9, 77.2222)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FirstSection/RotatingPentagon5"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Livello3/FirstSection/RotatingPentagon5"]
 position = Vector2(1, 94)
 scale = Vector2(6.93885, 6.77935)
 shape = SubResource("CircleShape2D_iid6r")
 
-[node name="OstacoloPentagonoNegativo" type="Sprite2D" parent="FirstSection/RotatingPentagon5"]
+[node name="OstacoloPentagonoNegativo" type="Sprite2D" parent="Livello3/FirstSection/RotatingPentagon5"]
 position = Vector2(-5, 91)
 rotation = 16627.3
 scale = Vector2(0.5, 0.514389)
 texture = ExtResource("1_qcyl5")
 offset = Vector2(0, 7.77622)
 
-[node name="CompRotate" type="Node" parent="FirstSection/RotatingPentagon5/OstacoloPentagonoNegativo"]
+[node name="CompRotate" type="Node" parent="Livello3/FirstSection/RotatingPentagon5/OstacoloPentagonoNegativo"]
 script = ExtResource("2_svii7")
 
-[node name="RotatingPentagon6" type="RigidBody2D" parent="FirstSection"]
+[node name="RotatingPentagon6" type="RigidBody2D" parent="Livello3/FirstSection"]
 position = Vector2(28551.9, 136.222)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FirstSection/RotatingPentagon6"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Livello3/FirstSection/RotatingPentagon6"]
 position = Vector2(1, 94)
 scale = Vector2(6.93885, 6.77935)
 shape = SubResource("CircleShape2D_iid6r")
 
-[node name="OstacoloPentagonoNegativo" type="Sprite2D" parent="FirstSection/RotatingPentagon6"]
+[node name="OstacoloPentagonoNegativo" type="Sprite2D" parent="Livello3/FirstSection/RotatingPentagon6"]
 position = Vector2(-5, 91)
 rotation = 16628.3
 scale = Vector2(0.5, 0.514389)
 texture = ExtResource("1_qcyl5")
 offset = Vector2(0, 7.77622)
 
-[node name="CompRotate" type="Node" parent="FirstSection/RotatingPentagon6/OstacoloPentagonoNegativo"]
+[node name="CompRotate" type="Node" parent="Livello3/FirstSection/RotatingPentagon6/OstacoloPentagonoNegativo"]
 script = ExtResource("2_svii7")
 
-[node name="RotatingQuadrato" parent="FirstSection" instance=ExtResource("3_wcjto")]
+[node name="RotatingQuadrato" parent="Livello3/FirstSection" instance=ExtResource("3_wcjto")]
 position = Vector2(1036.89, -247.778)
 
-[node name="RotatingPentagon2" type="RigidBody2D" parent="FirstSection"]
+[node name="RotatingPentagon2" type="RigidBody2D" parent="Livello3/FirstSection"]
 position = Vector2(2478.89, 136.222)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FirstSection/RotatingPentagon2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Livello3/FirstSection/RotatingPentagon2"]
 position = Vector2(1, 94)
 scale = Vector2(6.93885, 6.77935)
 shape = SubResource("CircleShape2D_iid6r")
 
-[node name="OstacoloPentagonoNegativo" type="Sprite2D" parent="FirstSection/RotatingPentagon2"]
+[node name="OstacoloPentagonoNegativo" type="Sprite2D" parent="Livello3/FirstSection/RotatingPentagon2"]
 position = Vector2(-5, 91)
 rotation = 16622.4
 scale = Vector2(0.5, 0.514389)
 texture = ExtResource("1_qcyl5")
 offset = Vector2(0, 7.77622)
 
-[node name="CompRotate" type="Node" parent="FirstSection/RotatingPentagon2/OstacoloPentagonoNegativo"]
+[node name="CompRotate" type="Node" parent="Livello3/FirstSection/RotatingPentagon2/OstacoloPentagonoNegativo"]
 script = ExtResource("2_svii7")
 
-[node name="Soffitto Positivo2" type="RigidBody2D" parent="FirstSection"]
+[node name="Soffitto Positivo2" type="RigidBody2D" parent="Livello3/FirstSection"]
 position = Vector2(802.889, 342.222)
 rotation = -3.14159
 
-[node name="CompElectricFied" type="Area2D" parent="FirstSection/Soffitto Positivo2"]
+[node name="CompElectricFied" type="Area2D" parent="Livello3/FirstSection/Soffitto Positivo2"]
 position = Vector2(-13, 292)
 scale = Vector2(2.56, 1)
 collision_layer = 0
@@ -179,27 +184,27 @@ script = ExtResource("4_0vlv1")
 force = -100.0
 exponent = 1.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FirstSection/Soffitto Positivo2/CompElectricFied"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Livello3/FirstSection/Soffitto Positivo2/CompElectricFied"]
 position = Vector2(3.11099, 158.398)
 shape = SubResource("RectangleShape2D_y2e10")
 debug_color = Color(1, 1, 0, 0.2)
 
-[node name="ScrollingTopNegativo" type="Sprite2D" parent="FirstSection/Soffitto Positivo2/CompElectricFied"]
+[node name="ScrollingTopNegativo" type="Sprite2D" parent="Livello3/FirstSection/Soffitto Positivo2/CompElectricFied"]
 position = Vector2(0, -367)
 rotation = 3.14159
 scale = Vector2(0.147623, -1.05001)
 texture = ExtResource("5_k34rx")
 
-[node name="CampoMagneticoNegativo2" type="Sprite2D" parent="FirstSection/Soffitto Positivo2/CompElectricFied"]
+[node name="CampoMagneticoNegativo2" type="Sprite2D" parent="Livello3/FirstSection/Soffitto Positivo2/CompElectricFied"]
 position = Vector2(3.28473, 134)
 rotation = 3.14159
 scale = Vector2(0.345717, 0.790787)
 texture = ExtResource("6_d1b47")
 
-[node name="Soffitto Negativo3" type="RigidBody2D" parent="FirstSection"]
+[node name="Soffitto Negativo3" type="RigidBody2D" parent="Livello3/FirstSection"]
 position = Vector2(2231.89, -296.778)
 
-[node name="CompElectricFied" type="Area2D" parent="FirstSection/Soffitto Negativo3"]
+[node name="CompElectricFied" type="Area2D" parent="Livello3/FirstSection/Soffitto Negativo3"]
 position = Vector2(-13, 292)
 scale = Vector2(1.52001, 1)
 collision_layer = 0
@@ -208,29 +213,29 @@ script = ExtResource("4_0vlv1")
 force = 100.0
 exponent = 1.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FirstSection/Soffitto Negativo3/CompElectricFied"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Livello3/FirstSection/Soffitto Negativo3/CompElectricFied"]
 position = Vector2(3.11099, 158.398)
 shape = SubResource("RectangleShape2D_n51oc")
 debug_color = Color(1, 1, 0, 0.2)
 
-[node name="ScrollingTopNegativo" type="Sprite2D" parent="FirstSection/Soffitto Negativo3/CompElectricFied"]
+[node name="ScrollingTopNegativo" type="Sprite2D" parent="Livello3/FirstSection/Soffitto Negativo3/CompElectricFied"]
 position = Vector2(0, -367)
 rotation = 3.14159
 scale = Vector2(0.147623, -1.05001)
 texture = ExtResource("7_bdd0g")
 
-[node name="CampoMagneticoNegativo2" type="Sprite2D" parent="FirstSection/Soffitto Negativo3/CompElectricFied"]
+[node name="CampoMagneticoNegativo2" type="Sprite2D" parent="Livello3/FirstSection/Soffitto Negativo3/CompElectricFied"]
 position = Vector2(0, 134)
 rotation = 3.14159
 scale = Vector2(0.337597, 0.790787)
 texture = ExtResource("8_6njt0")
 
-[node name="Soffitto Positivo3" parent="FirstSection" instance=ExtResource("9_hhqmy")]
+[node name="Soffitto Positivo3" parent="Livello3/FirstSection" instance=ExtResource("9_hhqmy")]
 
-[node name="Soffitto Positivo4" type="RigidBody2D" parent="FirstSection"]
+[node name="Soffitto Positivo4" type="RigidBody2D" parent="Livello3/FirstSection"]
 position = Vector2(4036.89, -297.778)
 
-[node name="CompElectricFied" type="Area2D" parent="FirstSection/Soffitto Positivo4"]
+[node name="CompElectricFied" type="Area2D" parent="Livello3/FirstSection/Soffitto Positivo4"]
 position = Vector2(-6.85122, 273)
 scale = Vector2(1.83998, 1)
 collision_layer = 0
@@ -239,27 +244,27 @@ script = ExtResource("4_0vlv1")
 force = -100.0
 exponent = 1.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FirstSection/Soffitto Positivo4/CompElectricFied"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Livello3/FirstSection/Soffitto Positivo4/CompElectricFied"]
 position = Vector2(3.11099, 158.398)
 shape = SubResource("RectangleShape2D_hw51p")
 debug_color = Color(1, 1, 0, 0.2)
 
-[node name="ScrollingTopNegativo" type="Sprite2D" parent="FirstSection/Soffitto Positivo4/CompElectricFied"]
+[node name="ScrollingTopNegativo" type="Sprite2D" parent="Livello3/FirstSection/Soffitto Positivo4/CompElectricFied"]
 position = Vector2(0, -367)
 rotation = 3.14159
 scale = Vector2(0.147623, -1.05001)
 texture = ExtResource("5_k34rx")
 
-[node name="CampoMagneticoNegativo2" type="Sprite2D" parent="FirstSection/Soffitto Positivo4/CompElectricFied"]
+[node name="CampoMagneticoNegativo2" type="Sprite2D" parent="Livello3/FirstSection/Soffitto Positivo4/CompElectricFied"]
 position = Vector2(3.62702, 134)
 rotation = 3.14159
 scale = Vector2(0.346564, 0.790787)
 texture = ExtResource("6_d1b47")
 
-[node name="Soffitto Negativo4" type="RigidBody2D" parent="FirstSection"]
+[node name="Soffitto Negativo4" type="RigidBody2D" parent="Livello3/FirstSection"]
 position = Vector2(4733.89, -300.778)
 
-[node name="CompElectricFied" type="Area2D" parent="FirstSection/Soffitto Negativo4"]
+[node name="CompElectricFied" type="Area2D" parent="Livello3/FirstSection/Soffitto Negativo4"]
 position = Vector2(-8.08292, 276)
 scale = Vector2(1.8, 1)
 collision_layer = 0
@@ -268,30 +273,30 @@ script = ExtResource("4_0vlv1")
 force = 100.0
 exponent = 1.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FirstSection/Soffitto Negativo4/CompElectricFied"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Livello3/FirstSection/Soffitto Negativo4/CompElectricFied"]
 position = Vector2(3.11099, 158.398)
 shape = SubResource("RectangleShape2D_tjnit")
 debug_color = Color(1, 1, 0, 0.2)
 
-[node name="ScrollingTopNegativo" type="Sprite2D" parent="FirstSection/Soffitto Negativo4/CompElectricFied"]
+[node name="ScrollingTopNegativo" type="Sprite2D" parent="Livello3/FirstSection/Soffitto Negativo4/CompElectricFied"]
 position = Vector2(0, -367)
 rotation = 3.14159
 scale = Vector2(0.147623, -1.05001)
 texture = ExtResource("7_bdd0g")
 
-[node name="CampoMagneticoNegativo2" type="Sprite2D" parent="FirstSection/Soffitto Negativo4/CompElectricFied"]
+[node name="CampoMagneticoNegativo2" type="Sprite2D" parent="Livello3/FirstSection/Soffitto Negativo4/CompElectricFied"]
 position = Vector2(2.94276, 134)
 rotation = 3.14159
 scale = Vector2(0.344872, 0.790787)
 texture = ExtResource("8_6njt0")
 
-[node name="Soffitto Negativo6" parent="FirstSection" instance=ExtResource("10_7hiah")]
+[node name="Soffitto Negativo6" parent="Livello3/FirstSection" instance=ExtResource("10_7hiah")]
 position = Vector2(1563.89, 335.222)
 
-[node name="Soffitto Positivo6" type="RigidBody2D" parent="FirstSection"]
+[node name="Soffitto Positivo6" type="RigidBody2D" parent="Livello3/FirstSection"]
 position = Vector2(7304.89, -296.778)
 
-[node name="CompElectricFied" type="Area2D" parent="FirstSection/Soffitto Positivo6"]
+[node name="CompElectricFied" type="Area2D" parent="Livello3/FirstSection/Soffitto Positivo6"]
 position = Vector2(-15.6204, 436)
 scale = Vector2(2.19886, 1)
 collision_layer = 0
@@ -300,28 +305,28 @@ script = ExtResource("4_0vlv1")
 force = -100.0
 exponent = 1.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FirstSection/Soffitto Positivo6/CompElectricFied"]
-position = Vector2(0.923096, 158.398)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Livello3/FirstSection/Soffitto Positivo6/CompElectricFied"]
+position = Vector2(-0.0548611, 117)
 shape = SubResource("RectangleShape2D_ferf7")
 debug_color = Color(1, 1, 0, 0.2)
 
-[node name="ScrollingTopNegativo" type="Sprite2D" parent="FirstSection/Soffitto Positivo6/CompElectricFied"]
-position = Vector2(0, -367)
+[node name="ScrollingTopNegativo" type="Sprite2D" parent="Livello3/FirstSection/Soffitto Positivo6/CompElectricFied"]
+position = Vector2(-0.0550711, -406)
 rotation = 3.14159
 scale = Vector2(0.147623, -1.05001)
 texture = ExtResource("5_k34rx")
 
-[node name="CampoMagneticoNegativo2" type="Sprite2D" parent="FirstSection/Soffitto Positivo6/CompElectricFied"]
-position = Vector2(-1.25581, 134)
+[node name="CampoMagneticoNegativo2" type="Sprite2D" parent="Livello3/FirstSection/Soffitto Positivo6/CompElectricFied"]
+position = Vector2(-0.0549049, 117)
 rotation = 3.14159
 scale = Vector2(0.355132, 0.790787)
 texture = ExtResource("6_d1b47")
 
-[node name="Soffitto Positivo8" type="RigidBody2D" parent="FirstSection"]
+[node name="Soffitto Positivo8" type="RigidBody2D" parent="Livello3/FirstSection"]
 position = Vector2(10276, 345.222)
 rotation = -3.14159
 
-[node name="CompElectricFied" type="Area2D" parent="FirstSection/Soffitto Positivo8"]
+[node name="CompElectricFied" type="Area2D" parent="Livello3/FirstSection/Soffitto Positivo8"]
 position = Vector2(81.1439, 299)
 scale = Vector2(5.79428, 1)
 collision_layer = 0
@@ -330,28 +335,28 @@ script = ExtResource("4_0vlv1")
 force = -100.0
 exponent = 1.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FirstSection/Soffitto Positivo8/CompElectricFied"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Livello3/FirstSection/Soffitto Positivo8/CompElectricFied"]
 position = Vector2(3.11099, 158.398)
 shape = SubResource("RectangleShape2D_y2e10")
 debug_color = Color(1, 1, 0, 0.2)
 
-[node name="ScrollingTopNegativo" type="Sprite2D" parent="FirstSection/Soffitto Positivo8/CompElectricFied"]
+[node name="ScrollingTopNegativo" type="Sprite2D" parent="Livello3/FirstSection/Soffitto Positivo8/CompElectricFied"]
 position = Vector2(0, -367)
 rotation = 3.14159
 scale = Vector2(0.147623, -1.05001)
 texture = ExtResource("5_k34rx")
 
-[node name="CampoMagneticoNegativo2" type="Sprite2D" parent="FirstSection/Soffitto Positivo8/CompElectricFied"]
+[node name="CampoMagneticoNegativo2" type="Sprite2D" parent="Livello3/FirstSection/Soffitto Positivo8/CompElectricFied"]
 position = Vector2(3.28473, 134)
 rotation = 3.14159
 scale = Vector2(0.345717, 0.790787)
 texture = ExtResource("6_d1b47")
 
-[node name="Soffitto Negativo10" type="RigidBody2D" parent="FirstSection"]
+[node name="Soffitto Negativo10" type="RigidBody2D" parent="Livello3/FirstSection"]
 position = Vector2(-160.544, 2003.22)
 rotation = 3.14159
 
-[node name="CompElectricFied" type="Area2D" parent="FirstSection/Soffitto Negativo10"]
+[node name="CompElectricFied" type="Area2D" parent="Livello3/FirstSection/Soffitto Negativo10"]
 position = Vector2(382.318, 2025)
 rotation = 3.14159
 scale = Vector2(2.12, 1)
@@ -361,30 +366,30 @@ script = ExtResource("4_0vlv1")
 force = 100.0
 exponent = 1.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FirstSection/Soffitto Negativo10/CompElectricFied"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Livello3/FirstSection/Soffitto Negativo10/CompElectricFied"]
 position = Vector2(0, 158.398)
 shape = SubResource("RectangleShape2D_5twd1")
 debug_color = Color(1, 1, 0, 0.2)
 
-[node name="ScrollingTopNegativo" type="Sprite2D" parent="FirstSection/Soffitto Negativo10/CompElectricFied"]
+[node name="ScrollingTopNegativo" type="Sprite2D" parent="Livello3/FirstSection/Soffitto Negativo10/CompElectricFied"]
 position = Vector2(0, -367)
 rotation = 3.14159
 scale = Vector2(0.147623, -1.05001)
 texture = ExtResource("7_bdd0g")
 
-[node name="CampoMagneticoNegativo2" type="Sprite2D" parent="FirstSection/Soffitto Negativo10/CompElectricFied"]
+[node name="CampoMagneticoNegativo2" type="Sprite2D" parent="Livello3/FirstSection/Soffitto Negativo10/CompElectricFied"]
 position = Vector2(0.445422, 171.418)
 rotation = 3.14159
 scale = Vector2(0.351605, 0.866768)
 texture = ExtResource("8_6njt0")
 
-[node name="SpeedUp3" parent="FirstSection/Soffitto Negativo10" instance=ExtResource("11_bi3ec")]
+[node name="SpeedUp3" parent="Livello3/FirstSection/Soffitto Negativo10" instance=ExtResource("11_bi3ec")]
 position = Vector2(-2458.65, 1331.99)
 
-[node name="Soffitto Positivo10" type="RigidBody2D" parent="FirstSection"]
+[node name="Soffitto Positivo10" type="RigidBody2D" parent="Livello3/FirstSection"]
 position = Vector2(13718.9, -297.778)
 
-[node name="CompElectricFied" type="Area2D" parent="FirstSection/Soffitto Positivo10"]
+[node name="CompElectricFied" type="Area2D" parent="Livello3/FirstSection/Soffitto Positivo10"]
 position = Vector2(-13, 292)
 scale = Vector2(1.83998, 1)
 collision_layer = 0
@@ -393,27 +398,27 @@ script = ExtResource("4_0vlv1")
 force = -100.0
 exponent = 1.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FirstSection/Soffitto Positivo10/CompElectricFied"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Livello3/FirstSection/Soffitto Positivo10/CompElectricFied"]
 position = Vector2(3.11099, 158.398)
 shape = SubResource("RectangleShape2D_hw51p")
 debug_color = Color(1, 1, 0, 0.2)
 
-[node name="ScrollingTopNegativo" type="Sprite2D" parent="FirstSection/Soffitto Positivo10/CompElectricFied"]
+[node name="ScrollingTopNegativo" type="Sprite2D" parent="Livello3/FirstSection/Soffitto Positivo10/CompElectricFied"]
 position = Vector2(0, -367)
 rotation = 3.14159
 scale = Vector2(0.147623, -1.05001)
 texture = ExtResource("5_k34rx")
 
-[node name="CampoMagneticoNegativo2" type="Sprite2D" parent="FirstSection/Soffitto Positivo10/CompElectricFied"]
+[node name="CampoMagneticoNegativo2" type="Sprite2D" parent="Livello3/FirstSection/Soffitto Positivo10/CompElectricFied"]
 position = Vector2(3.62702, 134)
 rotation = 3.14159
 scale = Vector2(0.346564, 0.790787)
 texture = ExtResource("6_d1b47")
 
-[node name="Soffitto Negativo11" type="RigidBody2D" parent="FirstSection"]
+[node name="Soffitto Negativo11" type="RigidBody2D" parent="Livello3/FirstSection"]
 position = Vector2(14415.9, -300.778)
 
-[node name="CompElectricFied" type="Area2D" parent="FirstSection/Soffitto Negativo11"]
+[node name="CompElectricFied" type="Area2D" parent="Livello3/FirstSection/Soffitto Negativo11"]
 position = Vector2(-13, 292)
 scale = Vector2(1.8, 1)
 collision_layer = 0
@@ -422,31 +427,31 @@ script = ExtResource("4_0vlv1")
 force = 100.0
 exponent = 1.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FirstSection/Soffitto Negativo11/CompElectricFied"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Livello3/FirstSection/Soffitto Negativo11/CompElectricFied"]
 position = Vector2(3.11099, 158.398)
 shape = SubResource("RectangleShape2D_tjnit")
 debug_color = Color(1, 1, 0, 0.2)
 
-[node name="ScrollingTopNegativo" type="Sprite2D" parent="FirstSection/Soffitto Negativo11/CompElectricFied"]
+[node name="ScrollingTopNegativo" type="Sprite2D" parent="Livello3/FirstSection/Soffitto Negativo11/CompElectricFied"]
 position = Vector2(0, -367)
 rotation = 3.14159
 scale = Vector2(0.147623, -1.05001)
 texture = ExtResource("7_bdd0g")
 
-[node name="CampoMagneticoNegativo2" type="Sprite2D" parent="FirstSection/Soffitto Negativo11/CompElectricFied"]
+[node name="CampoMagneticoNegativo2" type="Sprite2D" parent="Livello3/FirstSection/Soffitto Negativo11/CompElectricFied"]
 position = Vector2(2.94276, 134)
 rotation = 3.14159
 scale = Vector2(0.344872, 0.790787)
 texture = ExtResource("8_6njt0")
 
-[node name="Soffitto Negativo12" parent="FirstSection" instance=ExtResource("12_3xj1h")]
+[node name="Soffitto Negativo12" parent="Livello3/FirstSection" instance=ExtResource("12_3xj1h")]
 position = Vector2(15113.9, -294.778)
 
-[node name="Soffitto Negativo7" type="RigidBody2D" parent="FirstSection"]
+[node name="Soffitto Negativo7" type="RigidBody2D" parent="Livello3/FirstSection"]
 position = Vector2(12807.5, 340.222)
 rotation = 3.14159
 
-[node name="CompElectricFied" type="Area2D" parent="FirstSection/Soffitto Negativo7"]
+[node name="CompElectricFied" type="Area2D" parent="Livello3/FirstSection/Soffitto Negativo7"]
 position = Vector2(-13, 292)
 scale = Vector2(4.23625, 1)
 collision_layer = 0
@@ -455,33 +460,33 @@ script = ExtResource("4_0vlv1")
 force = 100.0
 exponent = 1.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FirstSection/Soffitto Negativo7/CompElectricFied"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Livello3/FirstSection/Soffitto Negativo7/CompElectricFied"]
 position = Vector2(0, 158.398)
 shape = SubResource("RectangleShape2D_5twd1")
 debug_color = Color(1, 1, 0, 0.2)
 
-[node name="ScrollingTopNegativo" type="Sprite2D" parent="FirstSection/Soffitto Negativo7/CompElectricFied"]
+[node name="ScrollingTopNegativo" type="Sprite2D" parent="Livello3/FirstSection/Soffitto Negativo7/CompElectricFied"]
 position = Vector2(0, -367)
 rotation = 3.14159
 scale = Vector2(0.147623, -1.05001)
 texture = ExtResource("7_bdd0g")
 
-[node name="CampoMagneticoNegativo2" type="Sprite2D" parent="FirstSection/Soffitto Negativo7/CompElectricFied"]
+[node name="CampoMagneticoNegativo2" type="Sprite2D" parent="Livello3/FirstSection/Soffitto Negativo7/CompElectricFied"]
 position = Vector2(0.445422, 171.418)
 rotation = 3.14159
 scale = Vector2(0.351605, 0.866768)
 texture = ExtResource("8_6njt0")
 
-[node name="Soffitto Negativo13" parent="FirstSection" instance=ExtResource("10_7hiah")]
+[node name="Soffitto Negativo13" parent="Livello3/FirstSection" instance=ExtResource("10_7hiah")]
 position = Vector2(11370, 335.222)
 
-[node name="Soffitto Positivo11" parent="FirstSection" instance=ExtResource("13_mj8m3")]
+[node name="Soffitto Positivo11" parent="Livello3/FirstSection" instance=ExtResource("13_mj8m3")]
 position = Vector2(16246.9, -296.778)
 
-[node name="Soffitto Positivo12" type="RigidBody2D" parent="FirstSection"]
+[node name="Soffitto Positivo12" type="RigidBody2D" parent="Livello3/FirstSection"]
 position = Vector2(16986.9, -296.778)
 
-[node name="CompElectricFied" type="Area2D" parent="FirstSection/Soffitto Positivo12"]
+[node name="CompElectricFied" type="Area2D" parent="Livello3/FirstSection/Soffitto Positivo12"]
 position = Vector2(-13, 292)
 scale = Vector2(1.55998, 1)
 collision_layer = 0
@@ -490,55 +495,55 @@ script = ExtResource("4_0vlv1")
 force = -100.0
 exponent = 1.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FirstSection/Soffitto Positivo12/CompElectricFied"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Livello3/FirstSection/Soffitto Positivo12/CompElectricFied"]
 position = Vector2(0.923096, 158.398)
 shape = SubResource("RectangleShape2D_ferf7")
 debug_color = Color(1, 1, 0, 0.2)
 
-[node name="ScrollingTopNegativo" type="Sprite2D" parent="FirstSection/Soffitto Positivo12/CompElectricFied"]
+[node name="ScrollingTopNegativo" type="Sprite2D" parent="Livello3/FirstSection/Soffitto Positivo12/CompElectricFied"]
 position = Vector2(0, -367)
 rotation = 3.14159
 scale = Vector2(0.147623, -1.05001)
 texture = ExtResource("5_k34rx")
 
-[node name="CampoMagneticoNegativo2" type="Sprite2D" parent="FirstSection/Soffitto Positivo12/CompElectricFied"]
+[node name="CampoMagneticoNegativo2" type="Sprite2D" parent="Livello3/FirstSection/Soffitto Positivo12/CompElectricFied"]
 position = Vector2(-1.25581, 134)
 rotation = 3.14159
 scale = Vector2(0.355132, 0.790787)
 texture = ExtResource("6_d1b47")
 
-[node name="Soffitto Negativo14" parent="FirstSection" instance=ExtResource("10_7hiah")]
+[node name="Soffitto Negativo14" parent="Livello3/FirstSection" instance=ExtResource("10_7hiah")]
 position = Vector2(17748.9, 335.222)
 
-[node name="RotatingPentagon3" type="RigidBody2D" parent="FirstSection"]
+[node name="RotatingPentagon3" type="RigidBody2D" parent="Livello3/FirstSection"]
 position = Vector2(18856.9, -277.778)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FirstSection/RotatingPentagon3"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Livello3/FirstSection/RotatingPentagon3"]
 position = Vector2(1, 94)
 scale = Vector2(6.93885, 6.77935)
 shape = SubResource("CircleShape2D_iid6r")
 
-[node name="OstacoloPentagonoNegativo" type="Sprite2D" parent="FirstSection/RotatingPentagon3"]
+[node name="OstacoloPentagonoNegativo" type="Sprite2D" parent="Livello3/FirstSection/RotatingPentagon3"]
 position = Vector2(-5, 91)
 rotation = 16622.4
 scale = Vector2(0.5, 0.514389)
 texture = ExtResource("1_qcyl5")
 offset = Vector2(0, 7.77622)
 
-[node name="CompRotate" type="Node" parent="FirstSection/RotatingPentagon3/OstacoloPentagonoNegativo"]
+[node name="CompRotate" type="Node" parent="Livello3/FirstSection/RotatingPentagon3/OstacoloPentagonoNegativo"]
 script = ExtResource("2_svii7")
 
-[node name="Soffitto Negativo15" parent="FirstSection" instance=ExtResource("12_3xj1h")]
+[node name="Soffitto Negativo15" parent="Livello3/FirstSection" instance=ExtResource("12_3xj1h")]
 position = Vector2(18518.9, -301.778)
 
-[node name="Soffitto Positivo13" parent="FirstSection" instance=ExtResource("13_mj8m3")]
+[node name="Soffitto Positivo13" parent="Livello3/FirstSection" instance=ExtResource("13_mj8m3")]
 position = Vector2(19364.9, -304.778)
 
-[node name="Soffitto Positivo14" type="RigidBody2D" parent="FirstSection"]
+[node name="Soffitto Positivo14" type="RigidBody2D" parent="Livello3/FirstSection"]
 position = Vector2(20200.9, 337.222)
 rotation = -3.14159
 
-[node name="CompElectricFied" type="Area2D" parent="FirstSection/Soffitto Positivo14"]
+[node name="CompElectricFied" type="Area2D" parent="Livello3/FirstSection/Soffitto Positivo14"]
 position = Vector2(-13, 292)
 scale = Vector2(2.56, 1)
 collision_layer = 0
@@ -547,33 +552,33 @@ script = ExtResource("4_0vlv1")
 force = -100.0
 exponent = 1.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FirstSection/Soffitto Positivo14/CompElectricFied"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Livello3/FirstSection/Soffitto Positivo14/CompElectricFied"]
 position = Vector2(3.11099, 158.398)
 shape = SubResource("RectangleShape2D_y2e10")
 debug_color = Color(1, 1, 0, 0.2)
 
-[node name="ScrollingTopNegativo" type="Sprite2D" parent="FirstSection/Soffitto Positivo14/CompElectricFied"]
+[node name="ScrollingTopNegativo" type="Sprite2D" parent="Livello3/FirstSection/Soffitto Positivo14/CompElectricFied"]
 position = Vector2(0, -367)
 rotation = 3.14159
 scale = Vector2(0.147623, -1.05001)
 texture = ExtResource("5_k34rx")
 
-[node name="CampoMagneticoNegativo2" type="Sprite2D" parent="FirstSection/Soffitto Positivo14/CompElectricFied"]
+[node name="CampoMagneticoNegativo2" type="Sprite2D" parent="Livello3/FirstSection/Soffitto Positivo14/CompElectricFied"]
 position = Vector2(3.28473, 134)
 rotation = 3.14159
 scale = Vector2(0.345717, 0.790787)
 texture = ExtResource("6_d1b47")
 
-[node name="Soffitto Negativo16" parent="FirstSection" instance=ExtResource("12_3xj1h")]
+[node name="Soffitto Negativo16" parent="Livello3/FirstSection" instance=ExtResource("12_3xj1h")]
 position = Vector2(18518.9, -301.778)
 
-[node name="Soffitto Positivo15" parent="FirstSection" instance=ExtResource("9_hhqmy")]
+[node name="Soffitto Positivo15" parent="Livello3/FirstSection" instance=ExtResource("9_hhqmy")]
 position = Vector2(22493.9, 334.222)
 
-[node name="Soffitto Positivo16" type="RigidBody2D" parent="FirstSection"]
+[node name="Soffitto Positivo16" type="RigidBody2D" parent="Livello3/FirstSection"]
 position = Vector2(23434.9, -302.778)
 
-[node name="CompElectricFied" type="Area2D" parent="FirstSection/Soffitto Positivo16"]
+[node name="CompElectricFied" type="Area2D" parent="Livello3/FirstSection/Soffitto Positivo16"]
 position = Vector2(-13, 292)
 scale = Vector2(1.83998, 1)
 collision_layer = 0
@@ -582,27 +587,27 @@ script = ExtResource("4_0vlv1")
 force = -100.0
 exponent = 1.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FirstSection/Soffitto Positivo16/CompElectricFied"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Livello3/FirstSection/Soffitto Positivo16/CompElectricFied"]
 position = Vector2(3.11099, 158.398)
 shape = SubResource("RectangleShape2D_hw51p")
 debug_color = Color(1, 1, 0, 0.2)
 
-[node name="ScrollingTopNegativo" type="Sprite2D" parent="FirstSection/Soffitto Positivo16/CompElectricFied"]
+[node name="ScrollingTopNegativo" type="Sprite2D" parent="Livello3/FirstSection/Soffitto Positivo16/CompElectricFied"]
 position = Vector2(0, -367)
 rotation = 3.14159
 scale = Vector2(0.147623, -1.05001)
 texture = ExtResource("5_k34rx")
 
-[node name="CampoMagneticoNegativo2" type="Sprite2D" parent="FirstSection/Soffitto Positivo16/CompElectricFied"]
+[node name="CampoMagneticoNegativo2" type="Sprite2D" parent="Livello3/FirstSection/Soffitto Positivo16/CompElectricFied"]
 position = Vector2(3.62702, 134)
 rotation = 3.14159
 scale = Vector2(0.346564, 0.790787)
 texture = ExtResource("6_d1b47")
 
-[node name="Soffitto Negativo18" type="RigidBody2D" parent="FirstSection"]
+[node name="Soffitto Negativo18" type="RigidBody2D" parent="Livello3/FirstSection"]
 position = Vector2(24131.9, -305.778)
 
-[node name="CompElectricFied" type="Area2D" parent="FirstSection/Soffitto Negativo18"]
+[node name="CompElectricFied" type="Area2D" parent="Livello3/FirstSection/Soffitto Negativo18"]
 position = Vector2(-13, 292)
 scale = Vector2(1.8, 1)
 collision_layer = 0
@@ -611,31 +616,31 @@ script = ExtResource("4_0vlv1")
 force = 100.0
 exponent = 1.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FirstSection/Soffitto Negativo18/CompElectricFied"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Livello3/FirstSection/Soffitto Negativo18/CompElectricFied"]
 position = Vector2(3.11099, 158.398)
 shape = SubResource("RectangleShape2D_tjnit")
 debug_color = Color(1, 1, 0, 0.2)
 
-[node name="ScrollingTopNegativo" type="Sprite2D" parent="FirstSection/Soffitto Negativo18/CompElectricFied"]
+[node name="ScrollingTopNegativo" type="Sprite2D" parent="Livello3/FirstSection/Soffitto Negativo18/CompElectricFied"]
 position = Vector2(0, -367)
 rotation = 3.14159
 scale = Vector2(0.147623, -1.05001)
 texture = ExtResource("7_bdd0g")
 
-[node name="CampoMagneticoNegativo2" type="Sprite2D" parent="FirstSection/Soffitto Negativo18/CompElectricFied"]
+[node name="CampoMagneticoNegativo2" type="Sprite2D" parent="Livello3/FirstSection/Soffitto Negativo18/CompElectricFied"]
 position = Vector2(2.94276, 134)
 rotation = 3.14159
 scale = Vector2(0.344872, 0.790787)
 texture = ExtResource("8_6njt0")
 
-[node name="DoubleElectricField4" parent="FirstSection" instance=ExtResource("14_to27k")]
+[node name="DoubleElectricField4" parent="Livello3/FirstSection" instance=ExtResource("14_to27k")]
 position = Vector2(-87.6729, -2.7778)
 
-[node name="Soffitto Negativo19" type="RigidBody2D" parent="FirstSection"]
+[node name="Soffitto Negativo19" type="RigidBody2D" parent="Livello3/FirstSection"]
 position = Vector2(24706.4, 343.222)
 rotation = 3.14159
 
-[node name="CompElectricFied" type="Area2D" parent="FirstSection/Soffitto Negativo19"]
+[node name="CompElectricFied" type="Area2D" parent="Livello3/FirstSection/Soffitto Negativo19"]
 position = Vector2(-13, 292)
 scale = Vector2(2.59717, 1)
 collision_layer = 0
@@ -644,31 +649,31 @@ script = ExtResource("4_0vlv1")
 force = 100.0
 exponent = 1.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FirstSection/Soffitto Negativo19/CompElectricFied"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Livello3/FirstSection/Soffitto Negativo19/CompElectricFied"]
 position = Vector2(3.11099, 158.398)
 scale = Vector2(0.923129, 1)
 shape = SubResource("RectangleShape2D_5tikm")
 debug_color = Color(1, 1, 0, 0.2)
 
-[node name="ScrollingTopNegativo" type="Sprite2D" parent="FirstSection/Soffitto Negativo19"]
+[node name="ScrollingTopNegativo" type="Sprite2D" parent="Livello3/FirstSection/Soffitto Negativo19"]
 position = Vector2(-13, -75)
 rotation = 3.14159
 scale = Vector2(0.34727, -1.05001)
 texture = ExtResource("7_bdd0g")
 
-[node name="CampoMagneticoNegativo2" type="Sprite2D" parent="FirstSection/Soffitto Negativo19"]
+[node name="CampoMagneticoNegativo2" type="Sprite2D" parent="Livello3/FirstSection/Soffitto Negativo19"]
 position = Vector2(-13, 426)
 rotation = 3.14159
 scale = Vector2(0.856678, 0.790787)
 texture = ExtResource("8_6njt0")
 
-[node name="Soffitto Negativo20" parent="FirstSection" instance=ExtResource("10_7hiah")]
+[node name="Soffitto Negativo20" parent="Livello3/FirstSection" instance=ExtResource("10_7hiah")]
 position = Vector2(20961.9, 330.222)
 
-[node name="Soffitto Positivo17" type="RigidBody2D" parent="FirstSection"]
+[node name="Soffitto Positivo17" type="RigidBody2D" parent="Livello3/FirstSection"]
 position = Vector2(25962.9, -301.778)
 
-[node name="CompElectricFied" type="Area2D" parent="FirstSection/Soffitto Positivo17"]
+[node name="CompElectricFied" type="Area2D" parent="Livello3/FirstSection/Soffitto Positivo17"]
 position = Vector2(-13, 292)
 scale = Vector2(3.59541, 1)
 collision_layer = 0
@@ -677,28 +682,28 @@ script = ExtResource("4_0vlv1")
 force = -100.0
 exponent = 1.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FirstSection/Soffitto Positivo17/CompElectricFied"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Livello3/FirstSection/Soffitto Positivo17/CompElectricFied"]
 position = Vector2(3.11099, 158.398)
 shape = SubResource("RectangleShape2D_31uy1")
 debug_color = Color(1, 1, 0, 0.2)
 
-[node name="ScrollingTopNegativo" type="Sprite2D" parent="FirstSection/Soffitto Positivo17"]
+[node name="ScrollingTopNegativo" type="Sprite2D" parent="Livello3/FirstSection/Soffitto Positivo17"]
 position = Vector2(-13, -75)
 rotation = 3.14159
 scale = Vector2(0.506987, -1.05001)
 texture = ExtResource("5_k34rx")
 
-[node name="CampoMagneticoNegativo2" type="Sprite2D" parent="FirstSection/Soffitto Positivo17"]
+[node name="CampoMagneticoNegativo2" type="Sprite2D" parent="Livello3/FirstSection/Soffitto Positivo17"]
 position = Vector2(-13, 426)
 rotation = 3.14159
 scale = Vector2(1.21604, 0.790787)
 texture = ExtResource("6_d1b47")
 
-[node name="Soffitto Positivo18" type="RigidBody2D" parent="FirstSection"]
+[node name="Soffitto Positivo18" type="RigidBody2D" parent="Livello3/FirstSection"]
 position = Vector2(26702.9, -301.778)
 rotation = 3.14159
 
-[node name="CompElectricFied" type="Area2D" parent="FirstSection/Soffitto Positivo18"]
+[node name="CompElectricFied" type="Area2D" parent="Livello3/FirstSection/Soffitto Positivo18"]
 position = Vector2(-111.81, -352)
 scale = Vector2(2.51828, 1)
 collision_layer = 0
@@ -707,37 +712,37 @@ script = ExtResource("4_0vlv1")
 force = -100.0
 exponent = 1.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FirstSection/Soffitto Positivo18/CompElectricFied"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Livello3/FirstSection/Soffitto Positivo18/CompElectricFied"]
 position = Vector2(0.923096, 158.398)
 shape = SubResource("RectangleShape2D_ferf7")
 debug_color = Color(1, 1, 0, 0.2)
 
-[node name="ScrollingTopNegativo" type="Sprite2D" parent="FirstSection/Soffitto Positivo18/CompElectricFied"]
+[node name="ScrollingTopNegativo" type="Sprite2D" parent="Livello3/FirstSection/Soffitto Positivo18/CompElectricFied"]
 position = Vector2(0, -367)
 rotation = 3.14159
 scale = Vector2(0.147623, -1.05001)
 texture = ExtResource("5_k34rx")
 
-[node name="CampoMagneticoNegativo2" type="Sprite2D" parent="FirstSection/Soffitto Positivo18/CompElectricFied"]
+[node name="CampoMagneticoNegativo2" type="Sprite2D" parent="Livello3/FirstSection/Soffitto Positivo18/CompElectricFied"]
 position = Vector2(-1.25581, 134)
 rotation = 3.14159
 scale = Vector2(0.355132, 0.790787)
 texture = ExtResource("6_d1b47")
 
-[node name="Soffitto Negativo21" parent="FirstSection" instance=ExtResource("10_7hiah")]
+[node name="Soffitto Negativo21" parent="Livello3/FirstSection" instance=ExtResource("10_7hiah")]
 position = Vector2(27461.6, 340.222)
 
-[node name="Soffitto Negativo22" parent="FirstSection" instance=ExtResource("12_3xj1h")]
+[node name="Soffitto Negativo22" parent="Livello3/FirstSection" instance=ExtResource("12_3xj1h")]
 position = Vector2(28200.9, -301.778)
 
-[node name="Soffitto Positivo19" parent="FirstSection" instance=ExtResource("13_mj8m3")]
+[node name="Soffitto Positivo19" parent="Livello3/FirstSection" instance=ExtResource("13_mj8m3")]
 position = Vector2(29046.9, -304.778)
 
-[node name="Soffitto Positivo20" type="RigidBody2D" parent="FirstSection"]
+[node name="Soffitto Positivo20" type="RigidBody2D" parent="Livello3/FirstSection"]
 position = Vector2(29882.9, 337.222)
 rotation = -3.14159
 
-[node name="CompElectricFied" type="Area2D" parent="FirstSection/Soffitto Positivo20"]
+[node name="CompElectricFied" type="Area2D" parent="Livello3/FirstSection/Soffitto Positivo20"]
 position = Vector2(-13, 292)
 scale = Vector2(2.56, 1)
 collision_layer = 0
@@ -746,30 +751,30 @@ script = ExtResource("4_0vlv1")
 force = -100.0
 exponent = 1.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FirstSection/Soffitto Positivo20/CompElectricFied"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Livello3/FirstSection/Soffitto Positivo20/CompElectricFied"]
 position = Vector2(3.11099, 158.398)
 shape = SubResource("RectangleShape2D_y2e10")
 debug_color = Color(1, 1, 0, 0.2)
 
-[node name="ScrollingTopNegativo" type="Sprite2D" parent="FirstSection/Soffitto Positivo20/CompElectricFied"]
+[node name="ScrollingTopNegativo" type="Sprite2D" parent="Livello3/FirstSection/Soffitto Positivo20/CompElectricFied"]
 position = Vector2(0, -367)
 rotation = 3.14159
 scale = Vector2(0.147623, -1.05001)
 texture = ExtResource("5_k34rx")
 
-[node name="CampoMagneticoNegativo2" type="Sprite2D" parent="FirstSection/Soffitto Positivo20/CompElectricFied"]
+[node name="CampoMagneticoNegativo2" type="Sprite2D" parent="Livello3/FirstSection/Soffitto Positivo20/CompElectricFied"]
 position = Vector2(3.28473, 134)
 rotation = 3.14159
 scale = Vector2(0.345717, 0.790787)
 texture = ExtResource("6_d1b47")
 
-[node name="Soffitto Negativo23" parent="FirstSection" instance=ExtResource("12_3xj1h")]
+[node name="Soffitto Negativo23" parent="Livello3/FirstSection" instance=ExtResource("12_3xj1h")]
 position = Vector2(28200.9, -301.778)
 
-[node name="Soffitto Negativo24" type="RigidBody2D" parent="FirstSection"]
+[node name="Soffitto Negativo24" type="RigidBody2D" parent="Livello3/FirstSection"]
 position = Vector2(31311.9, -301.778)
 
-[node name="CompElectricFied" type="Area2D" parent="FirstSection/Soffitto Negativo24"]
+[node name="CompElectricFied" type="Area2D" parent="Livello3/FirstSection/Soffitto Negativo24"]
 position = Vector2(-13, 292)
 scale = Vector2(1.52001, 1)
 collision_layer = 0
@@ -778,240 +783,240 @@ script = ExtResource("4_0vlv1")
 force = 100.0
 exponent = 1.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FirstSection/Soffitto Negativo24/CompElectricFied"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Livello3/FirstSection/Soffitto Negativo24/CompElectricFied"]
 position = Vector2(3.11099, 158.398)
 shape = SubResource("RectangleShape2D_n51oc")
 debug_color = Color(1, 1, 0, 0.2)
 
-[node name="ScrollingTopNegativo" type="Sprite2D" parent="FirstSection/Soffitto Negativo24/CompElectricFied"]
+[node name="ScrollingTopNegativo" type="Sprite2D" parent="Livello3/FirstSection/Soffitto Negativo24/CompElectricFied"]
 position = Vector2(0, -367)
 rotation = 3.14159
 scale = Vector2(0.147623, -1.05001)
 texture = ExtResource("7_bdd0g")
 
-[node name="CampoMagneticoNegativo2" type="Sprite2D" parent="FirstSection/Soffitto Negativo24/CompElectricFied"]
+[node name="CampoMagneticoNegativo2" type="Sprite2D" parent="Livello3/FirstSection/Soffitto Negativo24/CompElectricFied"]
 position = Vector2(0, 134)
 rotation = 3.14159
 scale = Vector2(0.337597, 0.790787)
 texture = ExtResource("8_6njt0")
 
-[node name="Soffitto Positivo21" parent="FirstSection" instance=ExtResource("9_hhqmy")]
+[node name="Soffitto Positivo21" parent="Livello3/FirstSection" instance=ExtResource("9_hhqmy")]
 position = Vector2(32175.9, 334.222)
 
-[node name="Soffitto Negativo27" parent="FirstSection" instance=ExtResource("10_7hiah")]
+[node name="Soffitto Negativo27" parent="Livello3/FirstSection" instance=ExtResource("10_7hiah")]
 position = Vector2(30643.9, 330.222)
 
-[node name="RotatingQuadrato3" parent="FirstSection" instance=ExtResource("3_wcjto")]
+[node name="RotatingQuadrato3" parent="Livello3/FirstSection" instance=ExtResource("3_wcjto")]
 position = Vector2(10803, -312.778)
 
-[node name="RotatingQuadrato4" parent="FirstSection" instance=ExtResource("3_wcjto")]
+[node name="RotatingQuadrato4" parent="Livello3/FirstSection" instance=ExtResource("3_wcjto")]
 position = Vector2(16844.9, 149.222)
 
-[node name="RotatingQuadrato5" parent="FirstSection" instance=ExtResource("3_wcjto")]
+[node name="RotatingQuadrato5" parent="Livello3/FirstSection" instance=ExtResource("3_wcjto")]
 position = Vector2(20492.9, 109.222)
 
-[node name="RotatingQuadrato6" parent="FirstSection" instance=ExtResource("3_wcjto")]
+[node name="RotatingQuadrato6" parent="Livello3/FirstSection" instance=ExtResource("3_wcjto")]
 position = Vector2(26296.9, -256.778)
 
-[node name="Spikes2" parent="FirstSection" instance=ExtResource("15_1bg1v")]
+[node name="Spikes2" parent="Livello3/FirstSection" instance=ExtResource("15_1bg1v")]
 position = Vector2(4294.57, 183.222)
 scale = Vector2(2.00021, 2.00021)
 
-[node name="Spikes3" parent="FirstSection" instance=ExtResource("15_1bg1v")]
+[node name="Spikes3" parent="Livello3/FirstSection" instance=ExtResource("15_1bg1v")]
 position = Vector2(9804.82, 334.222)
 scale = Vector2(2.84, 2.84)
 
-[node name="Spikes4" parent="FirstSection" instance=ExtResource("15_1bg1v")]
+[node name="Spikes4" parent="Livello3/FirstSection" instance=ExtResource("15_1bg1v")]
 position = Vector2(15605.9, -367.778)
 scale = Vector2(2.84, 2.84)
 
-[node name="Spikes5" parent="FirstSection" instance=ExtResource("15_1bg1v")]
+[node name="Spikes5" parent="Livello3/FirstSection" instance=ExtResource("15_1bg1v")]
 position = Vector2(23724.2, -133.778)
 scale = Vector2(1.80184, 1.80184)
 
-[node name="Spikes6" parent="FirstSection" instance=ExtResource("15_1bg1v")]
+[node name="Spikes6" parent="Livello3/FirstSection" instance=ExtResource("15_1bg1v")]
 position = Vector2(31031.9, -266.778)
 scale = Vector2(2.84, 2.84)
 
-[node name="DoubleElectricField" parent="FirstSection" instance=ExtResource("14_to27k")]
+[node name="DoubleElectricField" parent="Livello3/FirstSection" instance=ExtResource("14_to27k")]
 position = Vector2(5620.22, 7.2222)
 scale = Vector2(2.15795, 0.68)
 
-[node name="DoubleElectricField2" parent="FirstSection" instance=ExtResource("14_to27k")]
+[node name="DoubleElectricField2" parent="Livello3/FirstSection" instance=ExtResource("14_to27k")]
 position = Vector2(11992.9, -16.7778)
 
-[node name="DoubleElectricField3" parent="FirstSection" instance=ExtResource("14_to27k")]
+[node name="DoubleElectricField3" parent="Livello3/FirstSection" instance=ExtResource("14_to27k")]
 position = Vector2(21587.9, -41.7778)
 
-[node name="PowerUp" parent="FirstSection" instance=ExtResource("16_m40xa")]
+[node name="PowerUp" parent="Livello3/FirstSection" instance=ExtResource("16_m40xa")]
 position = Vector2(-533.111, -121.778)
 
-[node name="PowerDown" parent="FirstSection" instance=ExtResource("17_kf76j")]
+[node name="PowerDown" parent="Livello3/FirstSection" instance=ExtResource("17_kf76j")]
 position = Vector2(6139.31, -144.778)
 
-[node name="PowerDown3" parent="FirstSection" instance=ExtResource("17_kf76j")]
+[node name="PowerDown3" parent="Livello3/FirstSection" instance=ExtResource("17_kf76j")]
 position = Vector2(15634.5, 359.222)
 
-[node name="PowerDown4" parent="FirstSection" instance=ExtResource("17_kf76j")]
+[node name="PowerDown4" parent="Livello3/FirstSection" instance=ExtResource("17_kf76j")]
 position = Vector2(19212.2, 231.222)
 
-[node name="PowerDown5" parent="FirstSection" instance=ExtResource("17_kf76j")]
+[node name="PowerDown5" parent="Livello3/FirstSection" instance=ExtResource("17_kf76j")]
 position = Vector2(24562.7, -181.778)
 
-[node name="PowerDown6" parent="FirstSection" instance=ExtResource("17_kf76j")]
+[node name="PowerDown6" parent="Livello3/FirstSection" instance=ExtResource("17_kf76j")]
 position = Vector2(27637.3, -294.778)
 
-[node name="SpeedUp24" parent="FirstSection" instance=ExtResource("11_bi3ec")]
+[node name="SpeedUp24" parent="Livello3/FirstSection" instance=ExtResource("11_bi3ec")]
 position = Vector2(14372.7, -393.778)
 
-[node name="SpeedUp25" parent="FirstSection" instance=ExtResource("11_bi3ec")]
+[node name="SpeedUp25" parent="Livello3/FirstSection" instance=ExtResource("11_bi3ec")]
 position = Vector2(14684.2, -472.778)
 
-[node name="SpeedUp26" parent="FirstSection" instance=ExtResource("11_bi3ec")]
+[node name="SpeedUp26" parent="Livello3/FirstSection" instance=ExtResource("11_bi3ec")]
 position = Vector2(15299.1, -552.778)
 
-[node name="SpeedUp27" parent="FirstSection" instance=ExtResource("11_bi3ec")]
+[node name="SpeedUp27" parent="Livello3/FirstSection" instance=ExtResource("11_bi3ec")]
 position = Vector2(14987.6, -552.778)
 
-[node name="SpeedUp28" type="Area2D" parent="FirstSection"]
+[node name="SpeedUp28" type="Area2D" parent="Livello3/FirstSection"]
 position = Vector2(14660.2, -549.778)
 script = ExtResource("19_dwyh3")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FirstSection/SpeedUp28"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Livello3/FirstSection/SpeedUp28"]
 position = Vector2(1117.48, 444.57)
 rotation = -1.5708
 shape = SubResource("RectangleShape2D_ttrny")
 
-[node name="SpeedBoost" type="Sprite2D" parent="FirstSection/SpeedUp28"]
+[node name="SpeedBoost" type="Sprite2D" parent="Livello3/FirstSection/SpeedUp28"]
 position = Vector2(1116.99, 443.89)
 rotation = -1.5708
 scale = Vector2(0.35327, 0.327568)
 texture = ExtResource("20_cv4s8")
 
-[node name="SpeedUp29" type="Area2D" parent="FirstSection"]
+[node name="SpeedUp29" type="Area2D" parent="Livello3/FirstSection"]
 position = Vector2(14356.8, -472.778)
 script = ExtResource("19_dwyh3")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FirstSection/SpeedUp29"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Livello3/FirstSection/SpeedUp29"]
 position = Vector2(1117.73, 447.07)
 rotation = -1.5708
 shape = SubResource("RectangleShape2D_ttrny")
 
-[node name="SpeedBoost" type="Sprite2D" parent="FirstSection/SpeedUp29"]
+[node name="SpeedBoost" type="Sprite2D" parent="Livello3/FirstSection/SpeedUp29"]
 position = Vector2(1117.24, 446.39)
 rotation = -1.5708
 scale = Vector2(0.35327, 0.327568)
 texture = ExtResource("20_cv4s8")
 
-[node name="PowerUp2" parent="FirstSection" instance=ExtResource("16_m40xa")]
+[node name="PowerUp2" parent="Livello3/FirstSection" instance=ExtResource("16_m40xa")]
 position = Vector2(3080.72, 187.222)
 
-[node name="SpeedUp30" parent="FirstSection" instance=ExtResource("11_bi3ec")]
+[node name="SpeedUp30" parent="Livello3/FirstSection" instance=ExtResource("11_bi3ec")]
 position = Vector2(18629.2, -456.778)
 
-[node name="SpeedUp31" parent="FirstSection" instance=ExtResource("11_bi3ec")]
+[node name="SpeedUp31" parent="Livello3/FirstSection" instance=ExtResource("11_bi3ec")]
 position = Vector2(18317.8, -456.778)
 
-[node name="SpeedUp32" parent="FirstSection" instance=ExtResource("11_bi3ec")]
+[node name="SpeedUp32" parent="Livello3/FirstSection" instance=ExtResource("11_bi3ec")]
 position = Vector2(18006.3, -456.778)
 
-[node name="PowerUp3" parent="FirstSection" instance=ExtResource("16_m40xa")]
+[node name="PowerUp3" parent="Livello3/FirstSection" instance=ExtResource("16_m40xa")]
 position = Vector2(6163.26, 103.222)
 
-[node name="SpeedUp33" parent="FirstSection" instance=ExtResource("11_bi3ec")]
+[node name="SpeedUp33" parent="Livello3/FirstSection" instance=ExtResource("11_bi3ec")]
 position = Vector2(22778.9, -348.778)
 
-[node name="SpeedUp34" parent="FirstSection" instance=ExtResource("11_bi3ec")]
+[node name="SpeedUp34" parent="Livello3/FirstSection" instance=ExtResource("11_bi3ec")]
 position = Vector2(22470.4, -348.778)
 
-[node name="SpeedUp36" parent="FirstSection" instance=ExtResource("11_bi3ec")]
+[node name="SpeedUp36" parent="Livello3/FirstSection" instance=ExtResource("11_bi3ec")]
 position = Vector2(26223.8, -464.778)
 
-[node name="SpeedUp37" parent="FirstSection" instance=ExtResource("11_bi3ec")]
+[node name="SpeedUp37" parent="Livello3/FirstSection" instance=ExtResource("11_bi3ec")]
 position = Vector2(26527.2, -464.778)
 
-[node name="SpeedUp35" parent="FirstSection" instance=ExtResource("11_bi3ec")]
+[node name="SpeedUp35" parent="Livello3/FirstSection" instance=ExtResource("11_bi3ec")]
 position = Vector2(23093.3, -348.778)
 
-[node name="PowerUp6" parent="FirstSection" instance=ExtResource("16_m40xa")]
+[node name="PowerUp6" parent="Livello3/FirstSection" instance=ExtResource("16_m40xa")]
 position = Vector2(16540.9, -104.778)
 
-[node name="SpeedUp38" parent="FirstSection" instance=ExtResource("11_bi3ec")]
+[node name="SpeedUp38" parent="Livello3/FirstSection" instance=ExtResource("11_bi3ec")]
 position = Vector2(26838.7, -464.778)
 
-[node name="PowerUp7" parent="FirstSection" instance=ExtResource("16_m40xa")]
+[node name="PowerUp7" parent="Livello3/FirstSection" instance=ExtResource("16_m40xa")]
 position = Vector2(19842.9, -8.7778)
 
-[node name="SpeedUp39" parent="FirstSection" instance=ExtResource("11_bi3ec")]
+[node name="SpeedUp39" parent="Livello3/FirstSection" instance=ExtResource("11_bi3ec")]
 position = Vector2(27150.1, -464.778)
 
-[node name="SpeedUp40" parent="FirstSection" instance=ExtResource("11_bi3ec")]
+[node name="SpeedUp40" parent="Livello3/FirstSection" instance=ExtResource("11_bi3ec")]
 position = Vector2(27461.6, -464.778)
 
-[node name="PowerUp8" parent="FirstSection" instance=ExtResource("16_m40xa")]
+[node name="PowerUp8" parent="Livello3/FirstSection" instance=ExtResource("16_m40xa")]
 position = Vector2(22158.9, 54.2222)
 
-[node name="SpeedUp41" parent="FirstSection" instance=ExtResource("11_bi3ec")]
+[node name="SpeedUp41" parent="Livello3/FirstSection" instance=ExtResource("11_bi3ec")]
 position = Vector2(27773, -464.778)
 
-[node name="SpeedUp42" parent="FirstSection" instance=ExtResource("11_bi3ec")]
+[node name="SpeedUp42" parent="Livello3/FirstSection" instance=ExtResource("11_bi3ec")]
 position = Vector2(28084.5, -464.778)
 
-[node name="SpeedUp43" parent="FirstSection" instance=ExtResource("11_bi3ec")]
+[node name="SpeedUp43" parent="Livello3/FirstSection" instance=ExtResource("11_bi3ec")]
 position = Vector2(28395.9, -464.778)
 
-[node name="PowerUp9" parent="FirstSection" instance=ExtResource("16_m40xa")]
+[node name="PowerUp9" parent="Livello3/FirstSection" instance=ExtResource("16_m40xa")]
 position = Vector2(25558.9, -9.7778)
 
-[node name="PowerUp10" parent="FirstSection" instance=ExtResource("16_m40xa")]
+[node name="PowerUp10" parent="Livello3/FirstSection" instance=ExtResource("16_m40xa")]
 position = Vector2(29588.9, -31.7778)
 
-[node name="SpeedUp" parent="FirstSection" instance=ExtResource("11_bi3ec")]
+[node name="SpeedUp" parent="Livello3/FirstSection" instance=ExtResource("11_bi3ec")]
 position = Vector2(1961.7, 592.222)
 rotation = 3.14159
 
-[node name="SpeedUp2" parent="FirstSection" instance=ExtResource("18_pohqm")]
+[node name="SpeedUp2" parent="Livello3/FirstSection" instance=ExtResource("18_pohqm")]
 position = Vector2(181.851, -299.778)
 
-[node name="PowerDown2" parent="FirstSection" instance=ExtResource("17_kf76j")]
+[node name="PowerDown2" parent="Livello3/FirstSection" instance=ExtResource("17_kf76j")]
 position = Vector2(2777.26, -138.778)
 
-[node name="Spikes" parent="FirstSection" instance=ExtResource("15_1bg1v")]
+[node name="Spikes" parent="Livello3/FirstSection" instance=ExtResource("15_1bg1v")]
 position = Vector2(1946.73, 207.222)
 
-[node name="Coin" parent="FirstSection" instance=ExtResource("19_ln7l4")]
+[node name="Coin" parent="Livello3/FirstSection" instance=ExtResource("19_ln7l4")]
 position = Vector2(2689.41, 119.222)
 
-[node name="ScrollingGround" type="Sprite2D" parent="FirstSection"]
+[node name="ScrollingGround" type="Sprite2D" parent="Livello3/FirstSection"]
 position = Vector2(7265.31, -160.778)
 scale = Vector2(2.39753, 0.960001)
 texture = ExtResource("20_5g1ce")
 
-[node name="ScrollingGround2" type="Sprite2D" parent="FirstSection"]
+[node name="ScrollingGround2" type="Sprite2D" parent="Livello3/FirstSection"]
 position = Vector2(7265.31, 165.222)
 rotation = 3.14159
 scale = Vector2(2.39753, 0.960001)
 texture = ExtResource("20_5g1ce")
 
-[node name="OstacoloNegativo" type="RigidBody2D" parent="FirstSection"]
+[node name="OstacoloNegativo" type="RigidBody2D" parent="Livello3/FirstSection"]
 position = Vector2(2897.04, -376.778)
 rotation = 3.14159
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FirstSection/OstacoloNegativo"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Livello3/FirstSection/OstacoloNegativo"]
 position = Vector2(-186.315, 99.6483)
 shape = SubResource("RectangleShape2D_t64b4")
 
-[node name="CampoMagneticoNegativo3" type="Sprite2D" parent="FirstSection/OstacoloNegativo"]
+[node name="CampoMagneticoNegativo3" type="Sprite2D" parent="Livello3/FirstSection/OstacoloNegativo"]
 visible = false
 position = Vector2(-195.185, -43.6239)
 scale = Vector2(0.485785, 0.790787)
 texture = ExtResource("8_6njt0")
 
-[node name="OstacoloMuroNegativo" type="Sprite2D" parent="FirstSection/OstacoloNegativo"]
+[node name="OstacoloMuroNegativo" type="Sprite2D" parent="Livello3/FirstSection/OstacoloNegativo"]
 position = Vector2(-451.684, -60.6487)
 texture = ExtResource("21_1i83i")
 
-[node name="CompElectricFied" type="Area2D" parent="FirstSection/OstacoloNegativo"]
+[node name="CompElectricFied" type="Area2D" parent="Livello3/FirstSection/OstacoloNegativo"]
 position = Vector2(-198.185, 103.376)
 rotation = -3.14051
 collision_layer = 0
@@ -1020,32 +1025,32 @@ script = ExtResource("4_0vlv1")
 force = 100.0
 exponent = 1.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FirstSection/OstacoloNegativo/CompElectricFied"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Livello3/FirstSection/OstacoloNegativo/CompElectricFied"]
 visible = false
 position = Vector2(-8.75, 214.635)
 shape = SubResource("RectangleShape2D_ms4ra")
 debug_color = Color(1, 1, 0, 0.2)
 
-[node name="OstacoloPositivo" type="RigidBody2D" parent="FirstSection"]
+[node name="OstacoloPositivo" type="RigidBody2D" parent="Livello3/FirstSection"]
 position = Vector2(12999.2, -348.778)
 rotation = 3.14159
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FirstSection/OstacoloPositivo"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Livello3/FirstSection/OstacoloPositivo"]
 position = Vector2(-186.315, 99.6483)
 shape = SubResource("RectangleShape2D_jd07w")
 
-[node name="CampoMagneticoNegativo3" type="Sprite2D" parent="FirstSection/OstacoloPositivo"]
+[node name="CampoMagneticoNegativo3" type="Sprite2D" parent="Livello3/FirstSection/OstacoloPositivo"]
 visible = false
 position = Vector2(-195.185, -43.6239)
 scale = Vector2(0.485785, 0.790787)
 texture = ExtResource("6_d1b47")
 
-[node name="OstacoloMuroNegativo" type="Sprite2D" parent="FirstSection/OstacoloPositivo"]
+[node name="OstacoloMuroNegativo" type="Sprite2D" parent="Livello3/FirstSection/OstacoloPositivo"]
 position = Vector2(-473.681, -125.648)
 scale = Vector2(1.0901, 0.996296)
 texture = ExtResource("22_atjpl")
 
-[node name="CompElectricFied" type="Area2D" parent="FirstSection/OstacoloPositivo"]
+[node name="CompElectricFied" type="Area2D" parent="Livello3/FirstSection/OstacoloPositivo"]
 position = Vector2(-198.185, 103.376)
 rotation = -3.14051
 collision_layer = 0
@@ -1054,32 +1059,32 @@ script = ExtResource("4_0vlv1")
 force = 100.0
 exponent = 1.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FirstSection/OstacoloPositivo/CompElectricFied"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Livello3/FirstSection/OstacoloPositivo/CompElectricFied"]
 visible = false
 position = Vector2(-8.75, 214.635)
 shape = SubResource("RectangleShape2D_1xxqe")
 debug_color = Color(1, 1, 0, 0.2)
 
-[node name="OstacoloPositivo2" type="RigidBody2D" parent="FirstSection"]
+[node name="OstacoloPositivo2" type="RigidBody2D" parent="Livello3/FirstSection"]
 position = Vector2(25081.8, -232.778)
 rotation = 3.14159
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FirstSection/OstacoloPositivo2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Livello3/FirstSection/OstacoloPositivo2"]
 position = Vector2(-186.315, 99.6483)
 shape = SubResource("RectangleShape2D_0e7gm")
 
-[node name="CampoMagneticoNegativo3" type="Sprite2D" parent="FirstSection/OstacoloPositivo2"]
+[node name="CampoMagneticoNegativo3" type="Sprite2D" parent="Livello3/FirstSection/OstacoloPositivo2"]
 visible = false
 position = Vector2(-195.185, -43.6239)
 scale = Vector2(0.485785, 0.790787)
 texture = ExtResource("6_d1b47")
 
-[node name="OstacoloMuroNegativo" type="Sprite2D" parent="FirstSection/OstacoloPositivo2"]
+[node name="OstacoloMuroNegativo" type="Sprite2D" parent="Livello3/FirstSection/OstacoloPositivo2"]
 position = Vector2(-473.681, -125.648)
 scale = Vector2(1.0901, 0.996296)
 texture = ExtResource("22_atjpl")
 
-[node name="CompElectricFied" type="Area2D" parent="FirstSection/OstacoloPositivo2"]
+[node name="CompElectricFied" type="Area2D" parent="Livello3/FirstSection/OstacoloPositivo2"]
 visible = false
 position = Vector2(-198.185, 103.376)
 rotation = -3.14051
@@ -1089,108 +1094,108 @@ script = ExtResource("4_0vlv1")
 force = 100.0
 exponent = 1.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FirstSection/OstacoloPositivo2/CompElectricFied"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Livello3/FirstSection/OstacoloPositivo2/CompElectricFied"]
 position = Vector2(-8.75, 214.635)
 shape = SubResource("RectangleShape2D_x32hp")
 debug_color = Color(1, 1, 0, 0.2)
 
-[node name="OstacoloNegativo2" parent="FirstSection" instance=ExtResource("24_qosje")]
+[node name="OstacoloNegativo2" parent="Livello3/FirstSection" instance=ExtResource("24_qosje")]
 position = Vector2(22965.5, 340.222)
 
-[node name="OstacoloNegativo3" parent="FirstSection" instance=ExtResource("24_qosje")]
+[node name="OstacoloNegativo3" parent="Livello3/FirstSection" instance=ExtResource("24_qosje")]
 position = Vector2(32484.7, 295.222)
 
-[node name="OstacoloNeutro" parent="FirstSection" instance=ExtResource("25_of8tl")]
+[node name="OstacoloNeutro" parent="Livello3/FirstSection" instance=ExtResource("25_of8tl")]
 position = Vector2(18110.1, 345.222)
 
-[node name="SpeedUp3" parent="FirstSection" instance=ExtResource("11_bi3ec")]
+[node name="SpeedUp3" parent="Livello3/FirstSection" instance=ExtResource("11_bi3ec")]
 position = Vector2(4110.9, -344.778)
 
-[node name="SpeedUp4" parent="FirstSection" instance=ExtResource("11_bi3ec")]
+[node name="SpeedUp4" parent="Livello3/FirstSection" instance=ExtResource("11_bi3ec")]
 position = Vector2(4422.34, -344.778)
 
-[node name="SpeedUp5" parent="FirstSection" instance=ExtResource("11_bi3ec")]
+[node name="SpeedUp5" parent="Livello3/FirstSection" instance=ExtResource("11_bi3ec")]
 position = Vector2(4731.8, -344.778)
 
-[node name="SpeedUp6" parent="FirstSection" instance=ExtResource("11_bi3ec")]
+[node name="SpeedUp6" parent="Livello3/FirstSection" instance=ExtResource("11_bi3ec")]
 position = Vector2(5436.55, -348.778)
 
-[node name="SpeedUp7" parent="FirstSection" instance=ExtResource("11_bi3ec")]
+[node name="SpeedUp7" parent="Livello3/FirstSection" instance=ExtResource("11_bi3ec")]
 position = Vector2(4118.88, -520.778)
 
-[node name="SpeedUp8" parent="FirstSection" instance=ExtResource("11_bi3ec")]
+[node name="SpeedUp8" parent="Livello3/FirstSection" instance=ExtResource("11_bi3ec")]
 position = Vector2(4430.96, -521.556)
 scale = Vector2(0.996279, 1.0027)
 
-[node name="SpeedUp9" parent="FirstSection" instance=ExtResource("11_bi3ec")]
+[node name="SpeedUp9" parent="Livello3/FirstSection" instance=ExtResource("11_bi3ec")]
 position = Vector2(4731.8, -521.778)
 
-[node name="SpeedUp10" parent="FirstSection" instance=ExtResource("11_bi3ec")]
+[node name="SpeedUp10" parent="Livello3/FirstSection" instance=ExtResource("11_bi3ec")]
 position = Vector2(5436.55, -512.778)
 
-[node name="SpeedUp11" parent="FirstSection" instance=ExtResource("11_bi3ec")]
+[node name="SpeedUp11" parent="Livello3/FirstSection" instance=ExtResource("11_bi3ec")]
 position = Vector2(6699.31, -329.778)
 
-[node name="SpeedUp12" parent="FirstSection" instance=ExtResource("11_bi3ec")]
+[node name="SpeedUp12" parent="Livello3/FirstSection" instance=ExtResource("11_bi3ec")]
 position = Vector2(7009.76, -528.778)
 
-[node name="SpeedUp23" parent="FirstSection" instance=ExtResource("11_bi3ec")]
+[node name="SpeedUp23" parent="Livello3/FirstSection" instance=ExtResource("11_bi3ec")]
 position = Vector2(6698.32, -528.778)
 
-[node name="SpeedUp13" parent="FirstSection" instance=ExtResource("11_bi3ec")]
+[node name="SpeedUp13" parent="Livello3/FirstSection" instance=ExtResource("11_bi3ec")]
 position = Vector2(7009.76, -328.778)
 
-[node name="SpeedUp14" parent="FirstSection" instance=ExtResource("11_bi3ec")]
+[node name="SpeedUp14" parent="Livello3/FirstSection" instance=ExtResource("11_bi3ec")]
 position = Vector2(7321.21, -529.778)
 
-[node name="SpeedUp15" parent="FirstSection" instance=ExtResource("11_bi3ec")]
+[node name="SpeedUp15" parent="Livello3/FirstSection" instance=ExtResource("11_bi3ec")]
 position = Vector2(7321.21, -329.778)
 
-[node name="SpeedUp16" parent="FirstSection" instance=ExtResource("11_bi3ec")]
+[node name="SpeedUp16" parent="Livello3/FirstSection" instance=ExtResource("11_bi3ec")]
 position = Vector2(7632.66, -529.778)
 
-[node name="MoveForward" parent="FirstSection" instance=ExtResource("26_5gv0i")]
+[node name="MoveForward" parent="Livello3/FirstSection" instance=ExtResource("26_5gv0i")]
 position = Vector2(9693.01, -120.778)
 scale = Vector2(0.895899, 0.895899)
 
-[node name="SpeedUp17" parent="FirstSection" instance=ExtResource("11_bi3ec")]
+[node name="SpeedUp17" parent="Livello3/FirstSection" instance=ExtResource("11_bi3ec")]
 position = Vector2(7984.67, -545.556)
 scale = Vector2(0.950281, 1.0363)
 
-[node name="SpeedUp18" parent="FirstSection" instance=ExtResource("11_bi3ec")]
+[node name="SpeedUp18" parent="Livello3/FirstSection" instance=ExtResource("11_bi3ec")]
 position = Vector2(7673.22, -361.556)
 scale = Vector2(0.950812, 1.07499)
 
-[node name="SpeedUp19" parent="FirstSection" instance=ExtResource("11_bi3ec")]
+[node name="SpeedUp19" parent="Livello3/FirstSection" instance=ExtResource("11_bi3ec")]
 position = Vector2(7928.14, -329.778)
 
-[node name="SpeedUp20" parent="FirstSection" instance=ExtResource("11_bi3ec")]
+[node name="SpeedUp20" parent="Livello3/FirstSection" instance=ExtResource("11_bi3ec")]
 position = Vector2(8239.59, -529.778)
 
-[node name="SpeedUp22" parent="FirstSection" instance=ExtResource("11_bi3ec")]
+[node name="SpeedUp22" parent="Livello3/FirstSection" instance=ExtResource("11_bi3ec")]
 position = Vector2(11010.7, -608.778)
 
-[node name="SpeedUp21" parent="FirstSection" instance=ExtResource("11_bi3ec")]
+[node name="SpeedUp21" parent="Livello3/FirstSection" instance=ExtResource("11_bi3ec")]
 position = Vector2(8239.59, -329.778)
 
-[node name="OstacoloNegativo4" type="RigidBody2D" parent="FirstSection"]
+[node name="OstacoloNegativo4" type="RigidBody2D" parent="Livello3/FirstSection"]
 position = Vector2(27094.2, 327.222)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FirstSection/OstacoloNegativo4"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Livello3/FirstSection/OstacoloNegativo4"]
 position = Vector2(-186.314, 123.973)
 shape = SubResource("RectangleShape2D_7ncnn")
 
-[node name="CampoMagneticoNegativo3" type="Sprite2D" parent="FirstSection/OstacoloNegativo4"]
+[node name="CampoMagneticoNegativo3" type="Sprite2D" parent="Livello3/FirstSection/OstacoloNegativo4"]
 visible = false
 position = Vector2(-195.185, -43.6239)
 scale = Vector2(0.485785, 0.790787)
 texture = ExtResource("8_6njt0")
 
-[node name="OstacoloMuroNegativo" type="Sprite2D" parent="FirstSection/OstacoloNegativo4"]
+[node name="OstacoloMuroNegativo" type="Sprite2D" parent="Livello3/FirstSection/OstacoloNegativo4"]
 position = Vector2(-451.684, -60.6487)
 texture = ExtResource("21_1i83i")
 
-[node name="CompElectricFied" type="Area2D" parent="FirstSection/OstacoloNegativo4"]
+[node name="CompElectricFied" type="Area2D" parent="Livello3/FirstSection/OstacoloNegativo4"]
 visible = false
 position = Vector2(-198.185, 103.376)
 rotation = -3.14051
@@ -1200,12 +1205,24 @@ script = ExtResource("4_0vlv1")
 force = 100.0
 exponent = 1.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FirstSection/OstacoloNegativo4/CompElectricFied"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Livello3/FirstSection/OstacoloNegativo4/CompElectricFied"]
 position = Vector2(-8.75, 214.635)
 shape = SubResource("RectangleShape2D_gn7ux")
 debug_color = Color(1, 1, 0, 0.2)
 
-[node name="ScrollingGround3" type="Sprite2D" parent="FirstSection"]
+[node name="ScrollingGround3" type="Sprite2D" parent="Livello3/FirstSection"]
 position = Vector2(8580.54, -164.778)
 scale = Vector2(1.02782, 0.392112)
 texture = ExtResource("20_5g1ce")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="Livello3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Livello3/RigidBody2D"]
+position = Vector2(8233.38, -414)
+scale = Vector2(22.4836, 21.1647)
+shape = SubResource("RectangleShape2D_m6rm0")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Livello3/RigidBody2D"]
+position = Vector2(8233.26, 375)
+scale = Vector2(22.4836, 21.1647)
+shape = SubResource("RectangleShape2D_m6rm0")
