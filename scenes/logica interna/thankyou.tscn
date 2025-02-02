@@ -1,0 +1,45 @@
+[gd_scene load_steps=8 format=3 uid="uid://cupuvp3h60w8x"]
+
+[ext_resource type="Script" path="res://scripts/thankyou.gd" id="1_625gi"]
+[ext_resource type="Texture2D" uid="uid://cwlmnobb736gl" path="res://sprites/GUI/sfondo_0.png" id="2_vpk17"]
+[ext_resource type="Texture2D" uid="uid://sbs4xggagl0k" path="res://sprites/GUI/sfondo_1.png" id="3_wqi4m"]
+[ext_resource type="Texture2D" uid="uid://cwm3jibbxmpo6" path="res://sprites/GUI/sfondo_2.png" id="4_c1jia"]
+[ext_resource type="Texture2D" uid="uid://y5ht5w8csp8h" path="res://sprites/player_cover_image.png" id="5_7blak"]
+[ext_resource type="Texture2D" uid="uid://dlx58c8y75ygw" path="res://sprites/thanks_for_playing.png" id="6_rsaox"]
+[ext_resource type="AudioStream" uid="uid://b8y6fty0stvxt" path="res://sounds/Loops/Polarity_LoopMenu.wav" id="7_ygfob"]
+
+[node name="THX" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_625gi")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_vpk17")
+centered = false
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+texture = ExtResource("3_wqi4m")
+centered = false
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(2, -2)
+texture = ExtResource("4_c1jia")
+centered = false
+
+[node name="PlayerCoverImage" type="Sprite2D" parent="."]
+position = Vector2(393, 335)
+scale = Vector2(1.312, 1.312)
+texture = ExtResource("5_7blak")
+
+[node name="ThanksForPlaying" type="Sprite2D" parent="."]
+position = Vector2(746.837, 247.482)
+scale = Vector2(1.53371, 1.53407)
+texture = ExtResource("6_rsaox")
+
+[node name="PolarityLoopMenu" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_ygfob")
+volume_db = -16.0

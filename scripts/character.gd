@@ -108,6 +108,7 @@ func _on_victory() -> void:
 	speed_bonus = 800
 
 
+
 func speed_up():
 	if is_speeded:
 		is_speeded = false

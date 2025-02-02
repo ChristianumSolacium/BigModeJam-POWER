@@ -1,11 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://2gifhoikbqvm"]
+[gd_scene load_steps=12 format=3 uid="uid://2gifhoikbqvm"]
 
 [ext_resource type="Script" path="res://scripts/gui.gd" id="1_xwr7w"]
 [ext_resource type="Texture2D" uid="uid://b3rjic51bwfaj" path="res://sprites/GUI/barra_vuota.png" id="2_0cvr2"]
 [ext_resource type="Texture2D" uid="uid://ldstinpp8c6w" path="res://sprites/GUI/barra_piena.png" id="3_351kh"]
 [ext_resource type="Texture2D" uid="uid://ceb75d30lmsxc" path="res://sprites/GUI/Game Over_frame0.png" id="4_co3e2"]
-[ext_resource type="Texture2D" uid="uid://c7yphsphg334y" path="res://sprites/GUI/Rank_testo.png" id="5_rsr5q"]
-[ext_resource type="Texture2D" uid="uid://cxh6pfsxkvg2g" path="res://sprites/GUI/Time_Score_testo.png" id="6_fahuc"]
 [ext_resource type="Texture2D" uid="uid://cs5oharqm4f0l" path="res://sprites/powerups/collezionabile_neutro.png" id="7_cl1ix"]
 [ext_resource type="Script" path="res://scripts/stop_watch.gd" id="8_555bh"]
 [ext_resource type="FontFile" uid="uid://nq66j02seeml" path="res://fonts/barcade/barcadenobarital.ttf" id="8_t2ncv"]
@@ -78,24 +76,6 @@ offset_bottom = 1086.0
 scale = Vector2(0.597862, 0.593297)
 texture = ExtResource("4_co3e2")
 
-[node name="GameOver2" type="TextureRect" parent="Control/GameOver"]
-layout_mode = 0
-offset_left = 3.0
-offset_top = 10.0
-offset_right = 3215.0
-offset_bottom = 1809.0
-scale = Vector2(0.597862, 0.593297)
-texture = ExtResource("6_fahuc")
-
-[node name="GameOver" type="TextureRect" parent="Control/GameOver"]
-layout_mode = 0
-offset_left = 2.0
-offset_top = 6.0
-offset_right = 3216.0
-offset_bottom = 1811.0
-scale = Vector2(0.597862, 0.593297)
-texture = ExtResource("5_rsr5q")
-
 [node name="Coins" type="Label" parent="Control"]
 layout_mode = 0
 offset_left = 1050.0
@@ -118,6 +98,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Temp" type="Label" parent="Control/Victory"]
+visible = false
 layout_mode = 0
 offset_left = 457.0
 offset_top = 236.0
