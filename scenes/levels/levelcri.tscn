@@ -355,7 +355,6 @@ exponent = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Soffitto Positivo/CompElectricFied"]
 position = Vector2(27.1641, 158.398)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_xfklo")
 debug_color = Color(1, 1, 0, 0.2)
 
@@ -409,6 +408,10 @@ scale = Vector2(0.85522, 1.4965)
 
 [node name="Coin" parent="." instance=ExtResource("4_j1my5")]
 position = Vector2(8403.91, 1043.06)
+scale = Vector2(0.85522, 1.4965)
+
+[node name="Coin4" parent="." instance=ExtResource("4_j1my5")]
+position = Vector2(8363.2, 653.969)
 scale = Vector2(0.85522, 1.4965)
 
 [node name="Coin2" parent="." instance=ExtResource("7_kx2r5")]
