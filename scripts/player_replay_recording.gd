@@ -1,6 +1,7 @@
 class_name PlayerReplayRecorder extends Node
 
 @export var player : Player
+@export var main : Node2D
 const SAVE_PATH : = "saves/"
 
 var start_time: float
@@ -13,6 +14,7 @@ func _ready() -> void:
 	player.polarity_changed.connect(add_move)
 	player.victory.connect(save_replay)
 	
+	
 
 func add_move() -> void:
 	var i = len(replay.timestamp)
@@ -24,4 +26,4 @@ func save_replay() -> void:
 	if dir:
 		if not dir.dir_exists(SAVE_PATH):
 			dir.make_dir(SAVE_PATH)
-	ResourceSaver.save(replay,"user://" + SAVE_PATH + "replay " +str(Time.get_unix_time_from_system()) +".tres")
+	ResourceSaver.save(replay,"user://" + SAVE_PATH + "replay "+ main.obstacles.name  +str(Time.get_unix_time_from_system()) +".tres")

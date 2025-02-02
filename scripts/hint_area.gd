@@ -15,7 +15,7 @@ func _on_area_entered(area: Area2D) -> void:
 			add_child(child)
 			child.global_position.x = hint_line.global_position.x
 			child.global_position.y = area.global_position.y
-			
+			child.z_index = 160
 			print(player.global_position,"!",child.global_position)
 			
 			dict[area] = child

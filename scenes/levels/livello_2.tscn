@@ -70,6 +70,10 @@ size = Vector2(264, 904.76)
 
 [node name="Livello2" type="Node2D"]
 
+[node name="ChangeStats" type="Node" parent="."]
+script = ExtResource("21_i7oi3")
+player_initial_speed = 500.0
+
 [node name="Livello 2" type="Node2D" parent="."]
 scale = Vector2(1.00177, 1)
 
@@ -381,7 +385,7 @@ debug_color = Color(1, 1, 0, 0.2)
 
 [node name="OstacoloPentagonoNegativo" type="Sprite2D" parent="Livello 2/Pentagono Negativo2"]
 position = Vector2(15, 108)
-rotation = 17918.7
+rotation = 17919.0
 scale = Vector2(0.5, 0.514389)
 texture = ExtResource("10_7hsqw")
 offset = Vector2(0, 7.77622)
@@ -401,7 +405,7 @@ shape = SubResource("CircleShape2D_iid6r")
 
 [node name="OstacoloPentagonoNegativo" type="Sprite2D" parent="Livello 2/QUADRATO3"]
 position = Vector2(8, 104)
-rotation = 8822.59
+rotation = 8822.9
 scale = Vector2(0.5, 0.514389)
 texture = ExtResource("13_877vf")
 offset = Vector2(0, 7.77622)
@@ -420,7 +424,7 @@ shape = SubResource("CircleShape2D_iid6r")
 
 [node name="OstacoloPentagonoNegativo" type="Sprite2D" parent="Livello 2/QUADRATO4"]
 position = Vector2(8, 104)
-rotation = 8818.84
+rotation = 8819.15
 scale = Vector2(0.5, 0.514389)
 texture = ExtResource("13_877vf")
 offset = Vector2(0, 7.77622)
@@ -439,7 +443,7 @@ shape = SubResource("CircleShape2D_iid6r")
 
 [node name="OstacoloPentagonoNegativo" type="Sprite2D" parent="Livello 2/QUADRATO5"]
 position = Vector2(8, 104)
-rotation = 8818.84
+rotation = 8819.15
 scale = Vector2(0.5, 0.514389)
 texture = ExtResource("13_877vf")
 offset = Vector2(0, 7.77622)
@@ -457,7 +461,7 @@ shape = SubResource("CircleShape2D_iid6r")
 
 [node name="OstacoloPentagonoNegativo" type="Sprite2D" parent="Livello 2/QUADRATO2"]
 position = Vector2(-80, 98)
-rotation = 8819.07
+rotation = 8819.38
 scale = Vector2(0.5, 0.514389)
 texture = ExtResource("13_877vf")
 offset = Vector2(0, 7.77622)
@@ -520,10 +524,6 @@ scale = Vector2(0.76, 0.76)
 [node name="OstacoloNeutro4" parent="Livello 2" instance=ExtResource("8_38p0i")]
 position = Vector2(5968, 832)
 scale = Vector2(0.510245, 0.510245)
-
-[node name="ChangeStats" type="Node" parent="."]
-script = ExtResource("21_i7oi3")
-player_initial_speed = 500.0
 
 [node name="MoveForward" parent="." instance=ExtResource("20_i2xyk")]
 position = Vector2(6190, 473)

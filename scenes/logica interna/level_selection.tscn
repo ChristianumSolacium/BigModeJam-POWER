@@ -1,0 +1,69 @@
+[gd_scene load_steps=4 format=3 uid="uid://dea4mdjj55qgx"]
+
+[ext_resource type="Texture2D" uid="uid://dntym504fwac2" path="res://sprites/GUI/tasti/Start_tasto_neutro.png" id="1_chs6m"]
+[ext_resource type="Texture2D" uid="uid://w8jtm2pojq1o" path="res://sprites/GUI/tasti/Start_tasto_selezionato.png" id="2_h3kwu"]
+[ext_resource type="Script" path="res://scripts/level_selection_button.gd" id="3_qdpfs"]
+
+[node name="HBoxContainer" type="HBoxContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer2"]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="VBoxContainer2"]
+layout_mode = 2
+texture_normal = ExtResource("1_chs6m")
+texture_pressed = ExtResource("2_h3kwu")
+script = ExtResource("3_qdpfs")
+
+[node name="TextureRect2" type="TextureRect" parent="VBoxContainer2"]
+layout_mode = 2
+
+[node name="TextureButton2" type="TextureButton" parent="VBoxContainer2"]
+layout_mode = 2
+texture_normal = ExtResource("1_chs6m")
+texture_pressed = ExtResource("2_h3kwu")
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer3"]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="VBoxContainer3"]
+layout_mode = 2
+texture_normal = ExtResource("1_chs6m")
+texture_pressed = ExtResource("2_h3kwu")
+
+[node name="TextureRect2" type="TextureRect" parent="VBoxContainer3"]
+layout_mode = 2
+
+[node name="TextureButton2" type="TextureButton" parent="VBoxContainer3"]
+layout_mode = 2
+texture_normal = ExtResource("1_chs6m")
+texture_pressed = ExtResource("2_h3kwu")
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer4"]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="VBoxContainer4"]
+layout_mode = 2
+texture_normal = ExtResource("1_chs6m")
+texture_pressed = ExtResource("2_h3kwu")
+
+[node name="TextureRect2" type="TextureRect" parent="VBoxContainer4"]
+layout_mode = 2
+
+[node name="TextureButton2" type="TextureButton" parent="VBoxContainer4"]
+layout_mode = 2
+texture_normal = ExtResource("1_chs6m")
+texture_pressed = ExtResource("2_h3kwu")
+
+[connection signal="pressed" from="VBoxContainer2/TextureButton" to="VBoxContainer2/TextureButton" method="_on_pressed"]

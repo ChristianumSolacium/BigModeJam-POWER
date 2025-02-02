@@ -33,8 +33,6 @@ func _physics_process(delta: float) -> void:
 	for body: RigidBody2D in get_overlapping_bodies():
 		
 		if body is Player:
-			print(collision_mask)
-			print(body)
 			var intensity : float= get_field_intensity_at(body.global_position) * body.speed/300
 			
 			body.apply_central_force(Vector2.UP * intensity * body.charge)
