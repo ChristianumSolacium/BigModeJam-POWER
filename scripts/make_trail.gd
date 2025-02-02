@@ -1,6 +1,6 @@
 extends Node2D
 
-
+@export var disable := false
 @export var distance := 70.0
 @export var scale_factor := 0.5
 @export_category("Pallini")
@@ -13,6 +13,8 @@ const  sprite_pool_size := 30
 
 
 func _ready() -> void:
+	if disable:
+		return
 	sprite_pool.resize(sprite_pool_size)
 	
 	await player.get_parent().ready

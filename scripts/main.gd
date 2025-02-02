@@ -9,7 +9,7 @@ var obstacles: Node2D
 
 @export var player : Player
 var CONFIG_PATH := "user://config4.tres"
-
+const THANKYOU = preload("res://scenes/logica interna/thankyou.tscn")
 @export var test_mode := false
 func _ready() -> void:
 	start.emit()
@@ -67,9 +67,12 @@ func load_current_level() -> void:
 func load_next_level() -> void:
 	var config : ConfigResource = load(CONFIG_PATH)
 	config.current_level += 1
-	print(config.current_level)
-	ResourceSaver.save(config,CONFIG_PATH)
-	load_level(levels[config.current_level])
+	if config.current_level < len(levels):
+		ResourceSaver.save(config,CONFIG_PATH)
+		load_level(levels[config.current_level])
+	else:
+		add_child(THANKYOU.instantiate())
+		
 
 
 func _on_victory_menu_continue_next_level() -> void:
@@ -77,10 +80,7 @@ func _on_victory_menu_continue_next_level() -> void:
 	restart()
 
 
-func _exit_tree() -> void:
-	var config : ConfigResource = load(CONFIG_PATH)
-	config.current_level = 0
-	ResourceSaver.save(config,CONFIG_PATH)
+
 
 
 func _on_victory_menu_restart() -> void:

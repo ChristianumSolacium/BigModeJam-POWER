@@ -10,6 +10,8 @@ extends Node
 @onready var polarity_loop_menu: AudioStreamPlayer = $PolarityLoopMenu
 @onready var polarity_loop_game_over: AudioStreamPlayer = $PolarityLoopGameOver
 
+@onready var polarity_sd_victory: AudioStreamPlayer = $PolaritySdVictory
+
 @onready var press_pitch := polarity_sd_press.pitch_scale
 
 
@@ -47,3 +49,7 @@ func _process(delta: float) -> void:
 		polarity_sd_boost.play()
 	elif not player.is_speeded and polarity_sd_boost.playing:
 		polarity_sd_boost.stop()
+
+
+func _on_player_victory() -> void:
+	polarity_sd_victory.play()

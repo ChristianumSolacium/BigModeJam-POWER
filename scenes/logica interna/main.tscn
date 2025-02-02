@@ -8,10 +8,10 @@
 [ext_resource type="Script" path="res://scripts/player_replay_recording.gd" id="2_kr3wk"]
 [ext_resource type="PackedScene" uid="uid://blocss3wbhbps" path="res://scenes/logica interna/camera_frame.tscn" id="2_lfbie"]
 [ext_resource type="Script" path="res://scripts/player_scripted_movement.gd" id="2_rb5kb"]
-[ext_resource type="PackedScene" path="res://scenes/levels/livello_3.tscn" id="3_4oc6k"]
+[ext_resource type="PackedScene" uid="uid://4rwcjqeoidie" path="res://scenes/levels/livello_3.tscn" id="3_4oc6k"]
 [ext_resource type="Script" path="res://scripts/walls.gd" id="3_5q0w8"]
 [ext_resource type="Script" path="res://scripts/PlayerReplayResource.gd" id="3_6jqjj"]
-[ext_resource type="PackedScene" path="res://scenes/levels/levelcri.tscn" id="5_mrggm"]
+[ext_resource type="PackedScene" uid="uid://b4xlbrnnm06oj" path="res://scenes/levels/levelcri.tscn" id="5_mrggm"]
 [ext_resource type="Script" path="res://scripts/camera_frame_friction.gd" id="12_jbeaq"]
 [ext_resource type="PackedScene" uid="uid://2gifhoikbqvm" path="res://scenes/logica interna/gui.tscn" id="14_s0k0l"]
 [ext_resource type="PackedScene" uid="uid://djj1r7rdx5lv" path="res://scenes/logica interna/audio.tscn" id="14_v207r"]
@@ -52,6 +52,7 @@ script = ExtResource("2_kr3wk")
 player = NodePath("..")
 
 [node name="GhostPlayer" parent="." node_paths=PackedStringArray("camera_frame") instance=ExtResource("1_j2esc")]
+visible = false
 modulate = Color(1, 1, 1, 0.588235)
 z_index = -3
 position = Vector2(723, 454)
@@ -64,6 +65,7 @@ speed_change = 100.0
 receive_input = false
 
 [node name="MakeTrail" parent="GhostPlayer" index="8"]
+disable = true
 scale_factor = 0.275
 
 [node name="PlayerAutoMovement" type="Node" parent="GhostPlayer" node_paths=PackedStringArray("player")]
@@ -144,6 +146,7 @@ player = NodePath("../Player")
 [connection signal="polarity_changed" from="Player" to="Audio" method="_on_player_polarity_changed"]
 [connection signal="speed_changed" from="Player" to="Graphics/GUI" method="_on_player_speed_changed"]
 [connection signal="victory" from="Player" to="Graphics/GUI" method="_on_player_victory"]
+[connection signal="victory" from="Player" to="Audio" method="_on_player_victory"]
 [connection signal="continue_next_level" from="Graphics/Victory/VictoryMenu" to="." method="_on_victory_menu_continue_next_level"]
 [connection signal="restart" from="Graphics/Victory/VictoryMenu" to="." method="_on_victory_menu_restart"]
 
