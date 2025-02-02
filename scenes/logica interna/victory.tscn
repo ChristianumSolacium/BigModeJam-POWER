@@ -1,6 +1,6 @@
-[gd_scene load_steps=21 format=3 uid="uid://yu3jre7s3l64"]
+[gd_scene load_steps=21 format=3 uid="uid://1esupmjtimf2"]
 
-[ext_resource type="Script" path="res://scenes/logica interna/victory_menu.gd" id="1_6cbeu"]
+[ext_resource type="Script" path="res://scripts/victory_menu.gd" id="1_vr6jl"]
 [ext_resource type="Texture2D" uid="uid://opa8rwpnlygl" path="res://sprites/GUI/victory/Quit_tasto_neutro.png" id="1_wdp7j"]
 [ext_resource type="Texture2D" uid="uid://cjsvtslh0xsn2" path="res://sprites/GUI/victory/Quit_tasto_selezionato.png" id="2_dsj5n"]
 [ext_resource type="Texture2D" uid="uid://b0y71uqh8symx" path="res://sprites/GUI/victory/Replay_tasto_neutro.png" id="3_tqowf"]
@@ -82,7 +82,7 @@ animations = [{
 [node name="VictoryMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 0
-script = ExtResource("1_6cbeu")
+script = ExtResource("1_vr6jl")
 
 [node name="SparkleAnimations" type="AnimatedSprite2D" parent="."]
 position = Vector2(552, 272)
@@ -113,6 +113,7 @@ animation = &"buttons"
 speed_scale = 1.5
 
 [node name="QuitButton" type="TextureButton" parent="."]
+layout_mode = 0
 offset_left = 576.0
 offset_top = 464.0
 offset_right = 1221.0
@@ -123,6 +124,7 @@ texture_pressed = ExtResource("2_dsj5n")
 texture_hover = ExtResource("2_dsj5n")
 
 [node name="ReplayButton" type="TextureButton" parent="."]
+layout_mode = 0
 offset_left = 32.0
 offset_top = 464.0
 offset_right = 677.0

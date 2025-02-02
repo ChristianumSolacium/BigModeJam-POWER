@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://bxc4v0qrupul"]
+[gd_scene load_steps=28 format=3 uid="uid://dcoeep6tbr3cl"]
 
 [ext_resource type="Script" path="res://scripts/comp_electric_field.gd" id="1_dyaid"]
 [ext_resource type="Texture2D" uid="uid://dovui0kijg8bl" path="res://sprites/scrolling_top_negativo.png" id="2_jkudb"]
@@ -6,16 +6,13 @@
 [ext_resource type="Texture2D" uid="uid://b7q7eupwb34jw" path="res://sprites/scrolling_top_positivo.png" id="4_orqdg"]
 [ext_resource type="Texture2D" uid="uid://cmtyh1xs6o8y2" path="res://sprites/campo_magnetico_positivo.png" id="5_bqqth"]
 [ext_resource type="PackedScene" uid="uid://b2ai3j1jj833s" path="res://scenes/drag and drop/rotating_pentagon.tscn" id="6_xg7yc"]
-
-[ext_resource type="PackedScene" uid="uid://bmj7og23ef53v" path="res://scenes/drag and drop/power_down_1.tscn" id="7_cohwy"]
-[ext_resource type="PackedScene" uid="uid://rhwqqvi2fxyw" path="res://scenes/drag and drop/power_up_1.tscn" id="8_0sdrm"]
-
+[ext_resource type="PackedScene" uid="uid://bqaoq4ffmfh3u" path="res://scenes/drag and drop/power_down_1.tscn" id="7_cohwy"]
+[ext_resource type="PackedScene" uid="uid://djol6ngx1jeqc" path="res://scenes/drag and drop/power_up_1.tscn" id="8_0sdrm"]
 [ext_resource type="PackedScene" uid="uid://dmtsq06dhwhfs" path="res://scenes/drag and drop/pavimento_positivo.tscn" id="9_xa3vr"]
 [ext_resource type="PackedScene" uid="uid://dkdt81f6ar0l4" path="res://scenes/drag and drop/spikes.tscn" id="10_0thf4"]
 [ext_resource type="PackedScene" uid="uid://blx6o0gojhtl2" path="res://scenes/drag and drop/coin.tscn" id="11_qiust"]
 [ext_resource type="PackedScene" uid="uid://cqevg1xr3srrp" path="res://scenes/drag and drop/coin_with_hint.tscn" id="12_7u842"]
 [ext_resource type="Texture2D" uid="uid://bvyimliey5oet" path="res://sprites/obstacles/ostacolo_muro_neutro.png" id="13_ja2rs"]
-
 [ext_resource type="PackedScene" uid="uid://bwxq2j853y6n" path="res://scenes/drag and drop/pavimento_negativo.tscn" id="15_6h211"]
 [ext_resource type="PackedScene" uid="uid://cgfmhp0vedln5" path="res://scenes/drag and drop/rotating_quadrato.tscn" id="16_gmqg4"]
 [ext_resource type="Texture2D" uid="uid://cbq0fk4a3lg16" path="res://sprites/obstacles/ostacolo_muro_positivo.png" id="17_e5e42"]

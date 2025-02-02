@@ -11,7 +11,6 @@
 [ext_resource type="Texture2D" uid="uid://crjad4y53kx0j" path="res://sprites/GUI/tasti/Quit_tasto_neutro.png" id="7_myhr6"]
 [ext_resource type="Texture2D" uid="uid://b0t6d8vij5sf2" path="res://sprites/GUI/tasti/Quit_tasto_selezionato.png" id="8_pfpsp"]
 
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_ctif5"]
 animations = [{
 "frames": [],
@@ -30,7 +29,6 @@ animations = [{
 "name": &"pause_logo",
 "speed": 5.0
 }]
-
 
 [node name="PauseMenu" type="Control"]
 layout_mode = 3

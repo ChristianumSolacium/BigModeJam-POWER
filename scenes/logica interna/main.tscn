@@ -1,20 +1,23 @@
-[gd_scene load_steps=20 format=3 uid="uid://dtvl6ccqkkmhh"]
+[gd_scene load_steps=23 format=3 uid="uid://dtvl6ccqkkmhh"]
 
 [ext_resource type="PackedScene" uid="uid://c3sa7wipkeb6u" path="res://scenes/levels/level_4.tscn" id="1_1dpt0"]
 [ext_resource type="PackedScene" uid="uid://t1p57s6446hu" path="res://scenes/levels/livello_2.tscn" id="1_1vv6q"]
 [ext_resource type="PackedScene" uid="uid://b5d1qj4ck34vx" path="res://scenes/logica interna/player.tscn" id="1_j2esc"]
-[ext_resource type="PackedScene" path="res://scenes/levels/livello_1(1).tscn" id="1_ojs4v"]
+[ext_resource type="PackedScene" uid="uid://dcoeep6tbr3cl" path="res://scenes/levels/livello_1(1).tscn" id="1_ojs4v"]
 [ext_resource type="Script" path="res://scripts/player_replay_recording.gd" id="2_kr3wk"]
 [ext_resource type="PackedScene" uid="uid://blocss3wbhbps" path="res://scenes/logica interna/camera_frame.tscn" id="2_lfbie"]
 [ext_resource type="Script" path="res://scripts/player_scripted_movement.gd" id="2_rb5kb"]
+[ext_resource type="PackedScene" path="res://scenes/levels/livello_3.tscn" id="3_4oc6k"]
 [ext_resource type="Script" path="res://scripts/walls.gd" id="3_5q0w8"]
 [ext_resource type="Script" path="res://scripts/PlayerReplayResource.gd" id="3_6jqjj"]
+[ext_resource type="PackedScene" uid="uid://b4xlbrnnm06oj" path="res://scenes/levels/levelcri.tscn" id="5_mrggm"]
 [ext_resource type="PackedScene" uid="uid://2gifhoikbqvm" path="res://scenes/logica interna/gui.tscn" id="14_s0k0l"]
 [ext_resource type="PackedScene" uid="uid://djj1r7rdx5lv" path="res://scenes/logica interna/audio.tscn" id="14_v207r"]
 [ext_resource type="PackedScene" uid="uid://b42fulegw3yie" path="res://scenes/logica interna/bg.tscn" id="15_cnecu"]
 [ext_resource type="Script" path="res://scripts/victory.gd" id="15_kcpai"]
-[ext_resource type="PackedScene" path="res://scenes/logica interna/victory.tscn" id="15_srmqk"]
+[ext_resource type="PackedScene" uid="uid://1esupmjtimf2" path="res://scenes/logica interna/victory.tscn" id="15_srmqk"]
 [ext_resource type="PackedScene" uid="uid://bjd51jnefxpxl" path="res://scenes/logica interna/pause_menu.tscn" id="16_c4wfa"]
+[ext_resource type="PackedScene" uid="uid://b17qgyay4odfp" path="res://scenes/drag and drop/traguardo.tscn" id="19_irjkp"]
 [ext_resource type="Script" path="res://scripts/pause.gd" id="26_krq3q"]
 
 [sub_resource type="GDScript" id="GDScript_hpa0i"]
@@ -100,7 +103,7 @@ timestamp = Array[float]([0.454, 1.55, 1.816, 2.032, 2.249, 2.472, 2.661, 2.824,
 process_mode = 1
 scale = Vector2(1.00177, 1)
 script = SubResource("GDScript_hpa0i")
-levels = Array[PackedScene]([ExtResource("1_ojs4v"), ExtResource("1_1vv6q"), ExtResource("1_1dpt0")])
+levels = Array[PackedScene]([ExtResource("1_ojs4v"), ExtResource("1_1vv6q"), ExtResource("3_4oc6k"), ExtResource("1_1dpt0"), ExtResource("5_mrggm")])
 player = NodePath("Player")
 
 [node name="Player" parent="." node_paths=PackedStringArray("camera_frame") instance=ExtResource("1_j2esc")]
@@ -174,10 +177,11 @@ script = ExtResource("15_kcpai")
 [node name="VictoryMenu" parent="Graphics/Victory" instance=ExtResource("15_srmqk")]
 visible = false
 
-[node name="Audio" parent="." instance=ExtResource("14_v207r")]
+[node name="Audio" parent="." node_paths=PackedStringArray("player") instance=ExtResource("14_v207r")]
+player = NodePath("../Player")
 
-[node name="Level5" parent="." instance=ExtResource("1_1dpt0")]
-position = Vector2(1452.43, -34)
+[node name="Traguardo" parent="." instance=ExtResource("19_irjkp")]
+position = Vector2(1244.8, 599)
 
 [connection signal="pause" from="." to="Audio" method="_on_main_pause"]
 [connection signal="start" from="." to="Audio" method="_on_main_start"]

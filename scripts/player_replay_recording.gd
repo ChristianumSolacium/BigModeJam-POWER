@@ -26,4 +26,4 @@ func save_replay() -> void:
 	if dir:
 		if not dir.dir_exists(SAVE_PATH):
 			dir.make_dir(SAVE_PATH)
-	ResourceSaver.save(replay,"user://" + SAVE_PATH + "replay "+ main.obstacles.name  +str(Time.get_unix_time_from_system()) +".tres")
+	#ResourceSaver.save(replay,"user://" + SAVE_PATH + "replay "+ main.obstacles.name  +str(Time.get_unix_time_from_system()) +".tres")
