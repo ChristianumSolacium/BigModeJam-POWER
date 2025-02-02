@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://2gifhoikbqvm"]
+[gd_scene load_steps=14 format=3 uid="uid://2gifhoikbqvm"]
 
 [ext_resource type="Script" path="res://scripts/gui.gd" id="1_xwr7w"]
 [ext_resource type="Texture2D" uid="uid://b3rjic51bwfaj" path="res://sprites/GUI/barra_vuota.png" id="2_0cvr2"]
@@ -9,12 +9,18 @@
 [ext_resource type="Texture2D" uid="uid://cs5oharqm4f0l" path="res://sprites/powerups/collezionabile_neutro.png" id="7_cl1ix"]
 [ext_resource type="Script" path="res://scripts/stop_watch.gd" id="8_555bh"]
 [ext_resource type="FontFile" uid="uid://nq66j02seeml" path="res://fonts/barcade/barcadenobarital.ttf" id="8_t2ncv"]
+[ext_resource type="FontFile" uid="uid://px8xs68ub5ra" path="res://fonts/barcade/barcadnobarboldital.ttf" id="9_yybqx"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_to6wb"]
 font = ExtResource("8_t2ncv")
 
 [sub_resource type="LabelSettings" id="LabelSettings_htt2y"]
+font = ExtResource("9_yybqx")
 font_size = 24
+
+[sub_resource type="LabelSettings" id="LabelSettings_16u0k"]
+font = ExtResource("9_yybqx")
+font_size = 41
 
 [node name="GUI" type="CanvasLayer" node_paths=PackedStringArray("game_over_popup", "victory_popup", "charge_bar", "speed_label", "coin_labels", "stop_watch")]
 script = ExtResource("1_xwr7w")
@@ -150,6 +156,7 @@ offset_right = 84.0
 offset_bottom = 33.0
 grow_horizontal = 2
 text = "00:00:00"
+label_settings = SubResource("LabelSettings_16u0k")
 vertical_alignment = 1
 script = ExtResource("8_555bh")
 

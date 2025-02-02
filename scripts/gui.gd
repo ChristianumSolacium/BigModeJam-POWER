@@ -41,3 +41,6 @@ func update_coins() -> void:
 func _on_player_victory() -> void:
 	victory()
 	$StopWatch.stop()
+
+func get_time() -> int:
+	return stop_watch.time_elapsed

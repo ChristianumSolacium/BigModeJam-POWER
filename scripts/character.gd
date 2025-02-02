@@ -32,12 +32,14 @@ var speed_bonus := 0.0
 @export var speeded_positive_texture : Texture
 @export var speeded_negative_texture : Texture
 
+@onready var gui: CanvasLayer = $"../Graphics/GUI"
 
 @export var is_speeded := false
 
 @onready var sprite: Sprite2D = $Sprite
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var victory_menu: Control = $"../Graphics/Victory/VictoryMenu"
+
 
 var active := true
 
@@ -99,6 +101,10 @@ func charge_up(value:float) -> void:
 
 func _on_victory() -> void:
 	victory_menu.show()
+	var time : int= gui.get_time() / 1000
+	
+	victory_menu.set_score( speed * (1 + gui.coins) / time)
+	
 	speed_bonus = 800
 
 
