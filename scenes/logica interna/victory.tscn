@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://1esupmjtimf2"]
+[gd_scene load_steps=25 format=3 uid="uid://1esupmjtimf2"]
 
 [ext_resource type="Script" path="res://scripts/victory_menu.gd" id="1_vr6jl"]
 [ext_resource type="Texture2D" uid="uid://opa8rwpnlygl" path="res://sprites/GUI/victory/Quit_tasto_neutro.png" id="1_wdp7j"]
@@ -18,7 +18,11 @@
 [ext_resource type="Texture2D" uid="uid://b3vsdciaj7nwx" path="res://sprites/GUI/victory/victory_effects_frame4.png" id="10_0tpap"]
 [ext_resource type="Texture2D" uid="uid://c4e8iotte30o2" path="res://sprites/GUI/victory/victory_effects_frame5.png" id="11_s62sw"]
 [ext_resource type="Texture2D" uid="uid://c7yphsphg334y" path="res://sprites/GUI/Rank_testo.png" id="18_77db0"]
+[ext_resource type="Texture2D" uid="uid://cn660gg1b5ifj" path="res://sprites/GUI/tasti/Restart_tasto_neutro.png" id="18_npbjo"]
+[ext_resource type="Texture2D" uid="uid://pei1rbpnwc1k" path="res://sprites/GUI/tasti/Continue_tasto_neutro.png" id="18_uliy4"]
+[ext_resource type="Texture2D" uid="uid://6w6uebpf4otg" path="res://sprites/GUI/tasti/Restart_tasto_selezionato.png" id="19_3up8y"]
 [ext_resource type="Texture2D" uid="uid://cxh6pfsxkvg2g" path="res://sprites/GUI/Time_Score_testo.png" id="19_14tw1"]
+[ext_resource type="Texture2D" uid="uid://ccf7sq20ib66g" path="res://sprites/GUI/tasti/Continue_tasto_selezionato.png" id="19_ddw5k"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_3ymey"]
 animations = [{
@@ -89,6 +93,7 @@ position = Vector2(552, 272)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_3ymey")
 animation = &"sparkle"
+frame_progress = 0.432316
 speed_scale = 2.0
 
 [node name="VictoryAnimations" type="AnimatedSprite2D" parent="."]
@@ -96,43 +101,84 @@ position = Vector2(552, 272)
 scale = Vector2(0.7, 0.7)
 sprite_frames = SubResource("SpriteFrames_3ymey")
 animation = &"victory_logo"
+frame_progress = 0.0398808
 speed_scale = 1.5
 
 [node name="Button1Animations" type="AnimatedSprite2D" parent="."]
-position = Vector2(296, 520)
+position = Vector2(248, 472)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_3ymey")
 animation = &"buttons"
+frame_progress = 0.36935
 speed_scale = 1.5
 
 [node name="Button2Animations" type="AnimatedSprite2D" parent="."]
-position = Vector2(832, 528)
+position = Vector2(912, 456)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_3ymey")
 animation = &"buttons"
+frame_progress = 0.331848
+speed_scale = 1.5
+
+[node name="Button3Animations" type="AnimatedSprite2D" parent="."]
+position = Vector2(568, 568)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_3ymey")
+animation = &"buttons"
+frame_progress = 0.797116
+speed_scale = 1.5
+
+[node name="Button4Animations" type="AnimatedSprite2D" parent="."]
+position = Vector2(552, 456)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_3ymey")
+animation = &"buttons"
+frame_progress = 0.278371
 speed_scale = 1.5
 
 [node name="QuitButton" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 576.0
-offset_top = 464.0
-offset_right = 1221.0
-offset_bottom = 622.0
-scale = Vector2(0.8, 0.8)
+offset_left = 416.0
+offset_top = 528.0
+offset_right = 1061.0
+offset_bottom = 686.0
+scale = Vector2(0.5, 0.5)
 texture_normal = ExtResource("1_wdp7j")
 texture_pressed = ExtResource("2_dsj5n")
 texture_hover = ExtResource("2_dsj5n")
 
 [node name="ReplayButton" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 32.0
-offset_top = 464.0
-offset_right = 677.0
-offset_bottom = 622.0
-scale = Vector2(0.8, 0.8)
+offset_left = 760.0
+offset_top = 424.0
+offset_right = 1405.0
+offset_bottom = 582.0
+scale = Vector2(0.5, 0.5)
 texture_normal = ExtResource("3_tqowf")
 texture_pressed = ExtResource("4_huwqm")
 texture_hover = ExtResource("4_huwqm")
+
+[node name="RestartButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 424.0
+offset_right = 717.0
+offset_bottom = 582.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("18_npbjo")
+texture_pressed = ExtResource("19_3up8y")
+texture_hover = ExtResource("19_3up8y")
+
+[node name="ContinueButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 416.0
+offset_top = 424.0
+offset_right = 1061.0
+offset_bottom = 582.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("18_uliy4")
+texture_pressed = ExtResource("19_ddw5k")
+texture_hover = ExtResource("19_ddw5k")
 
 [node name="Rank" type="Sprite2D" parent="."]
 position = Vector2(592, 184)
@@ -148,3 +194,4 @@ texture = ExtResource("19_14tw1")
 
 [connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="pressed" from="ReplayButton" to="." method="_on_replay_button_pressed"]
+[connection signal="pressed" from="ContinueButton" to="." method="_on_continue_button_pressed"]

@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" path="res://scenes/levels/livello_3.tscn" id="3_4oc6k"]
 [ext_resource type="Script" path="res://scripts/walls.gd" id="3_5q0w8"]
 [ext_resource type="Script" path="res://scripts/PlayerReplayResource.gd" id="3_6jqjj"]
-[ext_resource type="PackedScene" uid="uid://b4xlbrnnm06oj" path="res://scenes/levels/levelcri.tscn" id="5_mrggm"]
+[ext_resource type="PackedScene" path="res://scenes/levels/levelcri.tscn" id="5_mrggm"]
 [ext_resource type="PackedScene" uid="uid://2gifhoikbqvm" path="res://scenes/logica interna/gui.tscn" id="14_s0k0l"]
 [ext_resource type="PackedScene" uid="uid://djj1r7rdx5lv" path="res://scenes/logica interna/audio.tscn" id="14_v207r"]
 [ext_resource type="PackedScene" uid="uid://b42fulegw3yie" path="res://scenes/logica interna/bg.tscn" id="15_cnecu"]
@@ -31,7 +31,7 @@ var obstacles: Node2D
 @export var levels :Array[PackedScene]
 
 @export var player : Player
-var CONFIG_PATH := \"user://config.tres\"
+var CONFIG_PATH := \"user://config4.tres\"
 
 @export var test_mode := false
 func _ready() -> void:
@@ -88,8 +88,14 @@ func load_current_level() -> void:
 func load_next_level() -> void:
 	var config : ConfigResource = load(CONFIG_PATH)
 	config.current_level += 1
+	print(config.current_level)
 	ResourceSaver.save(config,CONFIG_PATH)
 	load_level(levels[config.current_level])
+
+
+func _on_victory_menu_continue_next_level() -> void:
+	load_next_level()
+	get_tree().change_scene_to_file(\"res://scenes/logica interna/main.tscn\")
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lpsvg"]
@@ -181,7 +187,7 @@ visible = false
 player = NodePath("../Player")
 
 [node name="Traguardo" parent="." instance=ExtResource("19_irjkp")]
-position = Vector2(1244.8, 599)
+position = Vector2(464.178, 540)
 
 [connection signal="pause" from="." to="Audio" method="_on_main_pause"]
 [connection signal="start" from="." to="Audio" method="_on_main_start"]
@@ -193,5 +199,6 @@ position = Vector2(1244.8, 599)
 [connection signal="polarity_changed" from="Player" to="Audio" method="_on_player_polarity_changed"]
 [connection signal="speed_changed" from="Player" to="Graphics/GUI" method="_on_player_speed_changed"]
 [connection signal="victory" from="Player" to="Graphics/GUI" method="_on_player_victory"]
+[connection signal="continue_next_level" from="Graphics/Victory/VictoryMenu" to="." method="_on_victory_menu_continue_next_level"]
 
 [editable path="GhostPlayer"]
