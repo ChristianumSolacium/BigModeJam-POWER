@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://b4xlbrnnm06oj"]
+[gd_scene load_steps=30 format=3 uid="uid://b4xlbrnnm06oj"]
 
 [ext_resource type="PackedScene" uid="uid://bwxq2j853y6n" path="res://scenes/drag and drop/pavimento_negativo.tscn" id="1_3pktf"]
 [ext_resource type="PackedScene" uid="uid://ch7qmr7xdpo1u" path="res://scenes/drag and drop/soffitto_positivo.tscn" id="1_djo1g"]
@@ -14,8 +14,10 @@
 [ext_resource type="Script" path="res://scripts/comp_electric_field.gd" id="12_rwsyq"]
 [ext_resource type="Texture2D" uid="uid://b7q7eupwb34jw" path="res://sprites/scrolling_top_positivo.png" id="13_113in"]
 [ext_resource type="Texture2D" uid="uid://cmtyh1xs6o8y2" path="res://sprites/campo_magnetico_positivo.png" id="14_drpbh"]
+[ext_resource type="Texture2D" uid="uid://rujy7rtxqcx" path="res://sprites/scrolling_top.png" id="15_r3hld"]
 [ext_resource type="Texture2D" uid="uid://dovui0kijg8bl" path="res://sprites/scrolling_top_negativo.png" id="15_w85d0"]
 [ext_resource type="Texture2D" uid="uid://bukfrombmlsnt" path="res://sprites/campo_magnetico_negativo.png" id="16_6u1eg"]
+[ext_resource type="Texture2D" uid="uid://dqhyl67e1lne5" path="res://sprites/scrolling_ground.png" id="16_wcgx5"]
 [ext_resource type="PackedScene" uid="uid://dcc1awfddemkf" path="res://scenes/drag and drop/ostacolo_neutro.tscn" id="17_glmtg"]
 [ext_resource type="PackedScene" uid="uid://bsth1tcugpx3t" path="res://scenes/drag and drop/move_forward.tscn" id="18_oke2n"]
 [ext_resource type="PackedScene" uid="uid://t5xch1e8slho" path="res://scenes/drag and drop/ostacolo_negativo.tscn" id="19_p4gfo"]
@@ -421,6 +423,23 @@ scale = Vector2(0.85522, 1.4965)
 [node name="Coin3" parent="." instance=ExtResource("7_kx2r5")]
 position = Vector2(8527.7, 1086.46)
 scale = Vector2(0.85522, 1.4965)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(3564.56, 636.011)
+scale = Vector2(1.32392, -2.26947)
+zoom = Vector2(0.785, 0.785)
+
+[node name="ScrollingTop" type="Sprite2D" parent="Camera2D"]
+z_index = -4
+position = Vector2(-219.632, 11.8693)
+scale = Vector2(1.50689, -0.489101)
+texture = ExtResource("15_r3hld")
+
+[node name="ScrollingGround" type="Sprite2D" parent="Camera2D"]
+z_index = -4
+position = Vector2(271.309, -63.9621)
+scale = Vector2(1.50689, -0.489101)
+texture = ExtResource("16_wcgx5")
 
 [editable path="FirstSection/Soffitto Positivo2"]
 [editable path="OstacoloNegativo"]
