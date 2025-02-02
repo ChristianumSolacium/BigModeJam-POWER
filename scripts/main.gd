@@ -62,6 +62,7 @@ func load_level(level_scene: PackedScene) -> void:
 func load_current_level() -> void:
 	var config : ConfigResource = load(CONFIG_PATH)
 	load_level(levels[config.current_level])
+	
 
 
 func load_next_level() -> void:
