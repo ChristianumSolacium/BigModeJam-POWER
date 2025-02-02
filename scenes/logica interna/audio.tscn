@@ -14,12 +14,15 @@ script = ExtResource("1_42wjj")
 
 [node name="PolarityLoopGame" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_ksdys")
+volume_db = -16.0
 
 [node name="PolarityLoopMenu" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_nkxbs")
+volume_db = -16.0
 
 [node name="PolarityLoopGameOver" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_lnneb")
+volume_db = -16.0
 
 [node name="PolaritySdDeath" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_onnaj")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://dtvl6ccqkkmhh"]
+[gd_scene load_steps=24 format=3 uid="uid://dtvl6ccqkkmhh"]
 
 [ext_resource type="PackedScene" uid="uid://c3sa7wipkeb6u" path="res://scenes/levels/level_4.tscn" id="1_1dpt0"]
 [ext_resource type="PackedScene" uid="uid://t1p57s6446hu" path="res://scenes/levels/livello_2.tscn" id="1_1vv6q"]
@@ -8,10 +8,10 @@
 [ext_resource type="Script" path="res://scripts/player_replay_recording.gd" id="2_kr3wk"]
 [ext_resource type="PackedScene" uid="uid://blocss3wbhbps" path="res://scenes/logica interna/camera_frame.tscn" id="2_lfbie"]
 [ext_resource type="Script" path="res://scripts/player_scripted_movement.gd" id="2_rb5kb"]
-[ext_resource type="PackedScene" uid="uid://4rwcjqeoidie" path="res://scenes/levels/livello_3.tscn" id="3_4oc6k"]
+[ext_resource type="PackedScene" path="res://scenes/levels/livello_3.tscn" id="3_4oc6k"]
 [ext_resource type="Script" path="res://scripts/walls.gd" id="3_5q0w8"]
 [ext_resource type="Script" path="res://scripts/PlayerReplayResource.gd" id="3_6jqjj"]
-[ext_resource type="PackedScene" uid="uid://b4xlbrnnm06oj" path="res://scenes/levels/levelcri.tscn" id="5_mrggm"]
+[ext_resource type="PackedScene" path="res://scenes/levels/levelcri.tscn" id="5_mrggm"]
 [ext_resource type="Script" path="res://scripts/camera_frame_friction.gd" id="12_jbeaq"]
 [ext_resource type="PackedScene" uid="uid://2gifhoikbqvm" path="res://scenes/logica interna/gui.tscn" id="14_s0k0l"]
 [ext_resource type="PackedScene" uid="uid://djj1r7rdx5lv" path="res://scenes/logica interna/audio.tscn" id="14_v207r"]
@@ -19,7 +19,6 @@
 [ext_resource type="Script" path="res://scripts/victory.gd" id="15_kcpai"]
 [ext_resource type="PackedScene" uid="uid://1esupmjtimf2" path="res://scenes/logica interna/victory.tscn" id="15_srmqk"]
 [ext_resource type="PackedScene" uid="uid://bjd51jnefxpxl" path="res://scenes/logica interna/pause_menu.tscn" id="16_c4wfa"]
-[ext_resource type="PackedScene" uid="uid://b17qgyay4odfp" path="res://scenes/drag and drop/traguardo.tscn" id="21_ir40n"]
 [ext_resource type="Script" path="res://scripts/pause.gd" id="26_krq3q"]
 
 [sub_resource type="Resource" id="Resource_26i00"]
@@ -134,9 +133,6 @@ visible = false
 
 [node name="Audio" parent="." node_paths=PackedStringArray("player") instance=ExtResource("14_v207r")]
 player = NodePath("../Player")
-
-[node name="Traguardo" parent="." instance=ExtResource("21_ir40n")]
-position = Vector2(2293.94, 753)
 
 [connection signal="pause" from="." to="Audio" method="_on_main_pause"]
 [connection signal="start" from="." to="Audio" method="_on_main_start"]
