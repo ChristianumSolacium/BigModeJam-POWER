@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://scripts/speed_up.gd" id="1_42ruo"]
 [ext_resource type="Texture2D" uid="uid://cgc2hjvvayv8c" path="res://sprites/powerups/speed_boost_angle.webp" id="2_ijxvt"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ttrny"]
-size = Vector2(75, 78)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uovb2"]
+size = Vector2(123.496, 274.244)
 
 [node name="SpeedUp" type="Area2D"]
 position = Vector2(-2970.11, -440.778)
@@ -12,7 +12,7 @@ script = ExtResource("1_42ruo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(983.61, 445.778)
-shape = SubResource("RectangleShape2D_ttrny")
+shape = SubResource("RectangleShape2D_uovb2")
 
 [node name="SpeedBoost" type="Sprite2D" parent="."]
 position = Vector2(983.11, 446.778)

@@ -385,7 +385,7 @@ debug_color = Color(1, 1, 0, 0.2)
 
 [node name="OstacoloPentagonoNegativo" type="Sprite2D" parent="Livello 2/Pentagono Negativo2"]
 position = Vector2(15, 108)
-rotation = 17918.7
+rotation = 17918.8
 scale = Vector2(0.5, 0.514389)
 texture = ExtResource("10_7hsqw")
 offset = Vector2(0, 7.77622)
@@ -405,7 +405,7 @@ shape = SubResource("CircleShape2D_iid6r")
 
 [node name="OstacoloPentagonoNegativo" type="Sprite2D" parent="Livello 2/QUADRATO3"]
 position = Vector2(8, 104)
-rotation = 8822.59
+rotation = 8822.7
 scale = Vector2(0.5, 0.514389)
 texture = ExtResource("13_877vf")
 offset = Vector2(0, 7.77622)
@@ -424,7 +424,7 @@ shape = SubResource("CircleShape2D_iid6r")
 
 [node name="OstacoloPentagonoNegativo" type="Sprite2D" parent="Livello 2/QUADRATO4"]
 position = Vector2(8, 104)
-rotation = 8818.84
+rotation = 8818.95
 scale = Vector2(0.5, 0.514389)
 texture = ExtResource("13_877vf")
 offset = Vector2(0, 7.77622)
@@ -443,7 +443,7 @@ shape = SubResource("CircleShape2D_iid6r")
 
 [node name="OstacoloPentagonoNegativo" type="Sprite2D" parent="Livello 2/QUADRATO5"]
 position = Vector2(8, 104)
-rotation = 8818.84
+rotation = 8818.95
 scale = Vector2(0.5, 0.514389)
 texture = ExtResource("13_877vf")
 offset = Vector2(0, 7.77622)
@@ -461,7 +461,7 @@ shape = SubResource("CircleShape2D_iid6r")
 
 [node name="OstacoloPentagonoNegativo" type="Sprite2D" parent="Livello 2/QUADRATO2"]
 position = Vector2(-80, 98)
-rotation = 8819.07
+rotation = 8819.18
 scale = Vector2(0.5, 0.514389)
 texture = ExtResource("13_877vf")
 offset = Vector2(0, 7.77622)

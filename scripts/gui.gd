@@ -22,7 +22,7 @@ func _on_player_death() -> void: #TEMP
 
 func _on_player_speed_changed(new_value: float) -> void:
 	charge_bar.value = new_value
-	speed_label.text = "%.3f%%" % ((new_value - 300) /1200  * 100)
+	speed_label.text = "%.2f%%" % max(0.0,(new_value - 300) /1200  * 100)
 
 
 func _on_timer_timeout() -> void:

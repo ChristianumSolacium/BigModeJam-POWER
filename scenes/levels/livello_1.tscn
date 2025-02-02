@@ -42,7 +42,7 @@ size = Vector2(386.316, 964.858)
 [node name="Livello1" type="Node2D"]
 
 [node name="Obstacles" type="Node2D" parent="."]
-position = Vector2(2022, 467)
+position = Vector2(2500, 467)
 
 [node name="Soffitto Negativo6" type="RigidBody2D" parent="Obstacles"]
 position = Vector2(128, 333)

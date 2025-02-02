@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://djj1r7rdx5lv" path="res://scenes/logica interna/audio.tscn" id="14_v207r"]
 [ext_resource type="PackedScene" uid="uid://b42fulegw3yie" path="res://scenes/logica interna/bg.tscn" id="15_cnecu"]
 [ext_resource type="PackedScene" uid="uid://bjd51jnefxpxl" path="res://scenes/logica interna/pause_menu.tscn" id="16_c4wfa"]
-[ext_resource type="PackedScene" uid="uid://bc35a5v5yfiwi" path="res://scenes/drag and drop/speed_up.tscn" id="17_kb68a"]
+[ext_resource type="PackedScene" uid="uid://b4xlbrnnm06oj" path="res://scenes/levels/levelcri.tscn" id="17_vfgtn"]
 [ext_resource type="Script" path="res://scripts/automatic_resize_of_collision_shape_2d.gd" id="26_k135g"]
 [ext_resource type="Script" path="res://scripts/pause.gd" id="26_krq3q"]
 
@@ -25,7 +25,7 @@ signal pause
 
 @onready var pause_menu = $Graphics/Pause/PauseMenu
 
-var obstacles: Node2D 
+@export var obstacles: Node2D 
 @export var levels :Array[PackedScene]
 
 @export var player : Player
@@ -92,6 +92,7 @@ func load_next_level() -> void:
 		config.current_level += 1
 		ResourceSaver.save(config,CONFIG_PATH)
 		load_level(levels[config.current_level])
+		obstacles.position.x += 1000
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lpsvg"]
@@ -108,7 +109,7 @@ timestamp = Array[float]([0.454, 1.55, 1.816, 2.032, 2.249, 2.472, 2.661, 2.824,
 process_mode = 1
 scale = Vector2(1.00177, 1)
 script = SubResource("GDScript_hpa0i")
-levels = Array[PackedScene]([ExtResource("1_ojs4v"), ExtResource("1_1vv6q"), ExtResource("1_1dpt0")])
+levels = Array[PackedScene]([ExtResource("17_vfgtn"), ExtResource("1_ojs4v"), ExtResource("1_1vv6q"), ExtResource("1_1dpt0")])
 player = NodePath("Player")
 
 [node name="AutomaticResizeOfCollisionShape2D" type="Node" parent="."]
@@ -129,7 +130,7 @@ player = NodePath("..")
 main = NodePath("../..")
 
 [node name="CameraFrame" type="RigidBody2D" parent="Player"]
-position = Vector2(721.242, 373.317)
+position = Vector2(-0.278365, -11.2274)
 scale = Vector2(0.997568, 0.809797)
 collision_layer = 4
 collision_mask = 0
@@ -205,9 +206,6 @@ visible = false
 
 [node name="Audio" parent="." node_paths=PackedStringArray("player") instance=ExtResource("14_v207r")]
 player = NodePath("../Player")
-
-[node name="SpeedUp" parent="." instance=ExtResource("17_kb68a")]
-position = Vector2(57.5308, -1.77802)
 
 [connection signal="pause" from="." to="Audio" method="_on_main_pause"]
 [connection signal="start" from="." to="Audio" method="_on_main_start"]

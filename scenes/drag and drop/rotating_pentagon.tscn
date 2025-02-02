@@ -14,8 +14,8 @@ scale = Vector2(6.93885, 6.77935)
 shape = SubResource("CircleShape2D_iid6r")
 
 [node name="OstacoloPentagonoNegativo" type="Sprite2D" parent="."]
-position = Vector2(-5, 91)
-rotation = 3076.38
+position = Vector2(2.11102, 84.7778)
+rotation = 3100.06
 scale = Vector2(0.5, 0.514389)
 texture = ExtResource("1_86tb3")
 offset = Vector2(0, 7.77622)
