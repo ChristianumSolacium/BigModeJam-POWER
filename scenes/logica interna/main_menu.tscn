@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://c5v6pembbv767"]
+[gd_scene load_steps=25 format=3 uid="uid://c5v6pembbv767"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_xgift"]
 [ext_resource type="Texture2D" uid="uid://dntym504fwac2" path="res://sprites/GUI/tasti/Start_tasto_neutro.png" id="5_gpd5t"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://cbkllbh1iwvu" path="res://sprites/GUI/mainmenu/frame_6.png" id="11_vw6eq"]
 [ext_resource type="PackedScene" uid="uid://b42fulegw3yie" path="res://scenes/logica interna/bg.tscn" id="12_3s60r"]
 [ext_resource type="Texture2D" uid="uid://cqh3u7gtg46er" path="res://sprites/GUI/mainmenu/frame_7.png" id="12_37c44"]
+[ext_resource type="PackedScene" uid="uid://can0uepgr7gjw" path="res://scenes/logica interna/tutorial.tscn" id="13_umwpl"]
 [ext_resource type="AudioStream" uid="uid://b8y6fty0stvxt" path="res://sounds/Loops/Polarity_LoopMenu.wav" id="13_yfvru"]
 [ext_resource type="AudioStream" uid="uid://b20snlranaghg" path="res://sounds/player/Polarity_SD_Press.wav" id="14_52gto"]
 [ext_resource type="Texture2D" uid="uid://b8gsqn46pc8en" path="res://sprites/obstacles/ostacolo_pentagono_negativo.png" id="15_d85kb"]
@@ -121,6 +122,9 @@ layout_mode = 2
 texture_normal = ExtResource("5_gpd5t")
 texture_pressed = ExtResource("6_sp7xo")
 
+[node name="Tutorial" parent="." instance=ExtResource("13_umwpl")]
+visible = false
+
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(576, 322)
 script = SubResource("GDScript_hdbj3")
@@ -136,7 +140,7 @@ stream = ExtResource("14_52gto")
 
 [node name="OstacoloPentagonoNegativo" type="Sprite2D" parent="Obstacles"]
 position = Vector2(257, 347)
-rotation = 183.297
+rotation = 186.278
 scale = Vector2(0.395, 0.395)
 texture = ExtResource("15_d85kb")
 
@@ -145,7 +149,7 @@ script = ExtResource("16_65t6g")
 
 [node name="OstacoloPentagonoPositivo" type="Sprite2D" parent="Obstacles"]
 position = Vector2(972, 151)
-rotation = 164.124
+rotation = 167.105
 scale = Vector2(0.261543, 0.283134)
 texture = ExtResource("17_g2583")
 
@@ -154,7 +158,7 @@ script = ExtResource("16_65t6g")
 
 [node name="OstacoloTriangoloNegativo" type="Sprite2D" parent="Obstacles"]
 position = Vector2(877, 384)
-rotation = 163.249
+rotation = 166.23
 scale = Vector2(0.362737, 0.362737)
 texture = ExtResource("18_jdu0p")
 
@@ -163,7 +167,7 @@ script = ExtResource("16_65t6g")
 
 [node name="OstacoloTriangoloPositivo" type="Sprite2D" parent="Obstacles"]
 position = Vector2(490, 202)
-rotation = 93.2288
+rotation = 94.4215
 scale = Vector2(0.249296, 0.249296)
 texture = ExtResource("19_o5g1y")
 
@@ -173,7 +177,7 @@ rotation_speed = 0.4
 
 [node name="OstacoloQuadratoNegativo" type="Sprite2D" parent="Obstacles"]
 position = Vector2(807, 115)
-rotation = 99.431
+rotation = 100.922
 scale = Vector2(0.170147, 0.170147)
 texture = ExtResource("20_53qx4")
 
@@ -183,7 +187,7 @@ rotation_speed = 0.5
 
 [node name="OstacoloQuadratoPositivo" type="Sprite2D" parent="Obstacles"]
 position = Vector2(257, 220)
-rotation = 69.5534
+rotation = 70.7461
 scale = Vector2(0.362737, 0.362737)
 texture = ExtResource("21_tvtut")
 
@@ -193,7 +197,7 @@ rotation_speed = 0.4
 
 [node name="OstacoloQuadratoPositivo2" type="Sprite2D" parent="Obstacles"]
 position = Vector2(1037, 524)
-rotation = 32.4253
+rotation = 33.0217
 scale = Vector2(0.423719, 0.443147)
 texture = ExtResource("21_tvtut")
 
