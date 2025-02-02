@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://dcoeep6tbr3cl"]
+[gd_scene load_steps=33 format=3 uid="uid://dcoeep6tbr3cl"]
 
 [ext_resource type="Script" path="res://scripts/comp_electric_field.gd" id="1_dyaid"]
 [ext_resource type="Texture2D" uid="uid://dovui0kijg8bl" path="res://sprites/scrolling_top_negativo.png" id="2_jkudb"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://djol6ngx1jeqc" path="res://scenes/drag and drop/power_up_1.tscn" id="8_0sdrm"]
 [ext_resource type="PackedScene" uid="uid://dmtsq06dhwhfs" path="res://scenes/drag and drop/pavimento_positivo.tscn" id="9_xa3vr"]
 [ext_resource type="PackedScene" uid="uid://dkdt81f6ar0l4" path="res://scenes/drag and drop/spikes.tscn" id="10_0thf4"]
+[ext_resource type="PackedScene" uid="uid://sgj0kom5nodl" path="res://scenes/drag and drop/phantom_mode.tscn" id="10_1o1sh"]
 [ext_resource type="PackedScene" uid="uid://blx6o0gojhtl2" path="res://scenes/drag and drop/coin.tscn" id="11_qiust"]
 [ext_resource type="PackedScene" uid="uid://cqevg1xr3srrp" path="res://scenes/drag and drop/coin_with_hint.tscn" id="12_7u842"]
 [ext_resource type="Texture2D" uid="uid://bvyimliey5oet" path="res://sprites/obstacles/ostacolo_muro_neutro.png" id="13_ja2rs"]
@@ -18,7 +19,9 @@
 [ext_resource type="Texture2D" uid="uid://cbq0fk4a3lg16" path="res://sprites/obstacles/ostacolo_muro_positivo.png" id="17_e5e42"]
 [ext_resource type="PackedScene" uid="uid://bsth1tcugpx3t" path="res://scenes/drag and drop/move_forward.tscn" id="18_kdf8l"]
 [ext_resource type="PackedScene" uid="uid://bc35a5v5yfiwi" path="res://scenes/drag and drop/speed_up.tscn" id="18_xl2ad"]
+[ext_resource type="Script" path="res://scripts/speed_up.gd" id="19_n60dd"]
 [ext_resource type="PackedScene" uid="uid://b17qgyay4odfp" path="res://scenes/drag and drop/traguardo.tscn" id="19_qfq0h"]
+[ext_resource type="Texture2D" uid="uid://baad86uquvjl6" path="res://sprites/powerups/speed_boost.webp" id="20_mgdvt"]
 [ext_resource type="Script" path="res://scripts/utility_draw_infinite_line.gd" id="20_xr5ur"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tjnit"]
@@ -44,6 +47,9 @@ size = Vector2(386.316, 964.858)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pp2x0"]
 size = Vector2(283.019, 904.76)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ttrny"]
+size = Vector2(308.11, 78)
 
 [node name="Node2D" type="Node2D"]
 
@@ -110,7 +116,7 @@ scale = Vector2(0.354911, 0.800736)
 texture = ExtResource("5_bqqth")
 
 [node name="RotatingPentagon" parent="Obstacles/Soffitto Negativo6/Soffitto Positivo3" instance=ExtResource("6_xg7yc")]
-position = Vector2(-2360, 455.994)
+position = Vector2(-2355, 472.994)
 
 [node name="PowerDown" parent="Obstacles/Soffitto Negativo6/Soffitto Positivo3" instance=ExtResource("7_cohwy")]
 position = Vector2(-1306, 549.997)
@@ -265,8 +271,11 @@ rotation = 3.14159
 position = Vector2(-4042, 253.99)
 rotation = 3.14159
 
+[node name="PhantomMode" parent="Obstacles/Soffitto Negativo6/Soffitto Positivo3" instance=ExtResource("10_1o1sh")]
+position = Vector2(-3010, 62.9924)
+
 [node name="Soffitto Positivo4" parent="Obstacles/Soffitto Negativo6" instance=ExtResource("9_xa3vr")]
-position = Vector2(-3536, -6.00897)
+position = Vector2(-3537, -1.00897)
 rotation = 0.0
 
 [node name="Spikes3" parent="Obstacles" instance=ExtResource("10_0thf4")]
@@ -281,17 +290,18 @@ scale = Vector2(1.64998, 1.64998)
 position = Vector2(936, 1219)
 
 [node name="Coin" parent="Obstacles" instance=ExtResource("11_qiust")]
-position = Vector2(-152, 797)
+position = Vector2(1014, 82.9999)
+rotation = 0.0118164
 scale = Vector2(1, 0.907272)
 
 [node name="Coin2" parent="Obstacles" instance=ExtResource("12_7u842")]
 position = Vector2(862, -750)
 
 [node name="Coin3" parent="Obstacles" instance=ExtResource("12_7u842")]
-position = Vector2(1208, -677)
+position = Vector2(4043, -34)
 
 [node name="Coin4" parent="Obstacles" instance=ExtResource("12_7u842")]
-position = Vector2(-8, 1051)
+position = Vector2(562, -14)
 
 [node name="OstacoloNeutro" type="RigidBody2D" parent="Obstacles"]
 position = Vector2(1248, 387)
@@ -307,7 +317,7 @@ scale = Vector2(1.0901, 0.996296)
 texture = ExtResource("13_ja2rs")
 
 [node name="Soffitto Negativo" type="RigidBody2D" parent="Obstacles"]
-position = Vector2(1530, -380)
+position = Vector2(1524, -325)
 
 [node name="CompElectricFied" type="Area2D" parent="Obstacles/Soffitto Negativo"]
 position = Vector2(-13, 292)
@@ -331,13 +341,14 @@ scale = Vector2(0.227628, -1.05001)
 texture = ExtResource("2_jkudb")
 
 [node name="CampoMagneticoNegativo2" type="Sprite2D" parent="Obstacles/Soffitto Negativo"]
-position = Vector2(-13, 426)
+z_index = -1
+position = Vector2(-13, 407.312)
 rotation = 3.14159
-scale = Vector2(0.577597, 0.790787)
+scale = Vector2(0.577597, 0.825394)
 texture = ExtResource("3_804vo")
 
 [node name="OstacoloNeutro2" type="RigidBody2D" parent="Obstacles"]
-position = Vector2(1282, -347)
+position = Vector2(1276, -292)
 rotation = 3.14159
 scale = Vector2(1.28, 0.440002)
 
@@ -347,14 +358,14 @@ shape = SubResource("RectangleShape2D_jd07w")
 
 [node name="OstacoloMuroNegativo" type="Sprite2D" parent="Obstacles/OstacoloNeutro2"]
 position = Vector2(-432.812, -150.003)
-scale = Vector2(0.896968, 0.996296)
+scale = Vector2(0.898895, 0.999326)
 texture = ExtResource("13_ja2rs")
 
 [node name="Soffitto Negativo7" parent="Obstacles" instance=ExtResource("15_6h211")]
-position = Vector2(2152, 336)
+position = Vector2(2153, 331)
 
 [node name="Soffitto Negativo8" parent="Obstacles" instance=ExtResource("15_6h211")]
-position = Vector2(2760, 339)
+position = Vector2(2761, 334)
 
 [node name="PowerDown" parent="Obstacles" instance=ExtResource("7_cohwy")]
 position = Vector2(6462, -139)
@@ -481,7 +492,8 @@ position = Vector2(7722, -59)
 position = Vector2(8656, -229)
 
 [node name="SpeedUp" parent="Obstacles" instance=ExtResource("18_xl2ad")]
-position = Vector2(8066, -443)
+position = Vector2(7484, -1582)
+scale = Vector2(1.58611, 3.87993)
 
 [node name="RotatingPentagon" parent="Obstacles" instance=ExtResource("6_xg7yc")]
 position = Vector2(4683, -405)
@@ -489,20 +501,36 @@ position = Vector2(4683, -405)
 [node name="RotatingPentagon2" parent="Obstacles" instance=ExtResource("6_xg7yc")]
 position = Vector2(4691, 139)
 
-[node name="SpeedUp2" parent="Obstacles" instance=ExtResource("18_xl2ad")]
-position = Vector2(3434, -514)
+[node name="SpeedUp3" type="Area2D" parent="Obstacles"]
+position = Vector2(4692, -29)
+scale = Vector2(0.899475, 4.21605)
+script = ExtResource("19_n60dd")
 
-[node name="SpeedUp3" parent="Obstacles" instance=ExtResource("18_xl2ad")]
-position = Vector2(3738, -514)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/SpeedUp3"]
+position = Vector2(0.472656, -0.5)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_ttrny")
 
-[node name="SpeedUp4" parent="Obstacles" instance=ExtResource("18_xl2ad")]
-position = Vector2(3986, -514)
+[node name="SpeedBoost" type="Sprite2D" parent="Obstacles/SpeedUp3"]
+position = Vector2(-0.472534, 0.5)
+scale = Vector2(0.328606, 0.328606)
+texture = ExtResource("20_mgdvt")
+
+[node name="SpeedBoost2" type="Sprite2D" parent="Obstacles/SpeedUp3"]
+position = Vector2(-307.317, 0.5)
+scale = Vector2(0.328606, 0.328606)
+texture = ExtResource("20_mgdvt")
+
+[node name="SpeedBoost3" type="Sprite2D" parent="Obstacles/SpeedUp3"]
+position = Vector2(304.15, 0.500008)
+scale = Vector2(0.328606, 0.328606)
+texture = ExtResource("20_mgdvt")
 
 [node name="MoveForward" parent="." instance=ExtResource("18_kdf8l")]
 position = Vector2(13656, 416)
 
 [node name="Traguardo" parent="." instance=ExtResource("19_qfq0h")]
-position = Vector2(17820, 585)
+position = Vector2(16488, 550)
 
 [node name="UtilityDrawInfiniteLine" type="Node2D" parent="."]
 z_index = -500

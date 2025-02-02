@@ -92,4 +92,7 @@ func _on_pause_menu_skip_level() -> void:
 	toggle_pause()
 	load_next_level()
 	restart()
-	
+
+
+func _on_pause_menu_update_sound_volume() -> void:
+	pass # Replace with function body.

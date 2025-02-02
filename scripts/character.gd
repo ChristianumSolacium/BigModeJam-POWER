@@ -38,6 +38,9 @@ var speed_bonus := 0.0
 
 @onready var sprite: Sprite2D = $Sprite
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var animated_sprite_2d_2: AnimatedSprite2D = $AnimatedSprite2D2 #this sin is mine but it is your fault, Marco >:-(
+@onready var transition_sprite: Sprite2D = $transition
+
 @onready var victory_menu: Control = $"../Graphics/Victory/VictoryMenu"
 
 
@@ -64,6 +67,9 @@ func switch_polarity() -> void:
 	charge *= - 1
 	sprite.texture = get_current_texture()
 	polarity_changed.emit()
+	transition_sprite.show()
+	await get_tree().create_timer(0.1).timeout
+	transition_sprite.hide()
 
 
 func get_current_texture() -> Texture:
@@ -88,7 +94,7 @@ func die():
 	death.emit()
 
 	sprite.hide()
-	animated_sprite_2d.play("morte")
+	animated_sprite_2d_2.play("morte")
 
 
 

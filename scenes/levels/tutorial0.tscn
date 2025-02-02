@@ -1,0 +1,116 @@
+[gd_scene load_steps=14 format=3 uid="uid://b2onhc2njh6mp"]
+
+[ext_resource type="Script" path="res://scripts/speed_up.gd" id="8_kryc7"]
+[ext_resource type="Texture2D" uid="uid://baad86uquvjl6" path="res://sprites/powerups/speed_boost.webp" id="9_4kqhn"]
+[ext_resource type="PackedScene" uid="uid://cqevg1xr3srrp" path="res://scenes/drag and drop/coin_with_hint.tscn" id="10_l5u0m"]
+[ext_resource type="PackedScene" uid="uid://b17qgyay4odfp" path="res://scenes/drag and drop/traguardo.tscn" id="11_d8fpb"]
+[ext_resource type="PackedScene" uid="uid://bwxq2j853y6n" path="res://scenes/drag and drop/pavimento_negativo.tscn" id="17_nkphc"]
+[ext_resource type="PackedScene" uid="uid://dmtsq06dhwhfs" path="res://scenes/drag and drop/pavimento_positivo.tscn" id="18_g3x33"]
+[ext_resource type="PackedScene" uid="uid://blx6o0gojhtl2" path="res://scenes/drag and drop/coin.tscn" id="19_musgg"]
+[ext_resource type="Script" path="res://scripts/comp_electric_field.gd" id="20_l0h85"]
+[ext_resource type="Texture2D" uid="uid://dovui0kijg8bl" path="res://sprites/scrolling_top_negativo.png" id="21_p8lfw"]
+[ext_resource type="Texture2D" uid="uid://bukfrombmlsnt" path="res://sprites/campo_magnetico_negativo.png" id="22_1pdmn"]
+[ext_resource type="PackedScene" uid="uid://ch7qmr7xdpo1u" path="res://scenes/drag and drop/soffitto_positivo.tscn" id="23_iyiq4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tjnit"]
+size = Vector2(280, 904.76)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ttrny"]
+size = Vector2(308.11, 78)
+
+[node name="Tutorial0" type="Node2D"]
+
+[node name="Tutorial0" type="Node2D" parent="."]
+position = Vector2(-1500, 0)
+
+[node name="Soffitto Negativo6" parent="Tutorial0" instance=ExtResource("17_nkphc")]
+position = Vector2(4136.68, 793)
+
+[node name="Soffitto Negativo7" parent="Tutorial0" instance=ExtResource("17_nkphc")]
+position = Vector2(7500.72, 787)
+
+[node name="Soffitto Positivo3" parent="Tutorial0" instance=ExtResource("18_g3x33")]
+position = Vector2(5848.65, 792)
+
+[node name="Coin3" parent="Tutorial0" instance=ExtResource("19_musgg")]
+position = Vector2(4220.53, 639)
+
+[node name="Coin4" parent="Tutorial0" instance=ExtResource("19_musgg")]
+position = Vector2(4815, 545)
+
+[node name="Soffitto Negativo" type="RigidBody2D" parent="Tutorial0"]
+position = Vector2(8376.17, 134)
+
+[node name="CompElectricFied" type="Area2D" parent="Tutorial0/Soffitto Negativo"]
+position = Vector2(-13, 292)
+scale = Vector2(2.38745, 0.97847)
+collision_layer = 0
+collision_mask = 32
+script = ExtResource("20_l0h85")
+force = 100.0
+exponent = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tutorial0/Soffitto Negativo/CompElectricFied"]
+position = Vector2(3.11099, 158.398)
+shape = SubResource("RectangleShape2D_tjnit")
+debug_color = Color(1, 1, 0, 0.2)
+
+[node name="ScrollingTopNegativo" type="Sprite2D" parent="Tutorial0/Soffitto Negativo/CompElectricFied"]
+position = Vector2(0, -367)
+rotation = 3.14159
+scale = Vector2(0.147623, -1.05001)
+texture = ExtResource("21_p8lfw")
+
+[node name="CampoMagneticoNegativo2" type="Sprite2D" parent="Tutorial0/Soffitto Negativo/CompElectricFied"]
+position = Vector2(0, 134)
+rotation = 3.14159
+scale = Vector2(0.337597, 0.790787)
+texture = ExtResource("22_1pdmn")
+
+[node name="Soffitto Positivo" parent="Tutorial0/Soffitto Negativo" instance=ExtResource("23_iyiq4")]
+position = Vector2(916.378, -4)
+
+[node name="Soffitto Positivo2" parent="Tutorial0/Soffitto Negativo" instance=ExtResource("23_iyiq4")]
+position = Vector2(1518.31, -1)
+
+[node name="Soffitto Positivo3" parent="Tutorial0/Soffitto Negativo" instance=ExtResource("23_iyiq4")]
+position = Vector2(2091.3, 4)
+
+[node name="Coin2" parent="Tutorial0/Soffitto Negativo" instance=ExtResource("19_musgg")]
+position = Vector2(907.394, 554)
+
+[node name="Coin3" parent="Tutorial0/Soffitto Negativo" instance=ExtResource("19_musgg")]
+position = Vector2(1598.17, 259)
+
+[node name="Coin4" parent="Tutorial0/Soffitto Negativo" instance=ExtResource("19_musgg")]
+position = Vector2(2567.83, 527)
+
+[node name="SpeedUp" type="Area2D" parent="."]
+position = Vector2(9614, 194)
+script = ExtResource("8_kryc7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpeedUp"]
+position = Vector2(1267, 320)
+scale = Vector2(7.71783, 10.5984)
+shape = SubResource("RectangleShape2D_ttrny")
+
+[node name="SpeedBoost" type="Sprite2D" parent="SpeedUp/CollisionShape2D"]
+z_index = -100
+position = Vector2(-0.944336, 1)
+scale = Vector2(0.328606, 0.328606)
+texture = ExtResource("9_4kqhn")
+
+[node name="Coin" parent="." instance=ExtResource("10_l5u0m")]
+position = Vector2(4663, 227)
+
+[node name="Coin2" parent="." instance=ExtResource("10_l5u0m")]
+position = Vector2(5343, 460)
+
+[node name="Coin3" parent="." instance=ExtResource("10_l5u0m")]
+position = Vector2(6054, 600)
+
+[node name="Coin4" parent="." instance=ExtResource("10_l5u0m")]
+position = Vector2(6963, 336)
+
+[node name="Traguardo" parent="." instance=ExtResource("11_d8fpb")]
+position = Vector2(11711, 868)

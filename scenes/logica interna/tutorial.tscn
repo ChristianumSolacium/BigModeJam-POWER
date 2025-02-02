@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://can0uepgr7gjw"]
 
 [ext_resource type="PackedScene" uid="uid://b42fulegw3yie" path="res://scenes/logica interna/bg.tscn" id="1_qkann"]
-[ext_resource type="Texture2D" uid="uid://bu2uaj2sjxqev" path="res://sprites/GUI/tutorial_testo.png" id="2_xhrt2"]
+[ext_resource type="Texture2D" uid="uid://obaoorjkldc0" path="res://sprites/GUI/tutorial_testo_1.png" id="2_14cia"]
 [ext_resource type="FontFile" uid="uid://px8xs68ub5ra" path="res://fonts/barcade/barcadnobarboldital.ttf" id="3_g2qko"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_21o7x"]
@@ -17,7 +17,7 @@ transform = Transform2D(0.5, 0, 0, 0.5, 0, 0)
 [node name="TutorialTesto" type="Sprite2D" parent="."]
 position = Vector2(1168, 560)
 scale = Vector2(1.2, 1.2)
-texture = ExtResource("2_xhrt2")
+texture = ExtResource("2_14cia")
 
 [node name="Label" type="Label" parent="."]
 anchors_preset = 7

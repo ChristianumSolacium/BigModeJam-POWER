@@ -6,6 +6,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_iid6r"]
 
 [node name="RotatingPentagon" type="RigidBody2D"]
+z_index = 7
 position = Vector2(-970.111, 20.2222)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

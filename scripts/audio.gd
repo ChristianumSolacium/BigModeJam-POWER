@@ -15,9 +15,23 @@ extends Node
 @onready var press_pitch := polarity_sd_press.pitch_scale
 
 
+func set_volume(value:int,music:int) -> void:
+	polarity_sd_boost.volume_db = value
+	polarity_sd_press.volume_db = value + 3
+	polarity_sd_death.volume_db = value
+	polarity_sd_pick_up.volume_db = value
+	polarity_sd_victory.volume_db = value
+	
+	polarity_loop_game.volume_db = music
+	polarity_loop_menu.volume_db = music
+	polarity_loop_game_over.volume_db = music
+
+
+	
 func _ready() -> void:
-	for child:AudioStreamPlayer in get_children():
-		child.volume_db = -16
+	set_volume(-16,-16)
+
+
 func _on_player_gained_coin() -> void:
 	polarity_sd_pick_up.play()
 

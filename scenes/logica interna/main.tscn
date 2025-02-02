@@ -1,10 +1,11 @@
-[gd_scene load_steps=17 format=3 uid="uid://dtvl6ccqkkmhh"]
+[gd_scene load_steps=18 format=3 uid="uid://dtvl6ccqkkmhh"]
 
 [ext_resource type="PackedScene" uid="uid://c3sa7wipkeb6u" path="res://scenes/levels/level_4.tscn" id="1_1dpt0"]
 [ext_resource type="PackedScene" uid="uid://t1p57s6446hu" path="res://scenes/levels/livello_2.tscn" id="1_1vv6q"]
 [ext_resource type="PackedScene" uid="uid://b5d1qj4ck34vx" path="res://scenes/logica interna/player.tscn" id="1_j2esc"]
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_jdfak"]
 [ext_resource type="PackedScene" uid="uid://dcoeep6tbr3cl" path="res://scenes/levels/livello_1(1).tscn" id="1_ojs4v"]
+[ext_resource type="PackedScene" uid="uid://b2onhc2njh6mp" path="res://scenes/levels/tutorial0.tscn" id="2_hsawe"]
 [ext_resource type="Script" path="res://scripts/player_replay_recording.gd" id="2_kr3wk"]
 [ext_resource type="PackedScene" uid="uid://blocss3wbhbps" path="res://scenes/logica interna/camera_frame.tscn" id="2_lfbie"]
 [ext_resource type="PackedScene" uid="uid://4rwcjqeoidie" path="res://scenes/levels/livello_3.tscn" id="3_4oc6k"]
@@ -21,7 +22,7 @@
 process_mode = 1
 scale = Vector2(1.00177, 1)
 script = ExtResource("1_jdfak")
-levels = Array[PackedScene]([ExtResource("1_ojs4v"), ExtResource("1_1vv6q"), ExtResource("3_4oc6k"), ExtResource("1_1dpt0"), ExtResource("5_mrggm")])
+levels = Array[PackedScene]([ExtResource("2_hsawe"), ExtResource("1_ojs4v"), ExtResource("1_1vv6q"), ExtResource("3_4oc6k"), ExtResource("5_mrggm"), ExtResource("1_1dpt0")])
 player = NodePath("Player")
 
 [node name="Player" parent="." node_paths=PackedStringArray("camera_frame") instance=ExtResource("1_j2esc")]
@@ -74,5 +75,6 @@ player = NodePath("../Player")
 [connection signal="victory" from="Player" to="Graphics/GUI" method="_on_player_victory"]
 [connection signal="victory" from="Player" to="Audio" method="_on_player_victory"]
 [connection signal="skip_level" from="Graphics/Pause/PauseMenu" to="." method="_on_pause_menu_skip_level"]
+[connection signal="update_sound_volume" from="Graphics/Pause/PauseMenu" to="." method="_on_pause_menu_update_sound_volume"]
 [connection signal="continue_next_level" from="Graphics/Victory/VictoryMenu" to="." method="_on_victory_menu_continue_next_level"]
 [connection signal="restart" from="Graphics/Victory/VictoryMenu" to="." method="_on_victory_menu_restart"]

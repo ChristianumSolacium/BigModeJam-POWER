@@ -1,8 +1,8 @@
 [gd_scene load_steps=12 format=3 uid="uid://2gifhoikbqvm"]
 
 [ext_resource type="Script" path="res://scripts/gui.gd" id="1_xwr7w"]
-[ext_resource type="Texture2D" uid="uid://b3rjic51bwfaj" path="res://sprites/GUI/barra_vuota.png" id="2_0cvr2"]
-[ext_resource type="Texture2D" uid="uid://ldstinpp8c6w" path="res://sprites/GUI/barra_piena.png" id="3_351kh"]
+[ext_resource type="Texture2D" uid="uid://ddcvafiftv7go" path="res://sprites/GUI/barra_vuota.webp" id="2_gklwi"]
+[ext_resource type="Texture2D" uid="uid://b8abeee87ovug" path="res://sprites/GUI/barra_piena.webp" id="3_vauwy"]
 [ext_resource type="Texture2D" uid="uid://ceb75d30lmsxc" path="res://sprites/GUI/Game Over_frame0.png" id="4_co3e2"]
 [ext_resource type="Texture2D" uid="uid://cs5oharqm4f0l" path="res://sprites/powerups/collezionabile_neutro.png" id="7_cl1ix"]
 [ext_resource type="Script" path="res://scripts/stop_watch.gd" id="8_555bh"]
@@ -62,9 +62,9 @@ offset_bottom = 114.0
 scale = Vector2(0.35, 0.35)
 min_value = 300.0
 max_value = 1500.0
-value = 300.0
-texture_under = ExtResource("2_0cvr2")
-texture_progress = ExtResource("3_351kh")
+value = 600.0
+texture_under = ExtResource("2_gklwi")
+texture_progress = ExtResource("3_vauwy")
 
 [node name="GameOver" type="TextureRect" parent="Control"]
 visible = false
@@ -82,7 +82,7 @@ offset_left = 1050.0
 offset_top = 20.0
 offset_right = 1090.0
 offset_bottom = 43.0
-scale = Vector2(1.62308, 1.29561)
+scale = Vector2(1.63523, 1.30404)
 text = "0
 "
 

@@ -103,7 +103,6 @@ scale = Vector2(1.00077, 0.937648)
 
 [node name="SpeedUp" parent="FirstSection" instance=ExtResource("9_vdh2c")]
 position = Vector2(-2930.11, -442.778)
-speed_up_per_100_unit = 10.0
 
 [node name="Node2D" type="Node2D" parent="FirstSection"]
 

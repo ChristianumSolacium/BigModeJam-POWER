@@ -1,5 +1,6 @@
 extends Control
 signal skip_level
+signal update_sound_volume
 
 func _on_resume_pressed() -> void:
 	get_tree().paused = false

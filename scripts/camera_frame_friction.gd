@@ -4,4 +4,4 @@ extends Area2D
 func _physics_process(delta: float) -> void:
 	
 	if parent.player in get_overlapping_bodies() and parent.player.speed > 300:
-		parent.player.charge_up(-10 * delta)
+		parent.player.charge_up(-3 * delta)

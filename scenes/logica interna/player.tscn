@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://b5d1qj4ck34vx"]
+[gd_scene load_steps=29 format=3 uid="uid://b5d1qj4ck34vx"]
 
 [ext_resource type="Script" path="res://scripts/character.gd" id="1_xb4qr"]
 [ext_resource type="Texture2D" uid="uid://q2srk2hq78bp" path="res://sprites/soggetto giocante/soggetto_giocante_negativo_v2.png" id="2_rbl1i"]
@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://bbvjoaisvwijp" path="res://sprites/soggetto giocante/boost/boost_frame_2.png" id="18_0vm8s"]
 [ext_resource type="Texture2D" uid="uid://drtli2mumgsu7" path="res://sprites/soggetto giocante/boost/soggetto_giocante_boost_positivo.png" id="18_4kyqv"]
 [ext_resource type="Texture2D" uid="uid://cv0hb0i0foyg6" path="res://sprites/soggetto giocante/boost/boost_frame_3.png" id="19_bh0pp"]
+[ext_resource type="Texture2D" uid="uid://ibixiy7aqcya" path="res://sprites/soggetto giocante/transizione/soggetto_giocante_frame_di_transizione.webp" id="22_v4i3m"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_dnd73"]
 animations = [{
@@ -115,10 +116,18 @@ speeded_positive_texture = ExtResource("18_4kyqv")
 speeded_negative_texture = ExtResource("16_nrs0u")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
 position = Vector2(-68, 2)
 scale = Vector2(0.40655, 0.371644)
 sprite_frames = SubResource("SpriteFrames_dnd73")
-animation = &"morte"
+animation = &"speed_up_tail"
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(-68, 2)
+scale = Vector2(0.40655, 0.371644)
+sprite_frames = SubResource("SpriteFrames_dnd73")
+animation = &"speed_up_tail"
 
 [node name="boost_1" type="Sprite2D" parent="."]
 visible = false
@@ -148,6 +157,12 @@ speed_scale = 5.0
 position = Vector2(0, -3)
 scale = Vector2(0.384535, 0.403909)
 texture = ExtResource("4_0fgvc")
+
+[node name="transition" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, -3)
+scale = Vector2(0.384535, 0.403909)
+texture = ExtResource("22_v4i3m")
 
 [node name="DeathDetection" type="Area2D" parent="."]
 position = Vector2(6, 0)

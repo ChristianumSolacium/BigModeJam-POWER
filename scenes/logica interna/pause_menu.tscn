@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bjd51jnefxpxl"]
+[gd_scene load_steps=16 format=3 uid="uid://bjd51jnefxpxl"]
 
 [ext_resource type="Script" path="res://scripts/pause_menu.gd" id="1_d1knu"]
 [ext_resource type="Texture2D" uid="uid://cwlmnobb736gl" path="res://sprites/GUI/sfondo_0.png" id="2_4sv1b"]
@@ -8,7 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://cn660gg1b5ifj" path="res://sprites/GUI/tasti/Restart_tasto_neutro.png" id="5_w52bd"]
 [ext_resource type="Texture2D" uid="uid://bs52hxtaev3a1" path="res://sprites/GUI/Paused_frame1.png" id="6_b8oqc"]
 [ext_resource type="Texture2D" uid="uid://6w6uebpf4otg" path="res://sprites/GUI/tasti/Restart_tasto_selezionato.png" id="6_c5kgs"]
+[ext_resource type="Texture2D" uid="uid://4mmj8rruireo" path="res://sprites/GUI/Skip_level_testo.png" id="7_7m4xo"]
 [ext_resource type="Texture2D" uid="uid://crjad4y53kx0j" path="res://sprites/GUI/tasti/Quit_tasto_neutro.png" id="7_myhr6"]
+[ext_resource type="FontFile" uid="uid://cjld6ewnsjx5j" path="res://fonts/barcade/barcadenobar.ttf" id="8_26iyh"]
 [ext_resource type="Texture2D" uid="uid://b0t6d8vij5sf2" path="res://sprites/GUI/tasti/Quit_tasto_selezionato.png" id="8_pfpsp"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ctif5"]
@@ -29,6 +31,18 @@ animations = [{
 "name": &"pause_logo",
 "speed": 5.0
 }]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kn1go"]
+bg_color = Color(0.6, 0.6, 0.6, 0.129412)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.8, 0.8, 0.8, 0.290196)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ytqan"]
+font = ExtResource("8_26iyh")
+font_size = 19
 
 [node name="PauseMenu" type="Control"]
 layout_mode = 3
@@ -54,27 +68,6 @@ position = Vector2(2, -2)
 texture = ExtResource("4_7jont")
 centered = false
 
-[node name="Restart" type="TextureButton" parent="."]
-layout_mode = 2
-offset_left = 232.0
-offset_top = 272.0
-offset_right = 894.0
-offset_bottom = 437.0
-texture_normal = ExtResource("5_w52bd")
-texture_pressed = ExtResource("6_c5kgs")
-texture_hover = ExtResource("6_c5kgs")
-
-[node name="Quit" type="TextureButton" parent="."]
-layout_mode = 2
-offset_left = 220.0
-offset_top = 431.0
-offset_right = 882.0
-offset_bottom = 603.0
-texture_normal = ExtResource("7_myhr6")
-texture_pressed = ExtResource("8_pfpsp")
-texture_hover = ExtResource("8_pfpsp")
-stretch_mode = 3
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(568, 304)
 scale = Vector2(0.8, 0.8)
@@ -83,13 +76,102 @@ animation = &"pause_logo"
 
 [node name="SkipLevel" type="Button" parent="."]
 layout_mode = 0
-offset_left = 1018.0
-offset_top = 573.0
-offset_right = 1103.0
-offset_bottom = 604.0
-text = "Skip Level
+offset_left = 826.0
+offset_top = 595.0
+offset_right = 1143.0
+offset_bottom = 637.0
+scale = Vector2(0.909869, 0.917322)
+icon = ExtResource("7_7m4xo")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+layout_mode = 2
+offset_left = 41.0
+offset_top = 567.0
+offset_right = 169.0
+offset_bottom = 611.0
+scale = Vector2(1.26537, 1.26537)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer2"]
+visible = false
+layout_mode = 2
+
+[node name="VolumeDown" type="Button" parent="VBoxContainer2/HBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("8_26iyh")
+theme_override_styles/normal = SubResource("StyleBoxFlat_kn1go")
+text = "-"
+
+[node name="Label" type="Label" parent="VBoxContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+text = "Volume"
+label_settings = SubResource("LabelSettings_ytqan")
+horizontal_alignment = 1
+
+[node name="VolumeUp" type="Button" parent="VBoxContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("8_26iyh")
+theme_override_styles/normal = SubResource("StyleBoxFlat_kn1go")
+text = "+
 "
 
-[connection signal="pressed" from="Restart" to="." method="_on_restart_pressed"]
-[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer2"]
+visible = false
+layout_mode = 2
+
+[node name="VolumeDown" type="Button" parent="VBoxContainer2/HBoxContainer2"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("8_26iyh")
+theme_override_styles/normal = SubResource("StyleBoxFlat_kn1go")
+text = "-"
+
+[node name="Label" type="Label" parent="VBoxContainer2/HBoxContainer2"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+text = "Music"
+label_settings = SubResource("LabelSettings_ytqan")
+horizontal_alignment = 1
+
+[node name="VolumeUp" type="Button" parent="VBoxContainer2/HBoxContainer2"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("8_26iyh")
+theme_override_styles/normal = SubResource("StyleBoxFlat_kn1go")
+text = "+
+"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -212.0
+offset_top = 22.0
+offset_right = 433.0
+offset_bottom = 342.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.714009, 0.714009)
+
+[node name="Restart" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("5_w52bd")
+texture_pressed = ExtResource("6_c5kgs")
+texture_hover = ExtResource("6_c5kgs")
+
+[node name="Quit" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("7_myhr6")
+texture_pressed = ExtResource("8_pfpsp")
+texture_hover = ExtResource("8_pfpsp")
+stretch_mode = 3
+
 [connection signal="pressed" from="SkipLevel" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
