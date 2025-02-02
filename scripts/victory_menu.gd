@@ -3,6 +3,13 @@ signal continue_next_level
 signal restart
 @onready var score_label: Label = $ScoreLabel
 
+func _ready() -> void:
+	$HBoxContainer/QuitButton/Button3Animations.play(&"buttons")
+	$HBoxContainer/ContinueButton/Button4Animations.play(&"buttons")
+	$HBoxContainer/RestartButton/Button1Animations.play(&"buttons")
+	
+
+
 func _on_quit_button_pressed() -> void:
 	$HBoxContainer/QuitButton/Button3Animations.show()
 	get_tree().quit()

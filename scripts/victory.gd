@@ -11,7 +11,3 @@ extends CanvasLayer
 func _ready() -> void:
 	sparkle_animation.play("sparkle")
 	victory_animation.play("victory_logo")
-	button1_animation.play("buttons")
-	button2_animation.play("buttons")
-	button3_animation.play("buttons")
-	button4_animation.play("buttons")
