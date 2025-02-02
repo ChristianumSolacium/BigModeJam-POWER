@@ -19,10 +19,10 @@
 [ext_resource type="Texture2D" uid="uid://c4e8iotte30o2" path="res://sprites/GUI/victory/victory_effects_frame5.png" id="11_s62sw"]
 [ext_resource type="Texture2D" uid="uid://c7yphsphg334y" path="res://sprites/GUI/Rank_testo.png" id="18_77db0"]
 [ext_resource type="Texture2D" uid="uid://cn660gg1b5ifj" path="res://sprites/GUI/tasti/Restart_tasto_neutro.png" id="18_npbjo"]
-[ext_resource type="Texture2D" uid="uid://pei1rbpnwc1k" path="res://sprites - Copy/GUI/tasti/Continue_tasto_neutro.png" id="18_uliy4"]
+[ext_resource type="Texture2D" uid="uid://pei1rbpnwc1k" path="res://sprites/GUI/tasti/Continue_tasto_neutro.png" id="18_uliy4"]
 [ext_resource type="Texture2D" uid="uid://6w6uebpf4otg" path="res://sprites/GUI/tasti/Restart_tasto_selezionato.png" id="19_3up8y"]
 [ext_resource type="Texture2D" uid="uid://cxh6pfsxkvg2g" path="res://sprites/GUI/Time_Score_testo.png" id="19_14tw1"]
-[ext_resource type="Texture2D" uid="uid://ccf7sq20ib66g" path="res://sprites - Copy/GUI/tasti/Continue_tasto_selezionato.png" id="19_ddw5k"]
+[ext_resource type="Texture2D" uid="uid://ccf7sq20ib66g" path="res://sprites/GUI/tasti/Continue_tasto_selezionato.png" id="19_ddw5k"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_3ymey"]
 animations = [{
@@ -194,5 +194,4 @@ texture = ExtResource("19_14tw1")
 
 [connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="pressed" from="ReplayButton" to="." method="_on_replay_button_pressed"]
-[connection signal="pressed" from="RestartButton" to="." method="_on_restart_button_pressed"]
 [connection signal="pressed" from="ContinueButton" to="." method="_on_continue_button_pressed"]

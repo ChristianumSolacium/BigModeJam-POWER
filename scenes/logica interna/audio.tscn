@@ -5,9 +5,9 @@
 [ext_resource type="AudioStream" uid="uid://doavu2dg3yq1c" path="res://sounds/player/Polarity_SD_Death.wav" id="2_onnaj"]
 [ext_resource type="AudioStream" uid="uid://6a51nvsnad5o" path="res://sounds/player/Polarity_SD_PickUp.wav" id="3_c6qau"]
 [ext_resource type="AudioStream" uid="uid://b8y6fty0stvxt" path="res://sounds/Loops/Polarity_LoopMenu.wav" id="3_nkxbs"]
-[ext_resource type="AudioStream" uid="uid://b20snlranaghg" path="res://sounds/player/Polarity_SD_Press.wav" id="4_5kgx4"]
 [ext_resource type="AudioStream" uid="uid://dj1c8pt3wlusl" path="res://sounds/Loops/Polarity_Loop_GameOver.wav" id="4_lnneb"]
 [ext_resource type="AudioStream" uid="uid://l1w1lakh8vd2" path="res://sounds/player/Polarity_SD_Boost.wav" id="5_3ocdx"]
+[ext_resource type="AudioStream" uid="uid://ccqjwjivo8eyc" path="res://sounds/player/Polarity_SD_Polarità.wav" id="7_ghahb"]
 
 [node name="Audio" type="Node2D"]
 script = ExtResource("1_42wjj")
@@ -28,10 +28,9 @@ stream = ExtResource("2_onnaj")
 stream = ExtResource("3_c6qau")
 volume_db = -4.685
 
-[node name="PolaritySdPress" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_5kgx4")
-volume_db = 0.664
-pitch_scale = 1.25
+[node name="PolaritySdPolarità" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_ghahb")
+volume_db = 9.369
 
 [node name="PolaritySdBoost" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_3ocdx")

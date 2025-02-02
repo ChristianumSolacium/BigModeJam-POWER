@@ -3,7 +3,7 @@ extends Node
 @export var player: Player
 @onready var polarity_sd_death: AudioStreamPlayer = $PolaritySdDeath
 @onready var polarity_sd_pick_up: AudioStreamPlayer = $PolaritySdPickUp
-@onready var polarity_sd_press: AudioStreamPlayer = $PolaritySdPress
+@onready var polarity_sd_press: AudioStreamPlayer = $"PolaritySdPolarità"
 @onready var polarity_sd_boost: AudioStreamPlayer = $PolaritySdBoost
 
 @onready var polarity_loop_game: AudioStreamPlayer = $PolarityLoopGame
