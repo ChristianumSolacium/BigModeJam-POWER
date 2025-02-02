@@ -73,5 +73,6 @@ player = NodePath("../Player")
 [connection signal="speed_changed" from="Player" to="Graphics/GUI" method="_on_player_speed_changed"]
 [connection signal="victory" from="Player" to="Graphics/GUI" method="_on_player_victory"]
 [connection signal="victory" from="Player" to="Audio" method="_on_player_victory"]
+[connection signal="skip_level" from="Graphics/Pause/PauseMenu" to="." method="_on_pause_menu_skip_level"]
 [connection signal="continue_next_level" from="Graphics/Victory/VictoryMenu" to="." method="_on_victory_menu_continue_next_level"]
 [connection signal="restart" from="Graphics/Victory/VictoryMenu" to="." method="_on_victory_menu_restart"]

@@ -1,5 +1,5 @@
 extends Control
-
+signal skip_level
 
 func _on_resume_pressed() -> void:
 	get_tree().paused = false
@@ -11,3 +11,7 @@ func _on_restart_pressed() -> void:
 
 func _on_quit_pressed() -> void:
 	get_tree().quit()
+
+
+func _on_button_pressed() -> void:
+	skip_level.emit()

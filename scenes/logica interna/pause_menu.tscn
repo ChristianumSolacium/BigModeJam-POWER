@@ -35,6 +35,8 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -1.0
+offset_bottom = -1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_d1knu")
@@ -64,10 +66,10 @@ texture_hover = ExtResource("6_c5kgs")
 
 [node name="Quit" type="TextureButton" parent="."]
 layout_mode = 2
-offset_left = 240.0
-offset_top = 432.0
-offset_right = 902.0
-offset_bottom = 604.0
+offset_left = 220.0
+offset_top = 431.0
+offset_right = 882.0
+offset_bottom = 603.0
 texture_normal = ExtResource("7_myhr6")
 texture_pressed = ExtResource("8_pfpsp")
 texture_hover = ExtResource("8_pfpsp")
@@ -79,5 +81,15 @@ scale = Vector2(0.8, 0.8)
 sprite_frames = SubResource("SpriteFrames_ctif5")
 animation = &"pause_logo"
 
+[node name="SkipLevel" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1018.0
+offset_top = 573.0
+offset_right = 1103.0
+offset_bottom = 604.0
+text = "Skip Level
+"
+
 [connection signal="pressed" from="Restart" to="." method="_on_restart_pressed"]
 [connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="SkipLevel" to="." method="_on_button_pressed"]

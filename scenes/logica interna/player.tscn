@@ -118,6 +118,7 @@ speeded_negative_texture = ExtResource("16_nrs0u")
 position = Vector2(-68, 2)
 scale = Vector2(0.40655, 0.371644)
 sprite_frames = SubResource("SpriteFrames_dnd73")
+animation = &"morte"
 
 [node name="boost_1" type="Sprite2D" parent="."]
 visible = false
