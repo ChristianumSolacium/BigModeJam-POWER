@@ -1,6 +1,5 @@
 extends Label
 
-#TODO abbellire tutto - sto morendo di stanchezza XD
 var time_elapsed := 0.0
 var is_stopped := false
 
@@ -10,7 +9,7 @@ func _process(delta: float) -> void:
 		$'.'.text = time_convert(time_elapsed)
 
 func reset() -> void:
-	#TODO salvare il record prima di resettarlo
+	#TODO per salvare il record prima di resettarlo
 	time_elapsed = 0.0
 	is_stopped = false
 

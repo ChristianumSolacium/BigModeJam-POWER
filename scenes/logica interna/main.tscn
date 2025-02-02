@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dtvl6ccqkkmhh"]
+[gd_scene load_steps=21 format=3 uid="uid://dtvl6ccqkkmhh"]
 
 [ext_resource type="PackedScene" uid="uid://c3sa7wipkeb6u" path="res://scenes/levels/level_4.tscn" id="1_1dpt0"]
 [ext_resource type="PackedScene" uid="uid://t1p57s6446hu" path="res://scenes/levels/livello_2.tscn" id="1_1vv6q"]
@@ -12,6 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://2gifhoikbqvm" path="res://scenes/logica interna/gui.tscn" id="14_s0k0l"]
 [ext_resource type="PackedScene" uid="uid://djj1r7rdx5lv" path="res://scenes/logica interna/audio.tscn" id="14_v207r"]
 [ext_resource type="PackedScene" uid="uid://b42fulegw3yie" path="res://scenes/logica interna/bg.tscn" id="15_cnecu"]
+[ext_resource type="Script" path="res://scripts/victory.gd" id="15_kcpai"]
+[ext_resource type="PackedScene" uid="uid://yu3jre7s3l64" path="res://scenes/logica interna/victory.tscn" id="15_srmqk"]
 [ext_resource type="PackedScene" uid="uid://bjd51jnefxpxl" path="res://scenes/logica interna/pause_menu.tscn" id="16_c4wfa"]
 [ext_resource type="Script" path="res://scripts/automatic_resize_of_collision_shape_2d.gd" id="26_k135g"]
 [ext_resource type="Script" path="res://scripts/pause.gd" id="26_krq3q"]
@@ -103,7 +105,7 @@ levels = Array[PackedScene]([ExtResource("1_ojs4v"), ExtResource("1_1vv6q"), Ext
 player = NodePath("Player")
 
 [node name="Level4" parent="." instance=ExtResource("1_1dpt0")]
-position = Vector2(7612.6, -2919.8)
+position = Vector2(7081.47, -4004)
 
 [node name="AutomaticResizeOfCollisionShape2D" type="Node" parent="Level4"]
 script = ExtResource("26_k135g")
@@ -171,6 +173,12 @@ process_mode = 2
 script = ExtResource("26_krq3q")
 
 [node name="PauseMenu" parent="Graphics/Pause" instance=ExtResource("16_c4wfa")]
+visible = false
+
+[node name="Victory" type="CanvasLayer" parent="Graphics"]
+script = ExtResource("15_kcpai")
+
+[node name="VictoryMenu" parent="Graphics/Victory" instance=ExtResource("15_srmqk")]
 visible = false
 
 [node name="Audio" parent="." instance=ExtResource("14_v207r")]

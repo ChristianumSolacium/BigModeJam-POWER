@@ -1,0 +1,148 @@
+[gd_scene load_steps=21 format=3 uid="uid://yu3jre7s3l64"]
+
+[ext_resource type="Script" path="res://scenes/logica interna/victory_menu.gd" id="1_6cbeu"]
+[ext_resource type="Texture2D" uid="uid://opa8rwpnlygl" path="res://sprites/GUI/victory/Quit_tasto_neutro.png" id="1_wdp7j"]
+[ext_resource type="Texture2D" uid="uid://cjsvtslh0xsn2" path="res://sprites/GUI/victory/Quit_tasto_selezionato.png" id="2_dsj5n"]
+[ext_resource type="Texture2D" uid="uid://b0y71uqh8symx" path="res://sprites/GUI/victory/Replay_tasto_neutro.png" id="3_tqowf"]
+[ext_resource type="Texture2D" uid="uid://bxne7arqkjdqh" path="res://sprites/GUI/victory/Replay_tasto_selezionato.png" id="4_huwqm"]
+[ext_resource type="Texture2D" uid="uid://bj7gjad3auk7u" path="res://sprites/GUI/victory/Victory_frame0.png" id="5_wmihs"]
+[ext_resource type="Texture2D" uid="uid://dw1l1rfktpabw" path="res://sprites/GUI/victory/victory_effects_frame0.png" id="6_07swb"]
+[ext_resource type="Texture2D" uid="uid://dxj0je6ut51bb" path="res://sprites/GUI/victory/Victory_frame1.png" id="6_bard2"]
+[ext_resource type="Texture2D" uid="uid://bi3wjfek654fc" path="res://sprites/GUI/victory/elettricità_pulsanti_frame0.png" id="6_ecv0l"]
+[ext_resource type="Texture2D" uid="uid://b8oqirhkbgtk2" path="res://sprites/GUI/victory/victory_effects_frame1.png" id="7_jv0ve"]
+[ext_resource type="Texture2D" uid="uid://c1g5uqixdc3aa" path="res://sprites/GUI/victory/elettricità_pulsanti_frame1.png" id="7_sf8je"]
+[ext_resource type="Texture2D" uid="uid://dt03ahkx4sf45" path="res://sprites/GUI/victory/elettricità_pulsanti_frame2.png" id="8_cks1c"]
+[ext_resource type="Texture2D" uid="uid://82h730dgmdpy" path="res://sprites/GUI/victory/victory_effects_frame2.png" id="8_u4bo4"]
+[ext_resource type="Texture2D" uid="uid://ci7px8xq4njay" path="res://sprites/GUI/victory/elettricità_pulsanti_frame3.png" id="9_aoyvw"]
+[ext_resource type="Texture2D" uid="uid://d210rrl5lhuu3" path="res://sprites/GUI/victory/victory_effects_frame3.png" id="9_lmgju"]
+[ext_resource type="Texture2D" uid="uid://b3vsdciaj7nwx" path="res://sprites/GUI/victory/victory_effects_frame4.png" id="10_0tpap"]
+[ext_resource type="Texture2D" uid="uid://c4e8iotte30o2" path="res://sprites/GUI/victory/victory_effects_frame5.png" id="11_s62sw"]
+[ext_resource type="Texture2D" uid="uid://c7yphsphg334y" path="res://sprites/GUI/Rank_testo.png" id="18_77db0"]
+[ext_resource type="Texture2D" uid="uid://cxh6pfsxkvg2g" path="res://sprites/GUI/Time_Score_testo.png" id="19_14tw1"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3ymey"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_ecv0l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_sf8je")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_cks1c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_aoyvw")
+}],
+"loop": true,
+"name": &"buttons",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_07swb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_jv0ve")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_u4bo4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_lmgju")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_0tpap")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_s62sw")
+}],
+"loop": true,
+"name": &"sparkle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_wmihs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_bard2")
+}],
+"loop": true,
+"name": &"victory_logo",
+"speed": 5.0
+}]
+
+[node name="VictoryMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_6cbeu")
+
+[node name="SparkleAnimations" type="AnimatedSprite2D" parent="."]
+position = Vector2(552, 272)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_3ymey")
+animation = &"sparkle"
+speed_scale = 2.0
+
+[node name="VictoryAnimations" type="AnimatedSprite2D" parent="."]
+position = Vector2(552, 272)
+scale = Vector2(0.7, 0.7)
+sprite_frames = SubResource("SpriteFrames_3ymey")
+animation = &"victory_logo"
+speed_scale = 1.5
+
+[node name="Button1Animations" type="AnimatedSprite2D" parent="."]
+position = Vector2(296, 520)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_3ymey")
+animation = &"buttons"
+speed_scale = 1.5
+
+[node name="Button2Animations" type="AnimatedSprite2D" parent="."]
+position = Vector2(832, 528)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_3ymey")
+animation = &"buttons"
+speed_scale = 1.5
+
+[node name="QuitButton" type="TextureButton" parent="."]
+offset_left = 576.0
+offset_top = 464.0
+offset_right = 1221.0
+offset_bottom = 622.0
+scale = Vector2(0.8, 0.8)
+texture_normal = ExtResource("1_wdp7j")
+texture_pressed = ExtResource("2_dsj5n")
+texture_hover = ExtResource("2_dsj5n")
+
+[node name="ReplayButton" type="TextureButton" parent="."]
+offset_left = 32.0
+offset_top = 464.0
+offset_right = 677.0
+offset_bottom = 622.0
+scale = Vector2(0.8, 0.8)
+texture_normal = ExtResource("3_tqowf")
+texture_pressed = ExtResource("4_huwqm")
+texture_hover = ExtResource("4_huwqm")
+
+[node name="Rank" type="Sprite2D" parent="."]
+position = Vector2(592, 184)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("18_77db0")
+
+[node name="TimeScore" type="Sprite2D" parent="."]
+position = Vector2(584, 304)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("19_14tw1")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="ReplayButton" to="." method="_on_replay_button_pressed"]
