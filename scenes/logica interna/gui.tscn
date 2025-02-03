@@ -133,7 +133,7 @@ offset_left = 28.0
 offset_top = 595.0
 offset_right = 167.0
 offset_bottom = 629.0
-text = "ESC (PAUSE)
+text = "ESC (PAUSE/SKIP LEVEL)
 "
 label_settings = SubResource("LabelSettings_htt2y")
 horizontal_alignment = 1

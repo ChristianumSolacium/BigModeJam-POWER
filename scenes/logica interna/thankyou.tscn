@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cupuvp3h60w8x"]
+[gd_scene load_steps=16 format=3 uid="uid://cupuvp3h60w8x"]
 
 [ext_resource type="Script" path="res://scripts/thankyou.gd" id="1_625gi"]
 [ext_resource type="Texture2D" uid="uid://cwlmnobb736gl" path="res://sprites/GUI/sfondo_0.png" id="2_vpk17"]
@@ -7,8 +7,30 @@
 [ext_resource type="Texture2D" uid="uid://y5ht5w8csp8h" path="res://sprites/player_cover_image.png" id="5_7blak"]
 [ext_resource type="Texture2D" uid="uid://dlx58c8y75ygw" path="res://sprites/thanks_for_playing.png" id="6_rsaox"]
 [ext_resource type="AudioStream" uid="uid://b8y6fty0stvxt" path="res://sounds/Loops/Polarity_LoopMenu.wav" id="7_ygfob"]
+[ext_resource type="FontFile" uid="uid://dddshx1fpg3vv" path="res://fonts/barcade/barcadnobarbold.ttf" id="8_8ir3w"]
+[ext_resource type="Texture2D" uid="uid://crjad4y53kx0j" path="res://sprites/GUI/tasti/Quit_tasto_neutro.png" id="9_pknbo"]
+[ext_resource type="Texture2D" uid="uid://b0t6d8vij5sf2" path="res://sprites/GUI/tasti/Quit_tasto_selezionato.png" id="10_1ious"]
 
-[node name="THX" type="Control"]
+[sub_resource type="LabelSettings" id="LabelSettings_h2lqb"]
+font = ExtResource("8_8ir3w")
+font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_sfy50"]
+font = ExtResource("8_8ir3w")
+font_size = 70
+
+[sub_resource type="LabelSettings" id="LabelSettings_d2mbi"]
+font = ExtResource("8_8ir3w")
+font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_7vnjr"]
+font = ExtResource("8_8ir3w")
+font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_wn5jo"]
+font_size = 22
+
+[node name="THX" type="Control" node_paths=PackedStringArray("slides")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -16,6 +38,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_625gi")
+slides = [NodePath("ThanksForPlaying"), NodePath("Zero"), NodePath("First"), NodePath("Second")]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_vpk17")
@@ -43,3 +66,137 @@ texture = ExtResource("6_rsaox")
 [node name="PolarityLoopMenu" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_ygfob")
 volume_db = -16.0
+
+[node name="SpaceToContinue" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 831.0
+offset_top = 577.0
+offset_right = 1105.0
+offset_bottom = 611.0
+text = "SPACE TO CONTINUE"
+label_settings = SubResource("LabelSettings_h2lqb")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="Quit" type="TextureButton" parent="."]
+visible = false
+offset_left = 770.0
+offset_top = 526.0
+offset_right = 1415.0
+offset_bottom = 684.0
+scale = Vector2(0.553233, 0.553233)
+texture_normal = ExtResource("9_pknbo")
+texture_pressed = ExtResource("10_1ious")
+texture_hover = ExtResource("10_1ious")
+stretch_mode = 3
+
+[node name="Zero" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MusicByRed" type="Label" parent="Zero"]
+layout_mode = 0
+offset_left = 457.0
+offset_top = 58.0
+offset_right = 1114.0
+offset_bottom = 295.0
+text = "by KHCrystal, Red,
+ Matteo, i8duty
+ & Cristiano
+"
+label_settings = SubResource("LabelSettings_sfy50")
+horizontal_alignment = 2
+
+[node name="First" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MusicByRed" type="Label" parent="First"]
+layout_mode = 0
+offset_left = 796.0
+offset_top = 401.0
+offset_right = 1057.0
+offset_bottom = 494.0
+text = "Music by Red
+
+"
+label_settings = SubResource("LabelSettings_d2mbi")
+
+[node name="ArtsByKHCrystal" type="Label" parent="First"]
+layout_mode = 0
+offset_left = 118.0
+offset_top = 89.0
+offset_right = 503.0
+offset_bottom = 134.0
+text = "Arts by KHCrystal"
+label_settings = SubResource("LabelSettings_7vnjr")
+
+[node name="Label" type="RichTextLabel" parent="First/ArtsByKHCrystal"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 53.0
+offset_right = 613.0
+offset_bottom = 109.0
+theme_override_font_sizes/normal_font_size = 20
+text = "See her other works at 
+khcrystal.my.canva.site/khcrystal-eng "
+fit_content = true
+autowrap_mode = 0
+
+[node name="Second" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CodeByCandM" type="Label" parent="Second"]
+layout_mode = 0
+offset_left = 81.0
+offset_top = 89.0
+offset_right = 666.0
+offset_bottom = 182.0
+text = "Code by Cristiano and i8duty
+"
+label_settings = SubResource("LabelSettings_d2mbi")
+
+[node name="Label" type="Label" parent="Second/CodeByCandM"]
+layout_mode = 0
+offset_left = 37.0
+offset_top = 53.0
+offset_right = 441.0
+offset_bottom = 81.0
+text = "ChristianumSolacium and mt0t on GitHub
+See this project at 
+https://github.com/ChristianumSolacium/BigModeJam-POWER"
+label_settings = SubResource("LabelSettings_wn5jo")
+
+[node name="LevelDesignByM" type="Label" parent="Second"]
+layout_mode = 0
+offset_left = 635.0
+offset_top = 325.0
+offset_right = 1186.0
+offset_bottom = 466.0
+text = "GAMEPLAY AND
+LEVEL DESIGN
+BY MATTEOGUERCIO"
+label_settings = SubResource("LabelSettings_7vnjr")
+
+[node name="Label" type="Label" parent="Second/LevelDesignByM"]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 160.0
+offset_right = 199.0
+offset_bottom = 183.0
+theme_override_font_sizes/font_size = 31
+text = "@IlTeoG on Telegram
+"
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]

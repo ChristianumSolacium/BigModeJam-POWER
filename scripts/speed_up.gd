@@ -22,4 +22,5 @@ func _on_body_exited(body) -> void:
 		body.speed = initial_speed[body]
 		body.camera_frame.speed = initial_speed[body]
 		body.is_speeded = false
+
 		

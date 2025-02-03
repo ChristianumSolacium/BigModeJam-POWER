@@ -31,7 +31,6 @@ func set_volume(value:int,music:int) -> void:
 func _ready() -> void:
 	set_volume(-16,-16)
 
-
 func _on_player_gained_coin() -> void:
 	polarity_sd_pick_up.play()
 
@@ -47,14 +46,18 @@ func _on_player_death() -> void:
 	polarity_loop_game.stop()
 	polarity_loop_game_over.play()
 
-var current_current_game_loop_pos := 0.0
+
 func _on_main_start() -> void:
+	var config : ConfigResource= load("user://config.tres")
+	
 	polarity_loop_menu.stop()
-	polarity_loop_game.play(current_current_game_loop_pos)
+	polarity_loop_game.play(config.main_loop_position)
 
 
 func _on_main_pause() -> void:
-	current_current_game_loop_pos = polarity_loop_game.get_playback_position()
+	var config : ConfigResource= load("user://config.tres")
+	config.main_loop_position = polarity_loop_game.get_playback_position()
+	ResourceSaver.save(config,"user://config.tres")
 	polarity_loop_game.stop()
 	polarity_loop_menu.play()
 

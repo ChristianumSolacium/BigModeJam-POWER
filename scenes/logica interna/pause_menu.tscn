@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bjd51jnefxpxl"]
+[gd_scene load_steps=18 format=3 uid="uid://bjd51jnefxpxl"]
 
 [ext_resource type="Script" path="res://scripts/pause_menu.gd" id="1_d1knu"]
 [ext_resource type="Texture2D" uid="uid://cwlmnobb736gl" path="res://sprites/GUI/sfondo_0.png" id="2_4sv1b"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://crjad4y53kx0j" path="res://sprites/GUI/tasti/Quit_tasto_neutro.png" id="7_myhr6"]
 [ext_resource type="FontFile" uid="uid://cjld6ewnsjx5j" path="res://fonts/barcade/barcadenobar.ttf" id="8_26iyh"]
 [ext_resource type="Texture2D" uid="uid://b0t6d8vij5sf2" path="res://sprites/GUI/tasti/Quit_tasto_selezionato.png" id="8_pfpsp"]
+[ext_resource type="FontFile" uid="uid://dddshx1fpg3vv" path="res://fonts/barcade/barcadnobarbold.ttf" id="13_7krmc"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ctif5"]
 animations = [{
@@ -43,6 +44,10 @@ border_color = Color(0.8, 0.8, 0.8, 0.290196)
 [sub_resource type="LabelSettings" id="LabelSettings_ytqan"]
 font = ExtResource("8_26iyh")
 font_size = 19
+
+[sub_resource type="LabelSettings" id="LabelSettings_a0ic3"]
+font = ExtResource("13_7krmc")
+font_size = 30
 
 [node name="PauseMenu" type="Control"]
 layout_mode = 3
@@ -171,6 +176,15 @@ texture_normal = ExtResource("7_myhr6")
 texture_pressed = ExtResource("8_pfpsp")
 texture_hover = ExtResource("8_pfpsp")
 stretch_mode = 3
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 589.0
+offset_right = 347.0
+offset_bottom = 623.0
+text = "ESC (return to game)"
+label_settings = SubResource("LabelSettings_a0ic3")
 
 [connection signal="pressed" from="SkipLevel" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/Restart" to="." method="_on_restart_pressed"]

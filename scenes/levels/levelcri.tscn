@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://b4xlbrnnm06oj"]
+[gd_scene load_steps=33 format=3 uid="uid://b4xlbrnnm06oj"]
 
 [ext_resource type="PackedScene" uid="uid://bwxq2j853y6n" path="res://scenes/drag and drop/pavimento_negativo.tscn" id="1_3pktf"]
 [ext_resource type="PackedScene" uid="uid://ch7qmr7xdpo1u" path="res://scenes/drag and drop/soffitto_positivo.tscn" id="1_djo1g"]
@@ -35,6 +35,9 @@ size = Vector2(280, 904.76)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7qrn0"]
 size = Vector2(283.019, 977.698)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_havh1"]
+size = Vector2(283.019, 904.76)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ttrny"]
 size = Vector2(308.11, 146.292)
 
@@ -46,6 +49,10 @@ size = Vector2(328.106, 904.76)
 
 [node name="Levelcri" type="Node2D"]
 scale = Vector2(1.16929, 0.668227)
+
+[node name="UtilityChangeStats" type="Node" parent="."]
+script = ExtResource("25_50mc8")
+player_initial_speed = 699.0
 
 [node name="FirstSection" type="Node2D" parent="."]
 position = Vector2(3190.6, 652.972)
@@ -86,7 +93,7 @@ scale = Vector2(0.337597, 0.790787)
 texture = ExtResource("14_drpbh")
 
 [node name="PowerUp" parent="FirstSection" instance=ExtResource("2_1kceg")]
-position = Vector2(-535.563, 351.178)
+position = Vector2(-538.563, 304.786)
 scale = Vector2(0.855221, 1.4965)
 
 [node name="PowerDown" parent="FirstSection" instance=ExtResource("3_bi5p7")]
@@ -130,7 +137,7 @@ position = Vector2(-106.822, 438.999)
 scale = Vector2(0.648, 0.791)
 
 [node name="Spikes" parent="FirstSection" instance=ExtResource("5_fhiut")]
-position = Vector2(-11.3757, 475.39)
+position = Vector2(-15.1686, 512.799)
 scale = Vector2(0.855221, 1.4965)
 
 [node name="Spikes2" parent="FirstSection" instance=ExtResource("5_fhiut")]
@@ -193,11 +200,10 @@ position = Vector2(5191.81, 644)
 
 [node name="Soffitto Positivo3" type="RigidBody2D" parent="SecondSection"]
 position = Vector2(4686.7, 125)
-scale = Vector2(1.16929, 0.668227)
 
 [node name="CompElectricFied" type="Area2D" parent="SecondSection/Soffitto Positivo3"]
 position = Vector2(51.2222, 326.236)
-scale = Vector2(1.995, 1.11)
+scale = Vector2(2.36792, 1.11)
 collision_layer = 0
 collision_mask = 32
 script = ExtResource("12_rwsyq")
@@ -224,11 +230,10 @@ texture = ExtResource("14_drpbh")
 [node name="Soffitto Negativo6" type="RigidBody2D" parent="SecondSection"]
 position = Vector2(5425.4, 778)
 rotation = 3.14159
-scale = Vector2(1.16929, 0.668227)
 
 [node name="CompElectricFied" type="Area2D" parent="SecondSection/Soffitto Negativo6"]
-position = Vector2(-13, 292)
-scale = Vector2(2.12, 1)
+position = Vector2(-84.6005, 264.001)
+scale = Vector2(2.905, 1)
 collision_layer = 0
 collision_mask = 32
 script = ExtResource("12_rwsyq")
@@ -278,11 +283,35 @@ rotation = 0.171322
 position = Vector2(6811.94, 651)
 scale = Vector2(1.07096, 0.713909)
 
-[node name="Soffitto Negativo7" parent="ThirdSection" instance=ExtResource("1_3pktf")]
+[node name="Soffitto Negativo7" type="RigidBody2D" parent="ThirdSection"]
 z_index = -1
 position = Vector2(6474.54, 142)
-rotation = 0.0118437
-scale = Vector2(1.655, 1)
+
+[node name="CompElectricFied" type="Area2D" parent="ThirdSection/Soffitto Negativo7"]
+position = Vector2(-13, 292)
+scale = Vector2(3.43, 1)
+collision_layer = 0
+collision_mask = 32
+script = ExtResource("12_rwsyq")
+force = 100.0
+exponent = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ThirdSection/Soffitto Negativo7/CompElectricFied"]
+position = Vector2(0, 158.398)
+shape = SubResource("RectangleShape2D_havh1")
+debug_color = Color(1, 1, 0, 0.2)
+
+[node name="ScrollingTopNegativo" type="Sprite2D" parent="ThirdSection/Soffitto Negativo7/CompElectricFied"]
+position = Vector2(0, -367)
+rotation = 3.14159
+scale = Vector2(0.147623, -1.05001)
+texture = ExtResource("15_w85d0")
+
+[node name="CampoMagneticoNegativo2" type="Sprite2D" parent="ThirdSection/Soffitto Negativo7/CompElectricFied"]
+position = Vector2(0.445422, 171.418)
+rotation = 3.14159
+scale = Vector2(0.351605, 0.866768)
+texture = ExtResource("16_6u1eg")
 
 [node name="MoveForward" parent="ThirdSection" instance=ExtResource("18_oke2n")]
 position = Vector2(6836.9, 429)
@@ -405,12 +434,11 @@ texture = ExtResource("14_drpbh")
 [node name="Soffitto Positivo2" type="RigidBody2D" parent="."]
 position = Vector2(6787.84, 1182.23)
 rotation = 3.13626
-scale = Vector2(0.855228, 1.49649)
 skew = 0.00359333
 
 [node name="CompElectricFied" type="Area2D" parent="Soffitto Positivo2"]
 position = Vector2(-73.7459, 286.776)
-scale = Vector2(2.5977, 1.00082)
+scale = Vector2(2.88762, 0.918917)
 collision_layer = 0
 collision_mask = 32
 script = ExtResource("12_rwsyq")
@@ -470,10 +498,6 @@ z_index = -4
 position = Vector2(271.309, -63.9621)
 scale = Vector2(1.50689, -0.489101)
 texture = ExtResource("16_wcgx5")
-
-[node name="UtilityChangeStats" type="Node" parent="."]
-script = ExtResource("25_50mc8")
-player_initial_speed = 699.0
 
 [editable path="FirstSection/Soffitto Positivo2"]
 [editable path="OstacoloNegativo"]

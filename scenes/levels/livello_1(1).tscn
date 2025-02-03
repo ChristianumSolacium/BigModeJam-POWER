@@ -48,8 +48,8 @@ size = Vector2(386.316, 964.858)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pp2x0"]
 size = Vector2(283.019, 904.76)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ttrny"]
-size = Vector2(308.11, 78)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6f5e3"]
+size = Vector2(901.637, 78)
 
 [node name="Node2D" type="Node2D"]
 
@@ -507,9 +507,9 @@ scale = Vector2(0.899475, 4.21605)
 script = ExtResource("19_n60dd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/SpeedUp3"]
-position = Vector2(0.472656, -0.5)
+position = Vector2(-6.11475, -0.5)
 scale = Vector2(1, 1)
-shape = SubResource("RectangleShape2D_ttrny")
+shape = SubResource("RectangleShape2D_6f5e3")
 
 [node name="SpeedBoost" type="Sprite2D" parent="Obstacles/SpeedUp3"]
 position = Vector2(-0.472534, 0.5)

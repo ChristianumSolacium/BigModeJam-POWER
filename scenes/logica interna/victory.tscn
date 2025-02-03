@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://1esupmjtimf2"]
+[gd_scene load_steps=23 format=3 uid="uid://1esupmjtimf2"]
 
 [ext_resource type="Script" path="res://scripts/victory_menu.gd" id="1_vr6jl"]
 [ext_resource type="Texture2D" uid="uid://opa8rwpnlygl" path="res://sprites/GUI/victory/Quit_tasto_neutro.png" id="1_wdp7j"]
@@ -84,9 +84,6 @@ animations = [{
 font = ExtResource("20_sbdxe")
 font_size = 51
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_x6wn5"]
-load_path = "res://.godot/imported/Continue_tasto_selezionato.png-f8e0facdbcd8624c6ee55f22ebf2a97c.ctex"
-
 [node name="VictoryMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 0
@@ -159,7 +156,6 @@ speed_scale = 1.5
 layout_mode = 2
 texture_normal = ExtResource("19_y6824")
 texture_pressed = ExtResource("20_n7y71")
-texture_hover = SubResource("CompressedTexture2D_x6wn5")
 
 [node name="Button4Animations" type="AnimatedSprite2D" parent="HBoxContainer/ContinueButton"]
 visible = false

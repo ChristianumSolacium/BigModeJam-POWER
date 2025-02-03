@@ -6,7 +6,7 @@ func _ready() -> void:
 	$PolarityLoopMenu.play()
 	$CanvasLayer/MarginContainer/AnimatedSprite2D.play("titolo")
 	
-	var CONFIG_PATH := "user://config4.tres"
+	var CONFIG_PATH := "user://config.tres"
 	
 	var config := load(CONFIG_PATH)
 	config = ConfigResource.new()

@@ -8,7 +8,7 @@ var obstacles: Node2D
 @export var levels :Array[PackedScene]
 
 @export var player : Player
-var CONFIG_PATH := "user://config4.tres"
+var CONFIG_PATH := "user://config.tres"
 const THANKYOU = preload("res://scenes/logica interna/thankyou.tscn")
 @export var test_mode := false
 func _ready() -> void:

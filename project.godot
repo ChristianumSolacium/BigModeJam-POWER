@@ -10,10 +10,10 @@ config_version=5
 
 [application]
 
-config/name="MagnetsThings"
+config/name="Polarity"
 run/main_scene="res://scenes/logica interna/main_menu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
-config/icon="res://sprites/icon.svg"
+config/icon="res://sprites/icon.png"
 
 [display]
 

@@ -470,12 +470,14 @@ offset = Vector2(0, 7.77622)
 script = ExtResource("11_0o50m")
 
 [node name="SpeedUp" parent="Livello 2" instance=ExtResource("14_uocn8")]
-position = Vector2(5904, 40)
+position = Vector2(5321.58, -747)
+scale = Vector2(1.57801, 2.56527)
 
 [node name="Sprite2D" type="Sprite2D" parent="Livello 2/SpeedUp"]
 
 [node name="SpeedUp2" parent="Livello 2" instance=ExtResource("14_uocn8")]
-position = Vector2(568, 24)
+position = Vector2(-1253.78, -1140)
+scale = Vector2(2.80847, 3.60895)
 
 [node name="Sprite2D" type="Sprite2D" parent="Livello 2/SpeedUp2"]
 
@@ -499,7 +501,8 @@ position = Vector2(1517, 1147)
 position = Vector2(9600, 648)
 
 [node name="SpeedUp3" parent="Livello 2" instance=ExtResource("14_uocn8")]
-position = Vector2(9421.89, -176.778)
+position = Vector2(9414.33, -586)
+scale = Vector2(1.01989, 2.17051)
 
 [node name="Pentagono Negativo3" parent="Livello 2" instance=ExtResource("9_5lx2l")]
 position = Vector2(11000, 568)
