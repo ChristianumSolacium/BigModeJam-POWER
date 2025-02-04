@@ -64,25 +64,21 @@ func load_current_level() -> void:
 	load_level(levels[config.current_level])
 	
 
-
 func load_next_level() -> void:
 	var config : ConfigResource = load(CONFIG_PATH)
 	config.current_level += 1
 	if config.current_level < len(levels):
 		ResourceSaver.save(config,CONFIG_PATH)
 		load_level(levels[config.current_level])
+		restart()
 	else:
-		add_child(THANKYOU.instantiate())
 		
-
+		get_tree().change_scene_to_packed(THANKYOU)
+		
 
 func _on_victory_menu_continue_next_level() -> void:
 	load_next_level()
-	restart()
-
-
-
-
+	
 
 func _on_victory_menu_restart() -> void:
 	restart()
@@ -91,8 +87,7 @@ func _on_victory_menu_restart() -> void:
 func _on_pause_menu_skip_level() -> void:
 	toggle_pause()
 	load_next_level()
-	restart()
-
+	
 
 func _on_pause_menu_update_sound_volume() -> void:
 	pass # Replace with function body.
